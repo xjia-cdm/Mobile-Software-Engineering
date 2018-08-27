@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>UINavigationBar - UIKit | Apple Developer Documentation</title>
+  <meta content="width=device-width, initial-scale=1 viewport-fit=cover" name="viewport">
+  <meta data-pid="201964">
+  <link href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Mono,v1|SF+Pro+Icons,v1" media="all" rel="stylesheet" type="text/css">
+  <link href="/documentation/__assets/application-324aa72c.css" media="all" rel="stylesheet" type="text/css">
+  <noscript>
+   <link href="/documentation/__assets/nojs-c6be9131.css" media="all" rel="stylesheet" type="text/css">
+  </noscript>
+  <link rel="mask-icon" href="/documentation/__assets/apple-logo.svg" color="#000">
+  <link rel="shortcut icon" href="/documentation/__assets/favicon.ico">
+  <script src="/documentation/__assets/shared-f73bc3d2.js"></script>
+  <script id="init-data" type="application/json">{"variant":{"paths":["documentation\/uikit\/uinavigationbar"],"usr":"c:objc(cs)UINavigationBar"}}</script>
+  <script src="/documentation/__assets/init-88dd23db.js"></script>
+ </head>
+ <body>
+  <div id="_omniture_top"> 
+   <script type="text/javascript">
+        var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+      </script> 
+   <script type="text/javascript" src="https://www.apple.com/metrics/scripts/s_code_h.js"></script> 
+   <script type="text/javascript">
+        s.pageName=AC.Tracking.pageName();
+        s.channel="www.us.developer"
+
+        var s_code=s.t();if(s_code)document.write(s_code)
+      </script> 
+  </div>
+  <div id="app">
+   <div>
+    <a href="#main" id="skip-localnav" class="showonfocus hidden">Skip Navigation</a>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US">
+     <div class="ac-gn-content"> 
+      <ul class="ac-gn-header"> 
+       <li class="ac-gn-item ac-gn-menuicon"> <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span> </span> </label> <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open"> <span class="ac-gn-menuanchor-label">Open Menu</span> </a> <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close"> <span class="ac-gn-menuanchor-label">Close Menu</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus-small"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small"> <a class="ac-gn-link ac-gn-link-bag" href="/account/"> <span class="ac-gn-link-text">Account</span> <span class="ac-gn-bag-badge"></span> </a> <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span> </li> 
+      </ul> 
+      <ul class="ac-gn-list"> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-discover"> <a class="ac-gn-link" href="/discover/"> <span>Discover</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-design"> <a class="ac-gn-link" href="/design/"> <span>Design</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-develop"> <a class="ac-gn-link" href="/develop/"> <span>Develop</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-distribute"> <a class="ac-gn-link" href="/distribute/"> <span>Distribute</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-support"> <a class="ac-gn-link" href="/support/"> <span>Support</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-account"> <a class="ac-gn-link" href="/account/"> <span>Account</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search"> <a id="ac-gn-search-button" class="ac-gn-link ac-gn-link-search" href="/search/" aria-label="Search developer.apple.com"> <span class="ac-gn-search-placeholder" aria-hidden="true">Search</span> </a> </li> 
+      </ul> 
+      <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search"> 
+       <div class="ac-gn-searchview-content"> 
+        <form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get"> 
+         <div class="ac-gn-searchform-wrapper"> 
+          <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" placeholder="Search" data-placeholder-long="Search for documentation, videos, and more" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false"> 
+          <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit"></button> 
+          <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search"></button> 
+         </div> 
+        </form> 
+        <aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="Hit enter to search."> 
+        </aside> 
+       </div> 
+       <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search"> <span class="ac-gn-searchview-close-wrapper"> <span class="ac-gn-searchview-close-left"></span> <span class="ac-gn-searchview-close-right"></span> </span> </button> 
+      </aside> 
+     </div>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+    <input type="checkbox" id="localnav-menustate" class="localnav-menustate" aria-hidden="true">
+    <nav id="localnav" class="localnav localnav-dark theme-dark localnav-scrim localnav-noborder" role="navigation" aria-label="API Reference" data-sticky="true">
+     <div class="localnav-wrapper">
+      <div class="referencenav">
+       <div class="localnav-background"></div>
+       <div class="localnav-content">
+        <a href="/documentation" class="localnav-title">Documentation</a>
+        <div class="localnav-menu">
+         <a href="#localnav-menustate" id="localnav-menustate-open" class="localnav-menucta-anchor localnav-menucta-anchor-open"><span class="localnav-menucta-anchor-label" aria-hidden="true">Open Menu</span></a>
+         <a href="#" id="localnav-menustate-close" class="localnav-menucta-anchor localnav-menucta-anchor-close"><span class="localnav-menucta-anchor-label" aria-hidden="true">Close Menu</span></a>
+         <div class="localnav-menu-tray">
+          <ul aria-label="Breadcrumbs" class="localnav-menu-items localnav-menu-breadcrumbs">
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit">UIKit</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit/view_controllers">View Controllers</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item">
+            <div class="localnav-menu-breadcrumb-current-container localnav-menu-link current">
+             <span aria-current="page" class="localnav-menu-breadcrumb-current">UINavigationBar</span>
+            </div></li>
+          </ul>
+          <ul class="localnav-menu-items localnav-menu-settings" data-breadcrumbs-count="3">
+           <li class="localnav-menu-setting language-container">
+            <div class="language-toggle-container">
+             <label for="language-toggle" class="language-toggle-label">Language:</label>
+             <select id="language-toggle" class="language-dropdown localnav-menu-link" style="width:auto;"><option selected value="swift">Swift</option><option value="occ">Objective-C</option></select>
+            </div>
+            <div class="language-list-container">
+             <span class="localnav-menu-setting-label">Language:</span>
+             <ul class="language-list">
+              <li class="language-list-item"><span data-language="swift" aria-current="page" class="current-language">Swift</span></li>
+              <li class="language-list-item"><a href="/documentation/uikit/uinavigationbar?language=objc" class="localnav-menu-setting-link">Objective-C</a></li>
+             </ul>
+            </div></li>
+           <li class="localnav-menu-setting"><span class="localnav-menu-setting-label">API Changes:</span><a href="/documentation/uikit/uinavigationbar?changes=latest_minor" class="localnav-menu-setting-link changes-toggle changes-toggle-show" aria-label="Show API Changes">Show</a></li>
+          </ul>
+         </div>
+         <div class="localnav-actions">
+          <div class="localnav-action localnav-action-menucta" aria-hidden="true">
+           <label for="localnav-menustate" class="localnav-menucta"><span class="localnav-menucta-chevron"></span></label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </nav>
+    <label for="localnav-menustate" id="localnav-curtain" aria-hidden="true"></label>
+    <main role="main" id="main" class="main" tabindex="0">
+     <div class="topic-title">
+      <span class="eyebrow">Class</span>
+      <h1 class="topic-heading"><span>UINavigation<wbr>Bar</span></h1>
+     </div>
+     <div class="topic-container section-content row">
+      <div class="topic-description column large-9 medium-9 small-12">
+       <div class="topic-abstract abstract formatted-content">
+        <div>
+         <p>Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.</p>
+        </div>
+       </div>
+      </div>
+      <div class="topic-summary column large-3 medium-3 small-12">
+       <div class="topic-summary-section sdks" role="complementary" aria-label="SDKs">
+        <p class="topic-summary-section-label subsection-label">SDKs</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item sdk"><span aria-label="iOS 2.0+, Available on iOS 2.0 and later" role="text" title="Available on iOS 2.0 and later">iOS 2.0+</span></li>
+         <li class="topic-summary-section-item sdk"><span aria-label="tvOS 9.0+, Available on tvOS 9.0 and later" role="text" title="Available on tvOS 9.0 and later">tvOS 9.0+</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section frameworks" role="complementary" aria-label="Framework">
+        <p class="topic-summary-section-label subsection-label">Framework</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item"><span>UIKit</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section onthispage">
+        <nav class="onthispage-nav" aria-labelledby="onthispage-title">
+         <p id="onthispage-title" class="topic-summary-section-label subsection-label">On This Page</p>
+         <ul class="topic-summary-section-list">
+          <li class="topic-summary-section-item"><a href="#overview" class="icon icon-after icon-chevrondowncircle">Overview</a></li>
+          <li class="topic-summary-section-item"><a href="#topics" class="icon icon-after icon-chevrondowncircle">Topics</a></li>
+          <li class="topic-summary-section-item"><a href="#relationships" class="icon icon-after icon-chevrondowncircle">Relationships</a></li>
+          <li class="topic-summary-section-item"><a href="#see-also" class="icon icon-after icon-chevrondowncircle">See Also</a></li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+      <div class="topic-content column large-9 medium-9 small-12" id="topic-content">
+       <section id="overview" class="section">
+        <h2>Overview</h2>
+        <div class="formatted-content">
+         <div>
+          <p>A <code class="code-voice"><span>UINavigation<wbr>Bar</span></code> object is a bar, typically displayed&nbsp;at the top of the window, containing buttons for navigating within a hierarchy of screens. The primary components are a left (back) button, a center title, and an optional right button. You can use a navigation bar as a standalone object or in conjunction with a navigation controller object.</p>
+          <figure id="2759891">
+           <figcaption>
+            <strong class="caption-title">Figure 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Navigation bar</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/dde7452123/3abba22e-4aef-47dd-b4e2-a9965c424338.png" srcset="https://docs-assets.developer.apple.com/published/dde7452123/3abba22e-4aef-47dd-b4e2-a9965c424338.png 2x" alt="Navigation bar" width="387" height="auto">
+          </figure>
+          <p>A navigation bar is most commonly used within a navigation controller. The <a class="symbol-name" href="/documentation/uikit/uinavigationcontroller"><code><span>UINavigation<wbr>Controller</span></code></a> object creates, displays, and manages its associated navigation bar, and uses attributes of the view controllers you add to control the content displayed in the navigation bar.</p>
+          <p>To control a navigation bar when using a navigation controller, the following steps are required:</p>
+          <ul>
+           <li><p>Create a navigation controller in Interface Builder or in the code.</p></li>
+           <li><p>Configure the appearance of the navigation bar using the <a class="symbol-name" href="/documentation/uikit/uinavigationcontroller/1621877-navigationbar"><code><span>navigation<wbr>Bar</span></code></a> property on the <a class="symbol-name" href="/documentation/uikit/uinavigationcontroller"><code><span>UINavigation<wbr>Controller</span></code></a> object.</p></li>
+           <li><p>Control the content of the navigation bar by setting the <a class="symbol-name" href="/documentation/uikit/uiviewcontroller/1621364-title"><code><span>title</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uiviewcontroller/1621851-navigationitem"><code><span>navigation<wbr>Item</span></code></a> properties on each <a class="symbol-name" href="/documentation/uikit/uiviewcontroller"><code><span>UIView<wbr>Controller</span></code></a> you push onto the navigation controller’s stack.</p></li>
+          </ul>
+          <p></p>
+          <p>You can also use a standalone navigation bar, without using a navigation controller. To add a navigation bar to your interface, the following steps are required:</p>
+          <ul>
+           <li><p>Set up Auto Layout rules to govern the position of the navigation bar in your interface.</p></li>
+           <li><p>Create a root navigation item to supply the initial title.</p></li>
+           <li><p>Configure a delegate object to handle user interactions with the navigation bar.</p></li>
+           <li><p>Customize the appearance of the navigation bar.</p></li>
+           <li><p>Configure your app to push and pop relevant navigation items as the user navigates through the hierarchical screens.</p></li>
+          </ul>
+          <p></p>
+         </div>
+         <h3 id="1654165">Using a Navigation Bar with a Navigation Controller</h3>
+         <div>
+          <p>If you use a navigation controller to manage the navigation between different screens of content, the navigation controller creates a navigation bar automatically and pushes and pops navigation items when appropriate.</p>
+          <p>A navigation controller uses the <a class="symbol-name" href="/documentation/uikit/uiviewcontroller/1621851-navigationitem"><code><span>navigation<wbr>Item</span></code></a> property on <a class="symbol-name" href="/documentation/uikit/uiviewcontroller"><code><span>UIView<wbr>Controller</span></code></a> to provide the model objects to its navigation bar when navigating a stack of view controllers. The default navigation item uses the view controller’s title, but you can override the <a class="symbol-name" href="/documentation/uikit/uiviewcontroller/1621851-navigationitem"><code><span>navigation<wbr>Item</span></code></a> on a <a class="symbol-name" href="/documentation/uikit/uiviewcontroller"><code><span>UIView<wbr>Controller</span></code></a> subclass to gain complete control of the navigation bar’s content.</p>
+          <p>A navigation controller automatically assigns itself as the delegate of its navigation bar object. Therefore, when using a navigation controller, don’t assign a custom delegate object to the corresponding navigation bar.</p>
+          <p>To access the navigation bar associated with a navigation controller, use the <a class="symbol-name" href="/documentation/uikit/uinavigationcontroller/1621877-navigationbar"><code><span>navigation<wbr>Bar</span></code></a> property on <a class="symbol-name" href="/documentation/uikit/uinavigationcontroller"><code><span>UINavigation<wbr>Controller</span></code></a>. See <a href="/documentation/uikit/uinavigationbar#1654191">Customizing the Appearance of a Navigation Bar</a> for details on how to customize the appearance of a navigation bar.</p>
+          <p>For information about navigation controllers, see <a class="symbol-name" href="/documentation/uikit/uinavigationcontroller"><code><span>UINavigation<wbr>Controller</span></code></a>.</p>
+         </div>
+         <h3 id="2759889">Adding Content to a Standalone Navigation Bar</h3>
+         <div>
+          <p>In the vast majority of scenarios you will use a navigation bar as part of a navigation controller. However, there are situations for which you might want to use the navigation bar UI and implement your own approach to content navigation. In these situations, you can use a standalone navigation bar.</p>
+          <p>When you use a navigation bar as a standalone object, you are responsible for providing its content. Unlike other types of views, you do not add subviews to a navigation bar directly. Instead, you use a navigation item (an instance of the <a class="symbol-name" href="/documentation/uikit/uinavigationitem"><code><span>UINavigation<wbr>Item</span></code></a> class) to specify what buttons or custom views you want displayed. A navigation item has properties for specifying views on the left, right, and center of the navigation bar and for specifying a custom prompt string. <span class="reference">Figure 1</span> shows how the navigation item properties manifest themselves in a navigation bar.</p>
+          <p>A navigation bar manages a stack of <a class="symbol-name" href="/documentation/uikit/uinavigationitem"><code><span>UINavigation<wbr>Item</span></code></a> objects. Although the stack is there mostly to support navigation controllers, you can use it to implement your own custom navigation interface. The topmost item in the stack represents the navigation item whose contents are currently displayed by the navigation bar. You push new navigation items onto the stack using the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624952-pushitem"><code><span>push<wbr>Item(_:<wbr>animated:)</span></code></a> method and pop items off the stack using the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624969-popitem"><code><span>pop<wbr>Item(animated:)</span></code></a> method. Both of these changes can be animated for the benefit of the user.</p>
+          <p>In addition to pushing and popping items, you can also set the contents of the stack directly using either the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624961-items"><code><span>items</span></code></a> property or the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624945-setitems"><code><span>set<wbr>Items(_:<wbr>animated:)</span></code></a> method. You might use this method at launch time to restore your interface to its previous state or to push or pop more than one navigation item at a time.<span class="reference">Figure 2</span> shows the part of the <a class="symbol-name" href="/documentation/uikit/uinavigationbar"><code><span>UINavigation<wbr>Bar</span></code></a> API responsible for managing the stack of navigation items.</p>
+          <figure id="2759892">
+           <figcaption>
+            <strong class="caption-title">Figure 2</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Navigation bar stack management</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/dde7452123/536711f8-0b4b-4ecd-a086-3b8c6feb1a6c.png" srcset="https://docs-assets.developer.apple.com/published/dde7452123/536711f8-0b4b-4ecd-a086-3b8c6feb1a6c.png 2x" alt="Navigation bar stack management" width="662" height="auto">
+          </figure>
+          <p>If you are using a navigation bar as a standalone object, assign a custom delegate object to the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624951-delegate"><code><span>delegate</span></code></a> property and use that object to intercept messages coming from the navigation bar. Delegate objects must conform to the <a class="symbol-name" href="/documentation/uikit/uinavigationbardelegate"><code><span>UINavigation<wbr>Bar<wbr>Delegate</span></code></a> protocol. The delegate notifications let you track when navigation items are pushed or popped from the stack. You use these notifications to update the rest of your app’s user interface.</p>
+          <p>For more information about creating navigation items, see <a class="symbol-name" href="/documentation/uikit/uinavigationitem"><code><span>UINavigation<wbr>Item</span></code></a>. For more information about implementing a delegate object, see <a class="symbol-name" href="/documentation/uikit/uinavigationbardelegate"><code><span>UINavigation<wbr>Bar<wbr>Delegate</span></code></a>.</p>
+         </div>
+         <h3 id="1654191">Customizing the Appearance of a Navigation Bar</h3>
+         <div>
+          <p>Navigation bars have two standard appearance styles: white with dark text or black with light text. Use the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624955-barstyle"><code><span>bar<wbr>Style</span></code></a> property to select the style. Any changes you make to other navigation bar appearance properties override those inferred from the bar style.</p>
+          <p>Navigation bars are translucent by default; that is, their background color is semitransparent. You can make the navigation bar opaque by setting the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624928-istranslucent"><code><span>is<wbr>Translucent</span></code></a> property to <code class="code-voice"><span>false</span></code>.</p>
+          <p>You can specify a custom tint color for a navigation bar background using the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624931-bartintcolor"><code><span>bar<wbr>Tint<wbr>Color</span></code></a> property. Setting this property overrides the default color inferred from the bar style. As with all <a class="symbol-name" href="/documentation/uikit/uiview"><code><span>UIView</span></code></a> subclasses, you can control the color of the interactive elements within navigation bars, including button images and titles, using the <a class="symbol-name" href="/documentation/uikit/uiview/1622467-tintcolor"><code><span>tint<wbr>Color</span></code></a> property.</p>
+          <p>The <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624953-titletextattributes"><code><span>title<wbr>Text<wbr>Attributes</span></code></a> property specifies the attributes for displaying the bar’s title text. You can specify the font, text color, text shadow color, and text shadow offset for the title in the text attributes dictionary using the <a class="symbol-name" href="/documentation/foundation/nsattributedstring/key/1528839-font"><code><span>font</span></code></a>, <a class="symbol-name" href="/documentation/foundation/nsattributedstring/key/1533563-foregroundcolor"><code><span>foreground<wbr>Color</span></code></a>, and <a class="symbol-name" href="/documentation/foundation/nsattributedstring/key/1524321-shadow"><code><span>shadow</span></code></a> keys, respectively. For more information about string-formatting attributes, see <em>Character Attributes</em>.</p>
+          <p>Use the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624959-settitleverticalpositionadjustme"><code><span>set<wbr>Title<wbr>Vertical<wbr>Position<wbr>Adjustment(_:<wbr>for:)</span></code></a> method to adjust the vertical position of the title. This method allows you to specify the adjustment dependent on the bar height, which is represented by the <a class="symbol-name" href="/documentation/uikit/uibarmetrics"><code><span>UIBar<wbr>Metrics</span></code></a> enum.<a href="/documentation/uikit/uinavigationbar#2759893">Figure 3</a> shows a navigation bar with custom tint color, title text attributes and bar tint color.</p>
+          <figure id="2759893">
+           <figcaption>
+            <strong class="caption-title">Figure 3</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Navigation bar fonts and colors</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/dde7452123/e8608c12-1a29-47c9-95c5-984a0ca17bce.png" srcset="https://docs-assets.developer.apple.com/published/dde7452123/e8608c12-1a29-47c9-95c5-984a0ca17bce.png 2x" alt="Navigation bar fonts and colors" width="387" height="auto">
+          </figure>
+          <p></p>
+          <p>To allow complete customization over the appearance of navigation bars, you can additionally provide custom background and shadow images. To provide a custom background image, use the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624968-setbackgroundimage"><code><span>set<wbr>Background<wbr>Image(_:<wbr>for:<wbr>bar<wbr>Metrics:)</span></code></a> method, providing a <a class="symbol-name" href="/documentation/uikit/uiimage"><code><span>UIImage</span></code></a> object for the appropriate bar position and metrics values. Use a <a class="symbol-name" href="/documentation/uikit/uibarposition"><code><span>UIBar<wbr>Position</span></code></a> value for the bar position argument to specify whether to use the supplied image at the bottom or the top of the window, and if it appears at the top, whether to extend it upward under the status bar. Similarly, you can specify that the image should be used for either compact or default bar metrics, with or without a prompt, by providing a <a class="symbol-name" href="/documentation/uikit/uibarmetrics"><code><span>UIBar<wbr>Metrics</span></code></a> value to the bar metrics argument.</p>
+          <p>To add a shadow, provide a resizable <a class="symbol-name" href="/documentation/uikit/uiimage"><code><span>UIImage</span></code></a> to the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624963-shadowimage"><code><span>shadow<wbr>Image</span></code></a> property. To use the custom shadow image, you need to have specified a custom background image.<a href="/documentation/uikit/uinavigationbar#2759894">Figure 4</a> shows a navigation bar with a custom background image, supplied using <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624968-setbackgroundimage"><code><span>set<wbr>Background<wbr>Image(_:<wbr>for:<wbr>bar<wbr>Metrics:)</span></code></a> with a bar position value of <a class="symbol-name" href="/documentation/uikit/uibarposition/topattached"><code><span>UIBar<wbr>Position<wbr>.top<wbr>Attached</span></code></a> and a bar metrics value of <a class="symbol-name" href="/documentation/uikit/uibarmetrics/default"><code><span>UIBar<wbr>Metrics<wbr>.default</span></code></a>. A custom image has also been provided to the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624963-shadowimage"><code><span>shadow<wbr>Image</span></code></a> property.</p>
+          <figure id="2759894">
+           <figcaption>
+            <strong class="caption-title">Figure 4</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Navigation bar with custom background and shadow images</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/dde7452123/01969d1a-db6b-4ef5-b86b-45ffa1730b85.png" srcset="https://docs-assets.developer.apple.com/published/dde7452123/01969d1a-db6b-4ef5-b86b-45ffa1730b85.png 2x" alt="Navigation bar with custom background and shadow images" width="385" height="auto">
+          </figure>
+          <p></p>
+         </div>
+         <h3 id="2759887">Interface Builder Attributes</h3>
+         <div>
+          <p><span class="reference">Table 1</span> lists the core attributes that you configure for navigations bars in the Attributes Inspector within Interface Builder.</p>
+          <figure id="2793387">
+           <figcaption>
+            <strong class="caption-title">Table 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Core Attributes</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="table-wrapper">
+             <table>
+              <thead>
+               <tr>
+                <th scope="col"><p>Attribute</p></th>
+                <th scope="col"><p>Description</p></th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                <td><p>Style</p></td>
+                <td><p>Specifies the UI bar style to apply to the navigation bar. The bar style controls the title color and the bar tint color, but you can override it by providing values for those attributes. Select Translucent to make the navigation bar semitransparent. Access these values at runtime with the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624955-barstyle"><code><span>bar<wbr>Style</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624928-istranslucent"><code><span>is<wbr>Translucent</span></code></a> properties.</p></td>
+               </tr>
+               <tr>
+                <td><p>Bar Tint</p></td>
+                <td><p>Controls the tint color of the navigation bar. This overrides the value implied by the Style attribute. If the Translucent attribute is selected, the Bar Tint color is automatically made semitransparent. Access this value at runtime with the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624931-bartintcolor"><code><span>bar<wbr>Tint<wbr>Color</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Shadow Image</p></td>
+                <td><p>Represents the image used as a shadow beneath the navigation bar. This image is stretched horizontally to match the width of the bar. Access this value at runtime with the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624963-shadowimage"><code><span>shadow<wbr>Image</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Back Image</p></td>
+                <td><p>Specifies the image that appears at the leading edge of the back button. This attribute must be used in combination with the Back Mask attribute. Access this value at runtime with the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624942-backindicatorimage"><code><span>back<wbr>Indicator<wbr>Image</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Back Mask</p></td>
+                <td><p>Specifies the mask associated with the Back Image attribute. This is used to control the appearance of the Back button during animated transitions, and therefore must be used in conjunction with the Back Image attribute. Access this value at runtime with the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624938-backindicatortransitionmaskimage"><code><span>back<wbr>Indicator<wbr>Transition<wbr>Mask<wbr>Image</span></code></a> property.</p></td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+           </div>
+          </figure>
+          <p><span class="reference">Table 2</span> lists the Interface Builder attributes that affect the appearance of the navigation bar’s title.</p>
+          <figure id="2793388">
+           <figcaption>
+            <strong class="caption-title">Table 2</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Title attributes</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="table-wrapper">
+             <table>
+              <thead>
+               <tr>
+                <th scope="col"><p>Attribute</p></th>
+                <th scope="col"><p>Description</p></th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                <td><p>Title Font</p></td>
+                <td><p>The font used to render the title in the center of the navigation bar. Access this value at runtime with the value stored against the <a class="symbol-name" href="/documentation/foundation/nsattributedstring/key/1528839-font"><code><span>font</span></code></a> key in the dictionary in the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624953-titletextattributes"><code><span>title<wbr>Text<wbr>Attributes</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Title Color</p></td>
+                <td><p>The color used to render the navigation bar title. Access this value at runtime using the <a class="symbol-name" href="/documentation/foundation/nsattributedstring/key/1533563-foregroundcolor"><code><span>foreground<wbr>Color</span></code></a> key in the dictionary in the <a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624953-titletextattributes"><code><span>title<wbr>Text<wbr>Attributes</span></code></a> property. </p></td>
+               </tr>
+               <tr>
+                <td><p>Title Shadow</p></td>
+                <td><p>Specifies the color and offset of the shadow used when rendering the navigation bar’s title. Access these values at runtime with the dictionary in the [<a class="symbol-name" href="/documentation/uikit/uinavigationbar/1624953-titletextattributes"><code><span>title<wbr>Text<wbr>Attributes</span></code></a>] property, using the <a class="symbol-name" href="/documentation/foundation/nsattributedstring/key/1524321-shadow"><code><span>shadow</span></code></a> key. </p></td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+           </div>
+          </figure>
+          <p></p>
+         </div>
+         <h3 id="2759888">Internationalization</h3>
+         <div>
+          <p>To internationalize navigation bars, specify a localized string for each of the displayed string properties of the navigation item model objects.</p>
+          <p>For more information about internationalizing your interface, see <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/Introduction/Introduction.html#//apple_ref/doc/uid/10000171i">Internationalization and Localization Guide</a>.</p>
+         </div>
+         <h3 id="2759890">Accessibility</h3>
+         <div>
+          <p>Navigation bars are accessible by default. The default accessibility trait for a navigation bar is User Interaction Enabled.</p>
+          <p>With VoiceOver enabled on an iOS device, after the user navigates to a new view in the hierarchy, VoiceOver reads the navigation bar’s title, followed by the name of the left bar button item. When the user taps an element in a navigation bar, VoiceOver reads the name and the type of the element; for example, "General back button," "Keyboard heading," and "Edit button."</p>
+          <p>For general information about making your interface accessible, see <a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/iPhoneAccessibility/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008785">Accessibility Programming Guide for iOS</a>.</p>
+         </div>
+        </div>
+       </section>
+      </div>
+     </div>
+     <section id="topics" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Topics</h2>
+        <section id="1654215" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Responding to Navigation Bar Changes</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624951-delegate"><code class="display-name"><span class="decorator">var </span><span class="identifier">delegate</span><span class="decorator">: UINavigation<wbr>Bar<wbr>Delegate?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The navigation bar’s delegate object.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbardelegate"><code class="display-name"><span class="decorator">protocol </span><span class="identifier">UINavigation<wbr>Bar<wbr>Delegate</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The <code class="code-voice"><span>UINavigation<wbr>Bar<wbr>Delegate</span></code> protocol defines optional methods that a <a class="symbol-name" href="/documentation/uikit/uinavigationbar"><code><span>UINavigation<wbr>Bar</span></code></a> delegate should implement to update its views when items are pushed and popped from the stack. The navigation bar represents only the bar at the top of the screen, not the view below. It’s the application’s responsibility to implement the behavior when the top item changes.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1654249" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Pushing and Popping Items</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624952-pushitem"><code class="display-name"><span class="decorator">func </span><span class="identifier">push<wbr>Item</span><span class="decorator">(UINavigation<wbr>Item, </span><span class="identifier">animated</span><span class="decorator">: Bool)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Pushes the given navigation item onto the navigation bar's stack and updates the UI.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624969-popitem"><code class="display-name"><span class="decorator">func </span><span class="identifier">pop<wbr>Item</span><span class="decorator">(</span><span class="identifier">animated</span><span class="decorator">: Bool) -&gt; UINavigation<wbr>Item?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Pops the top item from the navigation bar's stack and updates the UI.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624945-setitems"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Items</span><span class="decorator">([UINavigation<wbr>Item]?, </span><span class="identifier">animated</span><span class="decorator">: Bool)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Replaces the navigation items currently managed by the navigation bar with the specified items. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624961-items"><code class="display-name"><span class="decorator">var </span><span class="identifier">items</span><span class="decorator">: [UINavigation<wbr>Item]?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>An array of navigation items managed by the navigation bar.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624967-topitem"><code class="display-name"><span class="decorator">var </span><span class="identifier">top<wbr>Item</span><span class="decorator">: UINavigation<wbr>Item?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The navigation item at the top of the navigation bar’s stack.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624925-backitem"><code class="display-name"><span class="decorator">var </span><span class="identifier">back<wbr>Item</span><span class="decorator">: UINavigation<wbr>Item?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The navigation item that is immediately below the topmost item on navigation bar’s stack.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="2910965" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Customizing the Title's Appearance</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624953-titletextattributes"><code class="display-name"><span class="decorator">var </span><span class="identifier">title<wbr>Text<wbr>Attributes</span><span class="decorator">: [NSAttributed<wbr>String<wbr>.Key : Any]?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Display attributes for the bar’s title text.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/2919946-largetitletextattributes"><code class="display-name"><span class="decorator">var </span><span class="identifier">large<wbr>Title<wbr>Text<wbr>Attributes</span><span class="decorator">: [NSAttributed<wbr>String<wbr>.Key : Any]?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Display attributes for the bar's large title text.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/2908999-preferslargetitles"><code class="display-name"><span class="decorator">var </span><span class="identifier">prefers<wbr>Large<wbr>Titles</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the title should be displayed in a large format.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624966-titleverticalpositionadjustment"><code class="display-name"><span class="decorator">func </span><span class="identifier">title<wbr>Vertical<wbr>Position<wbr>Adjustment</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UIBar<wbr>Metrics) -&gt; CGFloat</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the title’s vertical position adjustment for given bar metrics.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624959-settitleverticalpositionadjustme"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Title<wbr>Vertical<wbr>Position<wbr>Adjustment</span><span class="decorator">(CGFloat, </span><span class="identifier">for</span><span class="decorator">: UIBar<wbr>Metrics)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the title’s vertical position adjustment for given bar metrics.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1654334" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Customizing the Bar Appearance</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624942-backindicatorimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">back<wbr>Indicator<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The image shown beside the back button.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624938-backindicatortransitionmaskimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">back<wbr>Indicator<wbr>Transition<wbr>Mask<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The image used as a mask for content during push and pop transitions.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624955-barstyle"><code class="display-name"><span class="decorator">var </span><span class="identifier">bar<wbr>Style</span><span class="decorator">: UIBar<wbr>Style</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The navigation bar style that specifies its appearance.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624931-bartintcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">bar<wbr>Tint<wbr>Color</span><span class="decorator">: UIColor?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The tint color to apply to the navigation bar background.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624963-shadowimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">shadow<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The shadow image to be used for the navigation bar.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624937-tintcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">tint<wbr>Color</span><span class="decorator">: UIColor!</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The tint color to apply to the navigation items and bar button items.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624928-istranslucent"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Translucent</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the navigation bar is translucent (<code class="code-voice"><span>true</span></code>) or not (<code class="code-voice"><span>false</span></code>).</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624962-backgroundimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">background<wbr>Image</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UIBar<wbr>Metrics) -&gt; UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the background image for given bar metrics.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624926-setbackgroundimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Background<wbr>Image</span><span class="decorator">(UIImage?, </span><span class="identifier">for</span><span class="decorator">: UIBar<wbr>Metrics)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the background image for given bar metrics.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624940-backgroundimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">background<wbr>Image</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UIBar<wbr>Position, </span><span class="identifier">bar<wbr>Metrics</span><span class="decorator">: UIBar<wbr>Metrics) -&gt; UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the background image to use for a given bar position and set of metrics.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar/1624968-setbackgroundimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Background<wbr>Image</span><span class="decorator">(UIImage?, </span><span class="identifier">for</span><span class="decorator">: UIBar<wbr>Position, </span><span class="identifier">bar<wbr>Metrics</span><span class="decorator">: UIBar<wbr>Metrics)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the background image to use for a given bar position and set of metrics.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="2864759" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Constants</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uibarstyle"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIBar<wbr>Style</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Defines the stylistic appearance of different types of views.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="relationships" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Relationships</h2>
+        <section id="inherits-from" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Inherits From</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <a class="symbol-name" href="/documentation/uikit/uiview"><code><span>UIView</span></code></a>
+          </div>
+         </div>
+        </section>
+        <section id="conforms-to" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Conforms To</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <ul class="relationships-section-content-columns">
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/cvararg"><code><span>CVar<wbr>Arg</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/equatable"><code><span>Equatable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/hashable"><code><span>Hashable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/foundation/nscoding"><code><span>NSCoding</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiaccessibilityidentification"><code><span>UIAccessibility<wbr>Identification</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uibarpositioning"><code><span>UIBar<wbr>Positioning</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uipasteconfigurationsupporting"><code><span>UIPaste<wbr>Configuration<wbr>Supporting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiuseractivityrestoring"><code><span>UIUser<wbr>Activity<wbr>Restoring</span></code></a></li>
+           </ul>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="see-also" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">See Also</h2>
+        <section id="2864410" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Navigation Interface</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationcontroller"><code class="display-name"><span class="decorator">class </span><span class="identifier">UINavigation<wbr>Controller</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A container view controller that defines a stack-based scheme for navigating hierarchical content. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationitem"><code class="display-name"><span class="decorator">class </span><span class="identifier">UINavigation<wbr>Item</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The items to be displayed by a navigation bar when the associated view controller is visible. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+    </main>
+    <section id="globalfooter-wrapper">
+     <footer id="globalfooter" role="contentinfo"> 
+      <nav class="footer-breadory"> 
+       <a href="/" class="home breadcrumbs-home"><span aria-hidden="true"></span><span class="breadcrumbs-home-label">Developer</span></a> 
+       <section class="breadcrumbs"> 
+        <ol class="breadcrumbs-list"> 
+         <li><a href="/documentation">Documentation</a></li> 
+        </ol> 
+       </section> 
+       <div id="directorynav" class="directorynav"> 
+        <div id="dn-cola" class="column"> 
+         <h3><a href="/discover/">Discover</a></h3> 
+         <ul> 
+          <li><a href="/macos/">macOS</a></li> 
+          <li><a href="/ios/">iOS</a></li> 
+          <li><a href="/watchos/">watchOS</a></li> 
+          <li><a href="/tvos/">tvOS</a></li> 
+          <li><a href="/safari/">Safari and Web</a></li> 
+          <li><a href="/games/">Games</a></li> 
+          <li><a href="/enterprise/">Enterprise</a></li> 
+          <li><a href="/education/">Education</a></li> 
+          <li><a href="/wwdc/">WWDC</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colb" class="column"> 
+         <h3><a href="/design/">Design</a></h3> 
+         <ul> 
+          <li><a href="/design/human-interface-guidelines/">Human Interface Guidelines</a></li> 
+          <li><a href="/design/resources/">Resources</a></li> 
+          <li><a href="/videos/design/">Videos</a></li> 
+          <li><a href="/design/awards/">Apple Design Awards</a></li> 
+          <li><a href="/accessibility/">Accessibility</a></li> 
+          <li><a href="/internationalization/">Internationalization</a></li> 
+          <li><a href="/accessories/">Accessories</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colc" class="column"> 
+         <h3><a href="/develop/">Develop</a></h3> 
+         <ul> 
+          <li><a href="/xcode/">Xcode</a></li> 
+          <li><a href="/swift/">Swift</a></li> 
+          <li><a href="/swift-playgrounds/">Swift Playgrounds</a></li> 
+          <li><a href="/testflight/">TestFlight</a></li> 
+          <li><a href="/documentation/">Documentation</a></li> 
+          <li><a href="/videos/">Videos</a></li> 
+          <li><a href="/download/">Downloads</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cold" class="column"> 
+         <h3><a href="/distribute/">Distribute</a></h3> 
+         <ul> 
+          <li><a href="/app-store/">App Store</a></li> 
+          <li><a href="/macos/distribution/">Mac Software</a></li> 
+          <li><a href="/app-store/review/">App Review</a></li> 
+          <li><a href="/programs/volume/">Volume Purchase Program</a></li> 
+          <li><a href="/programs/volume/b2b/">Custom B2B Apps</a></li> 
+          <li><a href="/enterprise/distribute/">Enterprise Apps</a></li> 
+          <li><a href="/safari/extensions/">Safari Extensions</a></li> 
+          <li><a href="/app-store/marketing/guidelines/">Marketing Resources</a></li> 
+          <li><a href="/softwarelicensing/">Trademark Licensing</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cole" class="column"> 
+         <h3><a href="/support/">Support</a></h3> 
+         <ul> 
+          <li><a href="https://forums.developer.apple.com">Developer Forums</a></li> 
+          <li><a href="/bug-reporting/">Bug Reporting</a></li> 
+          <li><a href="/terms/">License Agreements</a></li> 
+          <li><a href="/system-status/">System Status</a></li> 
+          <li><a href="/contact/">Contact Us</a></li> 
+          <br> 
+          <h3><a href="/account/">Account</a></h3> 
+          <ul> 
+           <li><a href="/programs/">Developer Program</a></li> 
+           <li><a href="/account/ios/certificate/">Certificates, IDs &amp; Profiles</a></li> 
+           <li><a href="https://appstoreconnect.apple.com/">App Store Connect</a></li> 
+          </ul> 
+         </ul> 
+        </div> 
+       </div> 
+      </nav> 
+      <div class="ac-gf-footer-legal"> 
+       <div class="ac-gf-footer-news">
+         To receive the latest developer news, visit and subscribe to our 
+        <a href="/news/">News and Updates</a>. 
+       </div> 
+       <div class="ac-gf-footer-legal-copyright">
+        Copyright © 2018 Apple Inc. All rights reserved.
+       </div> 
+       <div class="ac-gf-footer-legal-links"> 
+        <a href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a> 
+        <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a> 
+        <a href="/bug-reporting/">Report Bugs</a> 
+        <a href="/contact/submit/?subject=website-feedback">Feedback</a> 
+       </div> 
+       <div class="ac-gf-footer-language-links"> 
+        <a href="/cn/" class="first">简体中文</a> 
+        <a href="/jp/">日本語</a> 
+        <a href="/kr/">한국어</a> 
+       </div> 
+      </div> 
+     </footer>
+    </section>
+   </div>
+  </div>
+  <script id="bootstrap-data" type="application/json">{"id":1624927,"title":{"content":"UINavigationBar"},"discussion":"<div><p>A <code class=\"code-voice\"><span>UINavigation<wbr\/>Bar<\/span><\/code> object is a bar, typically displayed at the top of the window, containing buttons for navigating within a hierarchy of screens. The primary components are a left (back) button, a center title, and an optional right button. You can use a navigation bar as a standalone object or in conjunction with a navigation controller object.<\/p><figure id=\"2759891\"><figcaption><strong class=\"caption-title\">Figure 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Navigation bar<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/dde7452123\/3abba22e-4aef-47dd-b4e2-a9965c424338.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/dde7452123\/3abba22e-4aef-47dd-b4e2-a9965c424338.png 2x\" alt=\"Navigation bar\" width=\"387\" height=\"auto\"\/><\/figure><p>A navigation bar is most commonly used within a navigation controller. The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationcontroller\"><code><span>UINavigation<wbr\/>Controller<\/span><\/code><\/a> object creates, displays, and manages its associated navigation bar, and uses attributes of the view controllers you add to control the content displayed in the navigation bar.<\/p><p>To control a navigation bar when using a navigation controller, the following steps are required:<\/p><ul><li><p>Create a navigation controller in Interface Builder or in the code.<\/p><\/li><li><p>Configure the appearance of the navigation bar using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationcontroller\/1621877-navigationbar\"><code><span>navigation<wbr\/>Bar<\/span><\/code><\/a> property on the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationcontroller\"><code><span>UINavigation<wbr\/>Controller<\/span><\/code><\/a> object.<\/p><\/li><li><p>Control the content of the navigation bar by setting the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiviewcontroller\/1621364-title\"><code><span>title<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiviewcontroller\/1621851-navigationitem\"><code><span>navigation<wbr\/>Item<\/span><\/code><\/a> properties on each <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiviewcontroller\"><code><span>UIView<wbr\/>Controller<\/span><\/code><\/a> you push onto the navigation controller’s stack.<\/p><\/li><\/ul><p><\/p><p>You can also use a standalone navigation bar, without using a navigation controller. To add a navigation bar to your interface, the following steps are required:<\/p><ul><li><p>Set up Auto Layout rules to govern the position of the navigation bar in your interface.<\/p><\/li><li><p>Create a root navigation item to supply the initial title.<\/p><\/li><li><p>Configure a delegate object to handle user interactions with the navigation bar.<\/p><\/li><li><p>Customize the appearance of the navigation bar.<\/p><\/li><li><p>Configure your app to push and pop relevant navigation items as the user navigates through the hierarchical screens.<\/p><\/li><\/ul><p><\/p><\/div><h3 id=\"1654165\">Using a Navigation Bar with a Navigation Controller<\/h3><div><p>If you use a navigation controller to manage the navigation between different screens of content, the navigation controller creates a navigation bar automatically and pushes and pops navigation items when appropriate.<\/p><p>A navigation controller uses the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiviewcontroller\/1621851-navigationitem\"><code><span>navigation<wbr\/>Item<\/span><\/code><\/a> property on <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiviewcontroller\"><code><span>UIView<wbr\/>Controller<\/span><\/code><\/a> to provide the model objects to its navigation bar when navigating a stack of view controllers. The default navigation item uses the view controller’s title, but you can override the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiviewcontroller\/1621851-navigationitem\"><code><span>navigation<wbr\/>Item<\/span><\/code><\/a> on a <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiviewcontroller\"><code><span>UIView<wbr\/>Controller<\/span><\/code><\/a> subclass to gain complete control of the navigation bar’s content.<\/p><p>A navigation controller automatically assigns itself as the delegate of its navigation bar object. Therefore, when using a navigation controller, don’t assign a custom delegate object to the corresponding navigation bar.<\/p><p>To access the navigation bar associated with a navigation controller, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationcontroller\/1621877-navigationbar\"><code><span>navigation<wbr\/>Bar<\/span><\/code><\/a> property on <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationcontroller\"><code><span>UINavigation<wbr\/>Controller<\/span><\/code><\/a>. See <a href=\"\/documentation\/uikit\/uinavigationbar#1654191\">Customizing the Appearance of a Navigation Bar<\/a> for details on how to customize the appearance of a navigation bar.<\/p><p>For information about navigation controllers, see <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationcontroller\"><code><span>UINavigation<wbr\/>Controller<\/span><\/code><\/a>.<\/p><\/div><h3 id=\"2759889\">Adding Content to a Standalone Navigation Bar<\/h3><div><p>In the vast majority of scenarios you will use a navigation bar as part of a navigation controller. However, there are situations for which you might want to use the navigation bar UI and implement your own approach to content navigation. In these situations, you can use a standalone navigation bar.<\/p><p>When you use a navigation bar as a standalone object, you are responsible for providing its content. Unlike other types of views, you do not add subviews to a navigation bar directly. Instead, you use a navigation item (an instance of the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationitem\"><code><span>UINavigation<wbr\/>Item<\/span><\/code><\/a> class) to specify what buttons or custom views you want displayed. A navigation item has properties for specifying views on the left, right, and center of the navigation bar and for specifying a custom prompt string. <span class=\"reference\">Figure 1<\/span> shows how the navigation item properties manifest themselves in a navigation bar.<\/p><p>A navigation bar manages a stack of <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationitem\"><code><span>UINavigation<wbr\/>Item<\/span><\/code><\/a> objects. Although the stack is there mostly to support navigation controllers, you can use it to implement your own custom navigation interface. The topmost item in the stack represents the navigation item whose contents are currently displayed by the navigation bar. You push new navigation items onto the stack using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624952-pushitem\"><code><span>push<wbr\/>Item(_:<wbr\/>animated:)<\/span><\/code><\/a> method and pop items off the stack using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624969-popitem\"><code><span>pop<wbr\/>Item(animated:)<\/span><\/code><\/a> method. Both of these changes can be animated for the benefit of the user.<\/p><p>In addition to pushing and popping items, you can also set the contents of the stack directly using either the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624961-items\"><code><span>items<\/span><\/code><\/a> property or the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624945-setitems\"><code><span>set<wbr\/>Items(_:<wbr\/>animated:)<\/span><\/code><\/a> method. You might use this method at launch time to restore your interface to its previous state or to push or pop more than one navigation item at a time.<span class=\"reference\">Figure 2<\/span> shows the part of the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\"><code><span>UINavigation<wbr\/>Bar<\/span><\/code><\/a> API responsible for managing the stack of navigation items.<\/p><figure id=\"2759892\"><figcaption><strong class=\"caption-title\">Figure 2<\/strong> <div class=\"caption-content formatted-content\"><div><p>Navigation bar stack management<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/dde7452123\/536711f8-0b4b-4ecd-a086-3b8c6feb1a6c.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/dde7452123\/536711f8-0b4b-4ecd-a086-3b8c6feb1a6c.png 2x\" alt=\"Navigation bar stack management\" width=\"662\" height=\"auto\"\/><\/figure><p>If you are using a navigation bar as a standalone object, assign a custom delegate object to the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624951-delegate\"><code><span>delegate<\/span><\/code><\/a> property and use that object to intercept messages coming from the navigation bar. Delegate objects must conform to the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbardelegate\"><code><span>UINavigation<wbr\/>Bar<wbr\/>Delegate<\/span><\/code><\/a> protocol. The delegate notifications let you track when navigation items are pushed or popped from the stack. You use these notifications to update the rest of your app’s user interface.<\/p><p>For more information about creating navigation items, see <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationitem\"><code><span>UINavigation<wbr\/>Item<\/span><\/code><\/a>. For more information about implementing a delegate object, see <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbardelegate\"><code><span>UINavigation<wbr\/>Bar<wbr\/>Delegate<\/span><\/code><\/a>.<\/p><\/div><h3 id=\"1654191\">Customizing the Appearance of a Navigation Bar<\/h3><div><p>Navigation bars have two standard appearance styles: white with dark text or black with light text. Use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624955-barstyle\"><code><span>bar<wbr\/>Style<\/span><\/code><\/a> property to select the style. Any changes you make to other navigation bar appearance properties override those inferred from the bar style.<\/p><p>Navigation bars are translucent by default; that is, their background color is semitransparent. You can make the navigation bar opaque by setting the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624928-istranslucent\"><code><span>is<wbr\/>Translucent<\/span><\/code><\/a> property to <code class=\"code-voice\"><span>false<\/span><\/code>.<\/p><p>You can specify a custom tint color for a navigation bar background using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624931-bartintcolor\"><code><span>bar<wbr\/>Tint<wbr\/>Color<\/span><\/code><\/a> property. Setting this property overrides the default color inferred from the bar style. As with all <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\"><code><span>UIView<\/span><\/code><\/a> subclasses, you can control the color of the interactive elements within navigation bars, including button images and titles, using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622467-tintcolor\"><code><span>tint<wbr\/>Color<\/span><\/code><\/a> property.<\/p><p>The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624953-titletextattributes\"><code><span>title<wbr\/>Text<wbr\/>Attributes<\/span><\/code><\/a> property specifies the attributes for displaying the bar’s title text. You can specify the font, text color, text shadow color, and text shadow offset for the title in the text attributes dictionary using the <a class=\"symbol-name\" href=\"\/documentation\/foundation\/nsattributedstring\/key\/1528839-font\"><code><span>font<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/foundation\/nsattributedstring\/key\/1533563-foregroundcolor\"><code><span>foreground<wbr\/>Color<\/span><\/code><\/a>, and <a class=\"symbol-name\" href=\"\/documentation\/foundation\/nsattributedstring\/key\/1524321-shadow\"><code><span>shadow<\/span><\/code><\/a> keys, respectively. For more information about string-formatting attributes, see <em>Character Attributes<\/em>.<\/p><p>Use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624959-settitleverticalpositionadjustme\"><code><span>set<wbr\/>Title<wbr\/>Vertical<wbr\/>Position<wbr\/>Adjustment(_:<wbr\/>for:)<\/span><\/code><\/a> method to adjust the vertical position of the title. This method allows you to specify the adjustment dependent on the bar height, which is represented by the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uibarmetrics\"><code><span>UIBar<wbr\/>Metrics<\/span><\/code><\/a> enum.<a href=\"\/documentation\/uikit\/uinavigationbar#2759893\">Figure 3<\/a> shows a navigation bar with custom tint color, title text attributes and bar tint color.<\/p><figure id=\"2759893\"><figcaption><strong class=\"caption-title\">Figure 3<\/strong> <div class=\"caption-content formatted-content\"><div><p>Navigation bar fonts and colors<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/dde7452123\/e8608c12-1a29-47c9-95c5-984a0ca17bce.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/dde7452123\/e8608c12-1a29-47c9-95c5-984a0ca17bce.png 2x\" alt=\"Navigation bar fonts and colors\" width=\"387\" height=\"auto\"\/><\/figure><p><\/p><p>To allow complete customization over the appearance of navigation bars, you can additionally provide custom background and shadow images. To provide a custom background image, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624968-setbackgroundimage\"><code><span>set<wbr\/>Background<wbr\/>Image(_:<wbr\/>for:<wbr\/>bar<wbr\/>Metrics:)<\/span><\/code><\/a> method, providing a <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\"><code><span>UIImage<\/span><\/code><\/a> object for the appropriate bar position and metrics values. Use a <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uibarposition\"><code><span>UIBar<wbr\/>Position<\/span><\/code><\/a> value for the bar position argument to specify whether to use the supplied image at the bottom or the top of the window, and if it appears at the top, whether to extend it upward under the status bar. Similarly, you can specify that the image should be used for either compact or default bar metrics, with or without a prompt, by providing a <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uibarmetrics\"><code><span>UIBar<wbr\/>Metrics<\/span><\/code><\/a> value to the bar metrics argument.<\/p><p>To add a shadow, provide a resizable <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\"><code><span>UIImage<\/span><\/code><\/a> to the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624963-shadowimage\"><code><span>shadow<wbr\/>Image<\/span><\/code><\/a> property. To use the custom shadow image, you need to have specified a custom background image.<a href=\"\/documentation\/uikit\/uinavigationbar#2759894\">Figure 4<\/a> shows a navigation bar with a custom background image, supplied using <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624968-setbackgroundimage\"><code><span>set<wbr\/>Background<wbr\/>Image(_:<wbr\/>for:<wbr\/>bar<wbr\/>Metrics:)<\/span><\/code><\/a> with a bar position value of <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uibarposition\/topattached\"><code><span>UIBar<wbr\/>Position<wbr\/>.top<wbr\/>Attached<\/span><\/code><\/a> and a bar metrics value of <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uibarmetrics\/default\"><code><span>UIBar<wbr\/>Metrics<wbr\/>.default<\/span><\/code><\/a>. A custom image has also been provided to the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624963-shadowimage\"><code><span>shadow<wbr\/>Image<\/span><\/code><\/a> property.<\/p><figure id=\"2759894\"><figcaption><strong class=\"caption-title\">Figure 4<\/strong> <div class=\"caption-content formatted-content\"><div><p>Navigation bar with custom background and shadow images<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/dde7452123\/01969d1a-db6b-4ef5-b86b-45ffa1730b85.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/dde7452123\/01969d1a-db6b-4ef5-b86b-45ffa1730b85.png 2x\" alt=\"Navigation bar with custom background and shadow images\" width=\"385\" height=\"auto\"\/><\/figure><p><\/p><\/div><h3 id=\"2759887\">Interface Builder Attributes<\/h3><div><p><span class=\"reference\">Table 1<\/span> lists the core attributes that you configure for navigations bars in the Attributes Inspector within Interface Builder.<\/p><figure id=\"2793387\"><figcaption><strong class=\"caption-title\">Table 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Core Attributes<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"table-wrapper\"><table><thead><tr><th scope=\"col\"><p>Attribute<\/p><\/th><th scope=\"col\"><p>Description<\/p><\/th><\/tr><\/thead><tbody><tr><td><p>Style<\/p><\/td><td><p>Specifies the UI bar style to apply to the navigation bar. The bar style controls the title color and the bar tint color, but you can override it by providing values for those attributes. Select Translucent to make the navigation bar semitransparent. Access these values at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624955-barstyle\"><code><span>bar<wbr\/>Style<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624928-istranslucent\"><code><span>is<wbr\/>Translucent<\/span><\/code><\/a> properties.<\/p><\/td><\/tr><tr><td><p>Bar Tint<\/p><\/td><td><p>Controls the tint color of the navigation bar. This overrides the value implied by the Style attribute. If the Translucent attribute is selected, the Bar Tint color is automatically made semitransparent. Access this value at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624931-bartintcolor\"><code><span>bar<wbr\/>Tint<wbr\/>Color<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Shadow Image<\/p><\/td><td><p>Represents the image used as a shadow beneath the navigation bar. This image is stretched horizontally to match the width of the bar. Access this value at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624963-shadowimage\"><code><span>shadow<wbr\/>Image<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Back Image<\/p><\/td><td><p>Specifies the image that appears at the leading edge of the back button. This attribute must be used in combination with the Back Mask attribute. Access this value at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624942-backindicatorimage\"><code><span>back<wbr\/>Indicator<wbr\/>Image<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Back Mask<\/p><\/td><td><p>Specifies the mask associated with the Back Image attribute. This is used to control the appearance of the Back button during animated transitions, and therefore must be used in conjunction with the Back Image attribute. Access this value at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624938-backindicatortransitionmaskimage\"><code><span>back<wbr\/>Indicator<wbr\/>Transition<wbr\/>Mask<wbr\/>Image<\/span><\/code><\/a> property.<\/p><\/td><\/tr><\/tbody><\/table><\/div><\/div><\/figure><p><span class=\"reference\">Table 2<\/span> lists the Interface Builder attributes that affect the appearance of the navigation bar’s title.<\/p><figure id=\"2793388\"><figcaption><strong class=\"caption-title\">Table 2<\/strong> <div class=\"caption-content formatted-content\"><div><p>Title attributes<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"table-wrapper\"><table><thead><tr><th scope=\"col\"><p>Attribute<\/p><\/th><th scope=\"col\"><p>Description<\/p><\/th><\/tr><\/thead><tbody><tr><td><p>Title Font<\/p><\/td><td><p>The font used to render the title in the center of the navigation bar. Access this value at runtime with the value stored against the <a class=\"symbol-name\" href=\"\/documentation\/foundation\/nsattributedstring\/key\/1528839-font\"><code><span>font<\/span><\/code><\/a> key in the dictionary in the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624953-titletextattributes\"><code><span>title<wbr\/>Text<wbr\/>Attributes<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Title Color<\/p><\/td><td><p>The color used to render the navigation bar title. Access this value at runtime using the <a class=\"symbol-name\" href=\"\/documentation\/foundation\/nsattributedstring\/key\/1533563-foregroundcolor\"><code><span>foreground<wbr\/>Color<\/span><\/code><\/a> key in the dictionary in the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624953-titletextattributes\"><code><span>title<wbr\/>Text<wbr\/>Attributes<\/span><\/code><\/a> property. <\/p><\/td><\/tr><tr><td><p>Title Shadow<\/p><\/td><td><p>Specifies the color and offset of the shadow used when rendering the navigation bar’s title. Access these values at runtime with the dictionary in the [<a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\/1624953-titletextattributes\"><code><span>title<wbr\/>Text<wbr\/>Attributes<\/span><\/code><\/a>] property, using the <a class=\"symbol-name\" href=\"\/documentation\/foundation\/nsattributedstring\/key\/1524321-shadow\"><code><span>shadow<\/span><\/code><\/a> key. <\/p><\/td><\/tr><\/tbody><\/table><\/div><\/div><\/figure><p><\/p><\/div><h3 id=\"2759888\">Internationalization<\/h3><div><p>To internationalize navigation bars, specify a localized string for each of the displayed string properties of the navigation item model objects.<\/p><p>For more information about internationalizing your interface, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/MacOSX\/Conceptual\/BPInternational\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/10000171i\">Internationalization and Localization Guide<\/a>.<\/p><\/div><h3 id=\"2759890\">Accessibility<\/h3><div><p>Navigation bars are accessible by default. The default accessibility trait for a navigation bar is User Interaction Enabled.<\/p><p>With VoiceOver enabled on an iOS device, after the user navigates to a new view in the hierarchy, VoiceOver reads the navigation bar’s title, followed by the name of the left bar button item. When the user taps an element in a navigation bar, VoiceOver reads the name and the type of the element; for example, &quot;General back button,&quot; &quot;Keyboard heading,&quot; and &quot;Edit button.&quot;<\/p><p>For general information about making your interface accessible, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/UserExperience\/Conceptual\/iPhoneAccessibility\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40008785\">Accessibility Programming Guide for iOS<\/a>.<\/p><\/div>","abstract":"<div><p>Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.<\/p><\/div>","containingGroup":[{"id":2864410,"role":"task","paths":[],"symbols":[{"id":1621868,"role":"symbol","usr":"c:objc(cs)UINavigationController","name":"UINavigationController","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UINavigation<wbr\/>Controller<\/span><\/code>","paths":["documentation\/uikit\/uinavigationcontroller"],"title":{"content":"UINavigationController"},"abstract":"<div><p>A container view controller that defines a stack-based scheme for navigating hierarchical content. <\/p><\/div>","hasChildren":true},{"id":1624927,"role":"symbol","usr":"c:objc(cs)UINavigationBar","name":"UINavigationBar","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UINavigation<wbr\/>Bar<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar"],"title":{"content":"UINavigationBar"},"abstract":"<div><p>Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.<\/p><\/div>","hasChildren":true},{"id":1624960,"role":"symbol","usr":"c:objc(cs)UINavigationItem","name":"UINavigationItem","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UINavigation<wbr\/>Item<\/span><\/code>","paths":["documentation\/uikit\/uinavigationitem"],"title":{"content":"UINavigationItem"},"abstract":"<div><p>The items to be displayed by a navigation bar when the associated view controller is visible. <\/p><\/div>","hasChildren":true}],"title":{"content":"Navigation Interface"}}],"usr":"c:objc(cs)UINavigationBar","name":"UINavigationBar","domain":"swift","kind":"cl","availability":[{"platform":"iOS","current":"12.0","introduced":"2.0"},{"platform":"tvOS","current":"12.0","introduced":"9.0"}],"conformance":[{"id":1411471,"usr":"c:objc(pl)NSCoding","name":"NSCoding","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/foundation\/nscoding"],"title":{"content":"NSCoding"},"platforms":["iOS","tvOS"]},{"id":1623131,"usr":"c:objc(pl)UIAccessibilityIdentification","name":"UIAccessibilityIdentification","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiaccessibilityidentification"],"title":{"content":"UIAccessibilityIdentification"},"platforms":["iOS","tvOS"]},{"id":1624858,"usr":"c:objc(pl)UIBarPositioning","name":"UIBarPositioning","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uibarpositioning"],"title":{"content":"UIBarPositioning"},"platforms":["iOS","tvOS"]},{"id":2882041,"usr":"c:objc(pl)UIPasteConfigurationSupporting","name":"UIPasteConfigurationSupporting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uipasteconfigurationsupporting"],"title":{"content":"UIPasteConfigurationSupporting"},"platforms":["iOS"]},{"id":1641507,"usr":"s:s7CVarArgP","name":"CVarArg","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/cvararg"],"title":{"content":"CVarArg"},"platforms":["iOS","tvOS"]},{"id":2980935,"usr":"c:objc(pl)UIUserActivityRestoring","name":"UIUserActivityRestoring","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiuseractivityrestoring"],"title":{"content":"UIUserActivityRestoring"},"platforms":["iOS","tvOS"]},{"id":1541213,"usr":"s:SQ","name":"Equatable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/equatable"],"title":{"content":"Equatable"},"platforms":["iOS","tvOS"]},{"id":1540942,"usr":"s:SH","name":"Hashable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/hashable"],"title":{"content":"Hashable"},"platforms":["iOS","tvOS"]}],"inheritance":[{"id":1622655,"usr":"c:objc(cs)UIView","name":"UIView","domain":"swift","kind":"cl","role":"symbol","paths":["documentation\/uikit\/uiview"],"title":{"content":"UIView"},"platforms":["iOS","tvOS"]}],"module":[{"title":{"content":"UIKit"},"importStatement":"<div><span class=\"syntax-identifier\">import<\/span> UIKit<\/div>","paths":["documentation\/uikit"],"platforms":["iOS","tvOS"]}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UINavigation<wbr\/>Bar<\/span><\/code>","declaration":[{"content":"<span><span class=\"syntax-keyword\">class<\/span> <span class=\"syntax-identifier\">UINavigationBar<\/span> : <a class=\"symbolref\" href=\"\/documentation\/uikit\/uiview\"><span>UIView<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/foundation\/nscoding\"><span>NSCoding<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/uikit\/uibarpositioning\"><span>UIBar<wbr\/>Positioning<\/span><\/a>\n<\/span>","platforms":["iOS","tvOS"]}],"languages":["occ","swift"],"variants":{"occ":{"paths":["documentation\/uikit\/uinavigationbar"],"usr":"c:objc(cs)UINavigationBar"},"swift":{"paths":["documentation\/uikit\/uinavigationbar"],"usr":"c:objc(cs)UINavigationBar"}},"diffAvailability":{"minor":{"change":"modified","platform":"Xcode","versions":["9.4","10.0 beta 6"]},"major":{"change":"modified","platform":"Xcode","versions":["9.0","10.0 beta 6"]}},"pid":201964,"role":"symbol","language":"swift","paths":["documentation\/uikit\/uinavigationbar"],"hierarchy":[[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864394,"role":"collectionGroup","title":{"content":"View Controllers"},"paths":["documentation\/uikit\/view_controllers"]}],[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864393,"role":"collectionGroup","title":{"content":"Views and Controls"},"paths":["documentation\/uikit\/views_and_controls"]}]],"legalNotices":{"copyright":"Copyright &copy; 2018 Apple Inc. All rights reserved.","termsOfUse":"https:\/\/www.apple.com\/legal\/internet-services\/terms\/site.html","privacyPolicy":"https:\/\/www.apple.com\/privacy\/privacy-policy"},"tasks":[{"id":1654215,"role":"task","symbols":[{"id":1624951,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)delegate","name":"delegate","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">delegate<\/span><span class=\"decorator\">: UINavigation<wbr\/>Bar<wbr\/>Delegate?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624951-delegate"],"title":{"content":"delegate"},"abstract":"<div><p>The navigation bar’s delegate object.<\/p><\/div>"},{"id":1624932,"role":"symbol","usr":"c:objc(pl)UINavigationBarDelegate","name":"UINavigationBarDelegate","domain":"swift","kind":"intf","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">protocol <\/span><span class=\"identifier\">UINavigation<wbr\/>Bar<wbr\/>Delegate<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbardelegate"],"title":{"content":"UINavigationBarDelegate"},"abstract":"<div><p>The <code class=\"code-voice\"><span>UINavigation<wbr\/>Bar<wbr\/>Delegate<\/span><\/code> protocol defines optional methods that a <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uinavigationbar\"><code><span>UINavigation<wbr\/>Bar<\/span><\/code><\/a> delegate should implement to update its views when items are pushed and popped from the stack. The navigation bar represents only the bar at the top of the screen, not the view below. It’s the application’s responsibility to implement the behavior when the top item changes.<\/p><\/div>","hasChildren":true}],"title":{"content":"Responding to Navigation Bar Changes"}},{"id":1654249,"role":"task","symbols":[{"id":1624952,"role":"symbol","usr":"c:objc(cs)UINavigationBar(im)pushNavigationItem:animated:","name":"pushNavigationItem(_:animated:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">push<wbr\/>Item<\/span><span class=\"decorator\">(UINavigation<wbr\/>Item, <\/span><span class=\"identifier\">animated<\/span><span class=\"decorator\">: Bool)<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624952-pushitem"],"title":{"content":"pushItem(_:animated:)"},"abstract":"<div><p>Pushes the given navigation item onto the navigation bar&#x27;s stack and updates the UI.<\/p><\/div>"},{"id":1624969,"role":"symbol","usr":"c:objc(cs)UINavigationBar(im)popNavigationItemAnimated:","name":"popNavigationItemAnimated(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">pop<wbr\/>Item<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">animated<\/span><span class=\"decorator\">: Bool) -&gt; UINavigation<wbr\/>Item?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624969-popitem"],"title":{"content":"popItem(animated:)"},"abstract":"<div><p>Pops the top item from the navigation bar&#x27;s stack and updates the UI.<\/p><\/div>"},{"id":1624945,"role":"symbol","usr":"c:objc(cs)UINavigationBar(im)setItems:animated:","name":"setItems(_:animated:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Items<\/span><span class=\"decorator\">([UINavigation<wbr\/>Item]?, <\/span><span class=\"identifier\">animated<\/span><span class=\"decorator\">: Bool)<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624945-setitems"],"title":{"content":"setItems(_:animated:)"},"abstract":"<div><p>Replaces the navigation items currently managed by the navigation bar with the specified items. <\/p><\/div>"},{"id":1624961,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)items","name":"items","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">items<\/span><span class=\"decorator\">: [UINavigation<wbr\/>Item]?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624961-items"],"title":{"content":"items"},"abstract":"<div><p>An array of navigation items managed by the navigation bar.<\/p><\/div>"},{"id":1624967,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)topItem","name":"topItem","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">top<wbr\/>Item<\/span><span class=\"decorator\">: UINavigation<wbr\/>Item?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624967-topitem"],"title":{"content":"topItem"},"abstract":"<div><p>The navigation item at the top of the navigation bar’s stack.<\/p><\/div>"},{"id":1624925,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)backItem","name":"backItem","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">back<wbr\/>Item<\/span><span class=\"decorator\">: UINavigation<wbr\/>Item?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624925-backitem"],"title":{"content":"backItem"},"abstract":"<div><p>The navigation item that is immediately below the topmost item on navigation bar’s stack.<\/p><\/div>"}],"title":{"content":"Pushing and Popping Items"}},{"id":2910965,"role":"task","symbols":[{"id":1624953,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)titleTextAttributes","name":"titleTextAttributes","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">title<wbr\/>Text<wbr\/>Attributes<\/span><span class=\"decorator\">: [NSAttributed<wbr\/>String<wbr\/>.Key : Any]?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624953-titletextattributes"],"title":{"content":"titleTextAttributes"},"abstract":"<div><p>Display attributes for the bar’s title text.<\/p><\/div>"},{"id":2919946,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)largeTitleTextAttributes","name":"largeTitleTextAttributes","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">large<wbr\/>Title<wbr\/>Text<wbr\/>Attributes<\/span><span class=\"decorator\">: [NSAttributed<wbr\/>String<wbr\/>.Key : Any]?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/2919946-largetitletextattributes"],"title":{"content":"largeTitleTextAttributes"},"abstract":"<div><p>Display attributes for the bar&#x27;s large title text.<\/p><\/div>"},{"id":2908999,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)prefersLargeTitles","name":"prefersLargeTitles","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">prefers<wbr\/>Large<wbr\/>Titles<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/2908999-preferslargetitles"],"title":{"content":"prefersLargeTitles"},"abstract":"<div><p>A Boolean value indicating whether the title should be displayed in a large format.<\/p><\/div>"},{"id":1624966,"role":"symbol","usr":"c:objc(cs)UINavigationBar(im)titleVerticalPositionAdjustmentForBarMetrics:","name":"titleVerticalPositionAdjustmentForBarMetrics(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">title<wbr\/>Vertical<wbr\/>Position<wbr\/>Adjustment<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIBar<wbr\/>Metrics) -&gt; CGFloat<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624966-titleverticalpositionadjustment"],"title":{"content":"titleVerticalPositionAdjustment(for:)"},"abstract":"<div><p>Returns the title’s vertical position adjustment for given bar metrics.<\/p><\/div>"},{"id":1624959,"role":"symbol","usr":"c:objc(cs)UINavigationBar(im)setTitleVerticalPositionAdjustment:forBarMetrics:","name":"setTitleVerticalPositionAdjustment(_:forBarMetrics:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Title<wbr\/>Vertical<wbr\/>Position<wbr\/>Adjustment<\/span><span class=\"decorator\">(CGFloat, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIBar<wbr\/>Metrics)<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624959-settitleverticalpositionadjustme"],"title":{"content":"setTitleVerticalPositionAdjustment(_:for:)"},"abstract":"<div><p>Sets the title’s vertical position adjustment for given bar metrics.<\/p><\/div>"}],"title":{"content":"Customizing the Title's Appearance"}},{"id":1654334,"role":"task","symbols":[{"id":1624942,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)backIndicatorImage","name":"backIndicatorImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"7.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">back<wbr\/>Indicator<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624942-backindicatorimage"],"title":{"content":"backIndicatorImage"},"abstract":"<div><p>The image shown beside the back button.<\/p><\/div>"},{"id":1624938,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)backIndicatorTransitionMaskImage","name":"backIndicatorTransitionMaskImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"7.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">back<wbr\/>Indicator<wbr\/>Transition<wbr\/>Mask<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624938-backindicatortransitionmaskimage"],"title":{"content":"backIndicatorTransitionMaskImage"},"abstract":"<div><p>The image used as a mask for content during push and pop transitions.<\/p><\/div>"},{"id":1624955,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)barStyle","name":"barStyle","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">bar<wbr\/>Style<\/span><span class=\"decorator\">: UIBar<wbr\/>Style<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624955-barstyle"],"title":{"content":"barStyle"},"abstract":"<div><p>The navigation bar style that specifies its appearance.<\/p><\/div>"},{"id":1624931,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)barTintColor","name":"barTintColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">bar<wbr\/>Tint<wbr\/>Color<\/span><span class=\"decorator\">: UIColor?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624931-bartintcolor"],"title":{"content":"barTintColor"},"abstract":"<div><p>The tint color to apply to the navigation bar background.<\/p><\/div>"},{"id":1624963,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)shadowImage","name":"shadowImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"6.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">shadow<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624963-shadowimage"],"title":{"content":"shadowImage"},"abstract":"<div><p>The shadow image to be used for the navigation bar.<\/p><\/div>"},{"id":1624937,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)tintColor","name":"tintColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">tint<wbr\/>Color<\/span><span class=\"decorator\">: UIColor!<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624937-tintcolor"],"title":{"content":"tintColor"},"abstract":"<div><p>The tint color to apply to the navigation items and bar button items.<\/p><\/div>"},{"id":1624928,"role":"symbol","usr":"c:objc(cs)UINavigationBar(py)translucent","name":"translucent","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Translucent<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624928-istranslucent"],"title":{"content":"isTranslucent"},"abstract":"<div><p>A Boolean value indicating whether the navigation bar is translucent (<code class=\"code-voice\"><span>true<\/span><\/code>) or not (<code class=\"code-voice\"><span>false<\/span><\/code>).<\/p><\/div>"},{"id":1624962,"role":"symbol","usr":"c:objc(cs)UINavigationBar(im)backgroundImageForBarMetrics:","name":"backgroundImageForBarMetrics(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">background<wbr\/>Image<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIBar<wbr\/>Metrics) -&gt; UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624962-backgroundimage"],"title":{"content":"backgroundImage(for:)"},"abstract":"<div><p>Returns the background image for given bar metrics.<\/p><\/div>"},{"id":1624926,"role":"symbol","usr":"c:objc(cs)UINavigationBar(im)setBackgroundImage:forBarMetrics:","name":"setBackgroundImage(_:forBarMetrics:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Background<wbr\/>Image<\/span><span class=\"decorator\">(UIImage?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIBar<wbr\/>Metrics)<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624926-setbackgroundimage"],"title":{"content":"setBackgroundImage(_:for:)"},"abstract":"<div><p>Sets the background image for given bar metrics.<\/p><\/div>"},{"id":1624940,"role":"symbol","usr":"c:objc(cs)UINavigationBar(im)backgroundImageForBarPosition:barMetrics:","name":"backgroundImageForBarPosition(_:barMetrics:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">background<wbr\/>Image<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIBar<wbr\/>Position, <\/span><span class=\"identifier\">bar<wbr\/>Metrics<\/span><span class=\"decorator\">: UIBar<wbr\/>Metrics) -&gt; UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624940-backgroundimage"],"title":{"content":"backgroundImage(for:barMetrics:)"},"abstract":"<div><p>Returns the background image to use for a given bar position and set of metrics.<\/p><\/div>"},{"id":1624968,"role":"symbol","usr":"c:objc(cs)UINavigationBar(im)setBackgroundImage:forBarPosition:barMetrics:","name":"setBackgroundImage(_:forBarPosition:barMetrics:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Background<wbr\/>Image<\/span><span class=\"decorator\">(UIImage?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIBar<wbr\/>Position, <\/span><span class=\"identifier\">bar<wbr\/>Metrics<\/span><span class=\"decorator\">: UIBar<wbr\/>Metrics)<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar\/1624968-setbackgroundimage"],"title":{"content":"setBackgroundImage(_:for:barMetrics:)"},"abstract":"<div><p>Sets the background image to use for a given bar position and set of metrics.<\/p><\/div>"}],"title":{"content":"Customizing the Bar Appearance"}},{"id":2864759,"role":"task","symbols":[{"id":1623412,"role":"symbol","usr":"c:@E@UIBarStyle","name":"UIBarStyle","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIBar<wbr\/>Style<\/span><\/code>","paths":["documentation\/uikit\/uibarstyle"],"title":{"content":"UIBarStyle"},"abstract":"<div><p>Defines the stylistic appearance of different types of views.<\/p><\/div>","hasChildren":true}],"title":{"content":"Constants"}}]}</script>
+  <script src="/documentation/__assets/TopicDetail-018c52ac.js"></script>
+ </body>
+</html>

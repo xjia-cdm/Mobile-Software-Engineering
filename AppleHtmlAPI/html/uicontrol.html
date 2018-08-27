@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>UIControl - UIKit | Apple Developer Documentation</title>
+  <meta content="width=device-width, initial-scale=1 viewport-fit=cover" name="viewport">
+  <meta data-pid="204223">
+  <link href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Mono,v1|SF+Pro+Icons,v1" media="all" rel="stylesheet" type="text/css">
+  <link href="/documentation/__assets/application-324aa72c.css" media="all" rel="stylesheet" type="text/css">
+  <noscript>
+   <link href="/documentation/__assets/nojs-c6be9131.css" media="all" rel="stylesheet" type="text/css">
+  </noscript>
+  <link rel="mask-icon" href="/documentation/__assets/apple-logo.svg" color="#000">
+  <link rel="shortcut icon" href="/documentation/__assets/favicon.ico">
+  <script src="/documentation/__assets/shared-f73bc3d2.js"></script>
+  <script id="init-data" type="application/json">{"variant":{"paths":["documentation\/uikit\/uicontrol"],"usr":"c:objc(cs)UIControl"}}</script>
+  <script src="/documentation/__assets/init-88dd23db.js"></script>
+ </head>
+ <body>
+  <div id="_omniture_top"> 
+   <script type="text/javascript">
+        var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+      </script> 
+   <script type="text/javascript" src="https://www.apple.com/metrics/scripts/s_code_h.js"></script> 
+   <script type="text/javascript">
+        s.pageName=AC.Tracking.pageName();
+        s.channel="www.us.developer"
+
+        var s_code=s.t();if(s_code)document.write(s_code)
+      </script> 
+  </div>
+  <div id="app">
+   <div>
+    <a href="#main" id="skip-localnav" class="showonfocus hidden">Skip Navigation</a>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US">
+     <div class="ac-gn-content"> 
+      <ul class="ac-gn-header"> 
+       <li class="ac-gn-item ac-gn-menuicon"> <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span> </span> </label> <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open"> <span class="ac-gn-menuanchor-label">Open Menu</span> </a> <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close"> <span class="ac-gn-menuanchor-label">Close Menu</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus-small"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small"> <a class="ac-gn-link ac-gn-link-bag" href="/account/"> <span class="ac-gn-link-text">Account</span> <span class="ac-gn-bag-badge"></span> </a> <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span> </li> 
+      </ul> 
+      <ul class="ac-gn-list"> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-discover"> <a class="ac-gn-link" href="/discover/"> <span>Discover</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-design"> <a class="ac-gn-link" href="/design/"> <span>Design</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-develop"> <a class="ac-gn-link" href="/develop/"> <span>Develop</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-distribute"> <a class="ac-gn-link" href="/distribute/"> <span>Distribute</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-support"> <a class="ac-gn-link" href="/support/"> <span>Support</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-account"> <a class="ac-gn-link" href="/account/"> <span>Account</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search"> <a id="ac-gn-search-button" class="ac-gn-link ac-gn-link-search" href="/search/" aria-label="Search developer.apple.com"> <span class="ac-gn-search-placeholder" aria-hidden="true">Search</span> </a> </li> 
+      </ul> 
+      <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search"> 
+       <div class="ac-gn-searchview-content"> 
+        <form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get"> 
+         <div class="ac-gn-searchform-wrapper"> 
+          <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" placeholder="Search" data-placeholder-long="Search for documentation, videos, and more" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false"> 
+          <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit"></button> 
+          <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search"></button> 
+         </div> 
+        </form> 
+        <aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="Hit enter to search."> 
+        </aside> 
+       </div> 
+       <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search"> <span class="ac-gn-searchview-close-wrapper"> <span class="ac-gn-searchview-close-left"></span> <span class="ac-gn-searchview-close-right"></span> </span> </button> 
+      </aside> 
+     </div>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+    <input type="checkbox" id="localnav-menustate" class="localnav-menustate" aria-hidden="true">
+    <nav id="localnav" class="localnav localnav-dark theme-dark localnav-scrim localnav-noborder" role="navigation" aria-label="API Reference" data-sticky="true">
+     <div class="localnav-wrapper">
+      <div class="referencenav">
+       <div class="localnav-background"></div>
+       <div class="localnav-content">
+        <a href="/documentation" class="localnav-title">Documentation</a>
+        <div class="localnav-menu">
+         <a href="#localnav-menustate" id="localnav-menustate-open" class="localnav-menucta-anchor localnav-menucta-anchor-open"><span class="localnav-menucta-anchor-label" aria-hidden="true">Open Menu</span></a>
+         <a href="#" id="localnav-menustate-close" class="localnav-menucta-anchor localnav-menucta-anchor-close"><span class="localnav-menucta-anchor-label" aria-hidden="true">Close Menu</span></a>
+         <div class="localnav-menu-tray">
+          <ul aria-label="Breadcrumbs" class="localnav-menu-items localnav-menu-breadcrumbs">
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit">UIKit</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit/views_and_controls">Views and Controls</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item">
+            <div class="localnav-menu-breadcrumb-current-container localnav-menu-link current">
+             <span aria-current="page" class="localnav-menu-breadcrumb-current">UIControl</span>
+            </div></li>
+          </ul>
+          <ul class="localnav-menu-items localnav-menu-settings" data-breadcrumbs-count="3">
+           <li class="localnav-menu-setting language-container">
+            <div class="language-toggle-container">
+             <label for="language-toggle" class="language-toggle-label">Language:</label>
+             <select id="language-toggle" class="language-dropdown localnav-menu-link" style="width:auto;"><option selected value="swift">Swift</option><option value="occ">Objective-C</option></select>
+            </div>
+            <div class="language-list-container">
+             <span class="localnav-menu-setting-label">Language:</span>
+             <ul class="language-list">
+              <li class="language-list-item"><span data-language="swift" aria-current="page" class="current-language">Swift</span></li>
+              <li class="language-list-item"><a href="/documentation/uikit/uicontrol?language=objc" class="localnav-menu-setting-link">Objective-C</a></li>
+             </ul>
+            </div></li>
+           <li class="localnav-menu-setting"><span class="localnav-menu-setting-label">API Changes:</span><a href="/documentation/uikit/uicontrol?changes=latest_minor" class="localnav-menu-setting-link changes-toggle changes-toggle-show" aria-label="Show API Changes">Show</a></li>
+          </ul>
+         </div>
+         <div class="localnav-actions">
+          <div class="localnav-action localnav-action-menucta" aria-hidden="true">
+           <label for="localnav-menustate" class="localnav-menucta"><span class="localnav-menucta-chevron"></span></label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </nav>
+    <label for="localnav-menustate" id="localnav-curtain" aria-hidden="true"></label>
+    <main role="main" id="main" class="main" tabindex="0">
+     <div class="topic-title">
+      <span class="eyebrow">Class</span>
+      <h1 class="topic-heading"><span>UIControl</span></h1>
+     </div>
+     <div class="topic-container section-content row">
+      <div class="topic-description column large-9 medium-9 small-12">
+       <div class="topic-abstract abstract formatted-content">
+        <div>
+         <p>The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions. </p>
+        </div>
+       </div>
+      </div>
+      <div class="topic-summary column large-3 medium-3 small-12">
+       <div class="topic-summary-section sdks" role="complementary" aria-label="SDKs">
+        <p class="topic-summary-section-label subsection-label">SDKs</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item sdk"><span aria-label="iOS 2.0+, Available on iOS 2.0 and later" role="text" title="Available on iOS 2.0 and later">iOS 2.0+</span></li>
+         <li class="topic-summary-section-item sdk"><span aria-label="tvOS 9.0+, Available on tvOS 9.0 and later" role="text" title="Available on tvOS 9.0 and later">tvOS 9.0+</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section frameworks" role="complementary" aria-label="Framework">
+        <p class="topic-summary-section-label subsection-label">Framework</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item"><span>UIKit</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section onthispage">
+        <nav class="onthispage-nav" aria-labelledby="onthispage-title">
+         <p id="onthispage-title" class="topic-summary-section-label subsection-label">On This Page</p>
+         <ul class="topic-summary-section-list">
+          <li class="topic-summary-section-item"><a href="#overview" class="icon icon-after icon-chevrondowncircle">Overview</a></li>
+          <li class="topic-summary-section-item"><a href="#topics" class="icon icon-after icon-chevrondowncircle">Topics</a></li>
+          <li class="topic-summary-section-item"><a href="#relationships" class="icon icon-after icon-chevrondowncircle">Relationships</a></li>
+          <li class="topic-summary-section-item"><a href="#see-also" class="icon icon-after icon-chevrondowncircle">See Also</a></li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+      <div class="topic-content column large-9 medium-9 small-12" id="topic-content">
+       <section id="overview" class="section">
+        <h2>Overview</h2>
+        <div class="formatted-content">
+         <div>
+          <p>Controls implement elements such as buttons and sliders, which your app might use to facilitate navigation, gather user input, or manipulate content. Controls use the Target-Action mechanism to report user interactions to your app.</p>
+          <figure id="1965830">
+           <figcaption>
+            <strong class="caption-title">Figure 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Examples of UIKit controls</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/614e91283a/uicontrol_intro_2x_9b6555bc-4452-471b-9702-163483bab862.png" srcset="https://docs-assets.developer.apple.com/published/614e91283a/uicontrol_intro_2x_9b6555bc-4452-471b-9702-163483bab862.png 2x" alt="" width="164" height="auto">
+          </figure>
+          <p>You do not create instances of this class directly. The <code class="code-voice"><span>UIControl</span></code> class is a subclassing point that you extend to implement custom controls. You can also subclass existing control classes to extend or modify their behaviors. For example, you might override the methods of this class to track touch events yourself or to determine when the state of the control changes. </p>
+          <p>A control’s state determines its appearance and its ability to support user interactions. Controls can be in one of several states, which are defined by the <a class="symbol-name" href="/documentation/uikit/uicontrol/state"><code><span>UIControl<wbr>.State</span></code></a> type. You can change the state of a control programmatically based on your app’s needs. For example, you might disable a control to prevent the user from interacting with it. User interactions can also change the state of a control.</p>
+         </div>
+         <h3 id="1658488">The Target-Action Mechanism</h3>
+         <div>
+          <p>Controls use the <em>target-action mechanism</em> to report interesting events happening to your code. The target-action mechanism simplifies the code that you write to use controls in your app. Instead of writing code to track touch events, you write action methods to respond to control-specific events. For example, you might write an action method that responds to changes in the value of a slider. The control handles all the work of tracking incoming touch events and determining when to call your methods. </p>
+          <p>When adding an action method to a control, you specify both the action method and an object that defines that method to the <a class="symbol-name" href="/documentation/uikit/uicontrol/1618259-addtarget"><code><span>add<wbr>Target(_:<wbr>action:<wbr>for:)</span></code></a> method. (You can also configure the target and action of a control in Interface Builder.) The target object can be any object, but it is typically the view controller whose root view contains the control. If you specify <code class="code-voice"><span>nil</span></code> for the target object, the control searches the responder chain for an object that defines the specified action method.</p>
+          <p>The signature of an action method takes one of three forms, which are listed in <span class="reference">Listing 1</span>. The <code class="code-voice"><span>sender</span></code> parameter corresponds to the control that calls the action method, and the event parameter corresponds to the <a class="symbol-name" href="/documentation/uikit/uievent"><code><span>UIEvent</span></code></a> object that triggered the control-related event.</p>
+          <figure id="1943645">
+           <figcaption>
+            <strong class="caption-title">Listing 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Action method definitions</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="code-listing">
+             <pre class="code-source" data-language="swift"><code>@IBAction func doSomething()
+@IBAction func doSomething(sender: UIButton)
+@IBAction func doSomething(sender: UIButton, forEvent event: UIEvent)
+</code></pre>
+            </div>
+           </div>
+          </figure>
+          <p>Action methods are called when the user interacts with the control in specific ways. The <a class="symbol-name" href="/documentation/uikit/uicontrol/event"><code><span>UIControl<wbr>.Event</span></code></a> type defines the types of user interactions that a control can report and those interactions mostly correlate to specific touch events within the control. When configuring a control, you must specify which events trigger the calling of your method. For a button control, you might use the <a class="symbol-name" href="/documentation/uikit/uicontrol/event/1618230-touchdown"><code><span>touch<wbr>Down</span></code></a> or <a class="symbol-name" href="/documentation/uikit/uicontrol/event/1618236-touchupinside"><code><span>touch<wbr>Up<wbr>Inside</span></code></a> event to trigger calls to your action method. For a slider, you might care only about changes to the slider’s value changes and so you might choose to attach your action method to <a class="symbol-name" href="/documentation/uikit/uicontrol/event/1618238-valuechanged"><code><span>value<wbr>Changed</span></code></a> events.</p>
+          <p>When a control-specific event occurs, the control calls any associated action methods right away. Action methods are dispatched through the current <a class="symbol-name" href="/documentation/uikit/uiapplication"><code><span>UIApplication</span></code></a> object, which finds an appropriate object to handle the message, following the responder chain if needed. For more information about responders and the responder chain, see <a href="https://developer.apple.com/library/archive/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/index.html#//apple_ref/doc/uid/TP40009541">Event Handling Guide for UIKit Apps</a>. </p>
+         </div>
+         <h3 id="1658503">Interface Builder Attributes</h3>
+         <div>
+          <p><span class="reference">Table 1</span> lists the attributes associated with instances of the <code class="code-voice"><span>UIControl</span></code> class.</p>
+          <figure id="1965831">
+           <figcaption>
+            <strong class="caption-title">Table 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Control attributes</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="table-wrapper">
+             <table>
+              <thead>
+               <tr>
+                <th scope="col"><p>Attribute</p></th>
+                <th scope="col"><p>Description</p></th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                <td><p>Alignment</p></td>
+                <td><p>The horizontal and vertical alignment of a control’s content. For controls that contain text or images, such as buttons and text fields, use these attributes to configure the position of that content within the control’s bounds. </p><p>These alignment options apply to the content of a control and not to the control itself. For information about how to align controls with respect to other controls and views, see <a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853">Auto Layout Guide</a>. </p></td>
+               </tr>
+               <tr>
+                <td><p>Content</p></td>
+                <td><p>The initial state of the control. Use the checkboxes to configure whether the control is enabled, selected, or highlighted initially.</p></td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+           </div>
+          </figure>
+         </div>
+         <h3 id="1658515">Internationalization</h3>
+         <div>
+          <p>Because <code class="code-voice"><span>UIControl</span></code> is an abstract class, you do not internationalize it specifically. However, you do internationalize the content of subclasses like <a class="symbol-name" href="/documentation/uikit/uibutton"><code><span>UIButton</span></code></a>. For information about internationalizing a specific control, see the reference for that control. </p>
+         </div>
+         <h3 id="1658529">Accessibility</h3>
+         <div>
+          <p>Controls are accessible by default. To be useful, an accessible user interface element must provide accurate and helpful information about its screen position, name, behavior, value, and type. This is the information VoiceOver speaks to users. Visually impaired users can rely on VoiceOver to help them use their devices. </p>
+          <p>Controls support the following accessibility attributes:</p>
+          <ul>
+           <li><p><strong>Label.</strong> A short, localized word or phrase that succinctly describes the control or view, but does not identify the element’s type. Examples are “Add” or “Play.”</p></li>
+           <li><p><strong>Traits.</strong> A combination of one or more individual traits, each of which describes a single aspect of an element’s state, behavior, or usage. For example, an element that behaves like a keyboard key and that is currently selected can be characterized by the combination of the Keyboard Key and Selected traits.</p></li>
+           <li><p><strong>Hint.</strong> A brief, localized phrase that describes the results of an action on an element. Examples are “Adds a title” or “Opens the shopping list.”</p></li>
+           <li><p><strong>Frame.</strong> The frame of the element in screen coordinates, which is given by the CGRect structure that specifies an element’s screen location and size.</p></li>
+           <li><p><strong>Value.</strong> The current value of an element, when the value is not represented by the label. For example, the label for a slider might be “Speed,” but its current value might be “50%.”</p></li>
+          </ul>
+          <p>The <code class="code-voice"><span>UIControl</span></code> class provides default content for the value and frame attributes. Many controls enable additional specific traits automatically as well. You can configure other accessibility attributes programmatically or using the Identity inspector in Interface Builder.</p>
+          <p>For more information about accessibility attributes, see <a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/iPhoneAccessibility/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008785">Accessibility Programming Guide for iOS</a>. </p>
+         </div>
+         <h3 id="1968627">Subclassing Notes</h3>
+         <div>
+          <p>Subclassing <code class="code-voice"><span>UIControl</span></code> gives you access to the built-in target-action mechanism and simplified event-handling support. You can subclass existing controls and modify its behavior in one of two ways: </p>
+          <ul>
+           <li><p>Override the <a class="symbol-name" href="/documentation/uikit/uicontrol/1618237-sendaction"><code><span>send<wbr>Action(_:<wbr>to:<wbr>for:)</span></code></a> method of an existing subclass to observe or modify the dispatching of action methods to the control’s associated targets. You might use this method to modify the dispatch behavior based on the specified object, selector, or event. </p></li>
+           <li><p>Override the <a class="symbol-name" href="/documentation/uikit/uicontrol/1618227-begintracking"><code><span>begin<wbr>Tracking(_:<wbr>with:)</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uicontrol/1618216-continuetracking"><code><span>continue<wbr>Tracking(_:<wbr>with:)</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uicontrol/1618234-endtracking"><code><span>end<wbr>Tracking(_:<wbr>with:)</span></code></a>, and <a class="symbol-name" href="/documentation/uikit/uicontrol/1618219-canceltracking"><code><span>cancel<wbr>Tracking(with:)</span></code></a> methods to track touch events occurring in the control. You can use the tracking information to perform additional actions. Always use these methods to track touch events instead of the methods defined by the <code class="code-voice"><span>UIResponder</span></code> class. </p></li>
+          </ul>
+          <p>If you subclass <code class="code-voice"><span>UIControl</span></code> directly, your subclass is responsible for setting up and managing your control’s visual appearance. Use the methods for tracking events to update your control’s state and to send an action when the control’s value changes. </p>
+         </div>
+        </div>
+       </section>
+      </div>
+     </div>
+     <section id="topics" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Topics</h2>
+        <section id="1658545" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Configuring the Control’s Attributes</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618245-state"><code class="display-name"><span class="decorator">var </span><span class="identifier">state</span><span class="decorator">: UIControl<wbr>.State</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The state of the control, specified as a bitmask value.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618217-isenabled"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Enabled</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the control is enabled.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618203-isselected"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Selected</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the control is in the selected state.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618231-ishighlighted"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Highlighted</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the control draws a highlight.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618249-contentverticalalignment"><code class="display-name"><span class="decorator">var </span><span class="identifier">content<wbr>Vertical<wbr>Alignment</span><span class="decorator">: UIControl<wbr>.Content<wbr>Vertical<wbr>Alignment</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The vertical alignment of content within the control’s bounds.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/contentverticalalignment"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIControl<wbr>.Content<wbr>Vertical<wbr>Alignment</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Constants for specifying the vertical alignment of content (text and images) in a control. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618213-contenthorizontalalignment"><code class="display-name"><span class="decorator">var </span><span class="identifier">content<wbr>Horizontal<wbr>Alignment</span><span class="decorator">: UIControl<wbr>.Content<wbr>Horizontal<wbr>Alignment</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The horizontal alignment of content within the control’s bounds.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/2866070-effectivecontenthorizontalalignm"><code class="display-name"><span class="decorator">var </span><span class="identifier">effective<wbr>Content<wbr>Horizontal<wbr>Alignment</span><span class="decorator">: UIControl<wbr>.Content<wbr>Horizontal<wbr>Alignment</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The horizontal alignment currently in effect for the control. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/contenthorizontalalignment"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIControl<wbr>.Content<wbr>Horizontal<wbr>Alignment</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The horizontal alignment of content (text and images) within a control.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1658600" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Accessing the Control’s Targets and Actions</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618259-addtarget"><code class="display-name"><span class="decorator">func </span><span class="identifier">add<wbr>Target</span><span class="decorator">(Any?, </span><span class="identifier">action</span><span class="decorator">: Selector, </span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.Event)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Associates a target object and action method with the control.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618248-removetarget"><code class="display-name"><span class="decorator">func </span><span class="identifier">remove<wbr>Target</span><span class="decorator">(Any?, </span><span class="identifier">action</span><span class="decorator">: Selector?, </span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.Event)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Stops the delivery of events to the specified target object.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618251-actions"><code class="display-name"><span class="decorator">func </span><span class="identifier">actions</span><span class="decorator">(</span><span class="identifier">for<wbr>Target</span><span class="decorator">: Any?, </span><span class="identifier">for<wbr>Control<wbr>Event</span><span class="decorator">: UIControl<wbr>.Event) -&gt; [String]?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the actions performed on a target object when the specified event occurs.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618225-allcontrolevents"><code class="display-name"><span class="decorator">var </span><span class="identifier">all<wbr>Control<wbr>Events</span><span class="decorator">: UIControl<wbr>.Event</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the events for which the control has associated actions.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618207-alltargets"><code class="display-name"><span class="decorator">var </span><span class="identifier">all<wbr>Targets</span><span class="decorator">: Set&lt;Any<wbr>Hashable&gt;</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns all target objects associated with the control.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1658655" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Triggering Actions</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618237-sendaction"><code class="display-name"><span class="decorator">func </span><span class="identifier">send<wbr>Action</span><span class="decorator">(Selector, </span><span class="identifier">to</span><span class="decorator">: Any?, </span><span class="identifier">for</span><span class="decorator">: UIEvent?)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Calls the specified action method.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618211-sendactions"><code class="display-name"><span class="decorator">func </span><span class="identifier">send<wbr>Actions</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.Event)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Calls the action methods associated with the specified events.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1658693" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Tracking Touches and Redrawing Controls</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618227-begintracking"><code class="display-name"><span class="decorator">func </span><span class="identifier">begin<wbr>Tracking</span><span class="decorator">(UITouch, </span><span class="identifier">with</span><span class="decorator">: UIEvent?) -&gt; Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Called when a touch event enters the control’s bounds.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618216-continuetracking"><code class="display-name"><span class="decorator">func </span><span class="identifier">continue<wbr>Tracking</span><span class="decorator">(UITouch, </span><span class="identifier">with</span><span class="decorator">: UIEvent?) -&gt; Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Called when a touch event associated with the control is updated.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618234-endtracking"><code class="display-name"><span class="decorator">func </span><span class="identifier">end<wbr>Tracking</span><span class="decorator">(UITouch?, </span><span class="identifier">with</span><span class="decorator">: UIEvent?)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Called when a touch event associated with the control ends. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618219-canceltracking"><code class="display-name"><span class="decorator">func </span><span class="identifier">cancel<wbr>Tracking</span><span class="decorator">(</span><span class="identifier">with</span><span class="decorator">: UIEvent?)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Tells the control to cancel tracking related to the given event.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618210-istracking"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Tracking</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the control is currently tracking touch events.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/1618229-istouchinside"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Touch<wbr>Inside</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether a tracked touch event is currently inside the control’s bounds.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1675523" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Constants</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/event"><code class="display-name"><span class="decorator">struct </span><span class="identifier">UIControl<wbr>.Event</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Constants describing the types of events possible for controls.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol/state"><code class="display-name"><span class="decorator">struct </span><span class="identifier">UIControl<wbr>.State</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Constants describing the state of a control.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="relationships" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Relationships</h2>
+        <section id="inherits-from" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Inherits From</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <a class="symbol-name" href="/documentation/uikit/uiview"><code><span>UIView</span></code></a>
+          </div>
+         </div>
+        </section>
+        <section id="conforms-to" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Conforms To</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <ul class="relationships-section-content-columns">
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/cvararg"><code><span>CVar<wbr>Arg</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/equatable"><code><span>Equatable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/hashable"><code><span>Hashable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiaccessibilityidentification"><code><span>UIAccessibility<wbr>Identification</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uipasteconfigurationsupporting"><code><span>UIPaste<wbr>Configuration<wbr>Supporting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiuseractivityrestoring"><code><span>UIUser<wbr>Activity<wbr>Restoring</span></code></a></li>
+           </ul>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="see-also" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">See Also</h2>
+        <section id="2864417" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Controls</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uibutton"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIButton</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control that executes your custom code in response to user interactions. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uidatepicker"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIDate<wbr>Picker</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control used for the inputting of date and time values. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uipagecontrol"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIPage<wbr>Control</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisegmentedcontrol"><code class="display-name"><span class="decorator">class </span><span class="identifier">UISegmented<wbr>Control</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A horizontal control made of multiple segments, each segment functioning as a discrete button.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider"><code class="display-name"><span class="decorator">class </span><span class="identifier">UISlider</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control used to select a single value from a continuous range of values.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistepper"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIStepper</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control used to increment or decrement a value.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiswitch"><code class="display-name"><span class="decorator">class </span><span class="identifier">UISwitch</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control that offers a binary choice, such as On/Off.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+    </main>
+    <section id="globalfooter-wrapper">
+     <footer id="globalfooter" role="contentinfo"> 
+      <nav class="footer-breadory"> 
+       <a href="/" class="home breadcrumbs-home"><span aria-hidden="true"></span><span class="breadcrumbs-home-label">Developer</span></a> 
+       <section class="breadcrumbs"> 
+        <ol class="breadcrumbs-list"> 
+         <li><a href="/documentation">Documentation</a></li> 
+        </ol> 
+       </section> 
+       <div id="directorynav" class="directorynav"> 
+        <div id="dn-cola" class="column"> 
+         <h3><a href="/discover/">Discover</a></h3> 
+         <ul> 
+          <li><a href="/macos/">macOS</a></li> 
+          <li><a href="/ios/">iOS</a></li> 
+          <li><a href="/watchos/">watchOS</a></li> 
+          <li><a href="/tvos/">tvOS</a></li> 
+          <li><a href="/safari/">Safari and Web</a></li> 
+          <li><a href="/games/">Games</a></li> 
+          <li><a href="/enterprise/">Enterprise</a></li> 
+          <li><a href="/education/">Education</a></li> 
+          <li><a href="/wwdc/">WWDC</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colb" class="column"> 
+         <h3><a href="/design/">Design</a></h3> 
+         <ul> 
+          <li><a href="/design/human-interface-guidelines/">Human Interface Guidelines</a></li> 
+          <li><a href="/design/resources/">Resources</a></li> 
+          <li><a href="/videos/design/">Videos</a></li> 
+          <li><a href="/design/awards/">Apple Design Awards</a></li> 
+          <li><a href="/accessibility/">Accessibility</a></li> 
+          <li><a href="/internationalization/">Internationalization</a></li> 
+          <li><a href="/accessories/">Accessories</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colc" class="column"> 
+         <h3><a href="/develop/">Develop</a></h3> 
+         <ul> 
+          <li><a href="/xcode/">Xcode</a></li> 
+          <li><a href="/swift/">Swift</a></li> 
+          <li><a href="/swift-playgrounds/">Swift Playgrounds</a></li> 
+          <li><a href="/testflight/">TestFlight</a></li> 
+          <li><a href="/documentation/">Documentation</a></li> 
+          <li><a href="/videos/">Videos</a></li> 
+          <li><a href="/download/">Downloads</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cold" class="column"> 
+         <h3><a href="/distribute/">Distribute</a></h3> 
+         <ul> 
+          <li><a href="/app-store/">App Store</a></li> 
+          <li><a href="/macos/distribution/">Mac Software</a></li> 
+          <li><a href="/app-store/review/">App Review</a></li> 
+          <li><a href="/programs/volume/">Volume Purchase Program</a></li> 
+          <li><a href="/programs/volume/b2b/">Custom B2B Apps</a></li> 
+          <li><a href="/enterprise/distribute/">Enterprise Apps</a></li> 
+          <li><a href="/safari/extensions/">Safari Extensions</a></li> 
+          <li><a href="/app-store/marketing/guidelines/">Marketing Resources</a></li> 
+          <li><a href="/softwarelicensing/">Trademark Licensing</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cole" class="column"> 
+         <h3><a href="/support/">Support</a></h3> 
+         <ul> 
+          <li><a href="https://forums.developer.apple.com">Developer Forums</a></li> 
+          <li><a href="/bug-reporting/">Bug Reporting</a></li> 
+          <li><a href="/terms/">License Agreements</a></li> 
+          <li><a href="/system-status/">System Status</a></li> 
+          <li><a href="/contact/">Contact Us</a></li> 
+          <br> 
+          <h3><a href="/account/">Account</a></h3> 
+          <ul> 
+           <li><a href="/programs/">Developer Program</a></li> 
+           <li><a href="/account/ios/certificate/">Certificates, IDs &amp; Profiles</a></li> 
+           <li><a href="https://appstoreconnect.apple.com/">App Store Connect</a></li> 
+          </ul> 
+         </ul> 
+        </div> 
+       </div> 
+      </nav> 
+      <div class="ac-gf-footer-legal"> 
+       <div class="ac-gf-footer-news">
+         To receive the latest developer news, visit and subscribe to our 
+        <a href="/news/">News and Updates</a>. 
+       </div> 
+       <div class="ac-gf-footer-legal-copyright">
+        Copyright © 2018 Apple Inc. All rights reserved.
+       </div> 
+       <div class="ac-gf-footer-legal-links"> 
+        <a href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a> 
+        <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a> 
+        <a href="/bug-reporting/">Report Bugs</a> 
+        <a href="/contact/submit/?subject=website-feedback">Feedback</a> 
+       </div> 
+       <div class="ac-gf-footer-language-links"> 
+        <a href="/cn/" class="first">简体中文</a> 
+        <a href="/jp/">日本語</a> 
+        <a href="/kr/">한국어</a> 
+       </div> 
+      </div> 
+     </footer>
+    </section>
+   </div>
+  </div>
+  <script id="bootstrap-data" type="application/json">{"id":1618208,"title":{"content":"UIControl"},"discussion":"<div><p>Controls implement elements such as buttons and sliders, which your app might use to facilitate navigation, gather user input, or manipulate content. Controls use the Target-Action mechanism to report user interactions to your app.<\/p><figure id=\"1965830\"><figcaption><strong class=\"caption-title\">Figure 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Examples of UIKit controls<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/614e91283a\/uicontrol_intro_2x_9b6555bc-4452-471b-9702-163483bab862.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/614e91283a\/uicontrol_intro_2x_9b6555bc-4452-471b-9702-163483bab862.png 2x\" alt=\"\" width=\"164\" height=\"auto\"\/><\/figure><p>You do not create instances of this class directly. The <code class=\"code-voice\"><span>UIControl<\/span><\/code> class is a subclassing point that you extend to implement custom controls. You can also subclass existing control classes to extend or modify their behaviors. For example, you might override the methods of this class to track touch events yourself or to determine when the state of the control changes. <\/p><p>A control’s state determines its appearance and its ability to support user interactions. Controls can be in one of several states, which are defined by the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/state\"><code><span>UIControl<wbr\/>.State<\/span><\/code><\/a> type. You can change the state of a control programmatically based on your app’s needs. For example, you might disable a control to prevent the user from interacting with it. User interactions can also change the state of a control.<\/p><\/div><h3 id=\"1658488\">The Target-Action Mechanism<\/h3><div><p>Controls use the <em>target-action mechanism<\/em> to report interesting events happening to your code. The target-action mechanism simplifies the code that you write to use controls in your app. Instead of writing code to track touch events, you write action methods to respond to control-specific events. For example, you might write an action method that responds to changes in the value of a slider. The control handles all the work of tracking incoming touch events and determining when to call your methods. <\/p><p>When adding an action method to a control, you specify both the action method and an object that defines that method to the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/1618259-addtarget\"><code><span>add<wbr\/>Target(_:<wbr\/>action:<wbr\/>for:)<\/span><\/code><\/a> method. (You can also configure the target and action of a control in Interface Builder.) The target object can be any object, but it is typically the view controller whose root view contains the control. If you specify <code class=\"code-voice\"><span>nil<\/span><\/code> for the target object, the control searches the responder chain for an object that defines the specified action method.<\/p><p>The signature of an action method takes one of three forms, which are listed in <span class=\"reference\">Listing 1<\/span>. The <code class=\"code-voice\"><span>sender<\/span><\/code> parameter corresponds to the control that calls the action method, and the event parameter corresponds to the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uievent\"><code><span>UIEvent<\/span><\/code><\/a> object that triggered the control-related event.<\/p><figure id=\"1943645\"><figcaption><strong class=\"caption-title\">Listing 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Action method definitions<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"code-listing\"><pre class=\"code-source\" data-language=\"swift\"><code>@IBAction func doSomething()\n@IBAction func doSomething(sender: UIButton)\n@IBAction func doSomething(sender: UIButton, forEvent event: UIEvent)\n<\/code><\/pre><\/div><\/div><\/figure><p>Action methods are called when the user interacts with the control in specific ways. The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/event\"><code><span>UIControl<wbr\/>.Event<\/span><\/code><\/a> type defines the types of user interactions that a control can report and those interactions mostly correlate to specific touch events within the control. When configuring a control, you must specify which events trigger the calling of your method. For a button control, you might use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/event\/1618230-touchdown\"><code><span>touch<wbr\/>Down<\/span><\/code><\/a> or <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/event\/1618236-touchupinside\"><code><span>touch<wbr\/>Up<wbr\/>Inside<\/span><\/code><\/a> event to trigger calls to your action method. For a slider, you might care only about changes to the slider’s value changes and so you might choose to attach your action method to <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/event\/1618238-valuechanged\"><code><span>value<wbr\/>Changed<\/span><\/code><\/a> events.<\/p><p>When a control-specific event occurs, the control calls any associated action methods right away. Action methods are dispatched through the current <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiapplication\"><code><span>UIApplication<\/span><\/code><\/a> object, which finds an appropriate object to handle the message, following the responder chain if needed. For more information about responders and the responder chain, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/EventHandling\/Conceptual\/EventHandlingiPhoneOS\/index.html#\/\/apple_ref\/doc\/uid\/TP40009541\">Event Handling Guide for UIKit Apps<\/a>. <\/p><\/div><h3 id=\"1658503\">Interface Builder Attributes<\/h3><div><p><span class=\"reference\">Table 1<\/span> lists the attributes associated with instances of the <code class=\"code-voice\"><span>UIControl<\/span><\/code> class.<\/p><figure id=\"1965831\"><figcaption><strong class=\"caption-title\">Table 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Control attributes<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"table-wrapper\"><table><thead><tr><th scope=\"col\"><p>Attribute<\/p><\/th><th scope=\"col\"><p>Description<\/p><\/th><\/tr><\/thead><tbody><tr><td><p>Alignment<\/p><\/td><td><p>The horizontal and vertical alignment of a control’s content. For controls that contain text or images, such as buttons and text fields, use these attributes to configure the position of that content within the control’s bounds. <\/p><p>These alignment options apply to the content of a control and not to the control itself. For information about how to align controls with respect to other controls and views, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/UserExperience\/Conceptual\/AutolayoutPG\/index.html#\/\/apple_ref\/doc\/uid\/TP40010853\">Auto Layout Guide<\/a>. <\/p><\/td><\/tr><tr><td><p>Content<\/p><\/td><td><p>The initial state of the control. Use the checkboxes to configure whether the control is enabled, selected, or highlighted initially.<\/p><\/td><\/tr><\/tbody><\/table><\/div><\/div><\/figure><\/div><h3 id=\"1658515\">Internationalization<\/h3><div><p>Because <code class=\"code-voice\"><span>UIControl<\/span><\/code> is an abstract class, you do not internationalize it specifically. However, you do internationalize the content of subclasses like <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uibutton\"><code><span>UIButton<\/span><\/code><\/a>. For information about internationalizing a specific control, see the reference for that control. <\/p><\/div><h3 id=\"1658529\">Accessibility<\/h3><div><p>Controls are accessible by default. To be useful, an accessible user interface element must provide accurate and helpful information about its screen position, name, behavior, value, and type. This is the information VoiceOver speaks to users. Visually impaired users can rely on VoiceOver to help them use their devices. <\/p><p>Controls support the following accessibility attributes:<\/p><ul><li><p><strong>Label.<\/strong> A short, localized word or phrase that succinctly describes the control or view, but does not identify the element’s type. Examples are “Add” or “Play.”<\/p><\/li><li><p><strong>Traits.<\/strong> A combination of one or more individual traits, each of which describes a single aspect of an element’s state, behavior, or usage. For example, an element that behaves like a keyboard key and that is currently selected can be characterized by the combination of the Keyboard Key and Selected traits.<\/p><\/li><li><p><strong>Hint.<\/strong> A brief, localized phrase that describes the results of an action on an element. Examples are “Adds a title” or “Opens the shopping list.”<\/p><\/li><li><p><strong>Frame.<\/strong> The frame of the element in screen coordinates, which is given by the CGRect structure that specifies an element’s screen location and size.<\/p><\/li><li><p><strong>Value.<\/strong> The current value of an element, when the value is not represented by the label. For example, the label for a slider might be “Speed,” but its current value might be “50%.”<\/p><\/li><\/ul><p>The <code class=\"code-voice\"><span>UIControl<\/span><\/code> class provides default content for the value and frame attributes. Many controls enable additional specific traits automatically as well. You can configure other accessibility attributes programmatically or using the Identity inspector in Interface Builder.<\/p><p>For more information about accessibility attributes, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/UserExperience\/Conceptual\/iPhoneAccessibility\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40008785\">Accessibility Programming Guide for iOS<\/a>. <\/p><\/div><h3 id=\"1968627\">Subclassing Notes<\/h3><div><p>Subclassing <code class=\"code-voice\"><span>UIControl<\/span><\/code> gives you access to the built-in target-action mechanism and simplified event-handling support. You can subclass existing controls and modify its behavior in one of two ways: <\/p><ul><li><p>Override the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/1618237-sendaction\"><code><span>send<wbr\/>Action(_:<wbr\/>to:<wbr\/>for:)<\/span><\/code><\/a> method of an existing subclass to observe or modify the dispatching of action methods to the control’s associated targets. You might use this method to modify the dispatch behavior based on the specified object, selector, or event.  <\/p><\/li><li><p>Override the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/1618227-begintracking\"><code><span>begin<wbr\/>Tracking(_:<wbr\/>with:)<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/1618216-continuetracking\"><code><span>continue<wbr\/>Tracking(_:<wbr\/>with:)<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/1618234-endtracking\"><code><span>end<wbr\/>Tracking(_:<wbr\/>with:)<\/span><\/code><\/a>, and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/1618219-canceltracking\"><code><span>cancel<wbr\/>Tracking(with:)<\/span><\/code><\/a> methods to track touch events occurring in the control. You can use the tracking information to perform additional actions. Always use these methods to track touch events instead of the methods defined by the <code class=\"code-voice\"><span>UIResponder<\/span><\/code> class. <\/p><\/li><\/ul><p>If you subclass <code class=\"code-voice\"><span>UIControl<\/span><\/code> directly, your subclass is responsible for setting up and managing your control’s visual appearance. Use the methods for tracking events to update your control’s state and to send an action when the control’s value changes.  <\/p><\/div>","abstract":"<div><p>The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.  <\/p><\/div>","containingGroup":[{"id":2864417,"role":"task","paths":[],"symbols":[{"id":1618208,"role":"symbol","usr":"c:objc(cs)UIControl","name":"UIControl","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIControl<\/span><\/code>","paths":["documentation\/uikit\/uicontrol"],"title":{"content":"UIControl"},"abstract":"<div><p>The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.  <\/p><\/div>","hasChildren":true},{"id":1624013,"role":"symbol","usr":"c:objc(cs)UIButton","name":"UIButton","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIButton<\/span><\/code>","paths":["documentation\/uikit\/uibutton"],"title":{"content":"UIButton"},"abstract":"<div><p>A control that executes your custom code in response to user interactions. <\/p><\/div>","hasChildren":true},{"id":1615991,"role":"symbol","usr":"c:objc(cs)UIDatePicker","name":"UIDatePicker","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIDate<wbr\/>Picker<\/span><\/code>","paths":["documentation\/uikit\/uidatepicker"],"title":{"content":"UIDatePicker"},"abstract":"<div><p>A control used for the inputting of date and time values. <\/p><\/div>","hasChildren":true},{"id":1621236,"role":"symbol","usr":"c:objc(cs)UIPageControl","name":"UIPageControl","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIPage<wbr\/>Control<\/span><\/code>","paths":["documentation\/uikit\/uipagecontrol"],"title":{"content":"UIPageControl"},"abstract":"<div><p>A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity. <\/p><\/div>","hasChildren":true},{"id":1618568,"role":"symbol","usr":"c:objc(cs)UISegmentedControl","name":"UISegmentedControl","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISegmented<wbr\/>Control<\/span><\/code>","paths":["documentation\/uikit\/uisegmentedcontrol"],"title":{"content":"UISegmentedControl"},"abstract":"<div><p>A horizontal control made of multiple segments, each segment functioning as a discrete button.<\/p><\/div>","hasChildren":true},{"id":1621350,"role":"symbol","usr":"c:objc(cs)UISlider","name":"UISlider","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISlider<\/span><\/code>","paths":["documentation\/uikit\/uislider"],"title":{"content":"UISlider"},"abstract":"<div><p>A control used to select a single value from a continuous range of values.<\/p><\/div>","hasChildren":true},{"id":1624084,"role":"symbol","usr":"c:objc(cs)UIStepper","name":"UIStepper","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"5.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIStepper<\/span><\/code>","paths":["documentation\/uikit\/uistepper"],"title":{"content":"UIStepper"},"abstract":"<div><p>A control used to increment or decrement a value.<\/p><\/div>","hasChildren":true},{"id":1623692,"role":"symbol","usr":"c:objc(cs)UISwitch","name":"UISwitch","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISwitch<\/span><\/code>","paths":["documentation\/uikit\/uiswitch"],"title":{"content":"UISwitch"},"abstract":"<div><p>A control that offers a binary choice, such as On\/Off.<\/p><\/div>","hasChildren":true}],"abstract":"<div><p>Gather input and respond to user interactions with controls. <\/p><\/div>","title":{"content":"Controls"}}],"usr":"c:objc(cs)UIControl","name":"UIControl","domain":"swift","kind":"cl","availability":[{"platform":"iOS","current":"12.0","introduced":"2.0"},{"platform":"tvOS","current":"12.0","introduced":"9.0"}],"conformance":[{"id":1623131,"usr":"c:objc(pl)UIAccessibilityIdentification","name":"UIAccessibilityIdentification","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiaccessibilityidentification"],"title":{"content":"UIAccessibilityIdentification"},"platforms":["iOS","tvOS"]},{"id":2882041,"usr":"c:objc(pl)UIPasteConfigurationSupporting","name":"UIPasteConfigurationSupporting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uipasteconfigurationsupporting"],"title":{"content":"UIPasteConfigurationSupporting"},"platforms":["iOS"]},{"id":1641507,"usr":"s:s7CVarArgP","name":"CVarArg","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/cvararg"],"title":{"content":"CVarArg"},"platforms":["iOS","tvOS"]},{"id":2980935,"usr":"c:objc(pl)UIUserActivityRestoring","name":"UIUserActivityRestoring","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiuseractivityrestoring"],"title":{"content":"UIUserActivityRestoring"},"platforms":["iOS","tvOS"]},{"id":1541213,"usr":"s:SQ","name":"Equatable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/equatable"],"title":{"content":"Equatable"},"platforms":["iOS","tvOS"]},{"id":1540942,"usr":"s:SH","name":"Hashable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/hashable"],"title":{"content":"Hashable"},"platforms":["iOS","tvOS"]}],"inheritance":[{"id":1622655,"usr":"c:objc(cs)UIView","name":"UIView","domain":"swift","kind":"cl","role":"symbol","paths":["documentation\/uikit\/uiview"],"title":{"content":"UIView"},"platforms":["iOS","tvOS"]}],"module":[{"title":{"content":"UIKit"},"importStatement":"<div><span class=\"syntax-identifier\">import<\/span> UIKit<\/div>","paths":["documentation\/uikit"],"platforms":["iOS","tvOS"]}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIControl<\/span><\/code>","declaration":[{"content":"<span><span class=\"syntax-keyword\">class<\/span> <span class=\"syntax-identifier\">UIControl<\/span> : <a class=\"symbolref\" href=\"\/documentation\/uikit\/uiview\"><span>UIView<\/span><\/a>\n<\/span>","platforms":["iOS","tvOS"]}],"languages":["occ","swift"],"variants":{"occ":{"paths":["documentation\/uikit\/uicontrol"],"usr":"c:objc(cs)UIControl"},"swift":{"paths":["documentation\/uikit\/uicontrol"],"usr":"c:objc(cs)UIControl"}},"diffAvailability":{"minor":{"change":"modified","platform":"Xcode","versions":["9.4","10.0 beta 6"]},"major":{"change":"modified","platform":"Xcode","versions":["9.0","10.0 beta 6"]}},"pid":204223,"role":"symbol","language":"swift","paths":["documentation\/uikit\/uicontrol"],"hierarchy":[[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864393,"role":"collectionGroup","title":{"content":"Views and Controls"},"paths":["documentation\/uikit\/views_and_controls"]}]],"legalNotices":{"copyright":"Copyright &copy; 2018 Apple Inc. All rights reserved.","termsOfUse":"https:\/\/www.apple.com\/legal\/internet-services\/terms\/site.html","privacyPolicy":"https:\/\/www.apple.com\/privacy\/privacy-policy"},"tasks":[{"id":1658545,"role":"task","symbols":[{"id":1618245,"role":"symbol","usr":"c:objc(cs)UIControl(py)state","name":"state","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">state<\/span><span class=\"decorator\">: UIControl<wbr\/>.State<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618245-state"],"title":{"content":"state"},"abstract":"<div><p>The state of the control, specified as a bitmask value.<\/p><\/div>"},{"id":1618217,"role":"symbol","usr":"c:objc(cs)UIControl(py)enabled","name":"enabled","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Enabled<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618217-isenabled"],"title":{"content":"isEnabled"},"abstract":"<div><p>A Boolean value indicating whether the control is enabled.<\/p><\/div>"},{"id":1618203,"role":"symbol","usr":"c:objc(cs)UIControl(py)selected","name":"selected","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Selected<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618203-isselected"],"title":{"content":"isSelected"},"abstract":"<div><p>A Boolean value indicating whether the control is in the selected state.<\/p><\/div>"},{"id":1618231,"role":"symbol","usr":"c:objc(cs)UIControl(py)highlighted","name":"highlighted","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Highlighted<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618231-ishighlighted"],"title":{"content":"isHighlighted"},"abstract":"<div><p>A Boolean value indicating whether the control draws a highlight.<\/p><\/div>"},{"id":1618249,"role":"symbol","usr":"c:objc(cs)UIControl(py)contentVerticalAlignment","name":"contentVerticalAlignment","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">content<wbr\/>Vertical<wbr\/>Alignment<\/span><span class=\"decorator\">: UIControl<wbr\/>.Content<wbr\/>Vertical<wbr\/>Alignment<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618249-contentverticalalignment"],"title":{"content":"contentVerticalAlignment"},"abstract":"<div><p>The vertical alignment of content within the control’s bounds.<\/p><\/div>"},{"id":1618246,"role":"symbol","usr":"c:@E@UIControlContentVerticalAlignment","name":"UIControlContentVerticalAlignment","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIControl<wbr\/>.Content<wbr\/>Vertical<wbr\/>Alignment<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/contentverticalalignment"],"title":{"content":"UIControl.ContentVerticalAlignment"},"abstract":"<div><p>Constants for specifying the vertical alignment of content (text and images) in a control. <\/p><\/div>","hasChildren":true},{"id":1618213,"role":"symbol","usr":"c:objc(cs)UIControl(py)contentHorizontalAlignment","name":"contentHorizontalAlignment","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">content<wbr\/>Horizontal<wbr\/>Alignment<\/span><span class=\"decorator\">: UIControl<wbr\/>.Content<wbr\/>Horizontal<wbr\/>Alignment<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618213-contenthorizontalalignment"],"title":{"content":"contentHorizontalAlignment"},"abstract":"<div><p>The horizontal alignment of content within the control’s bounds.<\/p><\/div>"},{"id":2866070,"role":"symbol","usr":"c:objc(cs)UIControl(py)effectiveContentHorizontalAlignment","name":"effectiveContentHorizontalAlignment","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">effective<wbr\/>Content<wbr\/>Horizontal<wbr\/>Alignment<\/span><span class=\"decorator\">: UIControl<wbr\/>.Content<wbr\/>Horizontal<wbr\/>Alignment<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/2866070-effectivecontenthorizontalalignm"],"title":{"content":"effectiveContentHorizontalAlignment"},"abstract":"<div><p>The horizontal alignment currently in effect for the control. <\/p><\/div>"},{"id":1618243,"role":"symbol","usr":"c:@E@UIControlContentHorizontalAlignment","name":"UIControlContentHorizontalAlignment","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIControl<wbr\/>.Content<wbr\/>Horizontal<wbr\/>Alignment<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/contenthorizontalalignment"],"title":{"content":"UIControl.ContentHorizontalAlignment"},"abstract":"<div><p>The horizontal alignment of content (text and images) within a control.<\/p><\/div>","hasChildren":true}],"title":{"content":"Configuring the Control’s Attributes"}},{"id":1658600,"role":"task","symbols":[{"id":1618259,"role":"symbol","usr":"c:objc(cs)UIControl(im)addTarget:action:forControlEvents:","name":"addTarget(_:action:forControlEvents:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">add<wbr\/>Target<\/span><span class=\"decorator\">(Any?, <\/span><span class=\"identifier\">action<\/span><span class=\"decorator\">: Selector, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.Event)<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618259-addtarget"],"title":{"content":"addTarget(_:action:for:)"},"abstract":"<div><p>Associates a target object and action method with the control.<\/p><\/div>"},{"id":1618248,"role":"symbol","usr":"c:objc(cs)UIControl(im)removeTarget:action:forControlEvents:","name":"removeTarget(_:action:forControlEvents:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">remove<wbr\/>Target<\/span><span class=\"decorator\">(Any?, <\/span><span class=\"identifier\">action<\/span><span class=\"decorator\">: Selector?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.Event)<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618248-removetarget"],"title":{"content":"removeTarget(_:action:for:)"},"abstract":"<div><p>Stops the delivery of events to the specified target object.<\/p><\/div>"},{"id":1618251,"role":"symbol","usr":"c:objc(cs)UIControl(im)actionsForTarget:forControlEvent:","name":"actionsForTarget(_:forControlEvent:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">actions<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Target<\/span><span class=\"decorator\">: Any?, <\/span><span class=\"identifier\">for<wbr\/>Control<wbr\/>Event<\/span><span class=\"decorator\">: UIControl<wbr\/>.Event) -&gt; [String]?<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618251-actions"],"title":{"content":"actions(forTarget:forControlEvent:)"},"abstract":"<div><p>Returns the actions performed on a target object when the specified event occurs.<\/p><\/div>"},{"id":1618225,"role":"symbol","usr":"c:objc(cs)UIControl(py)allControlEvents","name":"allControlEvents","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"10.0"},{"platform":"tvOS","introduced":"10.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">all<wbr\/>Control<wbr\/>Events<\/span><span class=\"decorator\">: UIControl<wbr\/>.Event<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618225-allcontrolevents"],"title":{"content":"allControlEvents"},"abstract":"<div><p>Returns the events for which the control has associated actions.<\/p><\/div>"},{"id":1618207,"role":"symbol","usr":"c:objc(cs)UIControl(py)allTargets","name":"allTargets","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"10.0"},{"platform":"tvOS","introduced":"10.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">all<wbr\/>Targets<\/span><span class=\"decorator\">: Set&lt;Any<wbr\/>Hashable&gt;<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618207-alltargets"],"title":{"content":"allTargets"},"abstract":"<div><p>Returns all target objects associated with the control.<\/p><\/div>"}],"title":{"content":"Accessing the Control’s Targets and Actions"}},{"id":1658655,"role":"task","symbols":[{"id":1618237,"role":"symbol","usr":"c:objc(cs)UIControl(im)sendAction:to:forEvent:","name":"sendAction(_:to:forEvent:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">send<wbr\/>Action<\/span><span class=\"decorator\">(Selector, <\/span><span class=\"identifier\">to<\/span><span class=\"decorator\">: Any?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIEvent?)<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618237-sendaction"],"title":{"content":"sendAction(_:to:for:)"},"abstract":"<div><p>Calls the specified action method.<\/p><\/div>"},{"id":1618211,"role":"symbol","usr":"c:objc(cs)UIControl(im)sendActionsForControlEvents:","name":"sendActionsForControlEvents(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">send<wbr\/>Actions<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.Event)<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618211-sendactions"],"title":{"content":"sendActions(for:)"},"abstract":"<div><p>Calls the action methods associated with the specified events.<\/p><\/div>"}],"title":{"content":"Triggering Actions"}},{"id":1658693,"role":"task","symbols":[{"id":1618227,"role":"symbol","usr":"c:objc(cs)UIControl(im)beginTrackingWithTouch:withEvent:","name":"beginTrackingWithTouch(_:withEvent:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">begin<wbr\/>Tracking<\/span><span class=\"decorator\">(UITouch, <\/span><span class=\"identifier\">with<\/span><span class=\"decorator\">: UIEvent?) -&gt; Bool<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618227-begintracking"],"title":{"content":"beginTracking(_:with:)"},"abstract":"<div><p>Called when a touch event enters the control’s bounds.<\/p><\/div>"},{"id":1618216,"role":"symbol","usr":"c:objc(cs)UIControl(im)continueTrackingWithTouch:withEvent:","name":"continueTrackingWithTouch(_:withEvent:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">continue<wbr\/>Tracking<\/span><span class=\"decorator\">(UITouch, <\/span><span class=\"identifier\">with<\/span><span class=\"decorator\">: UIEvent?) -&gt; Bool<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618216-continuetracking"],"title":{"content":"continueTracking(_:with:)"},"abstract":"<div><p>Called when a touch event associated with the control is updated.<\/p><\/div>"},{"id":1618234,"role":"symbol","usr":"c:objc(cs)UIControl(im)endTrackingWithTouch:withEvent:","name":"endTrackingWithTouch(_:withEvent:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">end<wbr\/>Tracking<\/span><span class=\"decorator\">(UITouch?, <\/span><span class=\"identifier\">with<\/span><span class=\"decorator\">: UIEvent?)<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618234-endtracking"],"title":{"content":"endTracking(_:with:)"},"abstract":"<div><p>Called when a touch event associated with the control ends. <\/p><\/div>"},{"id":1618219,"role":"symbol","usr":"c:objc(cs)UIControl(im)cancelTrackingWithEvent:","name":"cancelTrackingWithEvent(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">cancel<wbr\/>Tracking<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">with<\/span><span class=\"decorator\">: UIEvent?)<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618219-canceltracking"],"title":{"content":"cancelTracking(with:)"},"abstract":"<div><p>Tells the control to cancel tracking related to the given event.<\/p><\/div>"},{"id":1618210,"role":"symbol","usr":"c:objc(cs)UIControl(py)tracking","name":"tracking","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Tracking<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618210-istracking"],"title":{"content":"isTracking"},"abstract":"<div><p>A Boolean value indicating whether the control is currently tracking touch events.<\/p><\/div>"},{"id":1618229,"role":"symbol","usr":"c:objc(cs)UIControl(py)touchInside","name":"touchInside","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Touch<wbr\/>Inside<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/1618229-istouchinside"],"title":{"content":"isTouchInside"},"abstract":"<div><p>A Boolean value indicating whether a tracked touch event is currently inside the control’s bounds.<\/p><\/div>"}],"title":{"content":"Tracking Touches and Redrawing Controls"}},{"id":1675523,"role":"task","symbols":[{"id":1618232,"role":"symbol","usr":"c:@E@UIControlEvents","name":"UIControlEvents","domain":"swift","kind":"struct","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">struct <\/span><span class=\"identifier\">UIControl<wbr\/>.Event<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/event"],"title":{"content":"UIControl.Event"},"abstract":"<div><p>Constants describing the types of events possible for controls.<\/p><\/div>","hasChildren":true},{"id":1618255,"role":"symbol","usr":"c:@E@UIControlState","name":"UIControlState","domain":"swift","kind":"struct","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">struct <\/span><span class=\"identifier\">UIControl<wbr\/>.State<\/span><\/code>","paths":["documentation\/uikit\/uicontrol\/state"],"title":{"content":"UIControl.State"},"abstract":"<div><p>Constants describing the state of a control.<\/p><\/div>","hasChildren":true}],"title":{"content":"Constants"}}]}</script>
+  <script src="/documentation/__assets/TopicDetail-018c52ac.js"></script>
+ </body>
+</html>

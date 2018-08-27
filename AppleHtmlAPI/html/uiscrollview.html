@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>UIScrollView - UIKit | Apple Developer Documentation</title>
+  <meta content="width=device-width, initial-scale=1 viewport-fit=cover" name="viewport">
+  <meta data-pid="201964">
+  <link href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Mono,v1|SF+Pro+Icons,v1" media="all" rel="stylesheet" type="text/css">
+  <link href="/documentation/__assets/application-324aa72c.css" media="all" rel="stylesheet" type="text/css">
+  <noscript>
+   <link href="/documentation/__assets/nojs-c6be9131.css" media="all" rel="stylesheet" type="text/css">
+  </noscript>
+  <link rel="mask-icon" href="/documentation/__assets/apple-logo.svg" color="#000">
+  <link rel="shortcut icon" href="/documentation/__assets/favicon.ico">
+  <script src="/documentation/__assets/shared-f73bc3d2.js"></script>
+  <script id="init-data" type="application/json">{"variant":{"paths":["documentation\/uikit\/uiscrollview"],"usr":"c:objc(cs)UIScrollView"}}</script>
+  <script src="/documentation/__assets/init-88dd23db.js"></script>
+ </head>
+ <body>
+  <div id="_omniture_top"> 
+   <script type="text/javascript">
+        var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+      </script> 
+   <script type="text/javascript" src="https://www.apple.com/metrics/scripts/s_code_h.js"></script> 
+   <script type="text/javascript">
+        s.pageName=AC.Tracking.pageName();
+        s.channel="www.us.developer"
+
+        var s_code=s.t();if(s_code)document.write(s_code)
+      </script> 
+  </div>
+  <div id="app">
+   <div>
+    <a href="#main" id="skip-localnav" class="showonfocus hidden">Skip Navigation</a>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US">
+     <div class="ac-gn-content"> 
+      <ul class="ac-gn-header"> 
+       <li class="ac-gn-item ac-gn-menuicon"> <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span> </span> </label> <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open"> <span class="ac-gn-menuanchor-label">Open Menu</span> </a> <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close"> <span class="ac-gn-menuanchor-label">Close Menu</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus-small"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small"> <a class="ac-gn-link ac-gn-link-bag" href="/account/"> <span class="ac-gn-link-text">Account</span> <span class="ac-gn-bag-badge"></span> </a> <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span> </li> 
+      </ul> 
+      <ul class="ac-gn-list"> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-discover"> <a class="ac-gn-link" href="/discover/"> <span>Discover</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-design"> <a class="ac-gn-link" href="/design/"> <span>Design</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-develop"> <a class="ac-gn-link" href="/develop/"> <span>Develop</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-distribute"> <a class="ac-gn-link" href="/distribute/"> <span>Distribute</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-support"> <a class="ac-gn-link" href="/support/"> <span>Support</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-account"> <a class="ac-gn-link" href="/account/"> <span>Account</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search"> <a id="ac-gn-search-button" class="ac-gn-link ac-gn-link-search" href="/search/" aria-label="Search developer.apple.com"> <span class="ac-gn-search-placeholder" aria-hidden="true">Search</span> </a> </li> 
+      </ul> 
+      <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search"> 
+       <div class="ac-gn-searchview-content"> 
+        <form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get"> 
+         <div class="ac-gn-searchform-wrapper"> 
+          <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" placeholder="Search" data-placeholder-long="Search for documentation, videos, and more" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false"> 
+          <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit"></button> 
+          <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search"></button> 
+         </div> 
+        </form> 
+        <aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="Hit enter to search."> 
+        </aside> 
+       </div> 
+       <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search"> <span class="ac-gn-searchview-close-wrapper"> <span class="ac-gn-searchview-close-left"></span> <span class="ac-gn-searchview-close-right"></span> </span> </button> 
+      </aside> 
+     </div>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+    <input type="checkbox" id="localnav-menustate" class="localnav-menustate" aria-hidden="true">
+    <nav id="localnav" class="localnav localnav-dark theme-dark localnav-scrim localnav-noborder" role="navigation" aria-label="API Reference" data-sticky="true">
+     <div class="localnav-wrapper">
+      <div class="referencenav">
+       <div class="localnav-background"></div>
+       <div class="localnav-content">
+        <a href="/documentation" class="localnav-title">Documentation</a>
+        <div class="localnav-menu">
+         <a href="#localnav-menustate" id="localnav-menustate-open" class="localnav-menucta-anchor localnav-menucta-anchor-open"><span class="localnav-menucta-anchor-label" aria-hidden="true">Open Menu</span></a>
+         <a href="#" id="localnav-menustate-close" class="localnav-menucta-anchor localnav-menucta-anchor-close"><span class="localnav-menucta-anchor-label" aria-hidden="true">Close Menu</span></a>
+         <div class="localnav-menu-tray">
+          <ul aria-label="Breadcrumbs" class="localnav-menu-items localnav-menu-breadcrumbs">
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit">UIKit</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit/views_and_controls">Views and Controls</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item">
+            <div class="localnav-menu-breadcrumb-current-container localnav-menu-link current">
+             <span aria-current="page" class="localnav-menu-breadcrumb-current">UIScrollView</span>
+            </div></li>
+          </ul>
+          <ul class="localnav-menu-items localnav-menu-settings" data-breadcrumbs-count="3">
+           <li class="localnav-menu-setting language-container">
+            <div class="language-toggle-container">
+             <label for="language-toggle" class="language-toggle-label">Language:</label>
+             <select id="language-toggle" class="language-dropdown localnav-menu-link" style="width:auto;"><option selected value="swift">Swift</option><option value="occ">Objective-C</option></select>
+            </div>
+            <div class="language-list-container">
+             <span class="localnav-menu-setting-label">Language:</span>
+             <ul class="language-list">
+              <li class="language-list-item"><span data-language="swift" aria-current="page" class="current-language">Swift</span></li>
+              <li class="language-list-item"><a href="/documentation/uikit/uiscrollview?language=objc" class="localnav-menu-setting-link">Objective-C</a></li>
+             </ul>
+            </div></li>
+           <li class="localnav-menu-setting"><span class="localnav-menu-setting-label">API Changes:</span><a href="/documentation/uikit/uiscrollview?changes=latest_minor" class="localnav-menu-setting-link changes-toggle changes-toggle-show" aria-label="Show API Changes">Show</a></li>
+          </ul>
+         </div>
+         <div class="localnav-actions">
+          <div class="localnav-action localnav-action-menucta" aria-hidden="true">
+           <label for="localnav-menustate" class="localnav-menucta"><span class="localnav-menucta-chevron"></span></label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </nav>
+    <label for="localnav-menustate" id="localnav-curtain" aria-hidden="true"></label>
+    <main role="main" id="main" class="main" tabindex="0">
+     <div class="topic-title">
+      <span class="eyebrow">Class</span>
+      <h1 class="topic-heading"><span>UIScroll<wbr>View</span></h1>
+     </div>
+     <div class="topic-container section-content row">
+      <div class="topic-description column large-9 medium-9 small-12">
+       <div class="topic-abstract abstract formatted-content">
+        <div>
+         <p>A view that allows the scrolling and zooming of its contained views. </p>
+        </div>
+       </div>
+      </div>
+      <div class="topic-summary column large-3 medium-3 small-12">
+       <div class="topic-summary-section sdks" role="complementary" aria-label="SDKs">
+        <p class="topic-summary-section-label subsection-label">SDKs</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item sdk"><span aria-label="iOS 2.0+, Available on iOS 2.0 and later" role="text" title="Available on iOS 2.0 and later">iOS 2.0+</span></li>
+         <li class="topic-summary-section-item sdk"><span aria-label="tvOS 9.0+, Available on tvOS 9.0 and later" role="text" title="Available on tvOS 9.0 and later">tvOS 9.0+</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section frameworks" role="complementary" aria-label="Framework">
+        <p class="topic-summary-section-label subsection-label">Framework</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item"><span>UIKit</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section onthispage">
+        <nav class="onthispage-nav" aria-labelledby="onthispage-title">
+         <p id="onthispage-title" class="topic-summary-section-label subsection-label">On This Page</p>
+         <ul class="topic-summary-section-list">
+          <li class="topic-summary-section-item"><a href="#overview" class="icon icon-after icon-chevrondowncircle">Overview</a></li>
+          <li class="topic-summary-section-item"><a href="#topics" class="icon icon-after icon-chevrondowncircle">Topics</a></li>
+          <li class="topic-summary-section-item"><a href="#relationships" class="icon icon-after icon-chevrondowncircle">Relationships</a></li>
+          <li class="topic-summary-section-item"><a href="#see-also" class="icon icon-after icon-chevrondowncircle">See Also</a></li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+      <div class="topic-content column large-9 medium-9 small-12" id="topic-content">
+       <section id="overview" class="section">
+        <h2>Overview</h2>
+        <div class="formatted-content">
+         <div>
+          <p><code class="code-voice"><span>UIScroll<wbr>View</span></code> is the superclass of several UIKit classes including <a class="symbol-name" href="/documentation/uikit/uitableview"><code><span>UITable<wbr>View</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uitextview"><code><span>UIText<wbr>View</span></code></a>.</p>
+          <p>The central notion of a <code class="code-voice"><span>UIScroll<wbr>View</span></code> object (or, simply, a scroll view) is that it is a view whose origin is adjustable over the content view. It clips the content to its frame, which generally (but not necessarily) coincides with that of the application’s main window. A scroll view tracks the movements of fingers and adjusts the origin accordingly. The view that is showing its content “through” the scroll view draws that portion of itself based on the new origin, which is pinned to an offset in the content view. The scroll view itself does no drawing except for displaying vertical and horizontal scroll indicators. The scroll view must know the size of the content view so it knows when to stop scrolling; by default, it “bounces” back when scrolling exceeds the bounds of the content.</p>
+          <p>The object that manages the drawing of content displayed in a scroll view should tile the content’s subviews so that no view exceeds the size of the screen. As users scroll in the scroll view, this object should add and remove subviews as necessary.</p>
+          <p>Because a scroll view has no scroll bars, it must know whether a touch signals an intent to scroll versus an intent to track a subview in the content. To make this determination, it temporarily intercepts a touch-down event by starting a timer and, before the timer fires, seeing if the touching finger makes any movement. If the timer fires without a significant change in position, the scroll view sends tracking events to the touched subview of the content view. If the user then drags their finger far enough before the timer elapses, the scroll view cancels any tracking in the subview and performs the scrolling itself. Subclasses can override the <a class="symbol-name" href="/documentation/uikit/uiscrollview/1619418-touchesshouldbegin"><code><span>touches<wbr>Should<wbr>Begin(_:<wbr>with:<wbr>in:)</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uiscrollview/1619432-ispagingenabled"><code><span>is<wbr>Paging<wbr>Enabled</span></code></a>, and <a class="symbol-name" href="/documentation/uikit/uiscrollview/1619387-touchesshouldcancel"><code><span>touches<wbr>Should<wbr>Cancel(in:)</span></code></a> methods (which are called by the scroll view) to affect how the scroll view handles scrolling gestures.</p>
+          <p>A scroll view also handles zooming and panning of content. As the user makes a pinch-in or pinch-out gesture, the scroll view adjusts the offset and the scale of the content. When the gesture ends, the object managing the content view should update subviews of the content as necessary. (Note that the gesture can end and a finger could still be down.) While the gesture is in progress, the scroll view does not send any tracking calls to the subview. </p>
+          <p>The <code class="code-voice"><span>UIScroll<wbr>View</span></code> class can have a delegate that must adopt the <a class="symbol-name" href="/documentation/uikit/uiscrollviewdelegate"><code><span>UIScroll<wbr>View<wbr>Delegate</span></code></a> protocol. For zooming and panning to work, the delegate must implement both <a class="symbol-name" href="/documentation/uikit/uiscrollviewdelegate/1619426-viewforzooming"><code><span>view<wbr>For<wbr>Zooming(in:)</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uiscrollviewdelegate/1619407-scrollviewdidendzooming"><code><span>scroll<wbr>View<wbr>Did<wbr>End<wbr>Zooming(_:<wbr>with:<wbr>at<wbr>Scale:)</span></code></a>; in addition, the maximum (<a class="symbol-name" href="/documentation/uikit/uiscrollview/1619408-maximumzoomscale"><code><span>maximum<wbr>Zoom<wbr>Scale</span></code></a>) and minimum ( <a class="symbol-name" href="/documentation/uikit/uiscrollview/1619428-minimumzoomscale"><code><span>minimum<wbr>Zoom<wbr>Scale</span></code></a>) zoom scale must be different. </p>
+         </div>
+         <h3 id="1653221">State Preservation</h3>
+         <div>
+          <p>If you assign a value to this view’s <a class="symbol-name" href="/documentation/uikit/uiviewcontroller/1621499-restorationidentifier"><code><span>restoration<wbr>Identifier</span></code></a> property, it attempts to preserve its scrolling-related information between app launches. Specifically, the values of the <a class="symbol-name" href="/documentation/uikit/uiscrollview/1619419-zoomscale"><code><span>zoom<wbr>Scale</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uiscrollview/1619406-contentinset"><code><span>content<wbr>Inset</span></code></a>, and <a class="symbol-name" href="/documentation/uikit/uiscrollview/1619404-contentoffset"><code><span>content<wbr>Offset</span></code></a> properties are preserved. During restoration, the scroll view restores these values so that the content appears scrolled to the same position as before. For more information about how state preservation and restoration works, see <a href="https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007072">App Programming Guide for iOS</a>. </p>
+         </div>
+        </div>
+       </section>
+      </div>
+     </div>
+     <section id="topics" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Topics</h2>
+        <section id="1653722" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Responding to Scroll View Interactions</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619430-delegate"><code class="display-name"><span class="decorator">var </span><span class="identifier">delegate</span><span class="decorator">: UIScroll<wbr>View<wbr>Delegate?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The delegate of the scroll-view object.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollviewdelegate"><code class="display-name"><span class="decorator">protocol </span><span class="identifier">UIScroll<wbr>View<wbr>Delegate</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The methods declared by the <code class="code-voice"><span>UIScroll<wbr>View<wbr>Delegate</span></code> protocol allow the adopting delegate to respond to messages from the <a class="symbol-name" href="/documentation/uikit/uiscrollview"><code><span>UIScroll<wbr>View</span></code></a> class and thus respond to, and in some affect, operations such as scrolling, zooming, deceleration of scrolled content, and scrolling animations.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653235" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing the Content Size and Offset</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619399-contentsize"><code class="display-name"><span class="decorator">var </span><span class="identifier">content<wbr>Size</span><span class="decorator">: CGSize</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The size of the content view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619404-contentoffset"><code class="display-name"><span class="decorator">var </span><span class="identifier">content<wbr>Offset</span><span class="decorator">: CGPoint</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The point at which the origin of the content view is offset from the origin of the scroll view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619400-setcontentoffset"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Content<wbr>Offset</span><span class="decorator">(CGPoint, </span><span class="identifier">animated</span><span class="decorator">: Bool)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the offset from the content view’s origin that corresponds to the receiver’s origin.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="2923857" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing the Content Inset Behavior</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/2902259-adjustedcontentinset"><code class="display-name"><span class="decorator">var </span><span class="identifier">adjusted<wbr>Content<wbr>Inset</span><span class="decorator">: UIEdge<wbr>Insets</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The insets derived from the content insets and the safe area of the scroll view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619406-contentinset"><code class="display-name"><span class="decorator">var </span><span class="identifier">content<wbr>Inset</span><span class="decorator">: UIEdge<wbr>Insets</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The custom distance that the content view is inset from the safe area or scroll view edges.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/2902261-contentinsetadjustmentbehavior"><code class="display-name"><span class="decorator">var </span><span class="identifier">content<wbr>Inset<wbr>Adjustment<wbr>Behavior</span><span class="decorator">: UIScroll<wbr>View<wbr>.Content<wbr>Inset<wbr>Adjustment<wbr>Behavior</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The behavior for determining the adjusted content offsets.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/contentinsetadjustmentbehavior"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIScroll<wbr>View<wbr>.Content<wbr>Inset<wbr>Adjustment<wbr>Behavior</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Constants indicating how safe area insets are added to the adjusted content inset.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/2902254-adjustedcontentinsetdidchange"><code class="display-name"><span class="decorator">func </span><span class="identifier">adjusted<wbr>Content<wbr>Inset<wbr>Did<wbr>Change</span><span class="decorator">()</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Called when the adjusted content insets of the scroll view change.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="2874282" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Getting the Layout Guides</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/2865772-framelayoutguide"><code class="display-name"><span class="decorator">var </span><span class="identifier">frame<wbr>Layout<wbr>Guide</span><span class="decorator">: UILayout<wbr>Guide</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The layout guide based on the untransformed frame rectangle of the scroll view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/2865870-contentlayoutguide"><code class="display-name"><span class="decorator">var </span><span class="identifier">content<wbr>Layout<wbr>Guide</span><span class="decorator">: UILayout<wbr>Guide</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The layout guide based on the untranslated content rectangle of the scroll view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="2923858" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Configuring the Scroll View</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619395-isscrollenabled"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Scroll<wbr>Enabled</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether scrolling is enabled.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619390-isdirectionallockenabled"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Directional<wbr>Lock<wbr>Enabled</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether scrolling is disabled in a particular direction.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619432-ispagingenabled"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Paging<wbr>Enabled</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether paging is enabled for the scroll view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619421-scrollstotop"><code class="display-name"><span class="decorator">var </span><span class="identifier">scrolls<wbr>To<wbr>Top</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that controls whether the scroll-to-top gesture is enabled.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619420-bounces"><code class="display-name"><span class="decorator">var </span><span class="identifier">bounces</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that controls whether the scroll view bounces past the edge of content and back again.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619383-alwaysbouncevertical"><code class="display-name"><span class="decorator">var </span><span class="identifier">always<wbr>Bounce<wbr>Vertical</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether bouncing always occurs when vertical scrolling reaches the end of the content.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619393-alwaysbouncehorizontal"><code class="display-name"><span class="decorator">var </span><span class="identifier">always<wbr>Bounce<wbr>Horizontal</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether bouncing always occurs when horizontal scrolling reaches the end of the content view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="2923859" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Getting the Scrolling State</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619413-istracking"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Tracking</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns whether the user has touched the content to initiate scrolling.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619384-isdragging"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Dragging</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that indicates whether the user has begun scrolling the content.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619434-isdecelerating"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Decelerating</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns whether the content is moving in the scroll view after the user lifted their finger.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619438-decelerationrate"><code class="display-name"><span class="decorator">var </span><span class="identifier">deceleration<wbr>Rate</span><span class="decorator">: UIScroll<wbr>View<wbr>.Deceleration<wbr>Rate</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A floating-point value that determines the rate of deceleration after the user lifts their finger.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/decelerationrate"><code class="display-name"><span class="decorator">struct </span><span class="identifier">UIScroll<wbr>View<wbr>.Deceleration<wbr>Rate</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Deceleration rates for the scroll view.</p>
+               </div>
+              </div>
+              <span class="violator violator-inline violator-beta task-topic-violator task-topic-data" role="presentation">Beta</span>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653464" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing the Scroll Indicator and Refresh Control</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619433-indicatorstyle"><code class="display-name"><span class="decorator">var </span><span class="identifier">indicator<wbr>Style</span><span class="decorator">: UIScroll<wbr>View<wbr>.Indicator<wbr>Style</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The style of the scroll indicators. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/indicatorstyle"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIScroll<wbr>View<wbr>.Indicator<wbr>Style</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The style of the scroll indicators. You use these constants to set the value of the <a class="symbol-name" href="/documentation/uikit/uiscrollview/1619433-indicatorstyle"><code><span>indicator<wbr>Style</span></code></a> style.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619427-scrollindicatorinsets"><code class="display-name"><span class="decorator">var </span><span class="identifier">scroll<wbr>Indicator<wbr>Insets</span><span class="decorator">: UIEdge<wbr>Insets</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The distance the scroll indicators are inset from the edge of the scroll view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619380-showshorizontalscrollindicator"><code class="display-name"><span class="decorator">var </span><span class="identifier">shows<wbr>Horizontal<wbr>Scroll<wbr>Indicator</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that controls whether the horizontal scroll indicator is visible.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619405-showsverticalscrollindicator"><code class="display-name"><span class="decorator">var </span><span class="identifier">shows<wbr>Vertical<wbr>Scroll<wbr>Indicator</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that controls whether the vertical scroll indicator is visible.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619435-flashscrollindicators"><code class="display-name"><span class="decorator">func </span><span class="identifier">flash<wbr>Scroll<wbr>Indicators</span><span class="decorator">()</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Displays the scroll indicators momentarily.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/2127691-refreshcontrol"><code class="display-name"><span class="decorator">var </span><span class="identifier">refresh<wbr>Control</span><span class="decorator">: UIRefresh<wbr>Control?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The refresh control associated with the scroll view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="2923860" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Scrolling to a Specific Location</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619439-scrollrecttovisible"><code class="display-name"><span class="decorator">func </span><span class="identifier">scroll<wbr>Rect<wbr>To<wbr>Visible</span><span class="decorator">(CGRect, </span><span class="identifier">animated</span><span class="decorator">: Bool)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Scrolls a specific area of the content so that it is visible in the receiver.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653288" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing Touches</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619418-touchesshouldbegin"><code class="display-name"><span class="decorator">func </span><span class="identifier">touches<wbr>Should<wbr>Begin</span><span class="decorator">(Set&lt;UITouch&gt;, </span><span class="identifier">with</span><span class="decorator">: UIEvent?, </span><span class="identifier">in</span><span class="decorator">: UIView) -&gt; Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Overridden by subclasses to customize the default behavior when a finger touches down in displayed content.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619387-touchesshouldcancel"><code class="display-name"><span class="decorator">func </span><span class="identifier">touches<wbr>Should<wbr>Cancel</span><span class="decorator">(</span><span class="identifier">in</span><span class="decorator">: UIView) -&gt; Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns whether to cancel touches related to the content subview and start dragging.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619424-cancancelcontenttouches"><code class="display-name"><span class="decorator">var </span><span class="identifier">can<wbr>Cancel<wbr>Content<wbr>Touches</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that controls whether touches in the content view always lead to tracking.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619398-delayscontenttouches"><code class="display-name"><span class="decorator">var </span><span class="identifier">delays<wbr>Content<wbr>Touches</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether the scroll view delays the handling of touch-down gestures.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1627702-directionalpressgesturerecognize"><code class="display-name"><span class="decorator">var </span><span class="identifier">directional<wbr>Press<wbr>Gesture<wbr>Recognizer</span><span class="decorator">: UIGesture<wbr>Recognizer</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The underlying gesture recognizer for directional button presses.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653544" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Zooming and Panning</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619425-pangesturerecognizer"><code class="display-name"><span class="decorator">var </span><span class="identifier">pan<wbr>Gesture<wbr>Recognizer</span><span class="decorator">: UIPan<wbr>Gesture<wbr>Recognizer</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The underlying gesture recognizer for pan gestures.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619381-pinchgesturerecognizer"><code class="display-name"><span class="decorator">var </span><span class="identifier">pinch<wbr>Gesture<wbr>Recognizer</span><span class="decorator">: UIPinch<wbr>Gesture<wbr>Recognizer?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The underlying gesture recognizer for pinch gestures.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619388-zoom"><code class="display-name"><span class="decorator">func </span><span class="identifier">zoom</span><span class="decorator">(</span><span class="identifier">to</span><span class="decorator">: CGRect, </span><span class="identifier">animated</span><span class="decorator">: Bool)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Zooms to a specific area of the content so that it is visible in the receiver.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619419-zoomscale"><code class="display-name"><span class="decorator">var </span><span class="identifier">zoom<wbr>Scale</span><span class="decorator">: CGFloat</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A floating-point value that specifies the current scale factor applied to the scroll view's content.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619412-setzoomscale"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Zoom<wbr>Scale</span><span class="decorator">(CGFloat, </span><span class="identifier">animated</span><span class="decorator">: Bool)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A floating-point value that specifies the current zoom scale.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619408-maximumzoomscale"><code class="display-name"><span class="decorator">var </span><span class="identifier">maximum<wbr>Zoom<wbr>Scale</span><span class="decorator">: CGFloat</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A floating-point value that specifies the maximum scale factor that can be applied to the scroll view's content.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619428-minimumzoomscale"><code class="display-name"><span class="decorator">var </span><span class="identifier">minimum<wbr>Zoom<wbr>Scale</span><span class="decorator">: CGFloat</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A floating-point value that specifies the minimum scale factor that can be applied to the scroll view's content.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619423-iszoombouncing"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Zoom<wbr>Bouncing</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that indicates that zooming has exceeded the scaling limits specified for the receiver.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619429-iszooming"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Zooming</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that indicates whether the content view is currently zooming in or out.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619410-bounceszoom"><code class="display-name"><span class="decorator">var </span><span class="identifier">bounces<wbr>Zoom</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether the scroll view animates the content scaling when the scaling exceeds the maximum or minimum limits.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653748" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing the Keyboard</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/1619437-keyboarddismissmode"><code class="display-name"><span class="decorator">var </span><span class="identifier">keyboard<wbr>Dismiss<wbr>Mode</span><span class="decorator">: UIScroll<wbr>View<wbr>.Keyboard<wbr>Dismiss<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The manner in which the keyboard is dismissed when a drag begins in the scroll view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/keyboarddismissmode"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIScroll<wbr>View<wbr>.Keyboard<wbr>Dismiss<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The manner in which the keyboard is dismissed when a drag begins in the scroll view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="2868475" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing the Index</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/2851452-indexdisplaymode"><code class="display-name"><span class="decorator">var </span><span class="identifier">index<wbr>Display<wbr>Mode</span><span class="decorator">: UIScroll<wbr>View<wbr>.Index<wbr>Display<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The manner in which the index is shown while the user is scrolling.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview/indexdisplaymode"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIScroll<wbr>View<wbr>.Index<wbr>Display<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The manner in which the index is shown while the user is scrolling.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="relationships" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Relationships</h2>
+        <section id="inherits-from" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Inherits From</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <a class="symbol-name" href="/documentation/uikit/uiview"><code><span>UIView</span></code></a>
+          </div>
+         </div>
+        </section>
+        <section id="conforms-to" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Conforms To</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <ul class="relationships-section-content-columns">
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/cvararg"><code><span>CVar<wbr>Arg</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/equatable"><code><span>Equatable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/hashable"><code><span>Hashable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/foundation/nscoding"><code><span>NSCoding</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiaccessibilityidentification"><code><span>UIAccessibility<wbr>Identification</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uifocusitemscrollablecontainer"><code><span>UIFocus<wbr>Item<wbr>Scrollable<wbr>Container</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uipasteconfigurationsupporting"><code><span>UIPaste<wbr>Configuration<wbr>Supporting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiuseractivityrestoring"><code><span>UIUser<wbr>Activity<wbr>Restoring</span></code></a></li>
+           </ul>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="see-also" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">See Also</h2>
+        <section id="2864441" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Container Views</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name" href="/documentation/uikit/views_and_controls/collection_views">
+               <svg xmlns="http://www.w3.org/2000/svg" height="16" viewbox="0 0 15 16" class="svg-icon symbol-name-icon" aria-hidden="true">
+                <title>API Collection</title>
+                <g class="svg-icon-small" fill-rule="evenodd">
+                 <path fill-rule="nonzero" d="M0,0 L15,0 L15,15 L0,15 L0,0 Z M1,14 L14,14 L14,1 L1,1 L1,14 Z"></path>
+                 <polygon points="4 11 3 11 3 10 4 10"></polygon>
+                 <polygon points="4 8 3 8 3 7 4 7"></polygon>
+                 <polygon points="4 5 3 5 3 4 4 4"></polygon>
+                 <polygon points="12 11 5 11 5 10 12 10"></polygon>
+                 <polygon points="12 8 5 8 5 7 12 7"></polygon>
+                 <polygon points="12 5 5 5 5 4 12 4"></polygon>
+                </g>
+               </svg><span>Collection Views</span></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Display nested views using a configurable and highly customizable layout.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name" href="/documentation/uikit/views_and_controls/table_views">
+               <svg xmlns="http://www.w3.org/2000/svg" height="16" viewbox="0 0 15 16" class="svg-icon symbol-name-icon" aria-hidden="true">
+                <title>API Collection</title>
+                <g class="svg-icon-small" fill-rule="evenodd">
+                 <path fill-rule="nonzero" d="M0,0 L15,0 L15,15 L0,15 L0,0 Z M1,14 L14,14 L14,1 L1,1 L1,14 Z"></path>
+                 <polygon points="4 11 3 11 3 10 4 10"></polygon>
+                 <polygon points="4 8 3 8 3 7 4 7"></polygon>
+                 <polygon points="4 5 3 5 3 4 4 4"></polygon>
+                 <polygon points="12 11 5 11 5 10 12 10"></polygon>
+                 <polygon points="12 8 5 8 5 7 12 7"></polygon>
+                 <polygon points="12 5 5 5 5 4 12 4"></polygon>
+                </g>
+               </svg><span>Table Views</span></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Display data in a single column of customizable rows.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIStack<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A streamlined interface for laying out a collection of views in either a column or a row. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <div class="betainfo section-alt row">
+      <div class="section-content">
+       <div class="column large-8 medium-8 small-12 large-centered medium-centered small-centered">
+        <p class="betainfo-label subsection-label">Beta Software</p>
+        <p class="betainfo-content">This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.</p>
+        <a href="/support/beta-software/" class="betainfo-link more">Learn more about using Apple's beta software</a>
+       </div>
+      </div>
+     </div>
+    </main>
+    <section id="globalfooter-wrapper">
+     <footer id="globalfooter" role="contentinfo"> 
+      <nav class="footer-breadory"> 
+       <a href="/" class="home breadcrumbs-home"><span aria-hidden="true"></span><span class="breadcrumbs-home-label">Developer</span></a> 
+       <section class="breadcrumbs"> 
+        <ol class="breadcrumbs-list"> 
+         <li><a href="/documentation">Documentation</a></li> 
+        </ol> 
+       </section> 
+       <div id="directorynav" class="directorynav"> 
+        <div id="dn-cola" class="column"> 
+         <h3><a href="/discover/">Discover</a></h3> 
+         <ul> 
+          <li><a href="/macos/">macOS</a></li> 
+          <li><a href="/ios/">iOS</a></li> 
+          <li><a href="/watchos/">watchOS</a></li> 
+          <li><a href="/tvos/">tvOS</a></li> 
+          <li><a href="/safari/">Safari and Web</a></li> 
+          <li><a href="/games/">Games</a></li> 
+          <li><a href="/enterprise/">Enterprise</a></li> 
+          <li><a href="/education/">Education</a></li> 
+          <li><a href="/wwdc/">WWDC</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colb" class="column"> 
+         <h3><a href="/design/">Design</a></h3> 
+         <ul> 
+          <li><a href="/design/human-interface-guidelines/">Human Interface Guidelines</a></li> 
+          <li><a href="/design/resources/">Resources</a></li> 
+          <li><a href="/videos/design/">Videos</a></li> 
+          <li><a href="/design/awards/">Apple Design Awards</a></li> 
+          <li><a href="/accessibility/">Accessibility</a></li> 
+          <li><a href="/internationalization/">Internationalization</a></li> 
+          <li><a href="/accessories/">Accessories</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colc" class="column"> 
+         <h3><a href="/develop/">Develop</a></h3> 
+         <ul> 
+          <li><a href="/xcode/">Xcode</a></li> 
+          <li><a href="/swift/">Swift</a></li> 
+          <li><a href="/swift-playgrounds/">Swift Playgrounds</a></li> 
+          <li><a href="/testflight/">TestFlight</a></li> 
+          <li><a href="/documentation/">Documentation</a></li> 
+          <li><a href="/videos/">Videos</a></li> 
+          <li><a href="/download/">Downloads</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cold" class="column"> 
+         <h3><a href="/distribute/">Distribute</a></h3> 
+         <ul> 
+          <li><a href="/app-store/">App Store</a></li> 
+          <li><a href="/macos/distribution/">Mac Software</a></li> 
+          <li><a href="/app-store/review/">App Review</a></li> 
+          <li><a href="/programs/volume/">Volume Purchase Program</a></li> 
+          <li><a href="/programs/volume/b2b/">Custom B2B Apps</a></li> 
+          <li><a href="/enterprise/distribute/">Enterprise Apps</a></li> 
+          <li><a href="/safari/extensions/">Safari Extensions</a></li> 
+          <li><a href="/app-store/marketing/guidelines/">Marketing Resources</a></li> 
+          <li><a href="/softwarelicensing/">Trademark Licensing</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cole" class="column"> 
+         <h3><a href="/support/">Support</a></h3> 
+         <ul> 
+          <li><a href="https://forums.developer.apple.com">Developer Forums</a></li> 
+          <li><a href="/bug-reporting/">Bug Reporting</a></li> 
+          <li><a href="/terms/">License Agreements</a></li> 
+          <li><a href="/system-status/">System Status</a></li> 
+          <li><a href="/contact/">Contact Us</a></li> 
+          <br> 
+          <h3><a href="/account/">Account</a></h3> 
+          <ul> 
+           <li><a href="/programs/">Developer Program</a></li> 
+           <li><a href="/account/ios/certificate/">Certificates, IDs &amp; Profiles</a></li> 
+           <li><a href="https://appstoreconnect.apple.com/">App Store Connect</a></li> 
+          </ul> 
+         </ul> 
+        </div> 
+       </div> 
+      </nav> 
+      <div class="ac-gf-footer-legal"> 
+       <div class="ac-gf-footer-news">
+         To receive the latest developer news, visit and subscribe to our 
+        <a href="/news/">News and Updates</a>. 
+       </div> 
+       <div class="ac-gf-footer-legal-copyright">
+        Copyright © 2018 Apple Inc. All rights reserved.
+       </div> 
+       <div class="ac-gf-footer-legal-links"> 
+        <a href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a> 
+        <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a> 
+        <a href="/bug-reporting/">Report Bugs</a> 
+        <a href="/contact/submit/?subject=website-feedback">Feedback</a> 
+       </div> 
+       <div class="ac-gf-footer-language-links"> 
+        <a href="/cn/" class="first">简体中文</a> 
+        <a href="/jp/">日本語</a> 
+        <a href="/kr/">한국어</a> 
+       </div> 
+      </div> 
+     </footer>
+    </section>
+   </div>
+  </div>
+  <script id="bootstrap-data" type="application/json">{"id":1619411,"title":{"content":"UIScrollView"},"abstract":"<div><p>A view that allows the scrolling and zooming of its contained views. <\/p><\/div>","discussion":"<div><p><code class=\"code-voice\"><span>UIScroll<wbr\/>View<\/span><\/code> is the superclass of several UIKit classes including <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitableview\"><code><span>UITable<wbr\/>View<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextview\"><code><span>UIText<wbr\/>View<\/span><\/code><\/a>.<\/p><p>The central notion of a <code class=\"code-voice\"><span>UIScroll<wbr\/>View<\/span><\/code> object (or, simply, a scroll view) is that it is a view whose origin is adjustable over the content view. It clips the content to its frame, which generally (but not necessarily) coincides with that of the application’s main window. A scroll view tracks the movements of fingers and adjusts the origin accordingly. The view that is showing its content “through” the scroll view draws that portion of itself based on the new origin, which is pinned to an offset in the content view. The scroll view itself does no drawing except for displaying vertical and horizontal scroll indicators. The scroll view must know the size of the content view so it knows when to stop scrolling; by default, it “bounces” back when scrolling exceeds the bounds of the content.<\/p><p>The object that manages the drawing of content displayed in a scroll view should tile the content’s subviews so that no view exceeds the size of the screen. As users scroll in the scroll view, this object should add and remove subviews as necessary.<\/p><p>Because a scroll view has no scroll bars, it must know whether a touch signals an intent to scroll versus an intent to track a subview in the content. To make this determination, it temporarily intercepts a touch-down event by starting a timer and, before the timer fires, seeing if the touching finger makes any movement. If the timer fires without a significant change in position, the scroll view sends tracking events to the touched subview of the content view. If the user then drags their finger far enough before the timer elapses, the scroll view cancels any tracking in the subview and performs the scrolling itself. Subclasses can override the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollview\/1619418-touchesshouldbegin\"><code><span>touches<wbr\/>Should<wbr\/>Begin(_:<wbr\/>with:<wbr\/>in:)<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollview\/1619432-ispagingenabled\"><code><span>is<wbr\/>Paging<wbr\/>Enabled<\/span><\/code><\/a>, and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollview\/1619387-touchesshouldcancel\"><code><span>touches<wbr\/>Should<wbr\/>Cancel(in:)<\/span><\/code><\/a> methods (which are called by the scroll view) to affect how the scroll view handles scrolling gestures.<\/p><p>A scroll view also handles zooming and panning of content. As the user makes a pinch-in or pinch-out gesture, the scroll view adjusts the offset and the scale of the content. When the gesture ends, the object managing the content view should update subviews of the content as necessary. (Note that the gesture can end and a finger could still be down.) While the gesture is in progress, the scroll view does not send any tracking calls to the subview. <\/p><p>The <code class=\"code-voice\"><span>UIScroll<wbr\/>View<\/span><\/code> class can have a delegate that must adopt the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollviewdelegate\"><code><span>UIScroll<wbr\/>View<wbr\/>Delegate<\/span><\/code><\/a> protocol. For zooming and panning to work, the delegate must implement both <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollviewdelegate\/1619426-viewforzooming\"><code><span>view<wbr\/>For<wbr\/>Zooming(in:)<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollviewdelegate\/1619407-scrollviewdidendzooming\"><code><span>scroll<wbr\/>View<wbr\/>Did<wbr\/>End<wbr\/>Zooming(_:<wbr\/>with:<wbr\/>at<wbr\/>Scale:)<\/span><\/code><\/a>; in addition, the maximum (<a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollview\/1619408-maximumzoomscale\"><code><span>maximum<wbr\/>Zoom<wbr\/>Scale<\/span><\/code><\/a>) and minimum ( <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollview\/1619428-minimumzoomscale\"><code><span>minimum<wbr\/>Zoom<wbr\/>Scale<\/span><\/code><\/a>) zoom scale must be different.  <\/p><\/div><h3 id=\"1653221\">State Preservation<\/h3><div><p>If you assign a value to this view’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiviewcontroller\/1621499-restorationidentifier\"><code><span>restoration<wbr\/>Identifier<\/span><\/code><\/a> property, it attempts to preserve its scrolling-related information between app launches. Specifically, the values of the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollview\/1619419-zoomscale\"><code><span>zoom<wbr\/>Scale<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollview\/1619406-contentinset\"><code><span>content<wbr\/>Inset<\/span><\/code><\/a>, and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollview\/1619404-contentoffset\"><code><span>content<wbr\/>Offset<\/span><\/code><\/a> properties are preserved. During restoration, the scroll view restores these values so that the content appears scrolled to the same position as before. For more information about how state preservation and restoration works, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/iPhone\/Conceptual\/iPhoneOSProgrammingGuide\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40007072\">App Programming Guide for iOS<\/a>.  <\/p><\/div>","containingGroup":[{"id":2864441,"role":"task","paths":[],"symbols":[{"id":2864442,"role":"collectionGroup","paths":["documentation\/uikit\/views_and_controls\/collection_views"],"hasChildren":true,"abstract":"<div><p>Display nested views using a configurable and highly customizable layout.<\/p><\/div>","title":{"content":"Collection Views"}},{"id":2864443,"role":"collectionGroup","paths":["documentation\/uikit\/views_and_controls\/table_views"],"hasChildren":true,"abstract":"<div><p>Display data in a single column of customizable rows.<\/p><\/div>","title":{"content":"Table Views"}},{"id":1616219,"role":"symbol","usr":"c:objc(cs)UIStackView","name":"UIStackView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIStack<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uistackview"],"title":{"content":"UIStackView"},"abstract":"<div><p>A streamlined interface for laying out a collection of views in either a column or a row. <\/p><\/div>","hasChildren":true},{"id":1619411,"role":"symbol","usr":"c:objc(cs)UIScrollView","name":"UIScrollView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIScroll<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview"],"title":{"content":"UIScrollView"},"abstract":"<div><p>A view that allows the scrolling and zooming of its contained views. <\/p><\/div>","hasChildren":true}],"abstract":"<div><p>Organize and present large data sets using container views. <\/p><\/div>","title":{"content":"Container Views"}}],"usr":"c:objc(cs)UIScrollView","name":"UIScrollView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","current":"12.0","introduced":"2.0"},{"platform":"tvOS","current":"12.0","introduced":"9.0"}],"conformance":[{"id":1411471,"usr":"c:objc(pl)NSCoding","name":"NSCoding","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/foundation\/nscoding"],"title":{"content":"NSCoding"},"platforms":["iOS","tvOS"]},{"id":1623131,"usr":"c:objc(pl)UIAccessibilityIdentification","name":"UIAccessibilityIdentification","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiaccessibilityidentification"],"title":{"content":"UIAccessibilityIdentification"},"platforms":["iOS","tvOS"]},{"id":2882041,"usr":"c:objc(pl)UIPasteConfigurationSupporting","name":"UIPasteConfigurationSupporting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uipasteconfigurationsupporting"],"title":{"content":"UIPasteConfigurationSupporting"},"platforms":["iOS"]},{"id":1641507,"usr":"s:s7CVarArgP","name":"CVarArg","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/cvararg"],"title":{"content":"CVarArg"},"platforms":["iOS","tvOS"]},{"id":2976955,"usr":"c:objc(pl)UIFocusItemScrollableContainer","name":"UIFocusItemScrollableContainer","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uifocusitemscrollablecontainer"],"title":{"content":"UIFocusItemScrollableContainer"},"platforms":["iOS","tvOS"]},{"id":2980935,"usr":"c:objc(pl)UIUserActivityRestoring","name":"UIUserActivityRestoring","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiuseractivityrestoring"],"title":{"content":"UIUserActivityRestoring"},"platforms":["iOS","tvOS"]},{"id":1541213,"usr":"s:SQ","name":"Equatable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/equatable"],"title":{"content":"Equatable"},"platforms":["iOS","tvOS"]},{"id":1540942,"usr":"s:SH","name":"Hashable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/hashable"],"title":{"content":"Hashable"},"platforms":["iOS","tvOS"]}],"inheritance":[{"id":1622655,"usr":"c:objc(cs)UIView","name":"UIView","domain":"swift","kind":"cl","role":"symbol","paths":["documentation\/uikit\/uiview"],"title":{"content":"UIView"},"platforms":["iOS","tvOS"]}],"module":[{"title":{"content":"UIKit"},"importStatement":"<div><span class=\"syntax-identifier\">import<\/span> UIKit<\/div>","paths":["documentation\/uikit"],"platforms":["iOS","tvOS"]}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIScroll<wbr\/>View<\/span><\/code>","declaration":[{"content":"<span><span class=\"syntax-keyword\">class<\/span> <span class=\"syntax-identifier\">UIScrollView<\/span> : <a class=\"symbolref\" href=\"\/documentation\/uikit\/uiview\"><span>UIView<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/foundation\/nscoding\"><span>NSCoding<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/uikit\/uifocusitemscrollablecontainer\"><span>UIFocus<wbr\/>Item<wbr\/>Scrollable<wbr\/>Container<\/span><\/a>\n<\/span>","platforms":["iOS","tvOS"]}],"languages":["occ","swift"],"variants":{"occ":{"paths":["documentation\/uikit\/uiscrollview"],"usr":"c:objc(cs)UIScrollView"},"swift":{"paths":["documentation\/uikit\/uiscrollview"],"usr":"c:objc(cs)UIScrollView"}},"diffAvailability":{"minor":{"change":"modified","platform":"Xcode","versions":["9.4","10.0 beta 6"]},"major":{"change":"modified","platform":"Xcode","versions":["9.0","10.0 beta 6"]}},"pid":201964,"role":"symbol","language":"swift","paths":["documentation\/uikit\/uiscrollview"],"hierarchy":[[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864393,"role":"collectionGroup","title":{"content":"Views and Controls"},"paths":["documentation\/uikit\/views_and_controls"]}]],"legalNotices":{"copyright":"Copyright &copy; 2018 Apple Inc. All rights reserved.","termsOfUse":"https:\/\/www.apple.com\/legal\/internet-services\/terms\/site.html","privacyPolicy":"https:\/\/www.apple.com\/privacy\/privacy-policy"},"tasks":[{"id":1653722,"role":"task","symbols":[{"id":1619430,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)delegate","name":"delegate","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">delegate<\/span><span class=\"decorator\">: UIScroll<wbr\/>View<wbr\/>Delegate?<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619430-delegate"],"title":{"content":"delegate"},"abstract":"<div><p>The delegate of the scroll-view object.<\/p><\/div>"},{"id":1619431,"role":"symbol","usr":"c:objc(pl)UIScrollViewDelegate","name":"UIScrollViewDelegate","domain":"swift","kind":"intf","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">protocol <\/span><span class=\"identifier\">UIScroll<wbr\/>View<wbr\/>Delegate<\/span><\/code>","paths":["documentation\/uikit\/uiscrollviewdelegate"],"title":{"content":"UIScrollViewDelegate"},"abstract":"<div><p>The methods declared by the <code class=\"code-voice\"><span>UIScroll<wbr\/>View<wbr\/>Delegate<\/span><\/code> protocol allow the adopting delegate to respond to messages from the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollview\"><code><span>UIScroll<wbr\/>View<\/span><\/code><\/a> class and thus respond to, and in some affect, operations such as scrolling, zooming, deceleration of scrolled content, and scrolling animations.<\/p><\/div>","hasChildren":true}],"title":{"content":"Responding to Scroll View Interactions"}},{"id":1653235,"role":"task","symbols":[{"id":1619399,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)contentSize","name":"contentSize","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">content<wbr\/>Size<\/span><span class=\"decorator\">: CGSize<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619399-contentsize"],"title":{"content":"contentSize"},"abstract":"<div><p>The size of the content view.<\/p><\/div>"},{"id":1619404,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)contentOffset","name":"contentOffset","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">content<wbr\/>Offset<\/span><span class=\"decorator\">: CGPoint<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619404-contentoffset"],"title":{"content":"contentOffset"},"abstract":"<div><p>The point at which the origin of the content view is offset from the origin of the scroll view.<\/p><\/div>"},{"id":1619400,"role":"symbol","usr":"c:objc(cs)UIScrollView(im)setContentOffset:animated:","name":"setContentOffset(_:animated:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Content<wbr\/>Offset<\/span><span class=\"decorator\">(CGPoint, <\/span><span class=\"identifier\">animated<\/span><span class=\"decorator\">: Bool)<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619400-setcontentoffset"],"title":{"content":"setContentOffset(_:animated:)"},"abstract":"<div><p>Sets the offset from the content view’s origin that corresponds to the receiver’s origin.<\/p><\/div>"}],"title":{"content":"Managing the Content Size and Offset"}},{"id":2923857,"role":"task","symbols":[{"id":2902259,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)adjustedContentInset","name":"adjustedContentInset","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">adjusted<wbr\/>Content<wbr\/>Inset<\/span><span class=\"decorator\">: UIEdge<wbr\/>Insets<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/2902259-adjustedcontentinset"],"title":{"content":"adjustedContentInset"},"abstract":"<div><p>The insets derived from the content insets and the safe area of the scroll view.<\/p><\/div>"},{"id":1619406,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)contentInset","name":"contentInset","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">content<wbr\/>Inset<\/span><span class=\"decorator\">: UIEdge<wbr\/>Insets<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619406-contentinset"],"title":{"content":"contentInset"},"abstract":"<div><p>The custom distance that the content view is inset from the safe area or scroll view edges.<\/p><\/div>"},{"id":2902261,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)contentInsetAdjustmentBehavior","name":"contentInsetAdjustmentBehavior","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">content<wbr\/>Inset<wbr\/>Adjustment<wbr\/>Behavior<\/span><span class=\"decorator\">: UIScroll<wbr\/>View<wbr\/>.Content<wbr\/>Inset<wbr\/>Adjustment<wbr\/>Behavior<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/2902261-contentinsetadjustmentbehavior"],"title":{"content":"contentInsetAdjustmentBehavior"},"abstract":"<div><p>The behavior for determining the adjusted content offsets.<\/p><\/div>"},{"id":2902260,"role":"symbol","usr":"c:@E@UIScrollViewContentInsetAdjustmentBehavior","name":"UIScrollViewContentInsetAdjustmentBehavior","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIScroll<wbr\/>View<wbr\/>.Content<wbr\/>Inset<wbr\/>Adjustment<wbr\/>Behavior<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/contentinsetadjustmentbehavior"],"title":{"content":"UIScrollView.ContentInsetAdjustmentBehavior"},"abstract":"<div><p>Constants indicating how safe area insets are added to the adjusted content inset.<\/p><\/div>","hasChildren":true},{"id":2902254,"role":"symbol","usr":"c:objc(cs)UIScrollView(im)adjustedContentInsetDidChange","name":"adjustedContentInsetDidChange()","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">adjusted<wbr\/>Content<wbr\/>Inset<wbr\/>Did<wbr\/>Change<\/span><span class=\"decorator\">()<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/2902254-adjustedcontentinsetdidchange"],"title":{"content":"adjustedContentInsetDidChange()"},"abstract":"<div><p>Called when the adjusted content insets of the scroll view change.<\/p><\/div>"}],"title":{"content":"Managing the Content Inset Behavior"}},{"id":2874282,"role":"task","symbols":[{"id":2865772,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)frameLayoutGuide","name":"frameLayoutGuide","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">frame<wbr\/>Layout<wbr\/>Guide<\/span><span class=\"decorator\">: UILayout<wbr\/>Guide<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/2865772-framelayoutguide"],"title":{"content":"frameLayoutGuide"},"abstract":"<div><p>The layout guide based on the untransformed frame rectangle of the scroll view.<\/p><\/div>"},{"id":2865870,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)contentLayoutGuide","name":"contentLayoutGuide","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">content<wbr\/>Layout<wbr\/>Guide<\/span><span class=\"decorator\">: UILayout<wbr\/>Guide<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/2865870-contentlayoutguide"],"title":{"content":"contentLayoutGuide"},"abstract":"<div><p>The layout guide based on the untranslated content rectangle of the scroll view.<\/p><\/div>"}],"title":{"content":"Getting the Layout Guides"}},{"id":2923858,"role":"task","symbols":[{"id":1619395,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)scrollEnabled","name":"scrollEnabled","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Scroll<wbr\/>Enabled<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619395-isscrollenabled"],"title":{"content":"isScrollEnabled"},"abstract":"<div><p>A Boolean value that determines whether scrolling is enabled.<\/p><\/div>"},{"id":1619390,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)directionalLockEnabled","name":"directionalLockEnabled","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Directional<wbr\/>Lock<wbr\/>Enabled<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619390-isdirectionallockenabled"],"title":{"content":"isDirectionalLockEnabled"},"abstract":"<div><p>A Boolean value that determines whether scrolling is disabled in a particular direction.<\/p><\/div>"},{"id":1619432,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)pagingEnabled","name":"pagingEnabled","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Paging<wbr\/>Enabled<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619432-ispagingenabled"],"title":{"content":"isPagingEnabled"},"abstract":"<div><p>A Boolean value that determines whether paging is enabled for the scroll view.<\/p><\/div>"},{"id":1619421,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)scrollsToTop","name":"scrollsToTop","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">scrolls<wbr\/>To<wbr\/>Top<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619421-scrollstotop"],"title":{"content":"scrollsToTop"},"abstract":"<div><p>A Boolean value that controls whether the scroll-to-top gesture is enabled.<\/p><\/div>"},{"id":1619420,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)bounces","name":"bounces","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">bounces<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619420-bounces"],"title":{"content":"bounces"},"abstract":"<div><p>A Boolean value that controls whether the scroll view bounces past the edge of content and back again.<\/p><\/div>"},{"id":1619383,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)alwaysBounceVertical","name":"alwaysBounceVertical","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">always<wbr\/>Bounce<wbr\/>Vertical<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619383-alwaysbouncevertical"],"title":{"content":"alwaysBounceVertical"},"abstract":"<div><p>A Boolean value that determines whether bouncing always occurs when vertical scrolling reaches the end of the content.<\/p><\/div>"},{"id":1619393,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)alwaysBounceHorizontal","name":"alwaysBounceHorizontal","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">always<wbr\/>Bounce<wbr\/>Horizontal<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619393-alwaysbouncehorizontal"],"title":{"content":"alwaysBounceHorizontal"},"abstract":"<div><p>A Boolean value that determines whether bouncing always occurs when horizontal scrolling reaches the end of the content view.<\/p><\/div>"}],"title":{"content":"Configuring the Scroll View"}},{"id":2923859,"role":"task","symbols":[{"id":1619413,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)tracking","name":"tracking","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Tracking<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619413-istracking"],"title":{"content":"isTracking"},"abstract":"<div><p>Returns whether the user has touched the content to initiate scrolling.<\/p><\/div>"},{"id":1619384,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)dragging","name":"dragging","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Dragging<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619384-isdragging"],"title":{"content":"isDragging"},"abstract":"<div><p>A Boolean value that indicates whether the user has begun scrolling the content.<\/p><\/div>"},{"id":1619434,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)decelerating","name":"decelerating","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Decelerating<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619434-isdecelerating"],"title":{"content":"isDecelerating"},"abstract":"<div><p>Returns whether the content is moving in the scroll view after the user lifted their finger.<\/p><\/div>"},{"id":1619438,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)decelerationRate","name":"decelerationRate","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">deceleration<wbr\/>Rate<\/span><span class=\"decorator\">: UIScroll<wbr\/>View<wbr\/>.Deceleration<wbr\/>Rate<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619438-decelerationrate"],"title":{"content":"decelerationRate"},"abstract":"<div><p>A floating-point value that determines the rate of deceleration after the user lifts their finger.<\/p><\/div>"},{"id":2993325,"role":"symbol","usr":"c:@T@UIScrollViewDecelerationRate","name":"UIScrollView.DecelerationRate","domain":"swift","kind":"struct","availability":[{"platform":"iOS","beta":true,"introduced":"12.0"},{"platform":"tvOS","beta":true,"introduced":"12.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">struct <\/span><span class=\"identifier\">UIScroll<wbr\/>View<wbr\/>.Deceleration<wbr\/>Rate<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/decelerationrate"],"title":{"content":"UIScrollView.DecelerationRate"},"abstract":"<div><p>Deceleration rates for the scroll view.<\/p><\/div>","hasChildren":true}],"title":{"content":"Getting the Scrolling State"}},{"id":1653464,"role":"task","symbols":[{"id":1619433,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)indicatorStyle","name":"indicatorStyle","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">indicator<wbr\/>Style<\/span><span class=\"decorator\">: UIScroll<wbr\/>View<wbr\/>.Indicator<wbr\/>Style<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619433-indicatorstyle"],"title":{"content":"indicatorStyle"},"abstract":"<div><p>The style of the scroll indicators. <\/p><\/div>"},{"id":1619397,"role":"symbol","usr":"c:@E@UIScrollViewIndicatorStyle","name":"UIScrollViewIndicatorStyle","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIScroll<wbr\/>View<wbr\/>.Indicator<wbr\/>Style<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/indicatorstyle"],"title":{"content":"UIScrollView.IndicatorStyle"},"abstract":"<div><p>The style of the scroll indicators. You use these constants to set the value of the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollview\/1619433-indicatorstyle\"><code><span>indicator<wbr\/>Style<\/span><\/code><\/a> style.<\/p><\/div>","hasChildren":true},{"id":1619427,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)scrollIndicatorInsets","name":"scrollIndicatorInsets","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">scroll<wbr\/>Indicator<wbr\/>Insets<\/span><span class=\"decorator\">: UIEdge<wbr\/>Insets<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619427-scrollindicatorinsets"],"title":{"content":"scrollIndicatorInsets"},"abstract":"<div><p>The distance the scroll indicators are inset from the edge of the scroll view.<\/p><\/div>"},{"id":1619380,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)showsHorizontalScrollIndicator","name":"showsHorizontalScrollIndicator","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">shows<wbr\/>Horizontal<wbr\/>Scroll<wbr\/>Indicator<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619380-showshorizontalscrollindicator"],"title":{"content":"showsHorizontalScrollIndicator"},"abstract":"<div><p>A Boolean value that controls whether the horizontal scroll indicator is visible.<\/p><\/div>"},{"id":1619405,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)showsVerticalScrollIndicator","name":"showsVerticalScrollIndicator","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">shows<wbr\/>Vertical<wbr\/>Scroll<wbr\/>Indicator<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619405-showsverticalscrollindicator"],"title":{"content":"showsVerticalScrollIndicator"},"abstract":"<div><p>A Boolean value that controls whether the vertical scroll indicator is visible.<\/p><\/div>"},{"id":1619435,"role":"symbol","usr":"c:objc(cs)UIScrollView(im)flashScrollIndicators","name":"flashScrollIndicators()","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">flash<wbr\/>Scroll<wbr\/>Indicators<\/span><span class=\"decorator\">()<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619435-flashscrollindicators"],"title":{"content":"flashScrollIndicators()"},"abstract":"<div><p>Displays the scroll indicators momentarily.<\/p><\/div>"},{"id":2127691,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)refreshControl","name":"refreshControl","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"10.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">refresh<wbr\/>Control<\/span><span class=\"decorator\">: UIRefresh<wbr\/>Control?<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/2127691-refreshcontrol"],"title":{"content":"refreshControl"},"abstract":"<div><p>The refresh control associated with the scroll view.<\/p><\/div>"}],"title":{"content":"Managing the Scroll Indicator and Refresh Control"}},{"id":2923860,"role":"task","symbols":[{"id":1619439,"role":"symbol","usr":"c:objc(cs)UIScrollView(im)scrollRectToVisible:animated:","name":"scrollRectToVisible(_:animated:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">scroll<wbr\/>Rect<wbr\/>To<wbr\/>Visible<\/span><span class=\"decorator\">(CGRect, <\/span><span class=\"identifier\">animated<\/span><span class=\"decorator\">: Bool)<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619439-scrollrecttovisible"],"title":{"content":"scrollRectToVisible(_:animated:)"},"abstract":"<div><p>Scrolls a specific area of the content so that it is visible in the receiver.<\/p><\/div>"}],"title":{"content":"Scrolling to a Specific Location"}},{"id":1653288,"role":"task","symbols":[{"id":1619418,"role":"symbol","usr":"c:objc(cs)UIScrollView(im)touchesShouldBegin:withEvent:inContentView:","name":"touchesShouldBegin(_:withEvent:inContentView:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">touches<wbr\/>Should<wbr\/>Begin<\/span><span class=\"decorator\">(Set&lt;UITouch&gt;, <\/span><span class=\"identifier\">with<\/span><span class=\"decorator\">: UIEvent?, <\/span><span class=\"identifier\">in<\/span><span class=\"decorator\">: UIView) -&gt; Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619418-touchesshouldbegin"],"title":{"content":"touchesShouldBegin(_:with:in:)"},"abstract":"<div><p>Overridden by subclasses to customize the default behavior when a finger touches down in displayed content.<\/p><\/div>"},{"id":1619387,"role":"symbol","usr":"c:objc(cs)UIScrollView(im)touchesShouldCancelInContentView:","name":"touchesShouldCancelInContentView(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">touches<wbr\/>Should<wbr\/>Cancel<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">in<\/span><span class=\"decorator\">: UIView) -&gt; Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619387-touchesshouldcancel"],"title":{"content":"touchesShouldCancel(in:)"},"abstract":"<div><p>Returns whether to cancel touches related to the content subview and start dragging.<\/p><\/div>"},{"id":1619424,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)canCancelContentTouches","name":"canCancelContentTouches","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">can<wbr\/>Cancel<wbr\/>Content<wbr\/>Touches<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619424-cancancelcontenttouches"],"title":{"content":"canCancelContentTouches"},"abstract":"<div><p>A Boolean value that controls whether touches in the content view always lead to tracking.<\/p><\/div>"},{"id":1619398,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)delaysContentTouches","name":"delaysContentTouches","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">delays<wbr\/>Content<wbr\/>Touches<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619398-delayscontenttouches"],"title":{"content":"delaysContentTouches"},"abstract":"<div><p>A Boolean value that determines whether the scroll view delays the handling of touch-down gestures.<\/p><\/div>"},{"id":1627702,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)directionalPressGestureRecognizer","name":"directionalPressGestureRecognizer","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","deprecated":"11.0","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">directional<wbr\/>Press<wbr\/>Gesture<wbr\/>Recognizer<\/span><span class=\"decorator\">: UIGesture<wbr\/>Recognizer<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1627702-directionalpressgesturerecognize"],"title":{"content":"directionalPressGestureRecognizer"},"abstract":"<div><p>The underlying gesture recognizer for directional button presses.<\/p><\/div>"}],"title":{"content":"Managing Touches"}},{"id":1653544,"role":"task","symbols":[{"id":1619425,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)panGestureRecognizer","name":"panGestureRecognizer","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">pan<wbr\/>Gesture<wbr\/>Recognizer<\/span><span class=\"decorator\">: UIPan<wbr\/>Gesture<wbr\/>Recognizer<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619425-pangesturerecognizer"],"title":{"content":"panGestureRecognizer"},"abstract":"<div><p>The underlying gesture recognizer for pan gestures.<\/p><\/div>"},{"id":1619381,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)pinchGestureRecognizer","name":"pinchGestureRecognizer","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">pinch<wbr\/>Gesture<wbr\/>Recognizer<\/span><span class=\"decorator\">: UIPinch<wbr\/>Gesture<wbr\/>Recognizer?<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619381-pinchgesturerecognizer"],"title":{"content":"pinchGestureRecognizer"},"abstract":"<div><p>The underlying gesture recognizer for pinch gestures.<\/p><\/div>"},{"id":1619388,"role":"symbol","usr":"c:objc(cs)UIScrollView(im)zoomToRect:animated:","name":"zoomToRect(_:animated:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">zoom<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">to<\/span><span class=\"decorator\">: CGRect, <\/span><span class=\"identifier\">animated<\/span><span class=\"decorator\">: Bool)<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619388-zoom"],"title":{"content":"zoom(to:animated:)"},"abstract":"<div><p>Zooms to a specific area of the content so that it is visible in the receiver.<\/p><\/div>"},{"id":1619419,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)zoomScale","name":"zoomScale","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">zoom<wbr\/>Scale<\/span><span class=\"decorator\">: CGFloat<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619419-zoomscale"],"title":{"content":"zoomScale"},"abstract":"<div><p>A floating-point value that specifies the current scale factor applied to the scroll view&#x27;s content.<\/p><\/div>"},{"id":1619412,"role":"symbol","usr":"c:objc(cs)UIScrollView(im)setZoomScale:animated:","name":"setZoomScale(_:animated:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Zoom<wbr\/>Scale<\/span><span class=\"decorator\">(CGFloat, <\/span><span class=\"identifier\">animated<\/span><span class=\"decorator\">: Bool)<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619412-setzoomscale"],"title":{"content":"setZoomScale(_:animated:)"},"abstract":"<div><p>A floating-point value that specifies the current zoom scale.<\/p><\/div>"},{"id":1619408,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)maximumZoomScale","name":"maximumZoomScale","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">maximum<wbr\/>Zoom<wbr\/>Scale<\/span><span class=\"decorator\">: CGFloat<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619408-maximumzoomscale"],"title":{"content":"maximumZoomScale"},"abstract":"<div><p>A floating-point value that specifies the maximum scale factor that can be applied to the scroll view&#x27;s content.<\/p><\/div>"},{"id":1619428,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)minimumZoomScale","name":"minimumZoomScale","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">minimum<wbr\/>Zoom<wbr\/>Scale<\/span><span class=\"decorator\">: CGFloat<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619428-minimumzoomscale"],"title":{"content":"minimumZoomScale"},"abstract":"<div><p>A floating-point value that specifies the minimum scale factor that can be applied to the scroll view&#x27;s content.<\/p><\/div>"},{"id":1619423,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)zoomBouncing","name":"zoomBouncing","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Zoom<wbr\/>Bouncing<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619423-iszoombouncing"],"title":{"content":"isZoomBouncing"},"abstract":"<div><p>A Boolean value that indicates that zooming has exceeded the scaling limits specified for the receiver.<\/p><\/div>"},{"id":1619429,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)zooming","name":"zooming","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Zooming<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619429-iszooming"],"title":{"content":"isZooming"},"abstract":"<div><p>A Boolean value that indicates whether the content view is currently zooming in or out.<\/p><\/div>"},{"id":1619410,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)bouncesZoom","name":"bouncesZoom","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">bounces<wbr\/>Zoom<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619410-bounceszoom"],"title":{"content":"bouncesZoom"},"abstract":"<div><p>A Boolean value that determines whether the scroll view animates the content scaling when the scaling exceeds the maximum or minimum limits.<\/p><\/div>"}],"title":{"content":"Zooming and Panning"}},{"id":1653748,"role":"task","symbols":[{"id":1619437,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)keyboardDismissMode","name":"keyboardDismissMode","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">keyboard<wbr\/>Dismiss<wbr\/>Mode<\/span><span class=\"decorator\">: UIScroll<wbr\/>View<wbr\/>.Keyboard<wbr\/>Dismiss<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/1619437-keyboarddismissmode"],"title":{"content":"keyboardDismissMode"},"abstract":"<div><p>The manner in which the keyboard is dismissed when a drag begins in the scroll view.<\/p><\/div>"},{"id":1619391,"role":"symbol","usr":"c:@E@UIScrollViewKeyboardDismissMode","name":"UIScrollViewKeyboardDismissMode","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIScroll<wbr\/>View<wbr\/>.Keyboard<wbr\/>Dismiss<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/keyboarddismissmode"],"title":{"content":"UIScrollView.KeyboardDismissMode"},"abstract":"<div><p>The manner in which the keyboard is dismissed when a drag begins in the scroll view.<\/p><\/div>","hasChildren":true}],"title":{"content":"Managing the Keyboard"}},{"id":2868475,"role":"task","symbols":[{"id":2851452,"role":"symbol","usr":"c:objc(cs)UIScrollView(py)indexDisplayMode","name":"indexDisplayMode","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"10.3"},{"platform":"tvOS","introduced":"10.2"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">index<wbr\/>Display<wbr\/>Mode<\/span><span class=\"decorator\">: UIScroll<wbr\/>View<wbr\/>.Index<wbr\/>Display<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/2851452-indexdisplaymode"],"title":{"content":"indexDisplayMode"},"abstract":"<div><p>The manner in which the index is shown while the user is scrolling.<\/p><\/div>"},{"id":2851451,"role":"symbol","usr":"c:@E@UIScrollViewIndexDisplayMode","name":"UIScrollViewIndexDisplayMode","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"10.3"},{"platform":"tvOS","introduced":"10.2"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIScroll<wbr\/>View<wbr\/>.Index<wbr\/>Display<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview\/indexdisplaymode"],"title":{"content":"UIScrollView.IndexDisplayMode"},"abstract":"<div><p>The manner in which the index is shown while the user is scrolling.<\/p><\/div>","hasChildren":true}],"title":{"content":"Managing the Index"}}]}</script>
+  <script src="/documentation/__assets/TopicDetail-018c52ac.js"></script>
+ </body>
+</html>

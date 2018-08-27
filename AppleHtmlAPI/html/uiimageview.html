@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>UIImageView - UIKit | Apple Developer Documentation</title>
+  <meta content="width=device-width, initial-scale=1 viewport-fit=cover" name="viewport">
+  <meta data-pid="201964">
+  <link href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Mono,v1|SF+Pro+Icons,v1" media="all" rel="stylesheet" type="text/css">
+  <link href="/documentation/__assets/application-324aa72c.css" media="all" rel="stylesheet" type="text/css">
+  <noscript>
+   <link href="/documentation/__assets/nojs-c6be9131.css" media="all" rel="stylesheet" type="text/css">
+  </noscript>
+  <link rel="mask-icon" href="/documentation/__assets/apple-logo.svg" color="#000">
+  <link rel="shortcut icon" href="/documentation/__assets/favicon.ico">
+  <script src="/documentation/__assets/shared-f73bc3d2.js"></script>
+  <script id="init-data" type="application/json">{"variant":{"paths":["documentation\/uikit\/uiimageview"],"usr":"c:objc(cs)UIImageView"}}</script>
+  <script src="/documentation/__assets/init-88dd23db.js"></script>
+ </head>
+ <body>
+  <div id="_omniture_top"> 
+   <script type="text/javascript">
+        var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+      </script> 
+   <script type="text/javascript" src="https://www.apple.com/metrics/scripts/s_code_h.js"></script> 
+   <script type="text/javascript">
+        s.pageName=AC.Tracking.pageName();
+        s.channel="www.us.developer"
+
+        var s_code=s.t();if(s_code)document.write(s_code)
+      </script> 
+  </div>
+  <div id="app">
+   <div>
+    <a href="#main" id="skip-localnav" class="showonfocus hidden">Skip Navigation</a>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US">
+     <div class="ac-gn-content"> 
+      <ul class="ac-gn-header"> 
+       <li class="ac-gn-item ac-gn-menuicon"> <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span> </span> </label> <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open"> <span class="ac-gn-menuanchor-label">Open Menu</span> </a> <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close"> <span class="ac-gn-menuanchor-label">Close Menu</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus-small"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small"> <a class="ac-gn-link ac-gn-link-bag" href="/account/"> <span class="ac-gn-link-text">Account</span> <span class="ac-gn-bag-badge"></span> </a> <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span> </li> 
+      </ul> 
+      <ul class="ac-gn-list"> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-discover"> <a class="ac-gn-link" href="/discover/"> <span>Discover</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-design"> <a class="ac-gn-link" href="/design/"> <span>Design</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-develop"> <a class="ac-gn-link" href="/develop/"> <span>Develop</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-distribute"> <a class="ac-gn-link" href="/distribute/"> <span>Distribute</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-support"> <a class="ac-gn-link" href="/support/"> <span>Support</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-account"> <a class="ac-gn-link" href="/account/"> <span>Account</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search"> <a id="ac-gn-search-button" class="ac-gn-link ac-gn-link-search" href="/search/" aria-label="Search developer.apple.com"> <span class="ac-gn-search-placeholder" aria-hidden="true">Search</span> </a> </li> 
+      </ul> 
+      <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search"> 
+       <div class="ac-gn-searchview-content"> 
+        <form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get"> 
+         <div class="ac-gn-searchform-wrapper"> 
+          <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" placeholder="Search" data-placeholder-long="Search for documentation, videos, and more" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false"> 
+          <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit"></button> 
+          <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search"></button> 
+         </div> 
+        </form> 
+        <aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="Hit enter to search."> 
+        </aside> 
+       </div> 
+       <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search"> <span class="ac-gn-searchview-close-wrapper"> <span class="ac-gn-searchview-close-left"></span> <span class="ac-gn-searchview-close-right"></span> </span> </button> 
+      </aside> 
+     </div>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+    <input type="checkbox" id="localnav-menustate" class="localnav-menustate" aria-hidden="true">
+    <nav id="localnav" class="localnav localnav-dark theme-dark localnav-scrim localnav-noborder" role="navigation" aria-label="API Reference" data-sticky="true">
+     <div class="localnav-wrapper">
+      <div class="referencenav">
+       <div class="localnav-background"></div>
+       <div class="localnav-content">
+        <a href="/documentation" class="localnav-title">Documentation</a>
+        <div class="localnav-menu">
+         <a href="#localnav-menustate" id="localnav-menustate-open" class="localnav-menucta-anchor localnav-menucta-anchor-open"><span class="localnav-menucta-anchor-label" aria-hidden="true">Open Menu</span></a>
+         <a href="#" id="localnav-menustate-close" class="localnav-menucta-anchor localnav-menucta-anchor-close"><span class="localnav-menucta-anchor-label" aria-hidden="true">Close Menu</span></a>
+         <div class="localnav-menu-tray">
+          <ul aria-label="Breadcrumbs" class="localnav-menu-items localnav-menu-breadcrumbs">
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit">UIKit</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit/views_and_controls">Views and Controls</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item">
+            <div class="localnav-menu-breadcrumb-current-container localnav-menu-link current">
+             <span aria-current="page" class="localnav-menu-breadcrumb-current">UIImageView</span>
+            </div></li>
+          </ul>
+          <ul class="localnav-menu-items localnav-menu-settings" data-breadcrumbs-count="3">
+           <li class="localnav-menu-setting language-container">
+            <div class="language-toggle-container">
+             <label for="language-toggle" class="language-toggle-label">Language:</label>
+             <select id="language-toggle" class="language-dropdown localnav-menu-link" style="width:auto;"><option selected value="swift">Swift</option><option value="occ">Objective-C</option></select>
+            </div>
+            <div class="language-list-container">
+             <span class="localnav-menu-setting-label">Language:</span>
+             <ul class="language-list">
+              <li class="language-list-item"><span data-language="swift" aria-current="page" class="current-language">Swift</span></li>
+              <li class="language-list-item"><a href="/documentation/uikit/uiimageview?language=objc" class="localnav-menu-setting-link">Objective-C</a></li>
+             </ul>
+            </div></li>
+           <li class="localnav-menu-setting"><span class="localnav-menu-setting-label">API Changes:</span><a href="/documentation/uikit/uiimageview?changes=latest_minor" class="localnav-menu-setting-link changes-toggle changes-toggle-show" aria-label="Show API Changes">Show</a></li>
+          </ul>
+         </div>
+         <div class="localnav-actions">
+          <div class="localnav-action localnav-action-menucta" aria-hidden="true">
+           <label for="localnav-menustate" class="localnav-menucta"><span class="localnav-menucta-chevron"></span></label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </nav>
+    <label for="localnav-menustate" id="localnav-curtain" aria-hidden="true"></label>
+    <main role="main" id="main" class="main" tabindex="0">
+     <div class="topic-title">
+      <span class="eyebrow">Class</span>
+      <h1 class="topic-heading"><span>UIImage<wbr>View</span></h1>
+     </div>
+     <div class="topic-container section-content row">
+      <div class="topic-description column large-9 medium-9 small-12">
+       <div class="topic-abstract abstract formatted-content">
+        <div>
+         <p>An object that displays a single image or a sequence of animated images in your interface.</p>
+        </div>
+       </div>
+      </div>
+      <div class="topic-summary column large-3 medium-3 small-12">
+       <div class="topic-summary-section sdks" role="complementary" aria-label="SDKs">
+        <p class="topic-summary-section-label subsection-label">SDKs</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item sdk"><span aria-label="iOS 2.0+, Available on iOS 2.0 and later" role="text" title="Available on iOS 2.0 and later">iOS 2.0+</span></li>
+         <li class="topic-summary-section-item sdk"><span aria-label="tvOS 9.0+, Available on tvOS 9.0 and later" role="text" title="Available on tvOS 9.0 and later">tvOS 9.0+</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section frameworks" role="complementary" aria-label="Framework">
+        <p class="topic-summary-section-label subsection-label">Framework</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item"><span>UIKit</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section onthispage">
+        <nav class="onthispage-nav" aria-labelledby="onthispage-title">
+         <p id="onthispage-title" class="topic-summary-section-label subsection-label">On This Page</p>
+         <ul class="topic-summary-section-list">
+          <li class="topic-summary-section-item"><a href="#overview" class="icon icon-after icon-chevrondowncircle">Overview</a></li>
+          <li class="topic-summary-section-item"><a href="#topics" class="icon icon-after icon-chevrondowncircle">Topics</a></li>
+          <li class="topic-summary-section-item"><a href="#relationships" class="icon icon-after icon-chevrondowncircle">Relationships</a></li>
+          <li class="topic-summary-section-item"><a href="#see-also" class="icon icon-after icon-chevrondowncircle">See Also</a></li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+      <div class="topic-content column large-9 medium-9 small-12" id="topic-content">
+       <section id="overview" class="section">
+        <h2>Overview</h2>
+        <div class="formatted-content">
+         <div>
+          <p>Image views let you efficiently draw any image that can be specified using a <a class="symbol-name" href="/documentation/uikit/uiimage"><code><span>UIImage</span></code></a> object. For example, you can use the <code class="code-voice"><span>UIImage<wbr>View</span></code> class to display the contents of many standard image files, such as JPEG and PNG files. You can configure image views programmatically or in your storyboard file and change the images they display at runtime. For animated images, you can also use the methods of this class to start and stop the animation and specify other animation parameters.</p>
+          <figure id="2923882">
+           <figcaption>
+            <strong class="caption-title">Figure 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Image view</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/266fe44036/402b5d33-6863-4120-9e18-fc7bebf62053.png" srcset="https://docs-assets.developer.apple.com/published/266fe44036/402b5d33-6863-4120-9e18-fc7bebf62053.png 2x" alt="An image view" width="352" height="auto">
+          </figure>
+         </div>
+         <h3 id="1807296">Understanding How Images Are Scaled</h3>
+         <div>
+          <p>An image view uses its <a class="symbol-name" href="/documentation/uikit/uiview/1622619-contentmode"><code><span>content<wbr>Mode</span></code></a> property and the configuration of the image itself to determine how to display the image. It is best to specify images whose dimensions match the dimensions of the image view exactly, but image views can scale your images to fit all or some of the available space. If the size of the image view itself changes, it automatically scales the image as needed.</p>
+          <p>For an image without cap insets, the presentation of the image is determined solely by the image view’s <code class="code-voice"><span>content<wbr>Mode</span></code> property. The <a class="symbol-name" href="/documentation/uikit/uiview/contentmode/scaleaspectfit"><code><span>UIView<wbr>.Content<wbr>Mode<wbr>.scale<wbr>Aspect<wbr>Fit</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uiview/contentmode/scaleaspectfill"><code><span>UIView<wbr>.Content<wbr>Mode<wbr>.scale<wbr>Aspect<wbr>Fill</span></code></a> modes scale the image to fit or fill the space while maintaining the image’s original aspect ratio. The <a class="symbol-name" href="/documentation/uikit/uiview/contentmode/scaletofill"><code><span>UIView<wbr>.Content<wbr>Mode<wbr>.scale<wbr>To<wbr>Fill</span></code></a> value scales the image without regard to the original aspect ratio, which can cause the image to appear distorted. Other content modes place the image at the appropriate location in the image view’s bounds without scaling it.</p>
+          <p>For a resizable image with cap insets, those insets affect the final appearance of the image. Specifically, cap insets define which parts of the image may be scaled and in which directions. You can create a resizable image that stretches using the <a class="symbol-name" href="/documentation/uikit/uiimage/1624127-resizableimage"><code><span>resizable<wbr>Image(with<wbr>Cap<wbr>Insets:<wbr>resizing<wbr>Mode:)</span></code></a> method of <code class="code-voice"><span>UIImage</span></code>. When using an image of this type, you typically set the image view’s content mode to <a class="symbol-name" href="/documentation/uikit/uiview/contentmode/scaletofill"><code><span>UIView<wbr>.Content<wbr>Mode<wbr>.scale<wbr>To<wbr>Fill</span></code></a> so that the image stretches in the appropriate places and fills the image view’s bounds. </p>
+          <p>For tips on how to prepare images, see <a href="/documentation/uikit/uiimageview#1658399">Debugging Issues with Your Image View</a>. For more information on creating resizable images with cap insets, see <a class="symbol-name" href="/documentation/uikit/uiimage"><code><span>UIImage</span></code></a>. </p>
+         </div>
+         <h3 id="1658343">Determining the Final Transparency of the Image</h3>
+         <div>
+          <p>Images are composited onto the image view’s background and are then composited into the rest of the window. Any transparency in the image allows the image view’s background to show through. Similarly, any further transparency in the background of the image is dependent on the transparency of the image view and the transparency of the <a class="symbol-name" href="/documentation/uikit/uiimage"><code><span>UIImage</span></code></a> object it displays. When the image view and its image both have transparency, the image view uses alpha blending to combine the two. </p>
+          <ul>
+           <li><p>The image is composited onto the image view’s background. </p></li>
+           <li><p>If the image view’s <a class="symbol-name" href="/documentation/uikit/uiview/1622622-isopaque"><code><span>is<wbr>Opaque</span></code></a> property is <code class="code-voice"><span>true</span></code>, the image’s pixels are composited on top of the image view’s background color and the <code class="code-voice"><span>alpha</span></code> property of the image view is ignored.</p></li>
+           <li><p>If the image view’s <a class="symbol-name" href="/documentation/uikit/uiview/1622622-isopaque"><code><span>is<wbr>Opaque</span></code></a> property is <code class="code-voice"><span>false</span></code>, the alpha value of each pixel is multiplied by the image view’s <a class="symbol-name" href="/documentation/uikit/uiview/1622417-alpha"><code><span>alpha</span></code></a> value, with the resulting value becoming the actual transparency value for that pixel. If the image does not have an alpha channel, the alpha value of each pixel is assumed to be <code class="code-voice"><span>1<wbr>.0</span></code>. </p></li>
+          </ul>
+          <aside class="aside aside-important" aria-label="important">
+           <p class="aside-name">Important</p>
+           <p>It is computationally expensive to composite the alpha channel of an image with the alpha channel of a non-opaque image view. The performance impact is further magnified if you use Core Animation shadows, because the shape of the shadow is then based on the contents of the view and must be dynamically computed. If you are not intentionally using the alpha channel of the image or the alpha channel of the image view, set the <a class="symbol-name" href="/documentation/uikit/uiview/1622622-isopaque"><code><span>is<wbr>Opaque</span></code></a> property to <code class="code-voice"><span>true</span></code> to improve performance. For additional optimization tips, see <a href="/documentation/uikit/uiimageview#1658379">Tips for Improving Performance</a>.</p>
+          </aside>
+         </div>
+         <h3 id="1807298">Animating a Sequence of Images</h3>
+         <div>
+          <p>An image view can store an animated image sequence and play all or part of that sequence. You specify an image sequence as an array of <a class="symbol-name" href="/documentation/uikit/uiimage"><code><span>UIImage</span></code></a> objects and assign them to the <a class="symbol-name" href="/documentation/uikit/uiimageview/1621068-animationimages"><code><span>animation<wbr>Images</span></code></a> property. Once assigned, you can use the methods and properties of this class to configure the animation timing and to start and stop the animation.</p>
+          <aside class="aside aside-note" role="note">
+           <p class="aside-name">Note</p>
+           <p>You can also construct a single <code class="code-voice"><span>UIImage</span></code> object from a sequence of individual images using the <a class="symbol-name" href="/documentation/uikit/uiimage/1624149-animatedimage"><code><span>animated<wbr>Image(with:<wbr>duration:)</span></code></a> method. Doing so yields the same results as if you had assigned the individual images to the <code class="code-voice"><span>animation<wbr>Images</span></code> property.</p>
+          </aside>
+          <p>Consider the following tips when displaying a sequence of animated images: </p>
+          <ul>
+           <li><p><strong>All images in the sequence should have the same size.</strong> When scaling is required, the image view scales each image in the sequence separately. If the images are different sizes, scaling may not yield the results you want.</p></li>
+           <li><p><strong>All images in the sequence should use the same content scale factor.</strong> Make sure the <a class="symbol-name" href="/documentation/uikit/uiimage/1624110-scale"><code><span>scale</span></code></a> property of each image contains the same value.</p></li>
+          </ul>
+         </div>
+         <h3 id="1807299">Responding to Touch Events</h3>
+         <div>
+          <p>Image views ignore user events by default. Normally, you use image views only to present visual content in your interface. If you want an image view to handle user interactions as well, change the value of its <a class="symbol-name" href="/documentation/uikit/uiimageview/1621063-isuserinteractionenabled"><code><span>is<wbr>User<wbr>Interaction<wbr>Enabled</span></code></a> property to <code class="code-voice"><span>true</span></code>. After doing that, you can attach gesture recognizers or use any other event handling techniques to respond to touch events or other user-initiated events. </p>
+          <p>For more information about handling events, see <a href="https://developer.apple.com/library/archive/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/index.html#//apple_ref/doc/uid/TP40009541">Event Handling Guide for UIKit Apps</a>. </p>
+         </div>
+         <h3 id="1658379">Tips for Improving Performance</h3>
+         <div>
+          <p>Image scaling and alpha blending are two relatively expensive operations that can impact your app’s performance. To maximize performance of your image view code, consider the following tips:</p>
+          <ul>
+           <li><p><strong>Cache scaled versions of frequently used images.</strong> If you expect certain large images to be displayed frequently in a scaled-down thumbnail view, consider creating the scaled-down images in advance and storing them in a thumbnail cache. Doing so alleviates the need for each image view to scale them separately. </p></li>
+           <li><p><strong>Use images whose size is close to the size of the image view.</strong> Rather than assigning a large image to an image view, created a scaled version that matches the current size of the image view. You can also create a resizable image object using the <a class="symbol-name" href="/documentation/uikit/uiimage/resizingmode/tile"><code><span>UIImage<wbr>.Resizing<wbr>Mode<wbr>.tile</span></code></a> option, which tiles the image instead of scaling it. </p></li>
+           <li><p><strong>Make your image view opaque whenever possible.</strong> Unless you are intentionally working with images that contain transparency (drawing UI elements, for example), make sure the <a class="symbol-name" href="/documentation/uikit/uiview/1622622-isopaque"><code><span>is<wbr>Opaque</span></code></a> property of your image view is set to <code class="code-voice"><span>true</span></code>. For more information about how transparency is determined, see <a href="/documentation/uikit/uiimageview#1658343">Determining the Final Transparency of the Image</a>. </p></li>
+          </ul>
+         </div>
+         <h3 id="1658399">Debugging Issues with Your Image View</h3>
+         <div>
+          <p>If your image view is not displaying what you expected, use the following tips to help diagnose the problem:</p>
+          <ul>
+           <li><p><strong>Load images using the correct method.</strong> Use the <a class="symbol-name" href="/documentation/uikit/uiimage/1624154-init"><code><span>init(named:<wbr>in:<wbr>compatible<wbr>With:)</span></code></a> method of <a class="symbol-name" href="/documentation/uikit/uiimage"><code><span>UIImage</span></code></a> to load images from asset catalogs or your app’s bundle. For images outside of your app’s bundle, use the <a class="symbol-name" href="/documentation/uikit/uiimage/1624123-imagewithcontentsoffile"><code><span>image<wbr>With<wbr>Contents<wbr>Of<wbr>File:</span></code></a> method.</p></li>
+           <li><p><strong>Do not use image views for custom drawing.</strong> The <code class="code-voice"><span>UIImage<wbr>View</span></code> class does not draw its content using the <a class="symbol-name" href="/documentation/uikit/uiview/1622529-draw"><code><span>draw(_:)</span></code></a> method. Use image views only to present images. To do custom drawing involving images, subclass <a class="symbol-name" href="/documentation/uikit/uiview"><code><span>UIView</span></code></a> directly and draw your image there.</p></li>
+          </ul>
+         </div>
+         <h3 id="1807301">Interface Builder Attributes</h3>
+         <div>
+          <p><span class="reference">Table 1</span> lists the attributes that you configure for image views in Interface Builder. </p>
+          <figure id="1965927">
+           <figcaption>
+            <strong class="caption-title">Table 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Image view attributes</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="table-wrapper">
+             <table>
+              <thead>
+               <tr>
+                <th scope="col"><p>Attribute</p></th>
+                <th scope="col"><p>Discussion</p></th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                <td><p>Image</p></td>
+                <td><p>The image to display. You can specify any image in your Xcode project, including standalone images and those in image assets. To set this attribute programmatically, use the <a class="symbol-name" href="/documentation/uikit/uiimageview/1621069-image"><code><span>image</span></code></a> or <a class="symbol-name" href="/documentation/uikit/uiimageview/1621068-animationimages"><code><span>animation<wbr>Images</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Highlighted</p></td>
+                <td><p>The image to display when the image view is highlighted. To set this attribute programmatically, use the <a class="symbol-name" href="/documentation/uikit/uiimageview/1621066-highlightedimage"><code><span>highlighted<wbr>Image</span></code></a> or <a class="symbol-name" href="/documentation/uikit/uiimageview/1621065-highlightedanimationimages"><code><span>highlighted<wbr>Animation<wbr>Images</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>State</p></td>
+                <td><p>The initial state of the image. Use this attribute to mark the image as highlighted. To set this attribute programmatically, use the <a class="symbol-name" href="/documentation/uikit/uiimageview/1621060-ishighlighted"><code><span>is<wbr>Highlighted</span></code></a> property.</p></td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+           </div>
+          </figure>
+         </div>
+         <h3 id="1807302">Internationalization</h3>
+         <div>
+          <p>Internationalization of image views is automatic if your view displays only static images loaded from your app bundle. If you are loading images programmatically, you are at least partially responsible for loading the correct image.</p>
+          <ul>
+           <li><p>For resources in your app bundle, you do this by specifying the name in the attributes inspector or by calling the <a class="symbol-name" href="/documentation/uikit/uiimage/1624146-init"><code><span>init(named:)</span></code></a> class method on <a class="symbol-name" href="/documentation/uikit/uiimage"><code><span>UIImage</span></code></a> to obtain the localized version of each image.</p></li>
+           <li><p>For images that are not in your app bundle, your code must do the following:</p>
+            <ol>
+             <li><p>Determine which image to load in a manner specific to your app, such as providing a localized string that contains the URL.</p></li>
+             <li><p>Load that image by passing the URL or data for the correct image to an appropriate <a class="symbol-name" href="/documentation/uikit/uiimage"><code><span>UIImage</span></code></a> class method, such as <a class="symbol-name" href="/documentation/uikit/uiimage/1624137-imagewithdata"><code><span>image<wbr>With<wbr>Data:</span></code></a> or <a class="symbol-name" href="/documentation/uikit/uiimage/1624123-imagewithcontentsoffile"><code><span>image<wbr>With<wbr>Contents<wbr>Of<wbr>File:</span></code></a>.</p></li>
+            </ol></li>
+          </ul>
+          <aside class="aside aside-note" role="note">
+           <p class="aside-name">Note</p>
+           <p>Screen metrics and layout may also change depending on the language and locale, particularly if the internationalized versions of your images have different dimensions. Where possible, you should try to make minimize dimension differences in internationalized versions of image resources.</p>
+          </aside>
+          <p>For more information, see <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/Introduction/Introduction.html#//apple_ref/doc/uid/10000171i">Internationalization and Localization Guide</a>.</p>
+         </div>
+         <h3 id="1807303">Accessibility</h3>
+         <div>
+          <p>Image views are accessible by default. The default accessibility traits for a image view are Image and User Interaction Enabled.</p>
+          <p>For more information about making iOS controls accessible, see the accessibility information in <a class="symbol-name" href="/documentation/uikit/uicontrol"><code><span>UIControl</span></code></a>. For general information about making your interface accessible, see <a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/iPhoneAccessibility/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008785">Accessibility Programming Guide for iOS</a>. </p>
+         </div>
+         <h3 id="1658438">State Preservation</h3>
+         <div>
+          <p>When you assign a value to an image view’s <a class="symbol-name" href="/documentation/uikit/uiviewcontroller/1621499-restorationidentifier"><code><span>restoration<wbr>Identifier</span></code></a> property, it attempts to preserve the frame of the displayed image. Specifically, the class preserves the values of the <a class="symbol-name" href="/documentation/uikit/uiview/1622580-bounds"><code><span>bounds</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uiview/1622627-center"><code><span>center</span></code></a>, and <a class="symbol-name" href="/documentation/uikit/uiview/1622459-transform"><code><span>transform</span></code></a> properties of the view and the <a class="symbol-name" href="/documentation/quartzcore/calayer/1410817-anchorpoint"><code><span>anchor<wbr>Point</span></code></a> property of the underlying layer. During restoration, the image view restores these values so that the image appears exactly as before. For more information about how state preservation and restoration works, see <a href="https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007072">App Programming Guide for iOS</a>. </p>
+         </div>
+        </div>
+       </section>
+      </div>
+     </div>
+     <section id="topics" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Topics</h2>
+        <section id="1658472" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Initializing an Image View</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621062-init"><code class="display-name"><span class="identifier">init</span><span class="decorator">(</span><span class="identifier">image</span><span class="decorator">: UIImage?)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns an image view initialized with the specified image.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621064-init"><code class="display-name"><span class="identifier">init</span><span class="decorator">(</span><span class="identifier">image</span><span class="decorator">: UIImage?, </span><span class="identifier">highlighted<wbr>Image</span><span class="decorator">: UIImage?)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns an image view initialized with the specified regular and highlighted images.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1658510" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Accessing the Displayed Images</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621069-image"><code class="display-name"><span class="decorator">var </span><span class="identifier">image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The image displayed in the image view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621066-highlightedimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">highlighted<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The highlighted image displayed in the image view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1658559" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Animating a Sequence of Images</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621068-animationimages"><code class="display-name"><span class="decorator">var </span><span class="identifier">animation<wbr>Images</span><span class="decorator">: [UIImage]?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>An array of <a class="symbol-name" href="/documentation/uikit/uiimage"><code><span>UIImage</span></code></a> objects to use for an animation. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621065-highlightedanimationimages"><code class="display-name"><span class="decorator">var </span><span class="identifier">highlighted<wbr>Animation<wbr>Images</span><span class="decorator">: [UIImage]?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>An array of <a class="symbol-name" href="/documentation/uikit/uiimage"><code><span>UIImage</span></code></a> objects to use for an animation when the view is highlighted. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621058-animationduration"><code class="display-name"><span class="decorator">var </span><span class="identifier">animation<wbr>Duration</span><span class="decorator">: Time<wbr>Interval</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The amount of time it takes to go through one cycle of the images.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621070-animationrepeatcount"><code class="display-name"><span class="decorator">var </span><span class="identifier">animation<wbr>Repeat<wbr>Count</span><span class="decorator">: Int</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Specifies the number of times to repeat the animation.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621061-startanimating"><code class="display-name"><span class="decorator">func </span><span class="identifier">start<wbr>Animating</span><span class="decorator">()</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Starts animating the images in the receiver.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621057-stopanimating"><code class="display-name"><span class="decorator">func </span><span class="identifier">stop<wbr>Animating</span><span class="decorator">()</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Stops animating the images in the receiver.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/2097534-isanimating"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Animating</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns a Boolean value indicating whether the animation is running.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1658662" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Configuring the Image View</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621063-isuserinteractionenabled"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>User<wbr>Interaction<wbr>Enabled</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether user events are ignored and removed from the event queue.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621060-ishighlighted"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Highlighted</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether the image is highlighted.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1621059-tintcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">tint<wbr>Color</span><span class="decorator">: UIColor!</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A color used to tint template images in the view hierarchy.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1807308" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing Focus-Related Behaviors</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1627692-adjustsimagewhenancestorfocused"><code class="display-name"><span class="decorator">var </span><span class="identifier">adjusts<wbr>Image<wbr>When<wbr>Ancestor<wbr>Focused</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Allows <code class="code-voice"><span>UIImage<wbr>View</span></code> to respond when an ancestor becomes focused.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/1627691-focusedframeguide"><code class="display-name"><span class="decorator">var </span><span class="identifier">focused<wbr>Frame<wbr>Guide</span><span class="decorator">: UILayout<wbr>Guide</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The layout guide to use when the image view is focused.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/2920037-masksfocuseffecttocontents"><code class="display-name"><span class="decorator">var </span><span class="identifier">masks<wbr>Focus<wbr>Effect<wbr>To<wbr>Contents</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the floating focused appearance uses the image's alpha channel. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="2882143" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Layering Content on Top of the Image View</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview/2882128-overlaycontentview"><code class="display-name"><span class="decorator">var </span><span class="identifier">overlay<wbr>Content<wbr>View</span><span class="decorator">: UIView</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A view for hosting layered content on top of the image view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="relationships" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Relationships</h2>
+        <section id="inherits-from" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Inherits From</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <a class="symbol-name" href="/documentation/uikit/uiview"><code><span>UIView</span></code></a>
+          </div>
+         </div>
+        </section>
+        <section id="conforms-to" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Conforms To</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <ul class="relationships-section-content-columns">
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/cvararg"><code><span>CVar<wbr>Arg</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/equatable"><code><span>Equatable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/hashable"><code><span>Hashable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiaccessibilitycontentsizecategoryimageadjusting"><code><span>UIAccessibility<wbr>Content<wbr>Size<wbr>Category<wbr>Image<wbr>Adjusting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiaccessibilityidentification"><code><span>UIAccessibility<wbr>Identification</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uipasteconfigurationsupporting"><code><span>UIPaste<wbr>Configuration<wbr>Supporting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiuseractivityrestoring"><code><span>UIUser<wbr>Activity<wbr>Restoring</span></code></a></li>
+           </ul>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="see-also" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">See Also</h2>
+        <section id="2864416" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Content Views</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiactivityindicatorview"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIActivity<wbr>Indicator<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A view that shows that a task is in progress.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uipickerview"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIPicker<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A view that uses a spinning-wheel or slot-machine metaphor to show one or more sets of values.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiprogressview"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIProgress<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A view that depicts the progress of a task over time.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIWeb<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A view that embeds web content in your app.</p>
+               </div>
+              </div>
+              <span class="violator violator-inline violator-deprecated task-topic-violator task-topic-data" role="presentation">Deprecated</span>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+    </main>
+    <section id="globalfooter-wrapper">
+     <footer id="globalfooter" role="contentinfo"> 
+      <nav class="footer-breadory"> 
+       <a href="/" class="home breadcrumbs-home"><span aria-hidden="true"></span><span class="breadcrumbs-home-label">Developer</span></a> 
+       <section class="breadcrumbs"> 
+        <ol class="breadcrumbs-list"> 
+         <li><a href="/documentation">Documentation</a></li> 
+        </ol> 
+       </section> 
+       <div id="directorynav" class="directorynav"> 
+        <div id="dn-cola" class="column"> 
+         <h3><a href="/discover/">Discover</a></h3> 
+         <ul> 
+          <li><a href="/macos/">macOS</a></li> 
+          <li><a href="/ios/">iOS</a></li> 
+          <li><a href="/watchos/">watchOS</a></li> 
+          <li><a href="/tvos/">tvOS</a></li> 
+          <li><a href="/safari/">Safari and Web</a></li> 
+          <li><a href="/games/">Games</a></li> 
+          <li><a href="/enterprise/">Enterprise</a></li> 
+          <li><a href="/education/">Education</a></li> 
+          <li><a href="/wwdc/">WWDC</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colb" class="column"> 
+         <h3><a href="/design/">Design</a></h3> 
+         <ul> 
+          <li><a href="/design/human-interface-guidelines/">Human Interface Guidelines</a></li> 
+          <li><a href="/design/resources/">Resources</a></li> 
+          <li><a href="/videos/design/">Videos</a></li> 
+          <li><a href="/design/awards/">Apple Design Awards</a></li> 
+          <li><a href="/accessibility/">Accessibility</a></li> 
+          <li><a href="/internationalization/">Internationalization</a></li> 
+          <li><a href="/accessories/">Accessories</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colc" class="column"> 
+         <h3><a href="/develop/">Develop</a></h3> 
+         <ul> 
+          <li><a href="/xcode/">Xcode</a></li> 
+          <li><a href="/swift/">Swift</a></li> 
+          <li><a href="/swift-playgrounds/">Swift Playgrounds</a></li> 
+          <li><a href="/testflight/">TestFlight</a></li> 
+          <li><a href="/documentation/">Documentation</a></li> 
+          <li><a href="/videos/">Videos</a></li> 
+          <li><a href="/download/">Downloads</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cold" class="column"> 
+         <h3><a href="/distribute/">Distribute</a></h3> 
+         <ul> 
+          <li><a href="/app-store/">App Store</a></li> 
+          <li><a href="/macos/distribution/">Mac Software</a></li> 
+          <li><a href="/app-store/review/">App Review</a></li> 
+          <li><a href="/programs/volume/">Volume Purchase Program</a></li> 
+          <li><a href="/programs/volume/b2b/">Custom B2B Apps</a></li> 
+          <li><a href="/enterprise/distribute/">Enterprise Apps</a></li> 
+          <li><a href="/safari/extensions/">Safari Extensions</a></li> 
+          <li><a href="/app-store/marketing/guidelines/">Marketing Resources</a></li> 
+          <li><a href="/softwarelicensing/">Trademark Licensing</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cole" class="column"> 
+         <h3><a href="/support/">Support</a></h3> 
+         <ul> 
+          <li><a href="https://forums.developer.apple.com">Developer Forums</a></li> 
+          <li><a href="/bug-reporting/">Bug Reporting</a></li> 
+          <li><a href="/terms/">License Agreements</a></li> 
+          <li><a href="/system-status/">System Status</a></li> 
+          <li><a href="/contact/">Contact Us</a></li> 
+          <br> 
+          <h3><a href="/account/">Account</a></h3> 
+          <ul> 
+           <li><a href="/programs/">Developer Program</a></li> 
+           <li><a href="/account/ios/certificate/">Certificates, IDs &amp; Profiles</a></li> 
+           <li><a href="https://appstoreconnect.apple.com/">App Store Connect</a></li> 
+          </ul> 
+         </ul> 
+        </div> 
+       </div> 
+      </nav> 
+      <div class="ac-gf-footer-legal"> 
+       <div class="ac-gf-footer-news">
+         To receive the latest developer news, visit and subscribe to our 
+        <a href="/news/">News and Updates</a>. 
+       </div> 
+       <div class="ac-gf-footer-legal-copyright">
+        Copyright © 2018 Apple Inc. All rights reserved.
+       </div> 
+       <div class="ac-gf-footer-legal-links"> 
+        <a href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a> 
+        <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a> 
+        <a href="/bug-reporting/">Report Bugs</a> 
+        <a href="/contact/submit/?subject=website-feedback">Feedback</a> 
+       </div> 
+       <div class="ac-gf-footer-language-links"> 
+        <a href="/cn/" class="first">简体中文</a> 
+        <a href="/jp/">日本語</a> 
+        <a href="/kr/">한국어</a> 
+       </div> 
+      </div> 
+     </footer>
+    </section>
+   </div>
+  </div>
+  <script id="bootstrap-data" type="application/json">{"id":1621067,"title":{"content":"UIImageView"},"abstract":"<div><p>An object that displays a single image or a sequence of animated images in your interface.<\/p><\/div>","discussion":"<div><p>Image views let you efficiently draw any image that can be specified using a <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\"><code><span>UIImage<\/span><\/code><\/a> object. For example, you can use the <code class=\"code-voice\"><span>UIImage<wbr\/>View<\/span><\/code> class to display the contents of many standard image files, such as JPEG and PNG files. You can configure image views programmatically or in your storyboard file and change the images they display at runtime. For animated images, you can also use the methods of this class to start and stop the animation and specify other animation parameters.<\/p><figure id=\"2923882\"><figcaption><strong class=\"caption-title\">Figure 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Image view<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/266fe44036\/402b5d33-6863-4120-9e18-fc7bebf62053.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/266fe44036\/402b5d33-6863-4120-9e18-fc7bebf62053.png 2x\" alt=\"An image view\" width=\"352\" height=\"auto\"\/><\/figure><\/div><h3 id=\"1807296\">Understanding How Images Are Scaled<\/h3><div><p>An image view uses its <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622619-contentmode\"><code><span>content<wbr\/>Mode<\/span><\/code><\/a> property and the configuration of the image itself to determine how to display the image. It is best to specify images whose dimensions match the dimensions of the image view exactly, but image views can scale your images to fit all or some of the available space. If the size of the image view itself changes, it automatically scales the image as needed.<\/p><p>For an image without cap insets, the presentation of the image is determined solely by the image view’s <code class=\"code-voice\"><span>content<wbr\/>Mode<\/span><\/code> property. The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/contentmode\/scaleaspectfit\"><code><span>UIView<wbr\/>.Content<wbr\/>Mode<wbr\/>.scale<wbr\/>Aspect<wbr\/>Fit<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/contentmode\/scaleaspectfill\"><code><span>UIView<wbr\/>.Content<wbr\/>Mode<wbr\/>.scale<wbr\/>Aspect<wbr\/>Fill<\/span><\/code><\/a> modes scale the image to fit or fill the space while maintaining the image’s original aspect ratio. The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/contentmode\/scaletofill\"><code><span>UIView<wbr\/>.Content<wbr\/>Mode<wbr\/>.scale<wbr\/>To<wbr\/>Fill<\/span><\/code><\/a> value scales the image without regard to the original aspect ratio, which can cause the image to appear distorted. Other content modes place the image at the appropriate location in the image view’s bounds without scaling it.<\/p><p>For a resizable image with cap insets, those insets affect the final appearance of the image. Specifically, cap insets define which parts of the image may be scaled and in which directions. You can create a resizable image that stretches using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\/1624127-resizableimage\"><code><span>resizable<wbr\/>Image(with<wbr\/>Cap<wbr\/>Insets:<wbr\/>resizing<wbr\/>Mode:)<\/span><\/code><\/a> method of <code class=\"code-voice\"><span>UIImage<\/span><\/code>. When using an image of this type, you typically set the image view’s content mode to <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/contentmode\/scaletofill\"><code><span>UIView<wbr\/>.Content<wbr\/>Mode<wbr\/>.scale<wbr\/>To<wbr\/>Fill<\/span><\/code><\/a> so that the image stretches in the appropriate places and fills the image view’s bounds. <\/p><p>For tips on how to prepare images, see <a href=\"\/documentation\/uikit\/uiimageview#1658399\">Debugging Issues with Your Image View<\/a>. For more information on creating resizable images with cap insets, see <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\"><code><span>UIImage<\/span><\/code><\/a>.  <\/p><\/div><h3 id=\"1658343\">Determining the Final Transparency of the Image<\/h3><div><p>Images are composited onto the image view’s background and are then composited into the rest of the window. Any transparency in the image allows the image view’s background to show through. Similarly, any further transparency in the background of the image is dependent on the transparency of the image view and the transparency of the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\"><code><span>UIImage<\/span><\/code><\/a> object it displays. When the image view and its image both have transparency, the image view uses alpha blending to combine the two. <\/p><ul><li><p>The image is composited onto the image view’s background. <\/p><\/li><li><p>If the image view’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622622-isopaque\"><code><span>is<wbr\/>Opaque<\/span><\/code><\/a> property is <code class=\"code-voice\"><span>true<\/span><\/code>, the image’s pixels are composited on top of the image view’s background color and the <code class=\"code-voice\"><span>alpha<\/span><\/code> property of the image view is ignored.<\/p><\/li><li><p>If the image view’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622622-isopaque\"><code><span>is<wbr\/>Opaque<\/span><\/code><\/a> property is <code class=\"code-voice\"><span>false<\/span><\/code>, the alpha value of each pixel is multiplied by the image view’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622417-alpha\"><code><span>alpha<\/span><\/code><\/a> value, with the resulting value becoming the actual transparency value for that pixel. If the image does not have an alpha channel, the alpha value of each pixel is assumed to be <code class=\"code-voice\"><span>1<wbr\/>.0<\/span><\/code>.  <\/p><\/li><\/ul><aside class=\"aside aside-important\" aria-label=\"important\"><p class=\"aside-name\">Important<\/p><p>It is computationally expensive to composite the alpha channel of an image with the alpha channel of a non-opaque image view. The performance impact is further magnified if you use Core Animation shadows, because the shape of the shadow is then based on the contents of the view and must be dynamically computed. If you are not intentionally using the alpha channel of the image or the alpha channel of the image view, set the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622622-isopaque\"><code><span>is<wbr\/>Opaque<\/span><\/code><\/a> property to <code class=\"code-voice\"><span>true<\/span><\/code> to improve performance. For additional optimization tips, see <a href=\"\/documentation\/uikit\/uiimageview#1658379\">Tips for Improving Performance<\/a>.<\/p><\/aside><\/div><h3 id=\"1807298\">Animating a Sequence of Images<\/h3><div><p>An image view can store an animated image sequence and play all or part of that sequence. You specify an image sequence as an array of <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\"><code><span>UIImage<\/span><\/code><\/a> objects and assign them to the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimageview\/1621068-animationimages\"><code><span>animation<wbr\/>Images<\/span><\/code><\/a> property. Once assigned, you can use the methods and properties of this class to configure the animation timing and to start and stop the animation.<\/p><aside class=\"aside aside-note\" role=\"note\"><p class=\"aside-name\">Note<\/p><p>You can also construct a single <code class=\"code-voice\"><span>UIImage<\/span><\/code> object from a sequence of individual images using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\/1624149-animatedimage\"><code><span>animated<wbr\/>Image(with:<wbr\/>duration:)<\/span><\/code><\/a> method. Doing so yields the same results as if you had assigned the individual images to the <code class=\"code-voice\"><span>animation<wbr\/>Images<\/span><\/code> property.<\/p><\/aside><p>Consider the following tips when displaying a sequence of animated images: <\/p><ul><li><p><strong>All images in the sequence should have the same size.<\/strong> When scaling is required, the image view scales each image in the sequence separately. If the images are different sizes, scaling may not yield the results you want.<\/p><\/li><li><p><strong>All images in the sequence should use the same content scale factor.<\/strong> Make sure the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\/1624110-scale\"><code><span>scale<\/span><\/code><\/a> property of each image contains the same value.<\/p><\/li><\/ul><\/div><h3 id=\"1807299\">Responding to Touch Events<\/h3><div><p>Image views ignore user events by default. Normally, you use image views only to present visual content in your interface. If you want an image view to handle user interactions as well, change the value of its <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimageview\/1621063-isuserinteractionenabled\"><code><span>is<wbr\/>User<wbr\/>Interaction<wbr\/>Enabled<\/span><\/code><\/a> property to <code class=\"code-voice\"><span>true<\/span><\/code>. After doing that, you can attach gesture recognizers or use any other event handling techniques to respond to touch events or other user-initiated events. <\/p><p>For more information about handling events, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/EventHandling\/Conceptual\/EventHandlingiPhoneOS\/index.html#\/\/apple_ref\/doc\/uid\/TP40009541\">Event Handling Guide for UIKit Apps<\/a>. <\/p><\/div><h3 id=\"1658379\">Tips for Improving Performance<\/h3><div><p>Image scaling and alpha blending are two relatively expensive operations that can  impact your app’s performance. To maximize performance of your image view code, consider the following tips:<\/p><ul><li><p><strong>Cache scaled versions of frequently used images.<\/strong> If you expect certain large images to be displayed frequently in a scaled-down thumbnail view, consider creating the scaled-down images in advance and storing them in a thumbnail cache. Doing so alleviates the need for each image view to scale them separately. <\/p><\/li><li><p><strong>Use images whose size is close to the size of the image view.<\/strong> Rather than assigning a large image to an image view, created a scaled version that matches the current size of the image view. You can also create a resizable image object using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\/resizingmode\/tile\"><code><span>UIImage<wbr\/>.Resizing<wbr\/>Mode<wbr\/>.tile<\/span><\/code><\/a> option, which tiles the image instead of scaling it. <\/p><\/li><li><p><strong>Make your image view opaque whenever possible.<\/strong> Unless you are intentionally working with images that contain transparency (drawing UI elements, for example), make sure the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622622-isopaque\"><code><span>is<wbr\/>Opaque<\/span><\/code><\/a> property of your image view is set to <code class=\"code-voice\"><span>true<\/span><\/code>. For more information about how transparency is determined, see <a href=\"\/documentation\/uikit\/uiimageview#1658343\">Determining the Final Transparency of the Image<\/a>.  <\/p><\/li><\/ul><\/div><h3 id=\"1658399\">Debugging Issues with Your Image View<\/h3><div><p>If your image view is not displaying what you expected, use the following tips to help diagnose the problem:<\/p><ul><li><p><strong>Load images using the correct method.<\/strong> Use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\/1624154-init\"><code><span>init(named:<wbr\/>in:<wbr\/>compatible<wbr\/>With:)<\/span><\/code><\/a> method of <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\"><code><span>UIImage<\/span><\/code><\/a> to load images from asset catalogs or your app’s bundle. For images outside of your app’s bundle, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\/1624123-imagewithcontentsoffile\"><code><span>image<wbr\/>With<wbr\/>Contents<wbr\/>Of<wbr\/>File:<\/span><\/code><\/a> method.<\/p><\/li><li><p><strong>Do not use image views for custom drawing.<\/strong> The <code class=\"code-voice\"><span>UIImage<wbr\/>View<\/span><\/code> class does not draw its content using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622529-draw\"><code><span>draw(_:)<\/span><\/code><\/a> method. Use image views only to present images. To do custom drawing involving images, subclass <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\"><code><span>UIView<\/span><\/code><\/a> directly and draw your image there.<\/p><\/li><\/ul><\/div><h3 id=\"1807301\">Interface Builder Attributes<\/h3><div><p><span class=\"reference\">Table 1<\/span> lists the attributes that you configure for image views in Interface Builder. <\/p><figure id=\"1965927\"><figcaption><strong class=\"caption-title\">Table 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Image view attributes<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"table-wrapper\"><table><thead><tr><th scope=\"col\"><p>Attribute<\/p><\/th><th scope=\"col\"><p>Discussion<\/p><\/th><\/tr><\/thead><tbody><tr><td><p>Image<\/p><\/td><td><p>The image to display. You can specify any image in your Xcode project, including standalone images and those in image assets. To set this attribute programmatically, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimageview\/1621069-image\"><code><span>image<\/span><\/code><\/a> or <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimageview\/1621068-animationimages\"><code><span>animation<wbr\/>Images<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Highlighted<\/p><\/td><td><p>The image to display when the image view is highlighted. To set this attribute programmatically, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimageview\/1621066-highlightedimage\"><code><span>highlighted<wbr\/>Image<\/span><\/code><\/a> or <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimageview\/1621065-highlightedanimationimages\"><code><span>highlighted<wbr\/>Animation<wbr\/>Images<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>State<\/p><\/td><td><p>The initial state of the image. Use this attribute to mark the image as highlighted. To set this attribute programmatically, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimageview\/1621060-ishighlighted\"><code><span>is<wbr\/>Highlighted<\/span><\/code><\/a> property.<\/p><\/td><\/tr><\/tbody><\/table><\/div><\/div><\/figure><\/div><h3 id=\"1807302\">Internationalization<\/h3><div><p>Internationalization of image views is automatic if your view displays only static images loaded from your app bundle. If you are loading images programmatically, you are at least partially responsible for loading the correct image.<\/p><ul><li><p>For resources in your app bundle, you do this by specifying the name in the attributes inspector or by calling the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\/1624146-init\"><code><span>init(named:)<\/span><\/code><\/a> class method on <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\"><code><span>UIImage<\/span><\/code><\/a> to obtain the localized version of each image.<\/p><\/li><li><p>For images that are not in your app bundle, your code must do the following:<\/p><ol><li><p>Determine which image to load in a manner specific to your app, such as providing a localized string that contains the URL.<\/p><\/li><li><p>Load that image by passing the URL or data for the correct image to an appropriate <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\"><code><span>UIImage<\/span><\/code><\/a> class method, such as <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\/1624137-imagewithdata\"><code><span>image<wbr\/>With<wbr\/>Data:<\/span><\/code><\/a> or <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\/1624123-imagewithcontentsoffile\"><code><span>image<wbr\/>With<wbr\/>Contents<wbr\/>Of<wbr\/>File:<\/span><\/code><\/a>.<\/p><\/li><\/ol><\/li><\/ul><aside class=\"aside aside-note\" role=\"note\"><p class=\"aside-name\">Note<\/p><p>Screen metrics and layout may also change depending on the language and locale, particularly if the internationalized versions of your images have different dimensions. Where possible, you should try to make minimize dimension differences in internationalized versions of image resources.<\/p><\/aside><p>For more information, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/MacOSX\/Conceptual\/BPInternational\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/10000171i\">Internationalization and Localization Guide<\/a>.<\/p><\/div><h3 id=\"1807303\">Accessibility<\/h3><div><p>Image views are accessible by default. The default accessibility traits for a image view are Image and User Interaction Enabled.<\/p><p>For more information about making iOS controls accessible, see the accessibility information in <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\"><code><span>UIControl<\/span><\/code><\/a>. For general information about making your interface accessible, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/UserExperience\/Conceptual\/iPhoneAccessibility\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40008785\">Accessibility Programming Guide for iOS<\/a>. <\/p><\/div><h3 id=\"1658438\">State Preservation<\/h3><div><p>When you assign a value to an image view’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiviewcontroller\/1621499-restorationidentifier\"><code><span>restoration<wbr\/>Identifier<\/span><\/code><\/a> property, it attempts to preserve the frame of the displayed image. Specifically, the class preserves the values of the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622580-bounds\"><code><span>bounds<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622627-center\"><code><span>center<\/span><\/code><\/a>, and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622459-transform\"><code><span>transform<\/span><\/code><\/a> properties of the view and the <a class=\"symbol-name\" href=\"\/documentation\/quartzcore\/calayer\/1410817-anchorpoint\"><code><span>anchor<wbr\/>Point<\/span><\/code><\/a> property of the underlying layer. During restoration, the image view restores these values so that the image appears exactly as before. For more information about how state preservation and restoration works, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/iPhone\/Conceptual\/iPhoneOSProgrammingGuide\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40007072\">App Programming Guide for iOS<\/a>. <\/p><\/div>","containingGroup":[{"id":2864416,"role":"task","paths":[],"symbols":[{"id":1622846,"role":"symbol","usr":"c:objc(cs)UIActivityIndicatorView","name":"UIActivityIndicatorView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIActivity<wbr\/>Indicator<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uiactivityindicatorview"],"title":{"content":"UIActivityIndicatorView"},"abstract":"<div><p>A view that shows that a task is in progress.<\/p><\/div>","hasChildren":true},{"id":1621067,"role":"symbol","usr":"c:objc(cs)UIImageView","name":"UIImageView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIImage<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uiimageview"],"title":{"content":"UIImageView"},"abstract":"<div><p>An object that displays a single image or a sequence of animated images in your interface.<\/p><\/div>","hasChildren":true},{"id":1614387,"role":"symbol","usr":"c:objc(cs)UIPickerView","name":"UIPickerView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIPicker<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uipickerview"],"title":{"content":"UIPickerView"},"abstract":"<div><p>A view that uses a spinning-wheel or slot-machine metaphor to show one or more sets of values.<\/p><\/div>","hasChildren":true},{"id":1619847,"role":"symbol","usr":"c:objc(cs)UIProgressView","name":"UIProgressView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIProgress<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uiprogressview"],"title":{"content":"UIProgressView"},"abstract":"<div><p>A view that depicts the progress of a task over time.<\/p><\/div>","hasChildren":true},{"id":1617948,"role":"symbol","usr":"c:objc(cs)UIWebView","name":"UIWebView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIWeb<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uiwebview"],"title":{"content":"UIWebView"},"abstract":"<div><p>A view that embeds web content in your app.<\/p><\/div>","hasChildren":true}],"title":{"content":"Content Views"}}],"usr":"c:objc(cs)UIImageView","name":"UIImageView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","current":"12.0","introduced":"2.0"},{"platform":"tvOS","current":"12.0","introduced":"9.0"}],"conformance":[{"id":1623131,"usr":"c:objc(pl)UIAccessibilityIdentification","name":"UIAccessibilityIdentification","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiaccessibilityidentification"],"title":{"content":"UIAccessibilityIdentification"},"platforms":["iOS","tvOS"]},{"id":2882041,"usr":"c:objc(pl)UIPasteConfigurationSupporting","name":"UIPasteConfigurationSupporting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uipasteconfigurationsupporting"],"title":{"content":"UIPasteConfigurationSupporting"},"platforms":["iOS"]},{"id":1641507,"usr":"s:s7CVarArgP","name":"CVarArg","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/cvararg"],"title":{"content":"CVarArg"},"platforms":["iOS","tvOS"]},{"id":2890928,"usr":"c:objc(pl)UIAccessibilityContentSizeCategoryImageAdjusting","name":"UIAccessibilityContentSizeCategoryImageAdjusting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiaccessibilitycontentsizecategoryimageadjusting"],"title":{"content":"UIAccessibilityContentSizeCategoryImageAdjusting"},"platforms":["iOS","tvOS"]},{"id":2980935,"usr":"c:objc(pl)UIUserActivityRestoring","name":"UIUserActivityRestoring","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiuseractivityrestoring"],"title":{"content":"UIUserActivityRestoring"},"platforms":["iOS","tvOS"]},{"id":1541213,"usr":"s:SQ","name":"Equatable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/equatable"],"title":{"content":"Equatable"},"platforms":["iOS","tvOS"]},{"id":1540942,"usr":"s:SH","name":"Hashable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/hashable"],"title":{"content":"Hashable"},"platforms":["iOS","tvOS"]}],"inheritance":[{"id":1622655,"usr":"c:objc(cs)UIView","name":"UIView","domain":"swift","kind":"cl","role":"symbol","paths":["documentation\/uikit\/uiview"],"title":{"content":"UIView"},"platforms":["iOS","tvOS"]}],"module":[{"title":{"content":"UIKit"},"importStatement":"<div><span class=\"syntax-identifier\">import<\/span> UIKit<\/div>","paths":["documentation\/uikit"],"platforms":["iOS","tvOS"]}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIImage<wbr\/>View<\/span><\/code>","declaration":[{"content":"<span><span class=\"syntax-keyword\">class<\/span> <span class=\"syntax-identifier\">UIImageView<\/span> : <a class=\"symbolref\" href=\"\/documentation\/uikit\/uiview\"><span>UIView<\/span><\/a>\n<\/span>","platforms":["iOS","tvOS"]}],"languages":["occ","swift"],"variants":{"occ":{"paths":["documentation\/uikit\/uiimageview"],"usr":"c:objc(cs)UIImageView"},"swift":{"paths":["documentation\/uikit\/uiimageview"],"usr":"c:objc(cs)UIImageView"}},"diffAvailability":{"minor":{"change":"modified","platform":"Xcode","versions":["9.4","10.0 beta 6"]},"major":{"change":"modified","platform":"Xcode","versions":["9.0","10.0 beta 6"]}},"pid":201964,"role":"symbol","language":"swift","paths":["documentation\/uikit\/uiimageview"],"hierarchy":[[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864393,"role":"collectionGroup","title":{"content":"Views and Controls"},"paths":["documentation\/uikit\/views_and_controls"]}]],"legalNotices":{"copyright":"Copyright &copy; 2018 Apple Inc. All rights reserved.","termsOfUse":"https:\/\/www.apple.com\/legal\/internet-services\/terms\/site.html","privacyPolicy":"https:\/\/www.apple.com\/privacy\/privacy-policy"},"tasks":[{"id":1658472,"role":"task","symbols":[{"id":1621062,"role":"symbol","usr":"c:objc(cs)UIImageView(im)initWithImage:","name":"init(image:)","domain":"swift","kind":"instctr","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"identifier\">init<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">image<\/span><span class=\"decorator\">: UIImage?)<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621062-init"],"title":{"content":"init(image:)"},"abstract":"<div><p>Returns an image view initialized with the specified image.<\/p><\/div>"},{"id":1621064,"role":"symbol","usr":"c:objc(cs)UIImageView(im)initWithImage:highlightedImage:","name":"init(image:highlightedImage:)","domain":"swift","kind":"instctr","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"identifier\">init<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">image<\/span><span class=\"decorator\">: UIImage?, <\/span><span class=\"identifier\">highlighted<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?)<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621064-init"],"title":{"content":"init(image:highlightedImage:)"},"abstract":"<div><p>Returns an image view initialized with the specified regular and highlighted images.<\/p><\/div>"}],"title":{"content":"Initializing an Image View"}},{"id":1658510,"role":"task","symbols":[{"id":1621069,"role":"symbol","usr":"c:objc(cs)UIImageView(py)image","name":"image","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621069-image"],"title":{"content":"image"},"abstract":"<div><p>The image displayed in the image view.<\/p><\/div>"},{"id":1621066,"role":"symbol","usr":"c:objc(cs)UIImageView(py)highlightedImage","name":"highlightedImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">highlighted<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621066-highlightedimage"],"title":{"content":"highlightedImage"},"abstract":"<div><p>The highlighted image displayed in the image view.<\/p><\/div>"}],"title":{"content":"Accessing the Displayed Images"}},{"id":1658559,"role":"task","symbols":[{"id":1621068,"role":"symbol","usr":"c:objc(cs)UIImageView(py)animationImages","name":"animationImages","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">animation<wbr\/>Images<\/span><span class=\"decorator\">: [UIImage]?<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621068-animationimages"],"title":{"content":"animationImages"},"abstract":"<div><p>An array of <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\"><code><span>UIImage<\/span><\/code><\/a> objects to use for an animation. <\/p><\/div>"},{"id":1621065,"role":"symbol","usr":"c:objc(cs)UIImageView(py)highlightedAnimationImages","name":"highlightedAnimationImages","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">highlighted<wbr\/>Animation<wbr\/>Images<\/span><span class=\"decorator\">: [UIImage]?<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621065-highlightedanimationimages"],"title":{"content":"highlightedAnimationImages"},"abstract":"<div><p>An array of <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\"><code><span>UIImage<\/span><\/code><\/a> objects to use for an animation when the view is highlighted. <\/p><\/div>"},{"id":1621058,"role":"symbol","usr":"c:objc(cs)UIImageView(py)animationDuration","name":"animationDuration","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">animation<wbr\/>Duration<\/span><span class=\"decorator\">: Time<wbr\/>Interval<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621058-animationduration"],"title":{"content":"animationDuration"},"abstract":"<div><p>The amount of time it takes to go through one cycle of the images.<\/p><\/div>"},{"id":1621070,"role":"symbol","usr":"c:objc(cs)UIImageView(py)animationRepeatCount","name":"animationRepeatCount","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">animation<wbr\/>Repeat<wbr\/>Count<\/span><span class=\"decorator\">: Int<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621070-animationrepeatcount"],"title":{"content":"animationRepeatCount"},"abstract":"<div><p>Specifies the number of times to repeat the animation.<\/p><\/div>"},{"id":1621061,"role":"symbol","usr":"c:objc(cs)UIImageView(im)startAnimating","name":"startAnimating()","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">start<wbr\/>Animating<\/span><span class=\"decorator\">()<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621061-startanimating"],"title":{"content":"startAnimating()"},"abstract":"<div><p>Starts animating the images in the receiver.<\/p><\/div>"},{"id":1621057,"role":"symbol","usr":"c:objc(cs)UIImageView(im)stopAnimating","name":"stopAnimating()","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">stop<wbr\/>Animating<\/span><span class=\"decorator\">()<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621057-stopanimating"],"title":{"content":"stopAnimating()"},"abstract":"<div><p>Stops animating the images in the receiver.<\/p><\/div>"},{"id":2097534,"role":"symbol","usr":"c:objc(cs)UIImageView(py)animating","name":"isAnimating","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"10.0"},{"platform":"tvOS","introduced":"10.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Animating<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/2097534-isanimating"],"title":{"content":"isAnimating"},"abstract":"<div><p>Returns a Boolean value indicating whether the animation is running.<\/p><\/div>"}],"title":{"content":"Animating a Sequence of Images"}},{"id":1658662,"role":"task","symbols":[{"id":1621063,"role":"symbol","usr":"c:objc(cs)UIImageView(py)userInteractionEnabled","name":"userInteractionEnabled","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>User<wbr\/>Interaction<wbr\/>Enabled<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621063-isuserinteractionenabled"],"title":{"content":"isUserInteractionEnabled"},"abstract":"<div><p>A Boolean value that determines whether user events are ignored and removed from the event queue.<\/p><\/div>"},{"id":1621060,"role":"symbol","usr":"c:objc(cs)UIImageView(py)highlighted","name":"highlighted","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Highlighted<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621060-ishighlighted"],"title":{"content":"isHighlighted"},"abstract":"<div><p>A Boolean value that determines whether the image is highlighted.<\/p><\/div>"},{"id":1621059,"role":"symbol","usr":"c:objc(cs)UIImageView(py)tintColor","name":"tintColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">tint<wbr\/>Color<\/span><span class=\"decorator\">: UIColor!<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1621059-tintcolor"],"title":{"content":"tintColor"},"abstract":"<div><p>A color used to tint template images in the view hierarchy.<\/p><\/div>"}],"title":{"content":"Configuring the Image View"}},{"id":1807308,"role":"task","symbols":[{"id":1627692,"role":"symbol","usr":"c:objc(cs)UIImageView(py)adjustsImageWhenAncestorFocused","name":"adjustsImageWhenAncestorFocused","domain":"swift","kind":"instp","availability":[{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">adjusts<wbr\/>Image<wbr\/>When<wbr\/>Ancestor<wbr\/>Focused<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1627692-adjustsimagewhenancestorfocused"],"title":{"content":"adjustsImageWhenAncestorFocused"},"abstract":"<div><p>Allows <code class=\"code-voice\"><span>UIImage<wbr\/>View<\/span><\/code> to respond when an ancestor becomes focused.<\/p><\/div>"},{"id":1627691,"role":"symbol","usr":"c:objc(cs)UIImageView(py)focusedFrameGuide","name":"focusedFrameGuide","domain":"swift","kind":"instp","availability":[{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">focused<wbr\/>Frame<wbr\/>Guide<\/span><span class=\"decorator\">: UILayout<wbr\/>Guide<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/1627691-focusedframeguide"],"title":{"content":"focusedFrameGuide"},"abstract":"<div><p>The layout guide to use when the image view is focused.<\/p><\/div>"},{"id":2920037,"role":"symbol","usr":"c:objc(cs)UIImageView(py)masksFocusEffectToContents","name":"masksFocusEffectToContents","domain":"swift","kind":"instp","availability":[{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">masks<wbr\/>Focus<wbr\/>Effect<wbr\/>To<wbr\/>Contents<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/2920037-masksfocuseffecttocontents"],"title":{"content":"masksFocusEffectToContents"},"abstract":"<div><p>A Boolean value indicating whether the floating focused appearance uses the image&#x27;s alpha channel. <\/p><\/div>"}],"title":{"content":"Managing Focus-Related Behaviors"}},{"id":2882143,"role":"task","symbols":[{"id":2882128,"role":"symbol","usr":"c:objc(cs)UIImageView(py)overlayContentView","name":"overlayContentView","domain":"swift","kind":"instp","availability":[{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">overlay<wbr\/>Content<wbr\/>View<\/span><span class=\"decorator\">: UIView<\/span><\/code>","paths":["documentation\/uikit\/uiimageview\/2882128-overlaycontentview"],"title":{"content":"overlayContentView"},"abstract":"<div><p>A view for hosting layered content on top of the image view.<\/p><\/div>"}],"title":{"content":"Layering Content on Top of the Image View"}}]}</script>
+  <script src="/documentation/__assets/TopicDetail-018c52ac.js"></script>
+ </body>
+</html>

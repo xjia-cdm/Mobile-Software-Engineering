@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>UISwitch - UIKit | Apple Developer Documentation</title>
+  <meta content="width=device-width, initial-scale=1 viewport-fit=cover" name="viewport">
+  <meta data-pid="201964">
+  <link href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Mono,v1|SF+Pro+Icons,v1" media="all" rel="stylesheet" type="text/css">
+  <link href="/documentation/__assets/application-324aa72c.css" media="all" rel="stylesheet" type="text/css">
+  <noscript>
+   <link href="/documentation/__assets/nojs-c6be9131.css" media="all" rel="stylesheet" type="text/css">
+  </noscript>
+  <link rel="mask-icon" href="/documentation/__assets/apple-logo.svg" color="#000">
+  <link rel="shortcut icon" href="/documentation/__assets/favicon.ico">
+  <script src="/documentation/__assets/shared-f73bc3d2.js"></script>
+  <script id="init-data" type="application/json">{"variant":{"paths":["documentation\/uikit\/uiswitch"],"usr":"c:objc(cs)UISwitch"}}</script>
+  <script src="/documentation/__assets/init-88dd23db.js"></script>
+ </head>
+ <body>
+  <div id="_omniture_top"> 
+   <script type="text/javascript">
+        var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+      </script> 
+   <script type="text/javascript" src="https://www.apple.com/metrics/scripts/s_code_h.js"></script> 
+   <script type="text/javascript">
+        s.pageName=AC.Tracking.pageName();
+        s.channel="www.us.developer"
+
+        var s_code=s.t();if(s_code)document.write(s_code)
+      </script> 
+  </div>
+  <div id="app">
+   <div>
+    <a href="#main" id="skip-localnav" class="showonfocus hidden">Skip Navigation</a>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US">
+     <div class="ac-gn-content"> 
+      <ul class="ac-gn-header"> 
+       <li class="ac-gn-item ac-gn-menuicon"> <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span> </span> </label> <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open"> <span class="ac-gn-menuanchor-label">Open Menu</span> </a> <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close"> <span class="ac-gn-menuanchor-label">Close Menu</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus-small"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small"> <a class="ac-gn-link ac-gn-link-bag" href="/account/"> <span class="ac-gn-link-text">Account</span> <span class="ac-gn-bag-badge"></span> </a> <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span> </li> 
+      </ul> 
+      <ul class="ac-gn-list"> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-discover"> <a class="ac-gn-link" href="/discover/"> <span>Discover</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-design"> <a class="ac-gn-link" href="/design/"> <span>Design</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-develop"> <a class="ac-gn-link" href="/develop/"> <span>Develop</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-distribute"> <a class="ac-gn-link" href="/distribute/"> <span>Distribute</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-support"> <a class="ac-gn-link" href="/support/"> <span>Support</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-account"> <a class="ac-gn-link" href="/account/"> <span>Account</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search"> <a id="ac-gn-search-button" class="ac-gn-link ac-gn-link-search" href="/search/" aria-label="Search developer.apple.com"> <span class="ac-gn-search-placeholder" aria-hidden="true">Search</span> </a> </li> 
+      </ul> 
+      <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search"> 
+       <div class="ac-gn-searchview-content"> 
+        <form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get"> 
+         <div class="ac-gn-searchform-wrapper"> 
+          <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" placeholder="Search" data-placeholder-long="Search for documentation, videos, and more" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false"> 
+          <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit"></button> 
+          <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search"></button> 
+         </div> 
+        </form> 
+        <aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="Hit enter to search."> 
+        </aside> 
+       </div> 
+       <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search"> <span class="ac-gn-searchview-close-wrapper"> <span class="ac-gn-searchview-close-left"></span> <span class="ac-gn-searchview-close-right"></span> </span> </button> 
+      </aside> 
+     </div>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+    <input type="checkbox" id="localnav-menustate" class="localnav-menustate" aria-hidden="true">
+    <nav id="localnav" class="localnav localnav-dark theme-dark localnav-scrim localnav-noborder" role="navigation" aria-label="API Reference" data-sticky="true">
+     <div class="localnav-wrapper">
+      <div class="referencenav">
+       <div class="localnav-background"></div>
+       <div class="localnav-content">
+        <a href="/documentation" class="localnav-title">Documentation</a>
+        <div class="localnav-menu">
+         <a href="#localnav-menustate" id="localnav-menustate-open" class="localnav-menucta-anchor localnav-menucta-anchor-open"><span class="localnav-menucta-anchor-label" aria-hidden="true">Open Menu</span></a>
+         <a href="#" id="localnav-menustate-close" class="localnav-menucta-anchor localnav-menucta-anchor-close"><span class="localnav-menucta-anchor-label" aria-hidden="true">Close Menu</span></a>
+         <div class="localnav-menu-tray">
+          <ul aria-label="Breadcrumbs" class="localnav-menu-items localnav-menu-breadcrumbs">
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit">UIKit</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit/views_and_controls">Views and Controls</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item">
+            <div class="localnav-menu-breadcrumb-current-container localnav-menu-link current">
+             <span aria-current="page" class="localnav-menu-breadcrumb-current">UISwitch</span>
+            </div></li>
+          </ul>
+          <ul class="localnav-menu-items localnav-menu-settings" data-breadcrumbs-count="3">
+           <li class="localnav-menu-setting language-container">
+            <div class="language-toggle-container">
+             <label for="language-toggle" class="language-toggle-label">Language:</label>
+             <select id="language-toggle" class="language-dropdown localnav-menu-link" style="width:auto;"><option selected value="swift">Swift</option><option value="occ">Objective-C</option></select>
+            </div>
+            <div class="language-list-container">
+             <span class="localnav-menu-setting-label">Language:</span>
+             <ul class="language-list">
+              <li class="language-list-item"><span data-language="swift" aria-current="page" class="current-language">Swift</span></li>
+              <li class="language-list-item"><a href="/documentation/uikit/uiswitch?language=objc" class="localnav-menu-setting-link">Objective-C</a></li>
+             </ul>
+            </div></li>
+           <li class="localnav-menu-setting"><span class="localnav-menu-setting-label">API Changes:</span><a href="/documentation/uikit/uiswitch?changes=latest_minor" class="localnav-menu-setting-link changes-toggle changes-toggle-show" aria-label="Show API Changes">Show</a></li>
+          </ul>
+         </div>
+         <div class="localnav-actions">
+          <div class="localnav-action localnav-action-menucta" aria-hidden="true">
+           <label for="localnav-menustate" class="localnav-menucta"><span class="localnav-menucta-chevron"></span></label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </nav>
+    <label for="localnav-menustate" id="localnav-curtain" aria-hidden="true"></label>
+    <main role="main" id="main" class="main" tabindex="0">
+     <div class="topic-title">
+      <span class="eyebrow">Class</span>
+      <h1 class="topic-heading"><span>UISwitch</span></h1>
+     </div>
+     <div class="topic-container section-content row">
+      <div class="topic-description column large-9 medium-9 small-12">
+       <div class="topic-abstract abstract formatted-content">
+        <div>
+         <p>A control that offers a binary choice, such as On/Off.</p>
+        </div>
+       </div>
+      </div>
+      <div class="topic-summary column large-3 medium-3 small-12">
+       <div class="topic-summary-section sdks" role="complementary" aria-label="SDK">
+        <p class="topic-summary-section-label subsection-label">SDK</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item sdk"><span aria-label="iOS 2.0+, Available on iOS 2.0 and later" role="text" title="Available on iOS 2.0 and later">iOS 2.0+</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section frameworks" role="complementary" aria-label="Framework">
+        <p class="topic-summary-section-label subsection-label">Framework</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item"><span>UIKit</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section onthispage">
+        <nav class="onthispage-nav" aria-labelledby="onthispage-title">
+         <p id="onthispage-title" class="topic-summary-section-label subsection-label">On This Page</p>
+         <ul class="topic-summary-section-list">
+          <li class="topic-summary-section-item"><a href="#overview" class="icon icon-after icon-chevrondowncircle">Overview</a></li>
+          <li class="topic-summary-section-item"><a href="#topics" class="icon icon-after icon-chevrondowncircle">Topics</a></li>
+          <li class="topic-summary-section-item"><a href="#relationships" class="icon icon-after icon-chevrondowncircle">Relationships</a></li>
+          <li class="topic-summary-section-item"><a href="#see-also" class="icon icon-after icon-chevrondowncircle">See Also</a></li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+      <div class="topic-content column large-9 medium-9 small-12" id="topic-content">
+       <section id="overview" class="section">
+        <h2>Overview</h2>
+        <div class="formatted-content">
+         <div>
+          <p>The <code class="code-voice"><span>UISwitch</span></code> class declares a property and a method to control its on/off state. As with <code class="code-voice"><span>UISlider</span></code>, when the user manipulates the switch control (“flips” it) a <a class="symbol-name" href="/documentation/uikit/uicontrol/event/1618238-valuechanged"><code><span>value<wbr>Changed</span></code></a> event is generated, which results in the control (if properly configured) sending an action message.</p>
+          <p>You can customize the appearance of the switch by changing the color used to tint the switch when it is on or off.</p>
+          <p>For information about basic view behaviors, see <a href="https://developer.apple.com/library/archive/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009503">View Programming Guide for iOS</a>. </p>
+         </div>
+        </div>
+       </section>
+      </div>
+     </div>
+     <section id="topics" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Topics</h2>
+        <section id="1653025" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Initializing the Switch Object</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiswitch/1623682-init"><code class="display-name"><span class="identifier">init</span><span class="decorator">(</span><span class="identifier">frame</span><span class="decorator">: CGRect)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns an initialized switch object.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info has-inline-element">
+              <a class="symbol-name symbol-name-decorated" href="/documentation/uikit/uiswitch/1623685-init"><code class="display-name"><span class="identifier">init</span><span class="decorator">?(</span><span class="identifier">coder</span><span class="decorator">: NSCoder)</span></code></a>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653051" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Setting the Off/On State</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiswitch/1623690-ison"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>On</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines the off/on state of the switch.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiswitch/1623686-seton"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>On</span><span class="decorator">(Bool, </span><span class="identifier">animated</span><span class="decorator">: Bool)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Set the state of the switch to On or Off, optionally animating the transition.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653095" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Customizing the Appearance of the Switch</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiswitch/1623687-ontintcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">on<wbr>Tint<wbr>Color</span><span class="decorator">: UIColor?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The color used to tint the appearance of the switch when it is turned on.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiswitch/1623688-tintcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">tint<wbr>Color</span><span class="decorator">: UIColor!</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The color used to tint the outline of the switch when it is turned off.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiswitch/1623684-thumbtintcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">thumb<wbr>Tint<wbr>Color</span><span class="decorator">: UIColor?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The color used to tint the appearance of the thumb.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiswitch/1623689-onimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">on<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>In iOS 6 and earlier, the image displayed when the switch is in the on position.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiswitch/1623683-offimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">off<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>In iOS 6 and earlier, the image displayed when the switch is in the off position.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="relationships" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Relationships</h2>
+        <section id="inherits-from" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Inherits From</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <a class="symbol-name" href="/documentation/uikit/uicontrol"><code><span>UIControl</span></code></a>
+          </div>
+         </div>
+        </section>
+        <section id="conforms-to" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Conforms To</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <ul class="relationships-section-content-columns">
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/cvararg"><code><span>CVar<wbr>Arg</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/equatable"><code><span>Equatable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/hashable"><code><span>Hashable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/foundation/nscoding"><code><span>NSCoding</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiaccessibilityidentification"><code><span>UIAccessibility<wbr>Identification</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uipasteconfigurationsupporting"><code><span>UIPaste<wbr>Configuration<wbr>Supporting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiuseractivityrestoring"><code><span>UIUser<wbr>Activity<wbr>Restoring</span></code></a></li>
+           </ul>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="see-also" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">See Also</h2>
+        <section id="2864417" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Controls</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIControl</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uibutton"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIButton</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control that executes your custom code in response to user interactions. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uidatepicker"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIDate<wbr>Picker</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control used for the inputting of date and time values. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uipagecontrol"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIPage<wbr>Control</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisegmentedcontrol"><code class="display-name"><span class="decorator">class </span><span class="identifier">UISegmented<wbr>Control</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A horizontal control made of multiple segments, each segment functioning as a discrete button.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider"><code class="display-name"><span class="decorator">class </span><span class="identifier">UISlider</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control used to select a single value from a continuous range of values.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistepper"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIStepper</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control used to increment or decrement a value.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+    </main>
+    <section id="globalfooter-wrapper">
+     <footer id="globalfooter" role="contentinfo"> 
+      <nav class="footer-breadory"> 
+       <a href="/" class="home breadcrumbs-home"><span aria-hidden="true"></span><span class="breadcrumbs-home-label">Developer</span></a> 
+       <section class="breadcrumbs"> 
+        <ol class="breadcrumbs-list"> 
+         <li><a href="/documentation">Documentation</a></li> 
+        </ol> 
+       </section> 
+       <div id="directorynav" class="directorynav"> 
+        <div id="dn-cola" class="column"> 
+         <h3><a href="/discover/">Discover</a></h3> 
+         <ul> 
+          <li><a href="/macos/">macOS</a></li> 
+          <li><a href="/ios/">iOS</a></li> 
+          <li><a href="/watchos/">watchOS</a></li> 
+          <li><a href="/tvos/">tvOS</a></li> 
+          <li><a href="/safari/">Safari and Web</a></li> 
+          <li><a href="/games/">Games</a></li> 
+          <li><a href="/enterprise/">Enterprise</a></li> 
+          <li><a href="/education/">Education</a></li> 
+          <li><a href="/wwdc/">WWDC</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colb" class="column"> 
+         <h3><a href="/design/">Design</a></h3> 
+         <ul> 
+          <li><a href="/design/human-interface-guidelines/">Human Interface Guidelines</a></li> 
+          <li><a href="/design/resources/">Resources</a></li> 
+          <li><a href="/videos/design/">Videos</a></li> 
+          <li><a href="/design/awards/">Apple Design Awards</a></li> 
+          <li><a href="/accessibility/">Accessibility</a></li> 
+          <li><a href="/internationalization/">Internationalization</a></li> 
+          <li><a href="/accessories/">Accessories</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colc" class="column"> 
+         <h3><a href="/develop/">Develop</a></h3> 
+         <ul> 
+          <li><a href="/xcode/">Xcode</a></li> 
+          <li><a href="/swift/">Swift</a></li> 
+          <li><a href="/swift-playgrounds/">Swift Playgrounds</a></li> 
+          <li><a href="/testflight/">TestFlight</a></li> 
+          <li><a href="/documentation/">Documentation</a></li> 
+          <li><a href="/videos/">Videos</a></li> 
+          <li><a href="/download/">Downloads</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cold" class="column"> 
+         <h3><a href="/distribute/">Distribute</a></h3> 
+         <ul> 
+          <li><a href="/app-store/">App Store</a></li> 
+          <li><a href="/macos/distribution/">Mac Software</a></li> 
+          <li><a href="/app-store/review/">App Review</a></li> 
+          <li><a href="/programs/volume/">Volume Purchase Program</a></li> 
+          <li><a href="/programs/volume/b2b/">Custom B2B Apps</a></li> 
+          <li><a href="/enterprise/distribute/">Enterprise Apps</a></li> 
+          <li><a href="/safari/extensions/">Safari Extensions</a></li> 
+          <li><a href="/app-store/marketing/guidelines/">Marketing Resources</a></li> 
+          <li><a href="/softwarelicensing/">Trademark Licensing</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cole" class="column"> 
+         <h3><a href="/support/">Support</a></h3> 
+         <ul> 
+          <li><a href="https://forums.developer.apple.com">Developer Forums</a></li> 
+          <li><a href="/bug-reporting/">Bug Reporting</a></li> 
+          <li><a href="/terms/">License Agreements</a></li> 
+          <li><a href="/system-status/">System Status</a></li> 
+          <li><a href="/contact/">Contact Us</a></li> 
+          <br> 
+          <h3><a href="/account/">Account</a></h3> 
+          <ul> 
+           <li><a href="/programs/">Developer Program</a></li> 
+           <li><a href="/account/ios/certificate/">Certificates, IDs &amp; Profiles</a></li> 
+           <li><a href="https://appstoreconnect.apple.com/">App Store Connect</a></li> 
+          </ul> 
+         </ul> 
+        </div> 
+       </div> 
+      </nav> 
+      <div class="ac-gf-footer-legal"> 
+       <div class="ac-gf-footer-news">
+         To receive the latest developer news, visit and subscribe to our 
+        <a href="/news/">News and Updates</a>. 
+       </div> 
+       <div class="ac-gf-footer-legal-copyright">
+        Copyright © 2018 Apple Inc. All rights reserved.
+       </div> 
+       <div class="ac-gf-footer-legal-links"> 
+        <a href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a> 
+        <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a> 
+        <a href="/bug-reporting/">Report Bugs</a> 
+        <a href="/contact/submit/?subject=website-feedback">Feedback</a> 
+       </div> 
+       <div class="ac-gf-footer-language-links"> 
+        <a href="/cn/" class="first">简体中文</a> 
+        <a href="/jp/">日本語</a> 
+        <a href="/kr/">한국어</a> 
+       </div> 
+      </div> 
+     </footer>
+    </section>
+   </div>
+  </div>
+  <script id="bootstrap-data" type="application/json">{"id":1623692,"title":{"content":"UISwitch"},"discussion":"<div><p>The <code class=\"code-voice\"><span>UISwitch<\/span><\/code> class declares a property and a method to control its on\/off state. As with <code class=\"code-voice\"><span>UISlider<\/span><\/code>, when the user manipulates the switch control (“flips” it) a <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/event\/1618238-valuechanged\"><code><span>value<wbr\/>Changed<\/span><\/code><\/a> event is generated, which results in the control (if properly configured) sending an action message.<\/p><p>You can customize the appearance of the switch by changing the color used to tint the switch when it is on or off.<\/p><p>For information about basic view behaviors, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/WindowsViews\/Conceptual\/ViewPG_iPhoneOS\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40009503\">View Programming Guide for iOS<\/a>. <\/p><\/div>","abstract":"<div><p>A control that offers a binary choice, such as On\/Off.<\/p><\/div>","containingGroup":[{"id":2864417,"role":"task","paths":[],"symbols":[{"id":1618208,"role":"symbol","usr":"c:objc(cs)UIControl","name":"UIControl","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIControl<\/span><\/code>","paths":["documentation\/uikit\/uicontrol"],"title":{"content":"UIControl"},"abstract":"<div><p>The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.  <\/p><\/div>","hasChildren":true},{"id":1624013,"role":"symbol","usr":"c:objc(cs)UIButton","name":"UIButton","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIButton<\/span><\/code>","paths":["documentation\/uikit\/uibutton"],"title":{"content":"UIButton"},"abstract":"<div><p>A control that executes your custom code in response to user interactions. <\/p><\/div>","hasChildren":true},{"id":1615991,"role":"symbol","usr":"c:objc(cs)UIDatePicker","name":"UIDatePicker","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIDate<wbr\/>Picker<\/span><\/code>","paths":["documentation\/uikit\/uidatepicker"],"title":{"content":"UIDatePicker"},"abstract":"<div><p>A control used for the inputting of date and time values. <\/p><\/div>","hasChildren":true},{"id":1621236,"role":"symbol","usr":"c:objc(cs)UIPageControl","name":"UIPageControl","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIPage<wbr\/>Control<\/span><\/code>","paths":["documentation\/uikit\/uipagecontrol"],"title":{"content":"UIPageControl"},"abstract":"<div><p>A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity. <\/p><\/div>","hasChildren":true},{"id":1618568,"role":"symbol","usr":"c:objc(cs)UISegmentedControl","name":"UISegmentedControl","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISegmented<wbr\/>Control<\/span><\/code>","paths":["documentation\/uikit\/uisegmentedcontrol"],"title":{"content":"UISegmentedControl"},"abstract":"<div><p>A horizontal control made of multiple segments, each segment functioning as a discrete button.<\/p><\/div>","hasChildren":true},{"id":1621350,"role":"symbol","usr":"c:objc(cs)UISlider","name":"UISlider","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISlider<\/span><\/code>","paths":["documentation\/uikit\/uislider"],"title":{"content":"UISlider"},"abstract":"<div><p>A control used to select a single value from a continuous range of values.<\/p><\/div>","hasChildren":true},{"id":1624084,"role":"symbol","usr":"c:objc(cs)UIStepper","name":"UIStepper","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"5.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIStepper<\/span><\/code>","paths":["documentation\/uikit\/uistepper"],"title":{"content":"UIStepper"},"abstract":"<div><p>A control used to increment or decrement a value.<\/p><\/div>","hasChildren":true},{"id":1623692,"role":"symbol","usr":"c:objc(cs)UISwitch","name":"UISwitch","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISwitch<\/span><\/code>","paths":["documentation\/uikit\/uiswitch"],"title":{"content":"UISwitch"},"abstract":"<div><p>A control that offers a binary choice, such as On\/Off.<\/p><\/div>","hasChildren":true}],"abstract":"<div><p>Gather input and respond to user interactions with controls. <\/p><\/div>","title":{"content":"Controls"}}],"usr":"c:objc(cs)UISwitch","name":"UISwitch","domain":"swift","kind":"cl","availability":[{"platform":"iOS","current":"12.0","introduced":"2.0"}],"conformance":[{"id":1411471,"usr":"c:objc(pl)NSCoding","name":"NSCoding","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/foundation\/nscoding"],"title":{"content":"NSCoding"},"platforms":["iOS"]},{"id":1623131,"usr":"c:objc(pl)UIAccessibilityIdentification","name":"UIAccessibilityIdentification","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiaccessibilityidentification"],"title":{"content":"UIAccessibilityIdentification"},"platforms":["iOS"]},{"id":2882041,"usr":"c:objc(pl)UIPasteConfigurationSupporting","name":"UIPasteConfigurationSupporting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uipasteconfigurationsupporting"],"title":{"content":"UIPasteConfigurationSupporting"},"platforms":["iOS"]},{"id":1641507,"usr":"s:s7CVarArgP","name":"CVarArg","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/cvararg"],"title":{"content":"CVarArg"},"platforms":["iOS"]},{"id":2980935,"usr":"c:objc(pl)UIUserActivityRestoring","name":"UIUserActivityRestoring","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiuseractivityrestoring"],"title":{"content":"UIUserActivityRestoring"},"platforms":["iOS"]},{"id":1541213,"usr":"s:SQ","name":"Equatable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/equatable"],"title":{"content":"Equatable"},"platforms":["iOS"]},{"id":1540942,"usr":"s:SH","name":"Hashable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/hashable"],"title":{"content":"Hashable"},"platforms":["iOS"]}],"inheritance":[{"id":1618208,"usr":"c:objc(cs)UIControl","name":"UIControl","domain":"swift","kind":"cl","role":"symbol","paths":["documentation\/uikit\/uicontrol"],"title":{"content":"UIControl"},"platforms":["iOS"]}],"module":[{"title":{"content":"UIKit"},"importStatement":"<div><span class=\"syntax-identifier\">import<\/span> UIKit<\/div>","paths":["documentation\/uikit"],"platforms":["iOS"]}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISwitch<\/span><\/code>","declaration":[{"content":"<span><span class=\"syntax-keyword\">class<\/span> <span class=\"syntax-identifier\">UISwitch<\/span> : <a class=\"symbolref\" href=\"\/documentation\/uikit\/uicontrol\"><span>UIControl<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/foundation\/nscoding\"><span>NSCoding<\/span><\/a>\n<\/span>","platforms":["iOS"]}],"languages":["occ","swift"],"variants":{"occ":{"paths":["documentation\/uikit\/uiswitch"],"usr":"c:objc(cs)UISwitch"},"swift":{"paths":["documentation\/uikit\/uiswitch"],"usr":"c:objc(cs)UISwitch"}},"diffAvailability":{"minor":{"change":"modified","platform":"Xcode","versions":["9.4","10.0 beta 6"]},"major":{"change":"modified","platform":"Xcode","versions":["9.0","10.0 beta 6"]}},"pid":201964,"role":"symbol","language":"swift","paths":["documentation\/uikit\/uiswitch"],"hierarchy":[[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864393,"role":"collectionGroup","title":{"content":"Views and Controls"},"paths":["documentation\/uikit\/views_and_controls"]}]],"legalNotices":{"copyright":"Copyright &copy; 2018 Apple Inc. All rights reserved.","termsOfUse":"https:\/\/www.apple.com\/legal\/internet-services\/terms\/site.html","privacyPolicy":"https:\/\/www.apple.com\/privacy\/privacy-policy"},"tasks":[{"id":1653025,"role":"task","symbols":[{"id":1623682,"role":"symbol","usr":"c:objc(cs)UISwitch(im)initWithFrame:","name":"init(frame:)","domain":"swift","kind":"instctr","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"identifier\">init<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">frame<\/span><span class=\"decorator\">: CGRect)<\/span><\/code>","paths":["documentation\/uikit\/uiswitch\/1623682-init"],"title":{"content":"init(frame:)"},"abstract":"<div><p>Returns an initialized switch object.<\/p><\/div>"},{"id":1623685,"role":"symbol","usr":"c:objc(cs)UISwitch(im)initWithCoder:","name":"init(coder:)","domain":"swift","kind":"instctr","availability":[{"platform":"iOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"identifier\">init<\/span><span class=\"decorator\">?(<\/span><span class=\"identifier\">coder<\/span><span class=\"decorator\">: NSCoder)<\/span><\/code>","paths":["documentation\/uikit\/uiswitch\/1623685-init"],"title":{"content":"init(coder:)"}}],"title":{"content":"Initializing the Switch Object"}},{"id":1653051,"role":"task","symbols":[{"id":1623690,"role":"symbol","usr":"c:objc(cs)UISwitch(py)on","name":"on","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>On<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiswitch\/1623690-ison"],"title":{"content":"isOn"},"abstract":"<div><p>A Boolean value that determines the off\/on state of the switch.<\/p><\/div>"},{"id":1623686,"role":"symbol","usr":"c:objc(cs)UISwitch(im)setOn:animated:","name":"setOn(_:animated:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>On<\/span><span class=\"decorator\">(Bool, <\/span><span class=\"identifier\">animated<\/span><span class=\"decorator\">: Bool)<\/span><\/code>","paths":["documentation\/uikit\/uiswitch\/1623686-seton"],"title":{"content":"setOn(_:animated:)"},"abstract":"<div><p>Set the state of the switch to On or Off, optionally animating the transition.<\/p><\/div>"}],"title":{"content":"Setting the Off\/On State"}},{"id":1653095,"role":"task","symbols":[{"id":1623687,"role":"symbol","usr":"c:objc(cs)UISwitch(py)onTintColor","name":"onTintColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"5.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">on<wbr\/>Tint<wbr\/>Color<\/span><span class=\"decorator\">: UIColor?<\/span><\/code>","paths":["documentation\/uikit\/uiswitch\/1623687-ontintcolor"],"title":{"content":"onTintColor"},"abstract":"<div><p>The color used to tint the appearance of the switch when it is turned on.<\/p><\/div>"},{"id":1623688,"role":"symbol","usr":"c:objc(cs)UISwitch(py)tintColor","name":"tintColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"6.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">tint<wbr\/>Color<\/span><span class=\"decorator\">: UIColor!<\/span><\/code>","paths":["documentation\/uikit\/uiswitch\/1623688-tintcolor"],"title":{"content":"tintColor"},"abstract":"<div><p>The color used to tint the outline of the switch when it is turned off.<\/p><\/div>"},{"id":1623684,"role":"symbol","usr":"c:objc(cs)UISwitch(py)thumbTintColor","name":"thumbTintColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"6.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">thumb<wbr\/>Tint<wbr\/>Color<\/span><span class=\"decorator\">: UIColor?<\/span><\/code>","paths":["documentation\/uikit\/uiswitch\/1623684-thumbtintcolor"],"title":{"content":"thumbTintColor"},"abstract":"<div><p>The color used to tint the appearance of the thumb.<\/p><\/div>"},{"id":1623689,"role":"symbol","usr":"c:objc(cs)UISwitch(py)onImage","name":"onImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"6.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">on<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uiswitch\/1623689-onimage"],"title":{"content":"onImage"},"abstract":"<div><p>In iOS 6 and earlier, the image displayed when the switch is in the on position.<\/p><\/div>"},{"id":1623683,"role":"symbol","usr":"c:objc(cs)UISwitch(py)offImage","name":"offImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"6.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">off<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uiswitch\/1623683-offimage"],"title":{"content":"offImage"},"abstract":"<div><p>In iOS 6 and earlier, the image displayed when the switch is in the off position.<\/p><\/div>"}],"title":{"content":"Customizing the Appearance of the Switch"}}]}</script>
+  <script src="/documentation/__assets/TopicDetail-018c52ac.js"></script>
+ </body>
+</html>
