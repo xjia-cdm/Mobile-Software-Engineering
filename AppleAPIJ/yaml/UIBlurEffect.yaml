@@ -1,0 +1,40 @@
+api:
+ title: UIBlurEffect
+ description: An object that applies a blurring effect to the content layered behind a visual effect view.
+ overview: 
+  description: Views that you add to the contentView of a visual effect view are not affected by the blur effect.
+ topics: 
+  topic: 
+   - 
+    title: Creating a New Blur Effect
+     method: 
+       name: init(style: UIBlurEffect.Style)
+       description: Creates a blur effect with the designated style.
+   - 
+    title: Constants
+     method: 
+       name: enum UIBlurEffect.Style
+       description: Blur styles available for UIBlurEffect objects.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIVisualEffect
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+ see-also: 
+  control: 
+   - 
+    name: class UIVisualEffect
+    description: An initializer for visual effect views and blur and vibrancy effect objects.
+   - 
+    name: class UIVisualEffectView
+    description: An object that implements some complex visual effects.
+   - 
+    name: class UIVibrancyEffect
+    description: An object that amplifies and adjusts the color of the content layered behind a visual effect view.

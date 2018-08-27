@@ -1,0 +1,104 @@
+api:
+ title: UIStepper
+ description: A control used to increment or decrement a value.
+ overview: 
+  description: If you set stepper behavior to “autorepeat” (which is the default), pressing and holding one of its buttons increments or decrements the stepper’s value repeatedly. The rate of change depends on how long the user continues pressing the control.
+ topics: 
+  topic: 
+   - 
+    title: Configuring the Stepper
+     method: 
+      - 
+       name: var isContinuous: Bool
+       description: The continuous vs. noncontinuous state of the stepper.
+      - 
+       name: var autorepeat: Bool
+       description: The automatic vs. nonautomatic repeat state of the stepper.
+      - 
+       name: var wraps: Bool
+       description: The wrap vs. no-wrap state of the stepper.
+      - 
+       name: var minimumValue: Double
+       description: The lowest possible numeric value for the stepper.
+      - 
+       name: var maximumValue: Double
+       description: The highest possible numeric value for the stepper.
+      - 
+       name: var stepValue: Double
+       description: The step, or increment, value for the stepper.
+   - 
+    title: Accessing the Stepper’s Value
+     method: 
+       name: var value: Double
+       description: The numeric value of the stepper.
+   - 
+    title: Customizing Appearance
+     method: 
+      - 
+       name: var tintColor: UIColor!
+       description: The tint color to apply to key elements in the stepper.
+      - 
+       name: func backgroundImage(for: UIControl.State) -&amp;gt; UIImage?
+       description: Returns the background image associated with the specified control state.
+      - 
+       name: func setBackgroundImage(UIImage?, for: UIControl.State)
+       description: Sets the background image for the control when it is in the specified state.
+      - 
+       name: func decrementImage(for: UIControl.State) -&amp;gt; UIImage?
+       description: Returns the image used for the decrement glyph of the control.
+      - 
+       name: func setDecrementImage(UIImage?, for: UIControl.State)
+       description: Sets the image to use for the decrement glyph of the control.
+      - 
+       name: func dividerImage(forLeftSegmentState: UIControl.State, rightSegmentState: UIControl.State) -&amp;gt; UIImage?
+       description: Returns the divider image for the given combination of left and right states.
+      - 
+       name: func setDividerImage(UIImage?, forLeftSegmentState: UIControl.State, rightSegmentState: UIControl.State)
+       description: Sets the image to use for the given combination of left and right states.
+      - 
+       name: func incrementImage(for: UIControl.State) -&amp;gt; UIImage?
+       description: Returns the image used for the increment glyph of the control.
+      - 
+       name: func setIncrementImage(UIImage?, for: UIControl.State)
+       description: Sets the image to use for the increment glyph of the control
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIControl
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UIControl
+    description: The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.
+   - 
+    name: class UIButton
+    description: A control that executes your custom code in response to user interactions.
+   - 
+    name: class UIDatePicker
+    description: A control used for the inputting of date and time values.
+   - 
+    name: class UIPageControl
+    description: A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity.
+   - 
+    name: class UISegmentedControl
+    description: A horizontal control made of multiple segments, each segment functioning as a discrete button.
+   - 
+    name: class UISlider
+    description: A control used to select a single value from a continuous range of values.
+   - 
+    name: class UISwitch
+    description: A control that offers a binary choice, such as On/Off.

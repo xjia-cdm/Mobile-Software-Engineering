@@ -1,0 +1,91 @@
+<api>
+ <title>UIActivityIndicatorView</title>
+ <description>A view that shows that a task is in progress.</description>
+ <overview>
+ <description>You control when an activity indicator animates by calling the startAnimating() and stopAnimating() methods. To automatically hide the activity indicator when animation stops, set the hidesWhenStopped property to true.</description>
+ </overview>
+ <topics>
+ <topic>
+ <title>Initializing an Activity Indicator</title>
+ <method>
+ <name>init(style: UIActivityIndicatorView.Style)</name>
+ <description>Initializes and returns an activity-indicator object.</description>
+ </method>
+ <method>
+ <name>init(frame: CGRect)</name>
+ </method>
+ <method>
+ <name>init(coder: NSCoder)</name>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing an Activity Indicator</title>
+ <method>
+ <name>func startAnimating()</name>
+ <description>Starts the animation of the progress indicator.</description>
+ </method>
+ <method>
+ <name>func stopAnimating()</name>
+ <description>Stops the animation of the progress indicator.</description>
+ </method>
+ <method>
+ <name>var isAnimating: Bool</name>
+ <description>A Boolean value indicating whether the activity indicator is currently running its animation.</description>
+ </method>
+ <method>
+ <name>var hidesWhenStopped: Bool</name>
+ <description>A Boolean value that controls whether the receiver is hidden when the animation is stopped.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Configuring the Activity Indicator Appearance</title>
+ <method>
+ <name>var style: UIActivityIndicatorView.Style</name>
+ <description>The basic appearance of the activity indicator.</description>
+ </method>
+ <method>
+ <name>var color: UIColor!</name>
+ <description>The color of the activity indicator.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Constants</title>
+ <method>
+ <name>enum UIActivityIndicatorView.Style</name>
+ <description>The visual style of the progress indicator.</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIView</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSCoding</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIPasteConfigurationSupporting</name>
+ <name>UIUserActivityRestoring</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UIImageView</name>
+ <description>An object that displays a single image or a sequence of animated images in your interface.</description>
+ </control>
+ <control>
+ <name>class UIPickerView</name>
+ <description>A view that uses a spinning-wheel or slot-machine metaphor to show one or more sets of values.</description>
+ </control>
+ <control>
+ <name>class UIProgressView</name>
+ <description>A view that depicts the progress of a task over time.</description>
+ </control>
+ <control>
+ <name>class UIWebView</name>
+ <description>A view that embeds web content in your app.</description>
+ </control>
+ </see-also>
+ </api>

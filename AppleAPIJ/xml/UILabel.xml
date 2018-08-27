@@ -1,0 +1,168 @@
+<api>
+ <title>UILabel</title>
+ <description>A view that displays one or more lines of read-only text, often used in conjunction with controls to describe their intended purpose.</description>
+ <overview>
+ <description>The appearance of labels is configurable, and they can display attributed strings, allowing you to customize the appearance of substrings within a label. You can add labels to your interface programmatically or by using Interface Builder.</description>
+ <sub_overview>
+ <name>Interface Builder Attributes</name>
+ <description>Table 1 lists the core attributes that you configure for labels in Interface Builder. Table 1 Core attributes Attribute Description Text Specifies the content of the label. Set the mode to Plain to display the label’s content with a uniform appearance. Set the mode to Attributed to apply styling attributes selectively within the string. In addition to the styling attributes detailed in this table, when the mode is set to Attributed you can use the More menu to reveal additional appearance attributes. Access this value at runtime with the text and attributedText properties for the Plain and Attributed modes, respectively. Color Controls the color of the text in the label. In Plain configuration, specifies the color of the entire label. In Attributed mode, select a part of the string and use the color cell to set the color of the selection. Font Specifies the font of the string in the label. In Plain configuration, specifies the font for the entire label. In Attributed mode, use the font panel to specify the fonts used within the attributed string. Alignment Controls the horizontal alignment of the text within the label. Choose left, right, center, justified, or natural, which chooses either left or right depending on the current localization of the app. In Plain configuration, the alignment affects the content of the entire label. In Attributed mode, you can control the alignment of individual paragraphs. Lines Specifies the maximum number of lines the label will use to render the text. Set to 0 to use as many lines as required. Access this value at runtime with the numberOfLines property. Behavior Both Enabled and Highlighted control the appearance of the label, representing the isEnabled and isHighlighted properties, respectively. When Enabled is unchecked, the text is drawn dimmed to indicate that it is inactive. When Highlighted is checked, the text is rendered in the Highlighted color. Table 2 lists the text-spacing attributes you configure for labels in Interface Builder. Table 2 Spacing attributes Attribute Description Baseline Controls the vertical alignment of the text within the label when Autoshrink is enabled. Select Align Baselines to maintain the baseline as the font size is automatically reduced, or Align Centers to maintain the vertical center line of the text. The default value is None, which maintains the top of the text’s bounding box. Access this value at runtime with the baselineAdjustment property. Line Breaks Specifies what happens when a line is too long for the label’s bounds. Character wrap and word wrap are most commonly applied to multiline labels and determine the position of line breaks between consecutive lines. Select word wrap to place line breaks at word boundaries, or character wrap to insert line breaks in words. Truncate head, middle, and tail are usually applied for single-line labels, and describe the placement of an inserted ellipsis to represent the truncated text. Access this value at runtime with the lineBreakMode property. Autoshrink Determines whether the label adjusts the appearance of the text before resorting to truncation. Choose Minimum Font Scale and enter a value to allow the label to reduce the font size to fit the text. Enable Tighten Letter Spacing to allow the label to reduce intercharacter spacing. Access these values at runtime with the minimumScaleFactor and allowsDefaultTighteningForTruncation properties, respectively. Note that the Minimum Font Size option was deprecated in iOS 6. Table 3 lists the advanced appearance attributes you configure for labels in Interface Builder. Table 3 Advanced appearance attributes Attribute Description Highlighted The color applied to the text in the label when the Highlighted attribute is checked. Access this value at runtime with the highlightedTextColor property. Shadow Specifies the color of the shadow rendered beneath the text in the label. Defaults to transparent, which means no shadow is drawn. Access this value at runtime with the shadowColor property. Shadow Offset Controls the offset of the rendered shadow. Note that the shadow is rendered only when the Shadow color attribute has been set. Access this value at runtime with the shadowOffset property. For information about the label’s inherited Interface Builder attributes, see UIControl and UIView.</description>
+ </sub_overview>
+ <sub_overview>
+ <name>Customizing the Label&amp;apos;s Appearance</name>
+ <description>You provide the content for a label by assigning either a NSString object to the text property, or an NSAttributedString object to the attributedText property. The label displays the most recently set of these properties. The attributedText property allows you to control the appearance of individual characters and groups of characters, using the NSAttributedString API. Figure 1 shows a label displaying an NSAttributedString that includes attributes to customize the font, color, and alignment of the string. Figure 1 Label displaying an attributed string If you want to format the label’s text in a uniform fashion, set the text property to an NSString object containing the content, and configure the font, textColor, textAlignment, and lineBreakMode properties. Figure 2 shows a label displaying an NSString with a custom font, color, and alignment. Figure 2 Label displaying an unattributed string If you set these appearance properties on a label that displays the content of the attributedText property, the label overrides the appropriate attributes and displays the attributed string with a uniform appearance. Figure 3 shows the label from Figure 1 with the textColor property set to green. Figure 3 Label displaying an attributed string, with overridden text color Specify the maximum number of lines for the label to use when laying out the text with the numberOfLines property. Setting a value of 0 allows the label to use as many lines as necessary to lay out the text within the label’s width. Use the lineBreakMode property to control how the text is split into multiple lines, and the truncation behavior associated with the final line. Use Auto Layout to position and optionally size the label. The intrinsic content size for a label defaults to the size that displays the entirety of the content on a single line. If you provide Auto Layout constraints that define the width of the label but not the height, the label’s intrinsic content size adjusts the height to display the text completely. When the label has its size completely defined externally, you can specify how it handles the situation when its content doesn’t fit within the bounds. To reduce the font size, set the adjustsFontSizeToFitWidth property to true and set the minimumScaleFactor property to a value between 0 and 1. The latter of these properties represents how much smaller than the requested font size the label scales the text. Setting the allowsDefaultTighteningForTruncation property to true instructs the label to reduce the spacing between characters before truncating the string. Figure 4 shows a label that uses minimumScaleFactor and adjustsFontSizeToFitWidth to display the content of an entire string that would otherwise have overflowed. Figure 4 Automatic font size adjustment</description>
+ </sub_overview>
+ <sub_overview>
+ <name>Internationalization</name>
+ <description>Labels are one of the principal controls used to communicate textual information with the user. Therefore, internationalization is very important to enable you to reach a wide audience. For information about how to implement internationalization, see Internationalization and Localization Guide.</description>
+ </sub_overview>
+ <sub_overview>
+ <name>Accessibility</name>
+ <description>Labels are accessible by default. The default accessibility traits for a label are Static Text and User Interaction Enabled. For general information about making iOS views accessible, see Making Views Accessible.</description>
+ </sub_overview>
+ </overview>
+ <topics>
+ <topic>
+ <title>Accessing the Text Attributes</title>
+ <method>
+ <name>var text: String?</name>
+ <description>The current text that is displayed by the label.</description>
+ </method>
+ <method>
+ <name>var attributedText: NSAttributedString?</name>
+ <description>The current styled text that is displayed by the label.</description>
+ </method>
+ <method>
+ <name>var font: UIFont!</name>
+ <description>The font used to display the text.</description>
+ </method>
+ <method>
+ <name>var textColor: UIColor!</name>
+ <description>The color of the text.</description>
+ </method>
+ <method>
+ <name>var textAlignment: NSTextAlignment</name>
+ <description>The technique to use for aligning the text.</description>
+ </method>
+ <method>
+ <name>var lineBreakMode: NSLineBreakMode</name>
+ <description>The technique to use for wrapping and truncating the label’s text.</description>
+ </method>
+ <method>
+ <name>var isEnabled: Bool</name>
+ <description>The enabled state to use when drawing the label’s text.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Sizing the Label’s Text</title>
+ <method>
+ <name>var adjustsFontSizeToFitWidth: Bool</name>
+ <description>A Boolean value indicating whether the font size should be reduced in order to fit the title string into the label’s bounding rectangle.</description>
+ </method>
+ <method>
+ <name>var allowsDefaultTighteningForTruncation: Bool</name>
+ <description>A Boolean value indicating whether the label tightens text before truncating.</description>
+ </method>
+ <method>
+ <name>var baselineAdjustment: UIBaselineAdjustment</name>
+ <description>Controls how text baselines are adjusted when text needs to shrink to fit in the label.</description>
+ </method>
+ <method>
+ <name>var minimumScaleFactor: CGFloat</name>
+ <description>The minimum scale factor supported for the label’s text.</description>
+ </method>
+ <method>
+ <name>var numberOfLines: Int</name>
+ <description>The maximum number of lines to use for rendering text.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing Highlight Values</title>
+ <method>
+ <name>var highlightedTextColor: UIColor?</name>
+ <description>The highlight color applied to the label’s text.</description>
+ </method>
+ <method>
+ <name>var isHighlighted: Bool</name>
+ <description>A boolean value indicating whether the label should be drawn with a highlight.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Drawing a Shadow</title>
+ <method>
+ <name>var shadowColor: UIColor?</name>
+ <description>The shadow color of the text.</description>
+ </method>
+ <method>
+ <name>var shadowOffset: CGSize</name>
+ <description>The shadow offset (measured in points) for the text.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Drawing and Positioning Overrides</title>
+ <method>
+ <name>func textRect(forBounds: CGRect, limitedToNumberOfLines: Int) -&amp;gt; CGRect</name>
+ <description>Returns the drawing rectangle for the label’s text.</description>
+ </method>
+ <method>
+ <name>func drawText(in: CGRect)</name>
+ <description>Draws the label&amp;apos;s text (or its shadow) in the specified rectangle.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Getting the Layout Constraints</title>
+ <method>
+ <name>var preferredMaxLayoutWidth: CGFloat</name>
+ <description>The preferred maximum width (in points) for a multiline label.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Setting and Getting Attributes</title>
+ <method>
+ <name>var isUserInteractionEnabled: Bool</name>
+ <description>A boolean value that determines whether user events are ignored and removed from the event queue.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Related Types</title>
+ <method>
+ <name>enum NSTextAlignment</name>
+ <description>These constants specify text alignment.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Instance Properties</title>
+ <method>
+ <name>var enablesMarqueeWhenAncestorFocused: Bool</name>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIView</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSCoding</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIContentSizeCategoryAdjusting</name>
+ <name>UIPasteConfigurationSupporting</name>
+ <name>UIUserActivityRestoring</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UITextField</name>
+ <description>An object that displays an editable text area in your interface.</description>
+ </control>
+ <control>
+ <name>class UITextView</name>
+ <description>A scrollable, multiline text region.</description>
+ </control>
+ <control>
+ <name>API Collection Drag and Drop Customization</name>
+ <description>Extend the standard drag and drop support for text views to include custom types of content.</description>
+ </control>
+ </see-also>
+ </api>

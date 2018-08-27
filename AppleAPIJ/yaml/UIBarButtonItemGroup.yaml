@@ -1,0 +1,72 @@
+api:
+ title: UIBarButtonItemGroup
+ description: A set of bar button items on the shortcuts bar above the keyboard on iPad.
+ overview: 
+  description: A group contains one or more bar button items and an optional representative item that is displayed instead of the individual items when space is constrained. You can create any number of groups and configure each group with any number of items.
+ topics: 
+  topic: 
+   - 
+    title: Initializing a Bar Button Item Group
+     method: 
+      - 
+       name: init(barButtonItems: [UIBarButtonItem], representativeItem: UIBarButtonItem?)
+       description: Initializes and returns a bar button item group with the specified items.
+      - 
+       name: init?(coder: NSCoder)
+   - 
+    title: Configuring the Group
+     method: 
+      - 
+       name: var barButtonItems: [UIBarButtonItem]
+       description: The bar button items to display on the shortcuts bar.
+      - 
+       name: var representativeItem: UIBarButtonItem?
+       description: The item to display for a group when space is constrained.
+   - 
+    title: Determining the Group’s Appearance
+     method: 
+       name: var isDisplayingRepresentativeItem: Bool
+       description: A Boolean value indicating whether the representative item is being displayed in place of the group’s items.
+ relationships: 
+  inherits_from: 
+   - 
+     name: NSObject
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: NSCoding
+ see-also: 
+  control: 
+   - 
+    name: class UIBarItem
+    description: An abstract superclass for items that can be added to a bar that appears at the bottom of the screen.
+   - 
+    name: class UIBarButtonItem
+    description: A button specialized for placement on a toolbar or tab bar.
+   - 
+    name: class UINavigationBar
+    description: Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.
+   - 
+    name: class UISearchBar
+    description: A specialized view for receiving search-related information from the user.
+   - 
+    name: class UIToolbar
+    description: A control that displays one or more buttons along the bottom edge of your interface.
+   - 
+    name: class UITabBar
+    description: A control that displays one or more buttons in a tab bar for selecting between different subtasks, views, or modes in an app.
+   - 
+    name: class UITabBarItem
+    description: An item in a tab bar.
+   - 
+    name: protocol UIBarPositioning
+    description: A set of methods for defining the ways that bars can be positioned in iOS apps.
+   - 
+    name: protocol UIBarPositioningDelegate
+    description: A set of methods that support the positioning of a bar that conforms to the UIBarPositioning protocol.

@@ -1,0 +1,99 @@
+api:
+ title: UIPickerView
+ description: A view that uses a spinning-wheel or slot-machine metaphor to show one or more sets of values.
+ overview: 
+  description: A picker view displays one or more wheels that the user manipulates to select items. Each wheel—known as a component—has a series of indexed rows representing the selectable items. Each row displays a string or view so that the user can identify the item on that row. Users select items by rotating the wheels to the desired values, which align with a selection indicator.
+ topics: 
+  topic: 
+   - 
+    title: Providing the Picker Data
+     method: 
+      - 
+       name: var dataSource: UIPickerViewDataSource?
+       description: The data source for the picker view.
+      - 
+       name: protocol UIPickerViewDataSource
+       description: The UIPickerViewDataSource protocol must be adopted by an object that mediates between a UIPickerView object and your application’s data model for that picker view. The data source provides the picker view with the number of components, and the number of rows in each component, for displaying the picker view data. Both methods in this protocol are required.
+   - 
+    title: Customizing the Picker Behavior
+     method: 
+      - 
+       name: var delegate: UIPickerViewDelegate?
+       description: The delegate for the picker view.
+      - 
+       name: protocol UIPickerViewDelegate
+       description: The delegate of a UIPickerView object must adopt this protocol and implement at least some of its methods to provide the picker view with the data it needs to construct itself.
+   - 
+    title: Getting the Dimensions of the View Picker
+     method: 
+      - 
+       name: var numberOfComponents: Int
+       description: Gets the number of components for the picker view.
+      - 
+       name: func numberOfRows(inComponent: Int) -&amp;gt; Int
+       description: Returns the number of rows for a component.
+      - 
+       name: func rowSize(forComponent: Int) -&amp;gt; CGSize
+       description: Returns the size of a row for a component.
+   - 
+    title: Reloading the View Picker
+     method: 
+      - 
+       name: func reloadAllComponents()
+       description: Reloads all components of the picker view.
+      - 
+       name: func reloadComponent(Int)
+       description: Reloads a particular component of the picker view.
+   - 
+    title: Selecting Rows in the View Picker
+     method: 
+      - 
+       name: func selectRow(Int, inComponent: Int, animated: Bool)
+       description: Selects a row in a specified component of the picker view.
+      - 
+       name: func selectedRow(inComponent: Int) -&amp;gt; Int
+       description: Returns the index of the selected row in a given component.
+   - 
+    title: Returning the View for a Row and Component
+     method: 
+       name: func view(forRow: Int, forComponent: Int) -&amp;gt; UIView?
+       description: Returns the view used by the picker view for a given row and component.
+   - 
+    title: Managing the Appearance of the Picker View
+     method: 
+       name: var showsSelectionIndicator: Bool
+       description: A Boolean value that determines whether the selection indicator is displayed.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIView
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: NSCoding
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UIActivityIndicatorView
+    description: A view that shows that a task is in progress.
+   - 
+    name: class UIImageView
+    description: An object that displays a single image or a sequence of animated images in your interface.
+   - 
+    name: class UIProgressView
+    description: A view that depicts the progress of a task over time.
+   - 
+    name: class UIWebView
+    description: A view that embeds web content in your app.

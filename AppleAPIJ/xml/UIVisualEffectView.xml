@@ -1,0 +1,70 @@
+<api>
+ <title>UIVisualEffectView</title>
+ <description>An object that implements some complex visual effects.</description>
+ <overview>
+ <description>Depending on the desired effect, the effect may affect content layered behind the view or content added to the visual effect view’s contentView. Apply a visual effect view to an existing view and then apply a UIBlurEffect or UIVibrancyEffect object to apply a blur or vibrancy effect to the existing view. After you add the visual effect view to the view hierarchy, add any subviews to the contentView property of the visual effect view. Do not add subviews directly to the visual effect view itself.</description>
+ <sub_overview>
+ <name>Setting the Correct Alpha Value</name>
+ <description>When using the UIVisualEffectView class, avoid alpha values that are less than 1. Creating views that are partially transparent causes the system to combine the view and all the associated subviews during an offscreen render pass. UIVisualEffectView objects need to be combined as part of the content they are layered on top of in order to look correct. Setting the alpha to less than 1 on the visual effect view or any of its superviews causes many effects to look incorrect or not show up at all.</description>
+ </sub_overview>
+ <sub_overview>
+ <name>Using Masks with a UIVisualEffectView</name>
+ <description>Masks directly applied to a UIVisualEffectView are forwarded to the internal views that provide the visual effect, including the contentView itself. You can also apply masks directly to the contentView. Applying a mask to a superview of a UIVisualEffectView object causes the effect to fail, and an exception is thrown. Any mask provided to UIVisualEffectView is not the view that actually performs the mask. UIKit makes a copy of the view and applies it to each subview. To reflect a size change to the mask, you must apply the change to the original mask and reset it on the effect view.</description>
+ </sub_overview>
+ <sub_overview>
+ <name>Capturing a Snapshot of a UIVisualEffectView</name>
+ <description>Many effects require support from the window that hosts the UIVisualEffectView. Attempting to take a snapshot of only the UIVisualEffectView will result in a snapshot that does not contain the effect. To take a snapshot of a view hierarchy that contains a UIVisualEffectView, you must take a snapshot of the entire UIWindow or UIScreen that contains it.</description>
+ </sub_overview>
+ </overview>
+ <topics>
+ <topic>
+ <title>Creating a New Visual Effect View</title>
+ <method>
+ <name>init(effect: UIVisualEffect?)</name>
+ <description>Creates a new visual effect view with the designated visual effect.</description>
+ </method>
+ <method>
+ <name>init?(coder: NSCoder)</name>
+ </method>
+ </topic>
+ <topic>
+ <title>Retrieving View Information</title>
+ <method>
+ <name>var contentView: UIView</name>
+ <description>A UIView object that can have a visual effect view added to it.</description>
+ </method>
+ <method>
+ <name>var effect: UIVisualEffect?</name>
+ <description>The visual effect provided by the view.</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIView</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSSecureCoding</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIPasteConfigurationSupporting</name>
+ <name>UIUserActivityRestoring</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UIVisualEffect</name>
+ <description>An initializer for visual effect views and blur and vibrancy effect objects.</description>
+ </control>
+ <control>
+ <name>class UIVibrancyEffect</name>
+ <description>An object that amplifies and adjusts the color of the content layered behind a visual effect view.</description>
+ </control>
+ <control>
+ <name>class UIBlurEffect</name>
+ <description>An object that applies a blurring effect to the content layered behind a visual effect view.</description>
+ </control>
+ </see-also>
+ </api>

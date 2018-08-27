@@ -1,0 +1,124 @@
+<api>
+ <title>UIBarItem</title>
+ <description>An abstract superclass for items that can be added to a bar that appears at the bottom of the screen.</description>
+ <overview>
+ <description>Items on a bar behave in a way similar to buttons (instances of UIButton). They have a title, image, action, and target. You can also enable and disable an item on a bar.</description>
+ <sub_overview>
+ <name>Customizing Appearance</name>
+ <description>You can customize the image to represent the item, and the position of the image, using image and imageInsets respectively. In iOS v5.0 and later, you can also specify a custom image and position to use in landscape orientation when using the iPhone appearance idiom using landscapeImagePhone and landscapeImagePhoneInsets respectively. In addition, you can customize the title’s text attributes using setTitleTextAttributes(_:for:), either for a single item, or for all items by using the appearance proxy (for example, [UIBarItem appearance]).</description>
+ </sub_overview>
+ </overview>
+ <topics>
+ <topic>
+ <title>Initializing a Bar Item</title>
+ <method>
+ <name>init()</name>
+ <description>Initializes the bar item to its default state.</description>
+ </method>
+ <method>
+ <name>init?(coder: NSCoder)</name>
+ </method>
+ </topic>
+ <topic>
+ <title>Getting and Setting Properties</title>
+ <method>
+ <name>var title: String?</name>
+ <description>The title displayed on the item.</description>
+ </method>
+ <method>
+ <name>var image: UIImage?</name>
+ <description>The image used to represent the item.</description>
+ </method>
+ <method>
+ <name>var landscapeImagePhone: UIImage?</name>
+ <description>The image to use to represent the item in landscape orientation when using the iPhone appearance idiom.</description>
+ </method>
+ <method>
+ <name>var largeContentSizeImage: UIImage?</name>
+ <description>The image to display for users with visual impairments.</description>
+ </method>
+ <method>
+ <name>var imageInsets: UIEdgeInsets</name>
+ <description>The image inset or outset for each edge.</description>
+ </method>
+ <method>
+ <name>var landscapeImagePhoneInsets: UIEdgeInsets</name>
+ <description>The image inset or outset for each edge of the image in landscape orientation when using the iPhone appearance idiom.</description>
+ </method>
+ <method>
+ <name>var largeContentSizeImageInsets: UIEdgeInsets</name>
+ <description>The insets to apply to the bar item&amp;apos;s large image when displaying the image in an assistive UI.</description>
+ </method>
+ <method>
+ <name>var isEnabled: Bool</name>
+ <description>A Boolean value indicating whether the item is enabled.</description>
+ </method>
+ <method>
+ <name>var tag: Int</name>
+ <description>The receiver’s tag, an application-supplied integer that you can use to identify bar item objects in your application.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Customizing Appearance</title>
+ <method>
+ <name>func setTitleTextAttributes([NSAttributedString.Key : Any]?, for: UIControl.State)</name>
+ <description>Sets the title’s text attributes for a given control state.</description>
+ </method>
+ <method>
+ <name>func titleTextAttributes(for: UIControl.State) -&amp;gt; [NSAttributedString.Key : Any]?</name>
+ <description>Returns the title’s text attributes for a given control state.</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>NSObject</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSCoding</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIAppearance</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UIBarButtonItem</name>
+ <description>A button specialized for placement on a toolbar or tab bar.</description>
+ </control>
+ <control>
+ <name>class UIBarButtonItemGroup</name>
+ <description>A set of bar button items on the shortcuts bar above the keyboard on iPad.</description>
+ </control>
+ <control>
+ <name>class UINavigationBar</name>
+ <description>Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.</description>
+ </control>
+ <control>
+ <name>class UISearchBar</name>
+ <description>A specialized view for receiving search-related information from the user.</description>
+ </control>
+ <control>
+ <name>class UIToolbar</name>
+ <description>A control that displays one or more buttons along the bottom edge of your interface.</description>
+ </control>
+ <control>
+ <name>class UITabBar</name>
+ <description>A control that displays one or more buttons in a tab bar for selecting between different subtasks, views, or modes in an app.</description>
+ </control>
+ <control>
+ <name>class UITabBarItem</name>
+ <description>An item in a tab bar.</description>
+ </control>
+ <control>
+ <name>protocol UIBarPositioning</name>
+ <description>A set of methods for defining the ways that bars can be positioned in iOS apps.</description>
+ </control>
+ <control>
+ <name>protocol UIBarPositioningDelegate</name>
+ <description>A set of methods that support the positioning of a bar that conforms to the UIBarPositioning protocol.</description>
+ </control>
+ </see-also>
+ </api>

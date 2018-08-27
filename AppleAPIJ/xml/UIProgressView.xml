@@ -1,0 +1,99 @@
+<api>
+ <title>UIProgressView</title>
+ <description>A view that depicts the progress of a task over time.</description>
+ <overview>
+ <description>The UIProgressView class provides properties for managing the style of the progress bar and for getting and setting values that are pinned to the progress of a task.</description>
+ </overview>
+ <topics>
+ <topic>
+ <title>Initializing the UIProgressView Object</title>
+ <method>
+ <name>init(progressViewStyle: UIProgressView.Style)</name>
+ <description>Initializes and returns a progress-view object.</description>
+ </method>
+ <method>
+ <name>init(frame: CGRect)</name>
+ </method>
+ <method>
+ <name>init?(coder: NSCoder)</name>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing the Progress Bar</title>
+ <method>
+ <name>var progress: Float</name>
+ <description>The current progress shown by the receiver.</description>
+ </method>
+ <method>
+ <name>func setProgress(Float, animated: Bool)</name>
+ <description>Adjusts the current progress shown by the receiver, optionally animating the change.</description>
+ </method>
+ <method>
+ <name>var observedProgress: Progress?</name>
+ <description>The progress object to use for updating the progress view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Configuring the Progress Bar</title>
+ <method>
+ <name>var progressViewStyle: UIProgressView.Style</name>
+ <description>The current graphical style of the receiver.</description>
+ </method>
+ <method>
+ <name>var progressTintColor: UIColor?</name>
+ <description>The color shown for the portion of the progress bar that is filled.</description>
+ </method>
+ <method>
+ <name>var progressImage: UIImage?</name>
+ <description>An image to use for the portion of the progress bar that is filled.</description>
+ </method>
+ <method>
+ <name>var trackTintColor: UIColor?</name>
+ <description>The color shown for the portion of the progress bar that is not filled.</description>
+ </method>
+ <method>
+ <name>var trackImage: UIImage?</name>
+ <description>An image to use for the portion of the track that is not filled.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Constants</title>
+ <method>
+ <name>enum UIProgressView.Style</name>
+ <description>The styles permitted for the progress bar.</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIView</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSCoding</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIPasteConfigurationSupporting</name>
+ <name>UIUserActivityRestoring</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UIActivityIndicatorView</name>
+ <description>A view that shows that a task is in progress.</description>
+ </control>
+ <control>
+ <name>class UIImageView</name>
+ <description>An object that displays a single image or a sequence of animated images in your interface.</description>
+ </control>
+ <control>
+ <name>class UIPickerView</name>
+ <description>A view that uses a spinning-wheel or slot-machine metaphor to show one or more sets of values.</description>
+ </control>
+ <control>
+ <name>class UIWebView</name>
+ <description>A view that embeds web content in your app.</description>
+ </control>
+ </see-also>
+ </api>

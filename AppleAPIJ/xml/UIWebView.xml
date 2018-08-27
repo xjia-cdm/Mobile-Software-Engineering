@@ -1,0 +1,210 @@
+<api>
+ <title>UIWebView</title>
+ <description>A view that embeds web content in your app.</description>
+ <overview>
+ <description>Note</description>
+ <sub_overview>
+ <name>Supported File Formats</name>
+ <description>In addition to HTML content, UIWebView objects can be used to display other content types, such as Keynote, PDF, and Pages documents. For the best rendering of plain and rich text in your app, however, you should use UITextView instead.</description>
+ </sub_overview>
+ <sub_overview>
+ <name>State Preservation</name>
+ <description>In iOS 6 and later, if you assign a value to this view’s restorationIdentifier property, it attempts to preserve its URL history, the scaling and scrolling positions for each page, and information about which page is currently being viewed. During restoration, the view restores these values so that the web content appears just as it did before. For more information about how state preservation and restoration works, see App Programming Guide for iOS. For more information about appearance and behavior configuration, see Web Views.</description>
+ </sub_overview>
+ <sub_overview>
+ <name>Subclassing Notes</name>
+ <description>The UIWebView class should not be subclassed.</description>
+ </sub_overview>
+ </overview>
+ <topics>
+ <topic>
+ <title>Responding to Web View Changes</title>
+ <method>
+ <name>var delegate: UIWebViewDelegate?</name>
+ <description>The receiver’s delegate.</description>
+ </method>
+ <method>
+ <name>protocol UIWebViewDelegate</name>
+ <description>The UIWebViewDelegate protocol defines methods that a delegate of a UIWebView object can optionally implement to intervene when web content is loaded.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Loading Content</title>
+ <method>
+ <name>func load(Data, mimeType: String, textEncodingName: String, baseURL: URL)</name>
+ <description>Sets the main page contents, MIME type, content encoding, and base URL.</description>
+ </method>
+ <method>
+ <name>func loadHTMLString(String, baseURL: URL?)</name>
+ <description>Sets the main page content and base URL.</description>
+ </method>
+ <method>
+ <name>func loadRequest(URLRequest)</name>
+ <description>Connects to a given URL by initiating an asynchronous client request.</description>
+ </method>
+ <method>
+ <name>var request: URLRequest?</name>
+ <description>The URL request identifying the location of the content to load.</description>
+ </method>
+ <method>
+ <name>var isLoading: Bool</name>
+ <description>A Boolean value indicating whether the receiver is done loading content.</description>
+ </method>
+ <method>
+ <name>func stopLoading()</name>
+ <description>Stops the loading of any web content managed by the receiver.</description>
+ </method>
+ <method>
+ <name>func reload()</name>
+ <description>Reloads the current page.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Moving Back and Forward</title>
+ <method>
+ <name>var canGoBack: Bool</name>
+ <description>A Boolean value indicating whether the receiver can move backward.</description>
+ </method>
+ <method>
+ <name>var canGoForward: Bool</name>
+ <description>A Boolean value indicating whether the receiver can move forward.</description>
+ </method>
+ <method>
+ <name>func goBack()</name>
+ <description>Loads the previous location in the back-forward list.</description>
+ </method>
+ <method>
+ <name>func goForward()</name>
+ <description>Loads the next location in the back-forward list.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Setting Web Content Properties</title>
+ <method>
+ <name>var allowsLinkPreview: Bool</name>
+ <description>A Boolean value that determines whether pressing on a link displays a preview of the destination for the link.</description>
+ </method>
+ <method>
+ <name>var scalesPageToFit: Bool</name>
+ <description>A Boolean value determining whether the webpage scales to fit the view and the user can change the scale.</description>
+ </method>
+ <method>
+ <name>var scrollView: UIScrollView</name>
+ <description>The scroll view associated with the web view.</description>
+ </method>
+ <method>
+ <name>var suppressesIncrementalRendering: Bool</name>
+ <description>A Boolean value indicating whether the web view suppresses content rendering until it is fully loaded into memory.</description>
+ </method>
+ <method>
+ <name>var keyboardDisplayRequiresUserAction: Bool</name>
+ <description>A Boolean value indicating whether web content can programmatically display the keyboard.</description>
+ </method>
+ <method>
+ <name>var dataDetectorTypes: UIDataDetectorTypes</name>
+ <description>The types of data converted to clickable URLs in the web view’s content.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Running JavaScript</title>
+ <method>
+ <name>func stringByEvaluatingJavaScript(from: String) -&amp;gt; String?</name>
+ <description>Returns the result of running a JavaScript script. Although this method is not deprecated, best practice is to use the evaluateJavaScript(_:completionHandler:) method of the WKWebView class instead.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing Media Playback</title>
+ <method>
+ <name>var allowsInlineMediaPlayback: Bool</name>
+ <description>A Boolean value that determines whether HTML5 videos play inline or use the native full-screen controller.</description>
+ </method>
+ <method>
+ <name>var mediaPlaybackRequiresUserAction: Bool</name>
+ <description>A Boolean value that determines whether HTML5 videos can play automatically or require the user to start playing them.</description>
+ </method>
+ <method>
+ <name>var mediaPlaybackAllowsAirPlay: Bool</name>
+ <description>A Boolean value that determines whether Air Play is allowed from this view.</description>
+ </method>
+ <method>
+ <name>var allowsPictureInPictureMediaPlayback: Bool</name>
+ <description>A Boolean value that determines whether Picture in Picture playback is allowed from this view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing Pages</title>
+ <method>
+ <name>var gapBetweenPages: CGFloat</name>
+ <description>The size of the gap, in points, between pages.</description>
+ </method>
+ <method>
+ <name>var pageCount: Int</name>
+ <description>The number of pages produced by the layout of the web view.</description>
+ </method>
+ <method>
+ <name>var pageLength: CGFloat</name>
+ <description>The size of each page, in points, in the direction that the pages flow.</description>
+ </method>
+ <method>
+ <name>var paginationBreakingMode: UIWebView.PaginationBreakingMode</name>
+ <description>The manner in which column- or page-breaking occurs.</description>
+ </method>
+ <method>
+ <name>var paginationMode: UIWebView.PaginationMode</name>
+ <description>The layout of content in the web view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Constants</title>
+ <method>
+ <name>enum UIWebView.NavigationType</name>
+ <description>Constant indicating the user’s action.</description>
+ </method>
+ <method>
+ <name>enum UIWebView.PaginationBreakingMode</name>
+ <description>The manner in which column- or page-breaking occurs.</description>
+ </method>
+ <method>
+ <name>enum UIWebView.PaginationMode</name>
+ <description>The layout of content in the web view, which determines the direction that the pages flow.</description>
+ </method>
+ <method>
+ <name>struct UIDataDetectorTypes</name>
+ <description>Defines the types of information that can be detected in text-based content.</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIView</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSCoding</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIPasteConfigurationSupporting</name>
+ <name>UIScrollViewDelegate</name>
+ <name>UIUserActivityRestoring</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UIActivityIndicatorView</name>
+ <description>A view that shows that a task is in progress.</description>
+ </control>
+ <control>
+ <name>class UIImageView</name>
+ <description>An object that displays a single image or a sequence of animated images in your interface.</description>
+ </control>
+ <control>
+ <name>class UIPickerView</name>
+ <description>A view that uses a spinning-wheel or slot-machine metaphor to show one or more sets of values.</description>
+ </control>
+ <control>
+ <name>class UIProgressView</name>
+ <description>A view that depicts the progress of a task over time.</description>
+ </control>
+ </see-also>
+ </api>

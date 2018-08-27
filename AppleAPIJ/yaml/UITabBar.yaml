@@ -1,0 +1,134 @@
+api:
+ title: UITabBar
+ description: A control that displays one or more buttons in a tab bar for selecting between different subtasks, views, or modes in an app.
+ overview: 
+  description: Typically, you use tab bars in conjunction with a UITabBarController object, but you can also use them as standalone controls in your app. Tab bars always appear across the bottom edge of the screen and display the contents of one or more UITabBarItem objects. A tab bar’s appearance can be customized with a background image or tint color to suit the needs of your interface. Tapping an item selects and highlights that item, and you use the selection of the item to enable the corresponding mode for your app.
+  sub_overview: 
+   - 
+    name: Configuring the Items of a Tab Bar
+    description: You can configure tab bar items using Interface Builder or create and configure them programmatically in your code. Tab bars in Interface Builder come preconfigured with some initial items and you can add, remove, or reorder items as needed. How you configure items at design time depends on whether your tab bar is associated with a UITabBarController object: Configuring your tab bar in Interface Builder: When a UITabBarController object is present, add or remove view controllers to your scene and create relationship segues between the tab bar controller and each new view controller. Creating a relationship segue automatically adds a new item to the tab bar, and deleting an existing relationship segue removes the corresponding tab bar item. When a tab bar controller is not present, drag tab bar items from the library onto your tab bar. Configuring your tab bar programmatically: To configure the tab bar associated with a UITabBarController object, configure the view controllers associated with the tab bar controller. The tab bar automatically obtains its items from the tabBarItem property of each view controller associated with the tab bar controller. To configure tab bar items directly, use the setItems(_:animated:) method of the tab bar itself. A tab bar displays all of its tabs onscreen at once, using the itemPositioning property to determine how to position items in the available space. If you have more items than can fit in the available space, display only a subset of them and let the user select which tabs are displayed. The beginCustomizingItems(_:) method displays an interface for selecting which tab bar items to display. The contents of each item are stored in a UITabBarItem object. Each item contains a title and an image to display in the tab. You can also use tab bar items to add a badge to the corresponding tab. For more information about creating and configuring items, see UITabBarItem.
+   - 
+    name: Responding to Tab Selections
+    description: For tab bars with an associated tab bar controller, the tab bar controller automatically manages selections and displays the appropriate view controller. The only time you have to manage selections yourself is when you create the tab bar without a tab bar controller. The tab bar reports selections to the tabBar(_:didSelect:) method of its delegate object, which you can use to respond to selection changes. For more information about implementing the delegate object, see UITabBarDelegate.
+   - 
+    name: Interface Builder Attributes
+    description: Table 1 lists the attributes that you configure for tab bars in Interface Builder. Table 1 Tab bar attributes Attribute Discussion Background The background image to display for the bar. If you specify a stretchable image, the image is stretched to fit the available space; otherwise, the image is tiled. When you configure a background image, the tab bar ignores the tint color information. To set this attribute programmatically, use the backgroundImage property. Shadow The custom shadow image for the tab bar. This attribute is ignored if the tab bar does not also have a custom background image. To set this attribute programmatically, use the shadowImage property. Selection The image to use for the selected tab. To set this attribute programmatically, use the selectionIndicatorImage property. Image Tint The tint color to apply to the selected item. To set this attribute programmatically, use the tintColor property. Style The basic style to apply to the bar. You can configure a tab bar with a dark or light style and the bar can be opaque or translucent. To set the style programmatically, use the barStyle and isTranslucent properties. Bar Tint The tint color to apply to the bar. To set this attribute programmatically, use the barTintColor property. Item Positioning The positioning scheme to apply to items. Use this attribute to configure how items are spaced across the length of the tab bar. To set this attribute programmatically, use the itemPositioning property.
+   - 
+    name: Internationalization
+    description: To internationalize a tab bar, you must provide localized strings for the tab bar item titles. For more information, see Internationalization and Localization Guide.
+   - 
+    name: Accessibility
+    description: Tab bars are accessible by default. With VoiceOver enabled on an iOS device, when a user touches a tab in a tab bar, VoiceOver reads the title of the tab, its position in the bar, and whether it is selected. For example in the iTunes app on iPad, you might hear “Selected, Audiobooks, four of seven” or “Genius, six of seven.” For general information about making your interface accessible, see Accessibility Programming Guide for iOS.
+ topics: 
+  topic: 
+   - 
+    title: Customizing the Tab Bar Behavior
+     method: 
+      - 
+       name: var delegate: UITabBarDelegate?
+       description: The tab bar’s delegate object.
+      - 
+       name: protocol UITabBarDelegate
+       description: The UITabBarDelegate protocol defines optional methods for a delegate of a UITabBar object. The UITabBar class provides the ability for the user to reorder, remove, and add items to the tab bar; this process is referred to as customizing the tab bar. The tab bar delegate receives messages when customizing occurs.
+   - 
+    title: Configuring Tab Bar Items
+     method: 
+      - 
+       name: var items: [UITabBarItem]?
+       description: The items displayed by the tab bar.
+      - 
+       name: func setItems([UITabBarItem]?, animated: Bool)
+       description: Sets the items on the tab bar, optionally animating any changes into position.
+      - 
+       name: var selectedItem: UITabBarItem?
+       description: The currently selected item on the tab bar.
+   - 
+    title: Customizing Tab Bar Appearance
+     method: 
+      - 
+       name: var barStyle: UIBarStyle
+       description: The tab bar style that specifies its appearance.
+      - 
+       name: enum UIBarStyle
+       description: Defines the stylistic appearance of different types of views.
+      - 
+       name: var isTranslucent: Bool
+       description: A Boolean value that indicates whether the tab bar is translucent.
+      - 
+       name: var barTintColor: UIColor?
+       description: The tint color to apply to the tab bar background.
+      - 
+       name: var tintColor: UIColor!
+       description: The tint color to apply to the tab bar items.
+      - 
+       name: var unselectedItemTintColor: UIColor?
+       description: The tint color to apply to unselected tabs.
+      - 
+       name: var backgroundImage: UIImage?
+       description: The custom background image for the tab bar.
+      - 
+       name: var shadowImage: UIImage?
+       description: The shadow image to use for the tab bar.
+      - 
+       name: var selectionIndicatorImage: UIImage?
+       description: The image to use for the selection indicator.
+   - 
+    title: Customizing the Item Spacing
+     method: 
+      - 
+       name: var itemPositioning: UITabBar.ItemPositioning
+       description: The positioning scheme for the tab bar items in the tab bar.
+      - 
+       name: enum UITabBar.ItemPositioning
+       description: Constants that specify tab bar item positioning.
+      - 
+       name: var itemSpacing: CGFloat
+       description: The amount of space (in points) to use between tab bar items.
+      - 
+       name: var itemWidth: CGFloat
+       description: The width (in points) of tab bar items.
+   - 
+    title: Supporting User Customization of Tab Bars
+     method: 
+      - 
+       name: func beginCustomizingItems([UITabBarItem])
+       description: Presents a standard interface that lets the user customize the contents of the tab bar.
+      - 
+       name: func endCustomizing(animated: Bool) -&amp;gt; Bool
+       description: Dismisses the standard interface used to customize the tab bar.
+      - 
+       name: var isCustomizing: Bool
+       description: A Boolean value indicating whether the user is currently customizing the tab bar.
+   - 
+    title: Deprecated
+     method: 
+       name: var selectedImageTintColor: UIColor?
+       description: The tint color applied to the selected tab bar item.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIView
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UISpringLoadedInteractionSupporting
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UITabBarController
+    description: A container view controller that manages a radio-style selection interface, where the selection determines which child view controller to display.
+   - 
+    name: class UITabBarItem
+    description: An item in a tab bar.

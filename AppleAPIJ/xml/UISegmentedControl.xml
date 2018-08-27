@@ -1,0 +1,206 @@
+<api>
+ <title>UISegmentedControl</title>
+ <description>A horizontal control made of multiple segments, each segment functioning as a discrete button.</description>
+ <overview>
+ <description>A segmented control can display a title (an NSString object) or an image (UIImage object). The UISegmentedControl object automatically resizes segments to fit proportionally within their superview unless they have a specific width set. When you add and remove segments, you can request that the action be animated with sliding and fading effects.</description>
+ <sub_overview>
+ <name>Customizing Appearance</name>
+ <description>In iOS 5 and later, you can customize the appearance of segmented controls using the methods listed in Customizing Appearance. You can customize the appearance of all segmented controls using the appearance proxy (for example, [UISegmentedControl appearance]), or just of a single control. When customizing appearance, in general, you should specify a value for the normal state of a property to be used by other states which don’t have a custom value set. Similarly, when a property is dependent on the bar metrics (on the iPhone in landscape orientation, bars have a different height from standard), you should make sure you specify a value for UIBarMetrics.default. In the case of the segmented control, appearance properties for landscapePhone are only respected for segmented controls in the smaller navigation and toolbars that are used in landscape orientation on the iPhone. To provide complete customization, you need to provide divider images for different state combinations, using setDividerImage(_:forLeftSegmentState:rightSegmentState:barMetrics:): // Image between two unselected segments.
+mySegmentedControl.setDividerImage(myImage, forLeftSegmentState: UIControlState.Normal,
+                                   rightSegmentState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
+ 
+// Image between segment selected on the left and unselected on the right.
+mySegmentedControl.setDividerImage(myImage, forLeftSegmentState: UIControlState.Selected,
+                                   rightSegmentState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
+ 
+// Image between segment selected on the right and unselected on the left.
+mySegmentedControl.setDividerImage(myImage, forLeftSegmentState: UIControlState.Normal,
+                                   rightSegmentState: UIControlState.Selected, barMetrics: UIBarMetrics.Default)</description>
+ </sub_overview>
+ </overview>
+ <topics>
+ <topic>
+ <title>Initializing a Segmented Control</title>
+ <method>
+ <name>init(items: [Any]?)</name>
+ <description>Initializes and returns a segmented control with segments having the given titles or images.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing Segment Content</title>
+ <method>
+ <name>func setImage(UIImage?, forSegmentAt: Int)</name>
+ <description>Sets the content of a segment to a given image.</description>
+ </method>
+ <method>
+ <name>func imageForSegment(at: Int) -&amp;gt; UIImage?</name>
+ <description>Returns the image for a specific segment</description>
+ </method>
+ <method>
+ <name>func setTitle(String?, forSegmentAt: Int)</name>
+ <description>Sets the title of a segment.</description>
+ </method>
+ <method>
+ <name>func titleForSegment(at: Int) -&amp;gt; String?</name>
+ <description>Returns the title of the specified segment.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing Segments</title>
+ <method>
+ <name>func insertSegment(with: UIImage?, at: Int, animated: Bool)</name>
+ <description>Inserts a segment at a specified position in the receiver and gives it an image as content.</description>
+ </method>
+ <method>
+ <name>func insertSegment(withTitle: String?, at: Int, animated: Bool)</name>
+ <description>Inserts a segment at a specific position in the receiver and gives it a title as content.</description>
+ </method>
+ <method>
+ <name>var numberOfSegments: Int</name>
+ <description>Returns the number of segments the receiver has.</description>
+ </method>
+ <method>
+ <name>func removeAllSegments()</name>
+ <description>Removes all segments of the receiver</description>
+ </method>
+ <method>
+ <name>func removeSegment(at: Int, animated: Bool)</name>
+ <description>Removes the specified segment from the receiver, optionally animating the transition.</description>
+ </method>
+ <method>
+ <name>var selectedSegmentIndex: Int</name>
+ <description>The index number identifying the selected segment (that is, the last segment touched).</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing Segment Behavior and Appearance</title>
+ <method>
+ <name>var isMomentary: Bool</name>
+ <description>A Boolean value that determines whether segments in the receiver show selected state.</description>
+ </method>
+ <method>
+ <name>func setEnabled(Bool, forSegmentAt: Int)</name>
+ <description>Enables the specified segment.</description>
+ </method>
+ <method>
+ <name>func isEnabledForSegment(at: Int) -&amp;gt; Bool</name>
+ <description>Returns whether the indicated segment is enabled.</description>
+ </method>
+ <method>
+ <name>func setContentOffset(CGSize, forSegmentAt: Int)</name>
+ <description>Adjusts the offset for drawing the content (image or text) of the specified segment.</description>
+ </method>
+ <method>
+ <name>func contentOffsetForSegment(at: Int) -&amp;gt; CGSize</name>
+ <description>Returns the offset for drawing the content (image or text) of the specified segment.</description>
+ </method>
+ <method>
+ <name>func setWidth(CGFloat, forSegmentAt: Int)</name>
+ <description>Sets the width of the specified segment of the receiver.</description>
+ </method>
+ <method>
+ <name>func widthForSegment(at: Int) -&amp;gt; CGFloat</name>
+ <description>Returns the width of the indicated segment of the receiver.</description>
+ </method>
+ <method>
+ <name>var apportionsSegmentWidthsByContent: Bool</name>
+ <description>Indicates whether the control attempts to adjust segment widths based on their content widths.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Customizing Appearance</title>
+ <method>
+ <name>var tintColor: UIColor!</name>
+ <description>The tint color to apply to key elements in the segmented control.</description>
+ </method>
+ <method>
+ <name>func backgroundImage(for: UIControl.State, barMetrics: UIBarMetrics) -&amp;gt; UIImage?</name>
+ <description>Returns the background image for a given state and bar metrics.</description>
+ </method>
+ <method>
+ <name>func setBackgroundImage(UIImage?, for: UIControl.State, barMetrics: UIBarMetrics)</name>
+ <description>Sets the background image for a given state and bar metrics.</description>
+ </method>
+ <method>
+ <name>func contentPositionAdjustment(forSegmentType: UISegmentedControl.Segment, barMetrics: UIBarMetrics) -&amp;gt; UIOffset</name>
+ <description>Returns the positioning offset for a given segment and bar metrics.</description>
+ </method>
+ <method>
+ <name>func setContentPositionAdjustment(UIOffset, forSegmentType: UISegmentedControl.Segment, barMetrics: UIBarMetrics)</name>
+ <description>Returns the content positioning offset for a given segment and bar metrics.</description>
+ </method>
+ <method>
+ <name>func dividerImage(forLeftSegmentState: UIControl.State, rightSegmentState: UIControl.State, barMetrics: UIBarMetrics) -&amp;gt; UIImage?</name>
+ <description>Returns the divider image used for a given combination of left and right segment states and bar metrics.</description>
+ </method>
+ <method>
+ <name>func setDividerImage(UIImage?, forLeftSegmentState: UIControl.State, rightSegmentState: UIControl.State, barMetrics: UIBarMetrics)</name>
+ <description>Sets the divider image used for a given combination of left and right segment states and bar metrics.</description>
+ </method>
+ <method>
+ <name>func titleTextAttributes(for: UIControl.State) -&amp;gt; [NSAttributedString.Key : Any]?</name>
+ <description>Returns the text attributes of the title for a given control state.</description>
+ </method>
+ <method>
+ <name>func setTitleTextAttributes([NSAttributedString.Key : Any]?, for: UIControl.State)</name>
+ <description>Sets the text attributes of the title for a given control state.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Constants</title>
+ <method>
+ <name>API Collection Segment Selection</name>
+ <description>A constant for indicating that no segment is selected.</description>
+ </method>
+ <method>
+ <name>enum UISegmentedControl.Segment</name>
+ <description>Constants for specifying a segment in a control</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIControl</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSCoding</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIPasteConfigurationSupporting</name>
+ <name>UISpringLoadedInteractionSupporting</name>
+ <name>UIUserActivityRestoring</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UIControl</name>
+ <description>The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.</description>
+ </control>
+ <control>
+ <name>class UIButton</name>
+ <description>A control that executes your custom code in response to user interactions.</description>
+ </control>
+ <control>
+ <name>class UIDatePicker</name>
+ <description>A control used for the inputting of date and time values.</description>
+ </control>
+ <control>
+ <name>class UIPageControl</name>
+ <description>A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity.</description>
+ </control>
+ <control>
+ <name>class UISlider</name>
+ <description>A control used to select a single value from a continuous range of values.</description>
+ </control>
+ <control>
+ <name>class UIStepper</name>
+ <description>A control used to increment or decrement a value.</description>
+ </control>
+ <control>
+ <name>class UISwitch</name>
+ <description>A control that offers a binary choice, such as On/Off.</description>
+ </control>
+ </see-also>
+ </api>

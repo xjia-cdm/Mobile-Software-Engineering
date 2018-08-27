@@ -1,0 +1,86 @@
+api:
+ title: UIProgressView
+ description: A view that depicts the progress of a task over time.
+ overview: 
+  description: The UIProgressView class provides properties for managing the style of the progress bar and for getting and setting values that are pinned to the progress of a task.
+ topics: 
+  topic: 
+   - 
+    title: Initializing the UIProgressView Object
+     method: 
+      - 
+       name: init(progressViewStyle: UIProgressView.Style)
+       description: Initializes and returns a progress-view object.
+      - 
+       name: init(frame: CGRect)
+      - 
+       name: init?(coder: NSCoder)
+   - 
+    title: Managing the Progress Bar
+     method: 
+      - 
+       name: var progress: Float
+       description: The current progress shown by the receiver.
+      - 
+       name: func setProgress(Float, animated: Bool)
+       description: Adjusts the current progress shown by the receiver, optionally animating the change.
+      - 
+       name: var observedProgress: Progress?
+       description: The progress object to use for updating the progress view.
+   - 
+    title: Configuring the Progress Bar
+     method: 
+      - 
+       name: var progressViewStyle: UIProgressView.Style
+       description: The current graphical style of the receiver.
+      - 
+       name: var progressTintColor: UIColor?
+       description: The color shown for the portion of the progress bar that is filled.
+      - 
+       name: var progressImage: UIImage?
+       description: An image to use for the portion of the progress bar that is filled.
+      - 
+       name: var trackTintColor: UIColor?
+       description: The color shown for the portion of the progress bar that is not filled.
+      - 
+       name: var trackImage: UIImage?
+       description: An image to use for the portion of the track that is not filled.
+   - 
+    title: Constants
+     method: 
+       name: enum UIProgressView.Style
+       description: The styles permitted for the progress bar.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIView
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: NSCoding
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UIActivityIndicatorView
+    description: A view that shows that a task is in progress.
+   - 
+    name: class UIImageView
+    description: An object that displays a single image or a sequence of animated images in your interface.
+   - 
+    name: class UIPickerView
+    description: A view that uses a spinning-wheel or slot-machine metaphor to show one or more sets of values.
+   - 
+    name: class UIWebView
+    description: A view that embeds web content in your app.

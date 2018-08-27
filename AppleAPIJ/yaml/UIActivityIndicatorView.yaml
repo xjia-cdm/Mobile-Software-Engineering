@@ -1,0 +1,80 @@
+api:
+ title: UIActivityIndicatorView
+ description: A view that shows that a task is in progress.
+ overview: 
+  description: You control when an activity indicator animates by calling the startAnimating() and stopAnimating() methods. To automatically hide the activity indicator when animation stops, set the hidesWhenStopped property to true.
+ topics: 
+  topic: 
+   - 
+    title: Initializing an Activity Indicator
+     method: 
+      - 
+       name: init(style: UIActivityIndicatorView.Style)
+       description: Initializes and returns an activity-indicator object.
+      - 
+       name: init(frame: CGRect)
+      - 
+       name: init(coder: NSCoder)
+   - 
+    title: Managing an Activity Indicator
+     method: 
+      - 
+       name: func startAnimating()
+       description: Starts the animation of the progress indicator.
+      - 
+       name: func stopAnimating()
+       description: Stops the animation of the progress indicator.
+      - 
+       name: var isAnimating: Bool
+       description: A Boolean value indicating whether the activity indicator is currently running its animation.
+      - 
+       name: var hidesWhenStopped: Bool
+       description: A Boolean value that controls whether the receiver is hidden when the animation is stopped.
+   - 
+    title: Configuring the Activity Indicator Appearance
+     method: 
+      - 
+       name: var style: UIActivityIndicatorView.Style
+       description: The basic appearance of the activity indicator.
+      - 
+       name: var color: UIColor!
+       description: The color of the activity indicator.
+   - 
+    title: Constants
+     method: 
+       name: enum UIActivityIndicatorView.Style
+       description: The visual style of the progress indicator.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIView
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: NSCoding
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UIImageView
+    description: An object that displays a single image or a sequence of animated images in your interface.
+   - 
+    name: class UIPickerView
+    description: A view that uses a spinning-wheel or slot-machine metaphor to show one or more sets of values.
+   - 
+    name: class UIProgressView
+    description: A view that depicts the progress of a task over time.
+   - 
+    name: class UIWebView
+    description: A view that embeds web content in your app.

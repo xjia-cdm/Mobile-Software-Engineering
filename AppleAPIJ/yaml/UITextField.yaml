@@ -1,0 +1,225 @@
+api:
+ title: UITextField
+ description: An object that displays an editable text area in your interface.
+ overview: 
+  description: You use text fields to gather text-based input from the user using the onscreen keyboard. The keyboard is configurable for many different types of input such as plain text, emails, numbers, and so on. Text fields use the target-action mechanism and a delegate object to report changes made during the course of editing.
+  sub_overview: 
+   - 
+    name: Showing and Hiding the Keyboard
+    description: When a text field becomes first responder, the system automatically shows the keyboard and binds its input to the text field. A text field becomes the first responder automatically when the user taps it. You can also force a text field to become the first responder by calling its becomeFirstResponder() method. You might force a text field to become first responder when you require the user to enter some information. Note The appearance of the keyboard has the potential to obscure portions of your user interface. You should update your interface as needed to ensure that the text field being edited is visible. Use the keyboard notifications to detect the appearance and disappearance of the keyboard and to make necessary changes to your interface. For more information, see Responding to Keyboard-Related Notifications. You can ask the system to dismiss the keyboard by calling the resignFirstResponder() method of your text field. Usually, you dismiss the keyboard in response to specific interactions. For example, you might dismiss the keyboard when the user taps the keyboard’s return key. The system can also dismiss the keyboard in response to user actions. Specifically, the system dismisses the keyboard when the user taps a new control that does not support keyboard input. The appearance and dismissal of the keyboard affect the editing state of the text field. When the keyboard appears, the text field enters the editing state and sends the appropriate notifications to its delegate. Similarly, when the text field resigns the first responder status, it leaves the editing state and notifies its delegate. For more information about the sequence of events that occur during editing, see Validating Text and Managing the Editing Process.
+   - 
+    name: Formatting the Text in a Text Field
+    description: There are two types of formatting you can do to a text field’s text: You can change the font, color, and style of the text using properties of this class. Alternatively, you can specify an NSAttributedString for the text field’s content. You can format the content of a text field using an Formatter object. The font, textColor, and textAlignment properties, among others, affect the appearance of the text field’s string. Modifying these properties applies the specified characteristic to the entire string. To specify more granular formatting, specify the text field’s text using an NSAttributedString object. The UITextField class does not provide built-in support for formatting its string using an Formatter object, but you can use the text field’s delegate to format the content yourself. To do so, use the text field’s delegate methods to validate text and to format it appropriately. For example, use the textField(_:shouldChangeCharactersIn:replacementString:) method to validate and format text while the user is typing. For information about how to use formatter objects, see Data Formatting Guide.
+   - 
+    name: Using Overlay Views to Edit Content
+    description: Overlay views are small views displayed on the left and right sides of the text view’s editable area. Typically, overlay views are image-based buttons that you set up as additional editing controls. For example, you might use an overlay view to implement a bookmarks button. To configure a button as an overlay view, specify an image for the button’s content and configure the target and action of the button to respond to taps. Listing 1 shows how to add a button as the left overlay of a text field. In this case, the code creates a button and configure its size and contents. The leftViewMode property specifies when your button is displayed. When the user taps the button, the button calls the configured action method, which in this case is a custom displayBookmarks: method. Listing 1 Adding an overlay view to a text field UIButton* overlayButton = [UIButton buttonWithType:UIButtonTypeCustom]; [overlayButton setImage:[UIImage imageNamed:@&amp;quot;bookmark&amp;quot;] forState:UIControlStateNormal]; [overlayButton addTarget:self action:@selector(displayBookmarks:)         forControlEvents:UIControlEventTouchUpInside]; overlayButton = CGRectMake(0, 0, 28, 28);   // Assign the overlay button to a stored text field self.textField.leftView = overlayButton; self.textField.leftViewMode = UITextFieldViewModeAlways;  When configuring overlay views, consider whether you want your text field to display the built-in clear button. The clear button provides the user with a convenient way to delete all of the text field’s text. This button is displayed in the right overlay position, but if you provide a custom right overlay view, use the rightViewMode and clearButtonMode properties to define when your custom overlay should be displayed and when the clear button should be displayed.
+   - 
+    name: Validating Text and Managing the Editing Process
+    description: A text field manages the editing of its text with the help of its delegate object. As the user interacts with a text field, the text field notifies its delegate and gives it a chance to control what is happening. You can use the delegate methods to prevent the user from starting or stopping the editing process or to validate text as it is typed. You can also use the delegate methods to perform related tasks, such as updating other parts of your interface based on the information typed by the user. For more information about using the text field’s delegate to manage editing interactions, see UITextFieldDelegate.
+   - 
+    name: Interface Builder Attributes
+    description: Table 1 lists the attributes that you configure for text fields in Interface Builder. Table 1 Text Field attributes Attribute Description Text The initial text displayed by the text field. You can specify the text as a plain string or as an attributed string. If you specify an attributed string, Interface Builder provides different options for editing the font, color, and formatting of the string. Color The color of the text field’s text. To set this attribute programmatically, use the textColor property. Font The font of the text field’s text. To set this attribute programmatically, use the font property. Alignment The alignment of the text field’s text inside the editing area. This option is available only when formatting plain strings. To set this attribute programmatically, use the textAlignment property. Placeholder The placeholder text displayed by the text field. When the text field’s string is empty, the text field displays this string instead, formatting the string so as to indicate that it is not the actual text. Typing any text into the text field hides this string. To set this attribute programmatically, use the placeholder property. Background The background image to display when the text field is enabled. This image is displayed behind the rest of the text field’s content. To set this attribute programmatically, use the background property. Disabled The background image to display when the text field is disabled. This image is displayed behind the rest of the text field’s content. To set this attribute programmatically, use the disabledBackground property. Border Style The visual style for the text field’s border. This attribute defines the visual border, if any, drawn around the editable text region. To set this attribute programatically, use the borderStyle property. Clear Button The behavior of the clear button. The clear button is a built-in overlay view that the user taps to delete all of the text in a text field. Use this attribute to define when the clear button appears. To set this attribute programatically, use theclearButtonMode property. Min Font Size The minimum font size for the text field’s text. When the Adjust to Fit option is enabled, the text field automatically varies the font size to ensure maximum legibility of the text. You can use this attribute to specify the smallest font size that your consider appropriate for your text. To set this attribute programatically, use theminimumFontSize property. Table 2 lists the keyboard-related attributes that you configure for text fields. This attributes correspond to properties of the UITextInputTraits protocol that the UITextField class adopts. Table 2 Keyboard attributes Attribute Description Capitalization The automatic capitalization style to apply to typed text. This attribute determines at what time the Shift key is automatically pressed. You can access the value of this attribute programmatically using the text field’s autocapitalizationType property. Correction The autocorrection behavior of the text field. This attribute determines whether autocorrection is enabled or disabled during typing. You can access the value of this attribute programmatically using the text field’s autocorrectionType property. Spell Checking The spell checking behavior of the text field. This attribute determines whether spell checking is enabled or disabled during typing. You can access the value of this attribute programmatically using the text field’s spellCheckingType property. Keyboard Type The style of the text field’s keyboard. This property specifies the type of keyboard displayed when the text field is active. You can access the value of this attribute programmatically using the text field’s keyboardType property. Appearance The visual style applied to the text field’s keyboard. Use this property to specify a dark or light keyboard. You can access the value of this attribute programmatically using the text field’s keyboardAppearance property. Return Key The type of return key to display on the keyboard. Use this property to configure the text and visual style applied to the keyboard’s return key. You can access the value of this attribute programmatically using the text field’s returnKeyType property. The return key is disabled by default and becomes enabled only when the user types some text into the text field. To respond to taps in the Return key, implement the textFieldShouldReturn(_:) method in the delegate you assign to the text field. For information about additional attributes you can configure for a text view, see UIControl.
+   - 
+    name: Internationalization
+    description: The default language of the device affects the keyboard that pops up with the text field (including the return key). You do not need to do anything to enable this functionality; it is enabled by default. However, your text field should be able to handle input that comes from any language. When using storyboards to build your interface, use Xcode’s base internationalization feature to configure the localizations your project supports. When you add a localization, Xcode creates a strings file for that localization. When configuring your interface programmatically, use the system’s built-in support for loading localized strings and resources. For more information about internationalizing your interface, see Internationalization and Localization Guide.
+   - 
+    name: Accessibility
+    description: Text fields are accessible by default. The default accessibility trait for a text field is User Interaction Enabled. For more information about making iOS controls accessible, see the accessibility information in UIControl. For general information about making your interface accessible, see Accessibility Programming Guide for iOS.
+   - 
+    name: State Preservation
+    description: When you assign a value to a text field’s restorationIdentifier property, it preserves the selected range of text, if any. During the next launch cycle, the text field attempts to restore that selection. If the selection range cannot be applied to the current text, no selection is made. For more information about how state preservation and restoration works, see App Programming Guide for iOS.
+ topics: 
+  topic: 
+   - 
+    title: Validating and Handling Edits
+     method: 
+      - 
+       name: var delegate: UITextFieldDelegate?
+       description: The receiver’s delegate.
+      - 
+       name: protocol UITextFieldDelegate
+       description: A set of optional methods that you use to manage the editing and validation of text in a text field object.
+   - 
+    title: Accessing the Text Attributes
+     method: 
+      - 
+       name: var text: String?
+       description: The text displayed by the text field.
+      - 
+       name: var attributedText: NSAttributedString?
+       description: The styled text displayed by the text field.
+      - 
+       name: var placeholder: String?
+       description: The string that is displayed when there is no other text in the text field.
+      - 
+       name: var attributedPlaceholder: NSAttributedString?
+       description: The styled string that is displayed when there is no other text in the text field.
+      - 
+       name: var defaultTextAttributes: [NSAttributedString.Key : Any]
+       description: The default attributes to apply to the text.
+      - 
+       name: var font: UIFont?
+       description: The font of the text.
+      - 
+       name: var textColor: UIColor?
+       description: The color of the text.
+      - 
+       name: var textAlignment: NSTextAlignment
+       description: The technique to use for aligning the text.
+      - 
+       name: var typingAttributes: [NSAttributedString.Key : Any]?
+       description: The attributes to apply to new text being entered by the user.
+      - 
+       name: enum UITextField.BorderStyle
+       description: The type of border drawn around the text field.
+   - 
+    title: Sizing the Text Field’s Text
+     method: 
+      - 
+       name: var adjustsFontSizeToFitWidth: Bool
+       description: A Boolean value indicating whether the font size should be reduced in order to fit the text string into the text field’s bounding rectangle.
+      - 
+       name: var minimumFontSize: CGFloat
+       description: The size of the smallest permissible font with which to draw the text field’s text.
+   - 
+    title: Managing the Editing Behavior
+     method: 
+      - 
+       name: var isEditing: Bool
+       description: A Boolean value indicating whether the text field is currently in edit mode.
+      - 
+       name: var clearsOnBeginEditing: Bool
+       description: A Boolean value indicating whether the text field removes old text when editing begins.
+      - 
+       name: var clearsOnInsertion: Bool
+       description: A Boolean value indicating whether inserting text replaces the previous contents.
+      - 
+       name: var allowsEditingTextAttributes: Bool
+       description: A Boolean value indicating whether the user may edit the attributes of the text in the text field.
+      - 
+       name: enum UITextField.DidEndEditingReason
+       description: Constants indicating the reason why editing ended in a text field.
+      - 
+       name: class let didEndEditingReasonUserInfoKey: String
+      - 
+       name: class let textDidBeginEditingNotification: NSNotification.Name
+       description: Notifies observers that an editing session began in a text field. The affected text field is stored in the object parameter of the notification. The userInfo dictionary is not used.
+      - 
+       name: class let textDidChangeNotification: NSNotification.Name
+       description: Notifies observers that the text in a text field changed. The affected text field is stored in the object parameter of the notification.
+      - 
+       name: class let textDidEndEditingNotification: NSNotification.Name
+       description: Notifies observers that the editing session ended for a text field. The affected text field is stored in the object parameter of the notification. The userInfo dictionary is not used.
+   - 
+    title: Setting the View’s Background Appearance
+     method: 
+      - 
+       name: var borderStyle: UITextField.BorderStyle
+       description: The border style used by the text field.
+      - 
+       name: var background: UIImage?
+       description: The image that represents the background appearance of the text field when it is enabled.
+      - 
+       name: var disabledBackground: UIImage?
+       description: The image that represents the background appearance of the text field when it is disabled.
+   - 
+    title: Managing Overlay Views
+     method: 
+      - 
+       name: var clearButtonMode: UITextField.ViewMode
+       description: Controls when the standard clear button appears in the text field.
+      - 
+       name: var leftView: UIView?
+       description: The overlay view displayed on the left (or leading) side of the text field.
+      - 
+       name: var leftViewMode: UITextField.ViewMode
+       description: Controls when the left overlay view appears in the text field.
+      - 
+       name: var rightView: UIView?
+       description: The overlay view displayed on the right (or trailing) side of the text field.
+      - 
+       name: var rightViewMode: UITextField.ViewMode
+       description: Controls when the right overlay view appears in the text field.
+      - 
+       name: enum UITextField.ViewMode
+       description: Defines the times at which overlay views appear in a text field.
+   - 
+    title: Drawing and Positioning Overrides
+     method: 
+      - 
+       name: func textRect(forBounds: CGRect) -&amp;gt; CGRect
+       description: Returns the drawing rectangle for the text field’s text.
+      - 
+       name: func drawText(in: CGRect)
+       description: Draws the receiver’s text in the specified rectangle.
+      - 
+       name: func placeholderRect(forBounds: CGRect) -&amp;gt; CGRect
+       description: Returns the drawing rectangle for the text field’s placeholder text
+      - 
+       name: func drawPlaceholder(in: CGRect)
+       description: Draws the receiver’s placeholder text in the specified rectangle.
+      - 
+       name: func borderRect(forBounds: CGRect) -&amp;gt; CGRect
+       description: Returns the receiver’s border rectangle.
+      - 
+       name: func editingRect(forBounds: CGRect) -&amp;gt; CGRect
+       description: Returns the rectangle in which editable text can be displayed.
+      - 
+       name: func clearButtonRect(forBounds: CGRect) -&amp;gt; CGRect
+       description: Returns the drawing rectangle for the built-in clear button.
+      - 
+       name: func leftViewRect(forBounds: CGRect) -&amp;gt; CGRect
+       description: Returns the drawing rectangle of the receiver’s left overlay view.
+      - 
+       name: func rightViewRect(forBounds: CGRect) -&amp;gt; CGRect
+       description: Returns the drawing location of the receiver’s right overlay view.
+   - 
+    title: Replacing the System Input Views
+     method: 
+      - 
+       name: var inputView: UIView?
+       description: The custom input view to display when the text field becomes the first responder.
+      - 
+       name: var inputAccessoryView: UIView?
+       description: The custom accessory view to display when the text field becomes the first responder
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIControl
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: NSCoding
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIContentSizeCategoryAdjusting
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UITextDraggable
+    - 
+     name: UITextDroppable
+    - 
+     name: UITextInput
+    - 
+     name: UITextPasteConfigurationSupporting
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UILabel
+    description: A view that displays one or more lines of read-only text, often used in conjunction with controls to describe their intended purpose.
+   - 
+    name: class UITextView
+    description: A scrollable, multiline text region.
+   - 
+    name: API Collection Drag and Drop Customization
+    description: Extend the standard drag and drop support for text views to include custom types of content.

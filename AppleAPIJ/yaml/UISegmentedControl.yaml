@@ -1,0 +1,162 @@
+api:
+ title: UISegmentedControl
+ description: A horizontal control made of multiple segments, each segment functioning as a discrete button.
+ overview: 
+  description: A segmented control can display a title (an NSString object) or an image (UIImage object). The UISegmentedControl object automatically resizes segments to fit proportionally within their superview unless they have a specific width set. When you add and remove segments, you can request that the action be animated with sliding and fading effects.
+  sub_overview: 
+    name: Customizing Appearance
+    description: In iOS 5 and later, you can customize the appearance of segmented controls using the methods listed in Customizing Appearance. You can customize the appearance of all segmented controls using the appearance proxy (for example, [UISegmentedControl appearance]), or just of a single control. When customizing appearance, in general, you should specify a value for the normal state of a property to be used by other states which don’t have a custom value set. Similarly, when a property is dependent on the bar metrics (on the iPhone in landscape orientation, bars have a different height from standard), you should make sure you specify a value for UIBarMetrics.default. In the case of the segmented control, appearance properties for landscapePhone are only respected for segmented controls in the smaller navigation and toolbars that are used in landscape orientation on the iPhone. To provide complete customization, you need to provide divider images for different state combinations, using setDividerImage(_:forLeftSegmentState:rightSegmentState:barMetrics:): // Image between two unselected segments. mySegmentedControl.setDividerImage(myImage, forLeftSegmentState: UIControlState.Normal,                                    rightSegmentState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)   // Image between segment selected on the left and unselected on the right. mySegmentedControl.setDividerImage(myImage, forLeftSegmentState: UIControlState.Selected,                                    rightSegmentState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)   // Image between segment selected on the right and unselected on the left. mySegmentedControl.setDividerImage(myImage, forLeftSegmentState: UIControlState.Normal,                                    rightSegmentState: UIControlState.Selected, barMetrics: UIBarMetrics.Default)
+ topics: 
+  topic: 
+   - 
+    title: Initializing a Segmented Control
+     method: 
+       name: init(items: [Any]?)
+       description: Initializes and returns a segmented control with segments having the given titles or images.
+   - 
+    title: Managing Segment Content
+     method: 
+      - 
+       name: func setImage(UIImage?, forSegmentAt: Int)
+       description: Sets the content of a segment to a given image.
+      - 
+       name: func imageForSegment(at: Int) -&amp;gt; UIImage?
+       description: Returns the image for a specific segment
+      - 
+       name: func setTitle(String?, forSegmentAt: Int)
+       description: Sets the title of a segment.
+      - 
+       name: func titleForSegment(at: Int) -&amp;gt; String?
+       description: Returns the title of the specified segment.
+   - 
+    title: Managing Segments
+     method: 
+      - 
+       name: func insertSegment(with: UIImage?, at: Int, animated: Bool)
+       description: Inserts a segment at a specified position in the receiver and gives it an image as content.
+      - 
+       name: func insertSegment(withTitle: String?, at: Int, animated: Bool)
+       description: Inserts a segment at a specific position in the receiver and gives it a title as content.
+      - 
+       name: var numberOfSegments: Int
+       description: Returns the number of segments the receiver has.
+      - 
+       name: func removeAllSegments()
+       description: Removes all segments of the receiver
+      - 
+       name: func removeSegment(at: Int, animated: Bool)
+       description: Removes the specified segment from the receiver, optionally animating the transition.
+      - 
+       name: var selectedSegmentIndex: Int
+       description: The index number identifying the selected segment (that is, the last segment touched).
+   - 
+    title: Managing Segment Behavior and Appearance
+     method: 
+      - 
+       name: var isMomentary: Bool
+       description: A Boolean value that determines whether segments in the receiver show selected state.
+      - 
+       name: func setEnabled(Bool, forSegmentAt: Int)
+       description: Enables the specified segment.
+      - 
+       name: func isEnabledForSegment(at: Int) -&amp;gt; Bool
+       description: Returns whether the indicated segment is enabled.
+      - 
+       name: func setContentOffset(CGSize, forSegmentAt: Int)
+       description: Adjusts the offset for drawing the content (image or text) of the specified segment.
+      - 
+       name: func contentOffsetForSegment(at: Int) -&amp;gt; CGSize
+       description: Returns the offset for drawing the content (image or text) of the specified segment.
+      - 
+       name: func setWidth(CGFloat, forSegmentAt: Int)
+       description: Sets the width of the specified segment of the receiver.
+      - 
+       name: func widthForSegment(at: Int) -&amp;gt; CGFloat
+       description: Returns the width of the indicated segment of the receiver.
+      - 
+       name: var apportionsSegmentWidthsByContent: Bool
+       description: Indicates whether the control attempts to adjust segment widths based on their content widths.
+   - 
+    title: Customizing Appearance
+     method: 
+      - 
+       name: var tintColor: UIColor!
+       description: The tint color to apply to key elements in the segmented control.
+      - 
+       name: func backgroundImage(for: UIControl.State, barMetrics: UIBarMetrics) -&amp;gt; UIImage?
+       description: Returns the background image for a given state and bar metrics.
+      - 
+       name: func setBackgroundImage(UIImage?, for: UIControl.State, barMetrics: UIBarMetrics)
+       description: Sets the background image for a given state and bar metrics.
+      - 
+       name: func contentPositionAdjustment(forSegmentType: UISegmentedControl.Segment, barMetrics: UIBarMetrics) -&amp;gt; UIOffset
+       description: Returns the positioning offset for a given segment and bar metrics.
+      - 
+       name: func setContentPositionAdjustment(UIOffset, forSegmentType: UISegmentedControl.Segment, barMetrics: UIBarMetrics)
+       description: Returns the content positioning offset for a given segment and bar metrics.
+      - 
+       name: func dividerImage(forLeftSegmentState: UIControl.State, rightSegmentState: UIControl.State, barMetrics: UIBarMetrics) -&amp;gt; UIImage?
+       description: Returns the divider image used for a given combination of left and right segment states and bar metrics.
+      - 
+       name: func setDividerImage(UIImage?, forLeftSegmentState: UIControl.State, rightSegmentState: UIControl.State, barMetrics: UIBarMetrics)
+       description: Sets the divider image used for a given combination of left and right segment states and bar metrics.
+      - 
+       name: func titleTextAttributes(for: UIControl.State) -&amp;gt; [NSAttributedString.Key : Any]?
+       description: Returns the text attributes of the title for a given control state.
+      - 
+       name: func setTitleTextAttributes([NSAttributedString.Key : Any]?, for: UIControl.State)
+       description: Sets the text attributes of the title for a given control state.
+   - 
+    title: Constants
+     method: 
+      - 
+       name: API Collection Segment Selection
+       description: A constant for indicating that no segment is selected.
+      - 
+       name: enum UISegmentedControl.Segment
+       description: Constants for specifying a segment in a control
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIControl
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: NSCoding
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UISpringLoadedInteractionSupporting
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UIControl
+    description: The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.
+   - 
+    name: class UIButton
+    description: A control that executes your custom code in response to user interactions.
+   - 
+    name: class UIDatePicker
+    description: A control used for the inputting of date and time values.
+   - 
+    name: class UIPageControl
+    description: A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity.
+   - 
+    name: class UISlider
+    description: A control used to select a single value from a continuous range of values.
+   - 
+    name: class UIStepper
+    description: A control used to increment or decrement a value.
+   - 
+    name: class UISwitch
+    description: A control that offers a binary choice, such as On/Off.

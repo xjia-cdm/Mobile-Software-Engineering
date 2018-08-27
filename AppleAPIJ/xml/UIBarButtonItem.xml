@@ -1,0 +1,202 @@
+<api>
+ <title>UIBarButtonItem</title>
+ <description>A button specialized for placement on a toolbar or tab bar.</description>
+ <overview>
+ <description>You typically use Interface Builder to create and configure bar button items.</description>
+ <sub_overview>
+ <name>Customizing Appearance</name>
+ <description>You use the methods listed in Customizing Appearance to customize the appearance of buttons. You send the setter messages to the appearance proxy ([UIBarButtonItem appearance]) to customize all buttons, or to a specific UIBarButtonItem instance. You may use customized buttons in standard places in a UINavigationItem object (backBarButtonItem, leftBarButtonItem, rightBarButtonItem) or a UIToolbar instance. In general, you should specify a value for the normal state to be used by other states which don’t have a custom value set. Similarly, when a property is dependent on the bar metrics (on iPhone, in landscape orientation bars have a different height from standard), you should specify a value of UIBarMetrics.default. For more information about appearance and behavior configuration, see Toolbars.</description>
+ </sub_overview>
+ </overview>
+ <topics>
+ <topic>
+ <title>Initializing an Item</title>
+ <method>
+ <name>init(barButtonSystemItem: UIBarButtonItem.SystemItem, target: Any?, action: Selector?)</name>
+ <description>Initializes a new item containing the specified system item.</description>
+ </method>
+ <method>
+ <name>init(customView: UIView)</name>
+ <description>Initializes a new item using the specified custom view.</description>
+ </method>
+ <method>
+ <name>init(image: UIImage?, style: UIBarButtonItem.Style, target: Any?, action: Selector?)</name>
+ <description>Initializes a new item using the specified image and other properties.</description>
+ </method>
+ <method>
+ <name>init(title: String?, style: UIBarButtonItem.Style, target: Any?, action: Selector?)</name>
+ <description>Initializes a new item using the specified title and other properties.</description>
+ </method>
+ <method>
+ <name>init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItem.Style, target: Any?, action: Selector?)</name>
+ <description>Initializes a new item using the specified images and other properties.</description>
+ </method>
+ <method>
+ <name>init()</name>
+ <description>Initializes the bar button item to its default state.</description>
+ </method>
+ <method>
+ <name>init?(coder: NSCoder)</name>
+ </method>
+ </topic>
+ <topic>
+ <title>Getting and Setting Properties</title>
+ <method>
+ <name>var target: AnyObject?</name>
+ <description>The object that receives an action when the item is selected.</description>
+ </method>
+ <method>
+ <name>var action: Selector?</name>
+ <description>The selector defining the action message to send to the target object when the user taps this bar button item.</description>
+ </method>
+ <method>
+ <name>var style: UIBarButtonItem.Style</name>
+ <description>The style of the item.</description>
+ </method>
+ <method>
+ <name>var possibleTitles: Set&amp;lt;String&amp;gt;?</name>
+ <description>The set of possible titles to display on the bar button.</description>
+ </method>
+ <method>
+ <name>var width: CGFloat</name>
+ <description>The width of the item.</description>
+ </method>
+ <method>
+ <name>var customView: UIView?</name>
+ <description>A custom view representing the item.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Customizing Appearance</title>
+ <method>
+ <name>var tintColor: UIColor?</name>
+ <description>The tint color to apply to the button item.</description>
+ </method>
+ <method>
+ <name>func backButtonBackgroundImage(for: UIControl.State, barMetrics: UIBarMetrics) -&amp;gt; UIImage?</name>
+ <description>Returns the back button background image for a given control state and bar metrics.</description>
+ </method>
+ <method>
+ <name>func setBackButtonBackgroundImage(UIImage?, for: UIControl.State, barMetrics: UIBarMetrics)</name>
+ <description>Sets the back button background image for a given control state and bar metrics</description>
+ </method>
+ <method>
+ <name>func backButtonTitlePositionAdjustment(for: UIBarMetrics) -&amp;gt; UIOffset</name>
+ <description>Returns the back button title offset for given bar metrics.</description>
+ </method>
+ <method>
+ <name>func setBackButtonTitlePositionAdjustment(UIOffset, for: UIBarMetrics)</name>
+ <description>Sets the back button title offset for given bar metrics</description>
+ </method>
+ <method>
+ <name>func backButtonBackgroundVerticalPositionAdjustment(for: UIBarMetrics) -&amp;gt; CGFloat</name>
+ <description>Returns the back button vertical position offset for given bar metrics.</description>
+ </method>
+ <method>
+ <name>func setBackButtonBackgroundVerticalPositionAdjustment(CGFloat, for: UIBarMetrics)</name>
+ <description>Sets the back button vertical position offset for given bar metrics.</description>
+ </method>
+ <method>
+ <name>func backgroundVerticalPositionAdjustment(for: UIBarMetrics) -&amp;gt; CGFloat</name>
+ <description>Returns the background vertical position offset for given bar metrics.</description>
+ </method>
+ <method>
+ <name>func setBackgroundVerticalPositionAdjustment(CGFloat, for: UIBarMetrics)</name>
+ <description>Sets the background vertical position offset for given bar metrics.</description>
+ </method>
+ <method>
+ <name>func backgroundImage(for: UIControl.State, barMetrics: UIBarMetrics) -&amp;gt; UIImage?</name>
+ <description>Returns the background image for a given state and bar metrics.</description>
+ </method>
+ <method>
+ <name>func setBackgroundImage(UIImage?, for: UIControl.State, barMetrics: UIBarMetrics)</name>
+ <description>Sets the background image for a given state and bar metrics.</description>
+ </method>
+ <method>
+ <name>func backgroundImage(for: UIControl.State, style: UIBarButtonItem.Style, barMetrics: UIBarMetrics) -&amp;gt; UIImage?</name>
+ <description>Returns the background image for the specified state, style, and metrics.</description>
+ </method>
+ <method>
+ <name>func setBackgroundImage(UIImage?, for: UIControl.State, style: UIBarButtonItem.Style, barMetrics: UIBarMetrics)</name>
+ <description>Sets the background image for the specified state, style, and metrics.</description>
+ </method>
+ <method>
+ <name>func titlePositionAdjustment(for: UIBarMetrics) -&amp;gt; UIOffset</name>
+ <description>Returns the title offset for given bar metrics.</description>
+ </method>
+ <method>
+ <name>func setTitlePositionAdjustment(UIOffset, for: UIBarMetrics)</name>
+ <description>Sets the title offset for given bar metrics.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Getting the Shortcuts Group Information</title>
+ <method>
+ <name>var buttonGroup: UIBarButtonItemGroup?</name>
+ <description>The group on the shortcuts bar to which the button belongs.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Constants</title>
+ <method>
+ <name>enum UIBarButtonItem.SystemItem</name>
+ <description>Defines system-supplied images for bar button items.</description>
+ </method>
+ <method>
+ <name>enum UIBarButtonItem.Style</name>
+ <description>Specifies the style of an item.</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIBarItem</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSCoding</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UISpringLoadedInteractionSupporting</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UIBarItem</name>
+ <description>An abstract superclass for items that can be added to a bar that appears at the bottom of the screen.</description>
+ </control>
+ <control>
+ <name>class UIBarButtonItemGroup</name>
+ <description>A set of bar button items on the shortcuts bar above the keyboard on iPad.</description>
+ </control>
+ <control>
+ <name>class UINavigationBar</name>
+ <description>Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.</description>
+ </control>
+ <control>
+ <name>class UISearchBar</name>
+ <description>A specialized view for receiving search-related information from the user.</description>
+ </control>
+ <control>
+ <name>class UIToolbar</name>
+ <description>A control that displays one or more buttons along the bottom edge of your interface.</description>
+ </control>
+ <control>
+ <name>class UITabBar</name>
+ <description>A control that displays one or more buttons in a tab bar for selecting between different subtasks, views, or modes in an app.</description>
+ </control>
+ <control>
+ <name>class UITabBarItem</name>
+ <description>An item in a tab bar.</description>
+ </control>
+ <control>
+ <name>protocol UIBarPositioning</name>
+ <description>A set of methods for defining the ways that bars can be positioned in iOS apps.</description>
+ </control>
+ <control>
+ <name>protocol UIBarPositioningDelegate</name>
+ <description>A set of methods that support the positioning of a bar that conforms to the UIBarPositioning protocol.</description>
+ </control>
+ </see-also>
+ </api>

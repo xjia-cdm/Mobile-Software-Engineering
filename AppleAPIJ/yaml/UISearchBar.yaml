@@ -1,0 +1,220 @@
+api:
+ title: UISearchBar
+ description: A specialized view for receiving search-related information from the user.
+ overview: 
+  description: UISearchBar provides a text field for entering text, a search button, a bookmark button, and a cancel button. A search bar does not actually perform any searches. You use a delegate, an object conforming to the UISearchBarDelegate protocol, to implement the actions when text is entered and buttons are clicked.
+  sub_overview: 
+    name: Customizing Appearance
+    description: You can customize the appearance of search bars one at a time, or you can use the appearance proxy ([UISearchBar appearance]) to customize the appearance of all search bars in an app. In general, you should specify a value for the normal state to be used by other states which don’t have a custom value set. Similarly, when a property is dependent on the bar metrics (on iPhone, in landscape orientation bars have a different height from standard), you should specify a value for UIBarMetricsDefault.
+ topics: 
+  topic: 
+   - 
+    title: Initializing the Search Bar
+     method: 
+      - 
+       name: init()
+       description: Initializes the search bar to its default state.
+      - 
+       name: init?(coder: NSCoder)
+      - 
+       name: init(frame: CGRect)
+   - 
+    title: Handling Search Bar Interactions
+     method: 
+      - 
+       name: var delegate: UISearchBarDelegate?
+       description: The search bar’s delegate object.
+      - 
+       name: protocol UISearchBarDelegate
+       description: A collection of optional methods that you implement to make a search bar control functional.
+   - 
+    title: Text Content
+     method: 
+      - 
+       name: var placeholder: String?
+       description: The string that is displayed when there is no other text in the text field.
+      - 
+       name: var prompt: String?
+       description: A single line of text displayed at the top of the search bar.
+      - 
+       name: var text: String?
+       description: The current or starting search text.
+   - 
+    title: Display Attributes
+     method: 
+      - 
+       name: var barStyle: UIBarStyle
+       description: A bar style that specifies the search bar’s appearance.
+      - 
+       name: var barTintColor: UIColor?
+       description: The tint color to apply to the search bar background.
+      - 
+       name: var searchBarStyle: UISearchBar.Style
+       description: A search bar style that specifies the search bar’s appearance.
+      - 
+       name: var tintColor: UIColor!
+       description: The tint color to apply to key elements in the search bar.
+      - 
+       name: var isTranslucent: Bool
+       description: A Boolean value that indicates whether the search bar is translucent (true) or not (false).
+   - 
+    title: Customizing the Keyboard Shortcut Items
+     method: 
+       name: var inputAssistantItem: UITextInputAssistantItem
+       description: The input assistant to use for configuring the keyboard’s shortcuts bar.
+   - 
+    title: Button Configuration
+     method: 
+      - 
+       name: var showsBookmarkButton: Bool
+       description: A Boolean value indicating whether the bookmark button is displayed.
+      - 
+       name: var showsCancelButton: Bool
+       description: A Boolean value indicating whether the cancel button is displayed.
+      - 
+       name: func setShowsCancelButton(Bool, animated: Bool)
+       description: Sets the display state of the cancel button optionally with animation.
+      - 
+       name: var showsSearchResultsButton: Bool
+       description: A Boolean value indicating whether the search results button is displayed.
+      - 
+       name: var isSearchResultsButtonSelected: Bool
+       description: A Boolean value indicating whether the search results button is selected.
+   - 
+    title: Scope Buttons
+     method: 
+      - 
+       name: var scopeButtonTitles: [String]?
+       description: An array of strings indicating the titles of the scope buttons.
+      - 
+       name: var selectedScopeButtonIndex: Int
+       description: The index of the selected scope button.
+      - 
+       name: var showsScopeBar: Bool
+       description: Specifies whether the scope bar is displayed.
+   - 
+    title: Customizing Appearance
+     method: 
+      - 
+       name: var backgroundImage: UIImage?
+       description: The background image for the search bar.
+      - 
+       name: func backgroundImage(for: UIBarPosition, barMetrics: UIBarMetrics) -&amp;gt; UIImage?
+       description: Returns the image used for the background in a given position and with given metrics.
+      - 
+       name: func setBackgroundImage(UIImage?, for: UIBarPosition, barMetrics: UIBarMetrics)
+       description: Sets the image to use for the background in a given position and with given metrics.
+      - 
+       name: func image(for: UISearchBar.Icon, state: UIControl.State) -&amp;gt; UIImage?
+       description: Returns the image for a given search bar icon type and control state.
+      - 
+       name: func setImage(UIImage?, for: UISearchBar.Icon, state: UIControl.State)
+       description: Sets the image for a given search bar icon type and control state.
+      - 
+       name: func positionAdjustment(for: UISearchBar.Icon) -&amp;gt; UIOffset
+       description: Returns the position adjustment for a given icon.
+      - 
+       name: func setPositionAdjustment(UIOffset, for: UISearchBar.Icon)
+       description: Returns the position adjustment for a given icon.
+      - 
+       name: var inputAccessoryView: UIView?
+       description: A custom input accessory view for the keyboard of the search bar.
+      - 
+       name: var scopeBarBackgroundImage: UIImage?
+       description: The background image for the scope bar.
+      - 
+       name: func scopeBarButtonBackgroundImage(for: UIControl.State) -&amp;gt; UIImage?
+       description: Returns the background image for the scope bar button in a given state.
+      - 
+       name: func setScopeBarButtonBackgroundImage(UIImage?, for: UIControl.State)
+       description: Sets the background image for the scope bar button in a given state.
+      - 
+       name: func scopeBarButtonDividerImage(forLeftSegmentState: UIControl.State, rightSegmentState: UIControl.State) -&amp;gt; UIImage?
+       description: Returns the divider image to use for a given combination of left and right segment states.
+      - 
+       name: func setScopeBarButtonDividerImage(UIImage?, forLeftSegmentState: UIControl.State, rightSegmentState: UIControl.State)
+       description: Sets the divider image to use for a given combination of left and right segment states.
+      - 
+       name: func scopeBarButtonTitleTextAttributes(for: UIControl.State) -&amp;gt; [NSAttributedString.Key : Any]?
+       description: Returns the text attributes for the search bar’s button’s title string for a given state.
+      - 
+       name: func setScopeBarButtonTitleTextAttributes([NSAttributedString.Key : Any]?, for: UIControl.State)
+       description: Sets the text attributes for the search bar’ button’s title string for a given state.
+      - 
+       name: func searchFieldBackgroundImage(for: UIControl.State) -&amp;gt; UIImage?
+       description: Returns the search text field image for a given state.
+      - 
+       name: func setSearchFieldBackgroundImage(UIImage?, for: UIControl.State)
+       description: Sets the search text field image for a given state.
+      - 
+       name: var searchFieldBackgroundPositionAdjustment: UIOffset
+       description: The offset of the search text field background in the search bar.
+      - 
+       name: var searchTextPositionAdjustment: UIOffset
+       description: The offset of the text within the search text field background.
+   - 
+    title: Constants
+     method: 
+      - 
+       name: enum UISearchBar.Icon
+       description: Constants to identify the icons used in the search bar.
+      - 
+       name: enum UISearchBar.Style
+       description: Specifies whether the search bar has a background.
+      - 
+       name: enum UIBarStyle
+       description: Defines the stylistic appearance of different types of views.
+      - 
+       name: struct UIOffset
+       description: Defines a structure that specifies an amount to offset a position.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIView
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIBarPositioning
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UITextInputTraits
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UIBarItem
+    description: An abstract superclass for items that can be added to a bar that appears at the bottom of the screen.
+   - 
+    name: class UIBarButtonItem
+    description: A button specialized for placement on a toolbar or tab bar.
+   - 
+    name: class UIBarButtonItemGroup
+    description: A set of bar button items on the shortcuts bar above the keyboard on iPad.
+   - 
+    name: class UINavigationBar
+    description: Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.
+   - 
+    name: class UIToolbar
+    description: A control that displays one or more buttons along the bottom edge of your interface.
+   - 
+    name: class UITabBar
+    description: A control that displays one or more buttons in a tab bar for selecting between different subtasks, views, or modes in an app.
+   - 
+    name: class UITabBarItem
+    description: An item in a tab bar.
+   - 
+    name: protocol UIBarPositioning
+    description: A set of methods for defining the ways that bars can be positioned in iOS apps.
+   - 
+    name: protocol UIBarPositioningDelegate
+    description: A set of methods that support the positioning of a bar that conforms to the UIBarPositioning protocol.

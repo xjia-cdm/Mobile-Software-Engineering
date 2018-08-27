@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>UISlider - UIKit | Apple Developer Documentation</title>
+  <meta content="width=device-width, initial-scale=1 viewport-fit=cover" name="viewport">
+  <meta data-pid="202416">
+  <link href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Mono,v1|SF+Pro+Icons,v1" media="all" rel="stylesheet" type="text/css">
+  <link href="/documentation/__assets/application-324aa72c.css" media="all" rel="stylesheet" type="text/css">
+  <noscript>
+   <link href="/documentation/__assets/nojs-c6be9131.css" media="all" rel="stylesheet" type="text/css">
+  </noscript>
+  <link rel="mask-icon" href="/documentation/__assets/apple-logo.svg" color="#000">
+  <link rel="shortcut icon" href="/documentation/__assets/favicon.ico">
+  <script src="/documentation/__assets/shared-f73bc3d2.js"></script>
+  <script id="init-data" type="application/json">{"variant":{"paths":["documentation\/uikit\/uislider"],"usr":"c:objc(cs)UISlider"}}</script>
+  <script src="/documentation/__assets/init-88dd23db.js"></script>
+ </head>
+ <body>
+  <div id="_omniture_top"> 
+   <script type="text/javascript">
+        var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+      </script> 
+   <script type="text/javascript" src="https://www.apple.com/metrics/scripts/s_code_h.js"></script> 
+   <script type="text/javascript">
+        s.pageName=AC.Tracking.pageName();
+        s.channel="www.us.developer"
+
+        var s_code=s.t();if(s_code)document.write(s_code)
+      </script> 
+  </div>
+  <div id="app">
+   <div>
+    <a href="#main" id="skip-localnav" class="showonfocus hidden">Skip Navigation</a>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US">
+     <div class="ac-gn-content"> 
+      <ul class="ac-gn-header"> 
+       <li class="ac-gn-item ac-gn-menuicon"> <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span> </span> </label> <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open"> <span class="ac-gn-menuanchor-label">Open Menu</span> </a> <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close"> <span class="ac-gn-menuanchor-label">Close Menu</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus-small"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small"> <a class="ac-gn-link ac-gn-link-bag" href="/account/"> <span class="ac-gn-link-text">Account</span> <span class="ac-gn-bag-badge"></span> </a> <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span> </li> 
+      </ul> 
+      <ul class="ac-gn-list"> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-discover"> <a class="ac-gn-link" href="/discover/"> <span>Discover</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-design"> <a class="ac-gn-link" href="/design/"> <span>Design</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-develop"> <a class="ac-gn-link" href="/develop/"> <span>Develop</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-distribute"> <a class="ac-gn-link" href="/distribute/"> <span>Distribute</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-support"> <a class="ac-gn-link" href="/support/"> <span>Support</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-account"> <a class="ac-gn-link" href="/account/"> <span>Account</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search"> <a id="ac-gn-search-button" class="ac-gn-link ac-gn-link-search" href="/search/" aria-label="Search developer.apple.com"> <span class="ac-gn-search-placeholder" aria-hidden="true">Search</span> </a> </li> 
+      </ul> 
+      <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search"> 
+       <div class="ac-gn-searchview-content"> 
+        <form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get"> 
+         <div class="ac-gn-searchform-wrapper"> 
+          <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" placeholder="Search" data-placeholder-long="Search for documentation, videos, and more" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false"> 
+          <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit"></button> 
+          <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search"></button> 
+         </div> 
+        </form> 
+        <aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="Hit enter to search."> 
+        </aside> 
+       </div> 
+       <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search"> <span class="ac-gn-searchview-close-wrapper"> <span class="ac-gn-searchview-close-left"></span> <span class="ac-gn-searchview-close-right"></span> </span> </button> 
+      </aside> 
+     </div>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+    <input type="checkbox" id="localnav-menustate" class="localnav-menustate" aria-hidden="true">
+    <nav id="localnav" class="localnav localnav-dark theme-dark localnav-scrim localnav-noborder" role="navigation" aria-label="API Reference" data-sticky="true">
+     <div class="localnav-wrapper">
+      <div class="referencenav">
+       <div class="localnav-background"></div>
+       <div class="localnav-content">
+        <a href="/documentation" class="localnav-title">Documentation</a>
+        <div class="localnav-menu">
+         <a href="#localnav-menustate" id="localnav-menustate-open" class="localnav-menucta-anchor localnav-menucta-anchor-open"><span class="localnav-menucta-anchor-label" aria-hidden="true">Open Menu</span></a>
+         <a href="#" id="localnav-menustate-close" class="localnav-menucta-anchor localnav-menucta-anchor-close"><span class="localnav-menucta-anchor-label" aria-hidden="true">Close Menu</span></a>
+         <div class="localnav-menu-tray">
+          <ul aria-label="Breadcrumbs" class="localnav-menu-items localnav-menu-breadcrumbs">
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit">UIKit</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit/views_and_controls">Views and Controls</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item">
+            <div class="localnav-menu-breadcrumb-current-container localnav-menu-link current">
+             <span aria-current="page" class="localnav-menu-breadcrumb-current">UISlider</span>
+            </div></li>
+          </ul>
+          <ul class="localnav-menu-items localnav-menu-settings" data-breadcrumbs-count="3">
+           <li class="localnav-menu-setting language-container">
+            <div class="language-toggle-container">
+             <label for="language-toggle" class="language-toggle-label">Language:</label>
+             <select id="language-toggle" class="language-dropdown localnav-menu-link" style="width:auto;"><option selected value="swift">Swift</option><option value="occ">Objective-C</option></select>
+            </div>
+            <div class="language-list-container">
+             <span class="localnav-menu-setting-label">Language:</span>
+             <ul class="language-list">
+              <li class="language-list-item"><span data-language="swift" aria-current="page" class="current-language">Swift</span></li>
+              <li class="language-list-item"><a href="/documentation/uikit/uislider?language=objc" class="localnav-menu-setting-link">Objective-C</a></li>
+             </ul>
+            </div></li>
+           <li class="localnav-menu-setting"><span class="localnav-menu-setting-label">API Changes:</span><a href="/documentation/uikit/uislider?changes=latest_minor" class="localnav-menu-setting-link changes-toggle changes-toggle-show" aria-label="Show API Changes">Show</a></li>
+          </ul>
+         </div>
+         <div class="localnav-actions">
+          <div class="localnav-action localnav-action-menucta" aria-hidden="true">
+           <label for="localnav-menustate" class="localnav-menucta"><span class="localnav-menucta-chevron"></span></label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </nav>
+    <label for="localnav-menustate" id="localnav-curtain" aria-hidden="true"></label>
+    <main role="main" id="main" class="main" tabindex="0">
+     <div class="topic-title">
+      <span class="eyebrow">Class</span>
+      <h1 class="topic-heading"><span>UISlider</span></h1>
+     </div>
+     <div class="topic-container section-content row">
+      <div class="topic-description column large-9 medium-9 small-12">
+       <div class="topic-abstract abstract formatted-content">
+        <div>
+         <p>A control used to select a single value from a continuous range of values.</p>
+        </div>
+       </div>
+      </div>
+      <div class="topic-summary column large-3 medium-3 small-12">
+       <div class="topic-summary-section sdks" role="complementary" aria-label="SDK">
+        <p class="topic-summary-section-label subsection-label">SDK</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item sdk"><span aria-label="iOS 2.0+, Available on iOS 2.0 and later" role="text" title="Available on iOS 2.0 and later">iOS 2.0+</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section frameworks" role="complementary" aria-label="Framework">
+        <p class="topic-summary-section-label subsection-label">Framework</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item"><span>UIKit</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section onthispage">
+        <nav class="onthispage-nav" aria-labelledby="onthispage-title">
+         <p id="onthispage-title" class="topic-summary-section-label subsection-label">On This Page</p>
+         <ul class="topic-summary-section-list">
+          <li class="topic-summary-section-item"><a href="#overview" class="icon icon-after icon-chevrondowncircle">Overview</a></li>
+          <li class="topic-summary-section-item"><a href="#topics" class="icon icon-after icon-chevrondowncircle">Topics</a></li>
+          <li class="topic-summary-section-item"><a href="#relationships" class="icon icon-after icon-chevrondowncircle">Relationships</a></li>
+          <li class="topic-summary-section-item"><a href="#see-also" class="icon icon-after icon-chevrondowncircle">See Also</a></li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+      <div class="topic-content column large-9 medium-9 small-12" id="topic-content">
+       <section id="overview" class="section">
+        <h2>Overview</h2>
+        <div class="formatted-content">
+         <div>
+          <p>As you move the <strong>thumb</strong> of a slider, it passes its updated value to any actions attached to it. The appearance of sliders is configurable; you can tint the track and the thumb, and provide images to appear at the ends of the slider. You can add sliders to your interface programmatically or by using Interface Builder.</p>
+          <p><span class="reference">Figure 1</span> shows the terms used to describe the constituent parts of a <code class="code-voice"><span>UISlider</span></code> object in a left-to-right configuration.</p>
+          <figure id="2555491">
+           <figcaption>
+            <strong class="caption-title">Figure 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Example UISlider object</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/e0791617a4/14f9f16e-55c0-474a-ae62-f42ebf2cab33.png" srcset="https://docs-assets.developer.apple.com/published/e0791617a4/14f9f16e-55c0-474a-ae62-f42ebf2cab33.png 2x" alt="" width="357" height="auto">
+          </figure>
+          <p>The following steps are required to add a slider to your interface:</p>
+          <ul>
+           <li><p>Specify the range of values the slider represents.</p></li>
+           <li><p>Optionally, configure the appearance of the slider with appropriate tint colors, and limit images.</p></li>
+           <li><p>Connect one or more action methods to the slider.</p></li>
+           <li><p>Set up Auto Layout rules to govern the size and position of the slider in your interface.</p></li>
+          </ul>
+          <p></p>
+         </div>
+         <h3 id="2557863">Responding to User Interaction</h3>
+         <div>
+          <p>Sliders use the <a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html#//apple_ref/doc/uid/TP40009071-CH3">Target-Action</a> design pattern to notify your app when the user moves the slider. To be notified when the slider’s value changes, register your action method with the <a class="symbol-name" href="/documentation/uikit/uicontrol/event/1618238-valuechanged"><code><span>value<wbr>Changed</span></code></a> event. At runtime, the slider calls your method in response to the user changing the slider’s value.</p>
+          <p>By default, the slider sends value-changed events continuously as the user moves the slider’s thumb control. Setting the <a class="symbol-name" href="/documentation/uikit/uislider/1621340-iscontinuous"><code><span>is<wbr>Continuous</span></code></a> property to <code class="code-voice"><span>false</span></code> causes the slider to send an event only when the user releases the slider’s thumb control, setting the final value.</p>
+          <p>You connect a slider to your action method by using the <a class="symbol-name" href="/documentation/uikit/uicontrol/1618259-addtarget"><code><span>add<wbr>Target(_:<wbr>action:<wbr>for:)</span></code></a> method or by creating a connection in Interface Builder. The signature of an action method takes one of three forms, which are shown in <span class="reference">Listing 1</span>. Choose the form that provides the information that you need to respond to the value change in the slider. </p>
+          <figure id="2555492">
+           <figcaption>
+            <strong class="caption-title">Listing 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Action methods for sliders</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="code-listing">
+             <pre class="code-source" data-language="swift"><code>@IBAction func doSomething()
+@IBAction func doSomething(sender: UISlider)
+@IBAction func doSomething(sender: UISlider, forEvent event: UIEvent)
+</code></pre>
+            </div>
+           </div>
+          </figure>
+         </div>
+         <h3 id="2557867">Debugging Sliders</h3>
+         <div>
+          <p>When debugging issues with sliders, follow these tips to avoid common pitfalls:</p>
+          <ul>
+           <li><p><strong>Use either a custom tint color or a custom image, but not both.</strong> When customizing slider appearance with images or tint, use one option or the other, but not both. Conflicting settings for track and thumb appearance are resolved in favor of the most recently set value. For example, setting a new minimum track image for any state clears any custom tint color you may have provided for minimum track images. Similarly, setting the thumb tint color removes any custom thumb images associated with the slider.</p></li>
+           <li><p><strong>The current value must be between the minimum and maximum values.</strong> If you try to programmatically set a slider’s current value to be below the minimum or above the maximum, it is set to the minimum or maximum instead. However, if you set the value beyond the range of the minimum or maximum in Interface Builder, the minimum or minimum values are updated instead.</p></li>
+           <li><p><strong>Set custom images for all control states.</strong> If you use custom track and thumb images for your slider, remember to set an image for every possible <a class="symbol-name" href="/documentation/uikit/uicontrol/state"><code><span>UIControl<wbr>.State</span></code></a>. Any control state that does not have a corresponding custom image assigned to it will display the standard image instead. If you set one custom image, be sure to set them all.</p></li>
+          </ul>
+         </div>
+         <h3 id="2557871">Interface Builder Attributes</h3>
+         <div>
+          <p><span class="reference">Table 1</span> lists the core attributes that you configure for sliders in Interface Builder.</p>
+          <figure id="2555493">
+           <figcaption>
+            <strong class="caption-title">Table 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Core attributes</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="table-wrapper">
+             <table>
+              <thead>
+               <tr>
+                <th scope="col"><p>Attribute</p></th>
+                <th scope="col"><p>Description</p></th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                <td><p>Value Minimum / Maximum</p></td>
+                <td><p>Specifies the values attached to the endpoints of the slider, the minimum representing the leading end of the slider and the maximum representing the trailing end. Access these values at runtime using the <a class="symbol-name" href="/documentation/uikit/uislider/1621345-minimumvalue"><code><span>minimum<wbr>Value</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uislider/1621341-maximumvalue"><code><span>maximum<wbr>Value</span></code></a> properties.</p></td>
+               </tr>
+               <tr>
+                <td><p>Value Current</p></td>
+                <td><p>Represents the initial value of the slider. The value must be between the minimum and maximum values. Access this value at runtime with the <a class="symbol-name" href="/documentation/uikit/uislider/1621346-value"><code><span>value</span></code></a> property.</p></td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+           </div>
+          </figure>
+          <p><span class="reference">Table 2</span> lists the attributes that control the appearance of a slider.</p>
+          <figure id="2555494">
+           <figcaption>
+            <strong class="caption-title">Table 2</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Appearance attributes</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="table-wrapper">
+             <table>
+              <thead>
+               <tr>
+                <th scope="col"><p>Attribute</p></th>
+                <th scope="col"><p>Description</p></th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                <td><p>Min Image</p></td>
+                <td><p>Specifies the image displayed at the leading end of the slider. If blank, no image is displayed. Access this value at runtime with the <a class="symbol-name" href="/documentation/uikit/uislider/1621337-minimumvalueimage"><code><span>minimum<wbr>Value<wbr>Image</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Max Image</p></td>
+                <td><p>Specifies the image displayed at the trailing end of the slider. If blank, no image is displayed. Access this value at runtime with the <a class="symbol-name" href="/documentation/uikit/uislider/1621329-maximumvalueimage"><code><span>maximum<wbr>Value<wbr>Image</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Min Track Tint</p></td>
+                <td><p>Specifies the tint color of the track to the leading side of the slider’s thumb. The value defaults to the slider’s inherited tint color. Access this value at runtime with the <a class="symbol-name" href="/documentation/uikit/uislider/1621348-minimumtracktintcolor"><code><span>minimum<wbr>Track<wbr>Tint<wbr>Color</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Max Track Tint</p></td>
+                <td><p>Specifies the tint color of the track to the trailing side of the slider’s thumb. Access this value at runtime with the <a class="symbol-name" href="/documentation/uikit/uislider/1621334-maximumtracktintcolor"><code><span>maximum<wbr>Track<wbr>Tint<wbr>Color</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Thumb Tint</p></td>
+                <td><p>Controls the tint color of the slider’s thumb. Access this value at runtime with the <a class="symbol-name" href="/documentation/uikit/uislider/1621332-thumbtintcolor"><code><span>thumb<wbr>Tint<wbr>Color</span></code></a> property.</p></td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+           </div>
+          </figure>
+          <p><span class="reference">Table 3</span> lists the attributes that configure the events associated with a slider.</p>
+          <figure id="2555495">
+           <figcaption>
+            <strong class="caption-title">Table 3</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Event attributes</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="table-wrapper">
+             <table>
+              <thead>
+               <tr>
+                <th scope="col"><p>Attribute</p></th>
+                <th scope="col"><p>Description</p></th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                <td><p>Events: Continuous Updates</p></td>
+                <td><p>Controls when attached actions are triggered: when checked, action events are called whenever the thumb is moved during user interaction. When not checked, attached actions are triggered only on completion of user interaction. Access this value at runtime with the <a class="symbol-name" href="/documentation/uikit/uislider/1621340-iscontinuous"><code><span>is<wbr>Continuous</span></code></a> property.</p></td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+           </div>
+          </figure>
+          <p>For information about the sliders’s inherited Interface Builder attributes, see <a class="symbol-name" href="/documentation/uikit/uicontrol"><code><span>UIControl</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uiview"><code><span>UIView</span></code></a>.</p>
+         </div>
+         <h3 id="1653132">Customizing the Slider’s Appearance</h3>
+         <div>
+          <p>Use Auto Layout to specify the position and width of a slider. The intrinsic height is determined by the intrinsic heights of the minimum and maximum images, if present. The width of the track automatically adjusts to accommodate the minimum and maximum images.</p>
+          <p>The most common way to customize the slider’s appearance is to provide custom minimum and maximum value images. These images sit at either end of the slider control and indicate which value that end of the slider represents. Set the values of the <a class="symbol-name" href="/documentation/uikit/uislider/1621337-minimumvalueimage"><code><span>minimum<wbr>Value<wbr>Image</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uislider/1621329-maximumvalueimage"><code><span>maximum<wbr>Value<wbr>Image</span></code></a> properties to appropriate <code class="code-voice"><span>UIImage</span></code> objects to display images at the ends of the slider. <span class="reference">Figure 2</span> shows a slider configured with minimum and maximum images that imply volume adjustment.</p>
+          <figure id="2555496">
+           <figcaption>
+            <strong class="caption-title">Figure 2</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Slider minimum and maximum images</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/e0791617a4/de311870-7bdb-4233-8f8a-8b787e046509.png" srcset="https://docs-assets.developer.apple.com/published/e0791617a4/de311870-7bdb-4233-8f8a-8b787e046509.png 2x" alt="" width="357" height="auto">
+          </figure>
+          <p>You can also specify the images used to draw the thumb and the track. Provide images for each of the control states (normal, highlighted, and so on) with the <a class="symbol-name" href="/documentation/uikit/uislider/1621331-setminimumtrackimage"><code><span>set<wbr>Minimum<wbr>Track<wbr>Image(_:<wbr>for:)</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uislider/1621338-setmaximumtrackimage"><code><span>set<wbr>Maximum<wbr>Track<wbr>Image(_:<wbr>for:)</span></code></a>, and <a class="symbol-name" href="/documentation/uikit/uislider/1621336-setthumbimage"><code><span>set<wbr>Thumb<wbr>Image(_:<wbr>for:)</span></code></a> methods. Set the <a class="symbol-name" href="/documentation/uikit/uiimage/1624097-capinsets"><code><span>cap<wbr>Insets</span></code></a> property for the track images to facilitate horizontal stretching. To access the images used in the current control state, use the <a class="symbol-name" href="/documentation/uikit/uislider/1621339-currentminimumtrackimage"><code><span>current<wbr>Minimum<wbr>Track<wbr>Image</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uislider/1621343-currentmaximumtrackimage"><code><span>current<wbr>Maximum<wbr>Track<wbr>Image</span></code></a>, and <a class="symbol-name" href="/documentation/uikit/uislider/1621347-currentthumbimage"><code><span>current<wbr>Thumb<wbr>Image</span></code></a> properties, as shown in <span class="reference">Figure 3</span>.</p>
+          <figure id="2555497">
+           <figcaption>
+            <strong class="caption-title">Figure 3</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Slider track and thumb images</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/e0791617a4/f5fe5bdf-beec-4073-a57f-258464d1310a.png" srcset="https://docs-assets.developer.apple.com/published/e0791617a4/f5fe5bdf-beec-4073-a57f-258464d1310a.png 2x" alt="" width="339" height="auto">
+          </figure>
+          <aside class="aside aside-note" role="note">
+           <p class="aside-name">Note</p>
+           <p>The slider control provides a set of default images for both the track and the thumb. If you do not specify any custom images, those images are used automatically.</p>
+          </aside>
+          <p>If you want to change only the colors of the track and thumb, you don’t need to resort to custom images. You can set custom tint colors for both the track and the thumb of a slider, using the <a class="symbol-name" href="/documentation/uikit/uislider/1621348-minimumtracktintcolor"><code><span>minimum<wbr>Track<wbr>Tint<wbr>Color</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uislider/1621334-maximumtracktintcolor"><code><span>maximum<wbr>Track<wbr>Tint<wbr>Color</span></code></a>, and <a class="symbol-name" href="/documentation/uikit/uislider/1621332-thumbtintcolor"><code><span>thumb<wbr>Tint<wbr>Color</span></code></a> properties, as shown in <span class="reference">Figure 4</span>.</p>
+          <figure id="2555498">
+           <figcaption>
+            <strong class="caption-title">Figure 4</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Slider tint colors</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/e0791617a4/1201116a-d64e-48b9-a79a-ecc52275a0a2.png" srcset="https://docs-assets.developer.apple.com/published/e0791617a4/1201116a-d64e-48b9-a79a-ecc52275a0a2.png 2x" alt="" width="312" height="auto">
+          </figure>
+          <p>By default, the minimum track tint color defers to the tint color of the slider control.</p>
+         </div>
+         <h3 id="2557872">Internationalization</h3>
+         <div>
+          <p>Sliders have no special properties related to internationalization. However, if you use a slider with a label, make sure you provide localized strings for the label.</p>
+          <p>Sliders automatically adjust to the appropriate interface direction, ensuring that the minimum end of the slider is always at the leading end and the maximum end at the trailing end. If you override <a class="symbol-name" href="/documentation/uikit/uislider/1621327-minimumvalueimagerect"><code><span>minimum<wbr>Value<wbr>Image<wbr>Rect(for<wbr>Bounds:)</span></code></a> or <a class="symbol-name" href="/documentation/uikit/uislider/1621333-maximumvalueimagerect"><code><span>maximum<wbr>Value<wbr>Image<wbr>Rect(for<wbr>Bounds:)</span></code></a> in a subclass of <code class="code-voice"><span>UISlider</span></code>, be sure to take the user interface layout direction into account.</p>
+          <p>For more information, see <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/Introduction/Introduction.html#//apple_ref/doc/uid/10000171i">Internationalization and Localization Guide</a>.</p>
+         </div>
+         <h3 id="2557873">Accessibility</h3>
+         <div>
+          <p>Sliders are accessible by default. The default accessibility traits for a slider are User Interaction Enabled and Adjustable. </p>
+          <p>When enabled on a device, VoiceOver speaks the accessibility label, value, traits, and hint to the user. VoiceOver speaks this information when a user swipes up and down (not left and right) over the slider. For example, using the Ringer and Alerts volume slider (Settings &gt; Sounds &gt; Ringer and Alerts), VoiceOver speaks the following:</p>
+          <figure id="2557421">
+           <div class="formatted-content">
+            <div class="code-listing">
+             <pre class="code-source" data-language="occ"><code>"Sound volume: 13 percent. Adjustable. Swipe up or down with one finger to adjust the value.”
+</code></pre>
+            </div>
+           </div>
+          </figure>
+          <p>For general information about making iOS controls accessible, see <a class="symbol-name" href="/documentation/uikit/uislider"><code><span>UISlider</span></code></a>.</p>
+         </div>
+        </div>
+       </section>
+      </div>
+     </div>
+     <section id="topics" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Topics</h2>
+        <section id="1653150" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Accessing the Slider’s Value</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621346-value"><code class="display-name"><span class="decorator">var </span><span class="identifier">value</span><span class="decorator">: Float</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The slider’s current value.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621330-setvalue"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Value</span><span class="decorator">(Float, </span><span class="identifier">animated</span><span class="decorator">: Bool)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the slider’s current value, allowing you to animate the change visually.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653184" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Accessing the Slider’s Value Limits</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621345-minimumvalue"><code class="display-name"><span class="decorator">var </span><span class="identifier">minimum<wbr>Value</span><span class="decorator">: Float</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The minimum value of the slider.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621341-maximumvalue"><code class="display-name"><span class="decorator">var </span><span class="identifier">maximum<wbr>Value</span><span class="decorator">: Float</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The maximum value of the slider.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653217" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Modifying the Slider’s Behavior</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621340-iscontinuous"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Continuous</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether changes in the slider’s value generate continuous update events.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653242" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Changing the Slider’s Appearance</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621337-minimumvalueimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">minimum<wbr>Value<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The image representing the slider’s minimum value.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621329-maximumvalueimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">maximum<wbr>Value<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The image representing the slider’s maximum value. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621348-minimumtracktintcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">minimum<wbr>Track<wbr>Tint<wbr>Color</span><span class="decorator">: UIColor?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The color used to tint the default minimum track images.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621339-currentminimumtrackimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">current<wbr>Minimum<wbr>Track<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The minimum track image currently being used to render the slider.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621328-minimumtrackimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">minimum<wbr>Track<wbr>Image</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State) -&gt; UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the minimum track image associated with the specified control state. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621331-setminimumtrackimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Minimum<wbr>Track<wbr>Image</span><span class="decorator">(UIImage?, </span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Assigns a minimum track image to the specified control states. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621334-maximumtracktintcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">maximum<wbr>Track<wbr>Tint<wbr>Color</span><span class="decorator">: UIColor?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The color used to tint the default maximum track images.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621343-currentmaximumtrackimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">current<wbr>Maximum<wbr>Track<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Contains the maximum track image currently being used to render the slider. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621335-maximumtrackimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">maximum<wbr>Track<wbr>Image</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State) -&gt; UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the maximum track image associated with the specified control state.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621338-setmaximumtrackimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Maximum<wbr>Track<wbr>Image</span><span class="decorator">(UIImage?, </span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Assigns a maximum track image to the specified control states. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621332-thumbtintcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">thumb<wbr>Tint<wbr>Color</span><span class="decorator">: UIColor?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The color used to tint the default thumb images.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621347-currentthumbimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">current<wbr>Thumb<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The thumb image currently being used to render the slider. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621342-thumbimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">thumb<wbr>Image</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State) -&gt; UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the thumb image associated with the specified control state. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621336-setthumbimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Thumb<wbr>Image</span><span class="decorator">(UIImage?, </span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Assigns a thumb image to the specified control states. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653394" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Overrides for Subclasses</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621333-maximumvalueimagerect"><code class="display-name"><span class="decorator">func </span><span class="identifier">maximum<wbr>Value<wbr>Image<wbr>Rect</span><span class="decorator">(</span><span class="identifier">for<wbr>Bounds</span><span class="decorator">: CGRect) -&gt; CGRect</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the drawing rectangle for the maximum value image.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621327-minimumvalueimagerect"><code class="display-name"><span class="decorator">func </span><span class="identifier">minimum<wbr>Value<wbr>Image<wbr>Rect</span><span class="decorator">(</span><span class="identifier">for<wbr>Bounds</span><span class="decorator">: CGRect) -&gt; CGRect</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the drawing rectangle for the minimum value image.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621349-trackrect"><code class="display-name"><span class="decorator">func </span><span class="identifier">track<wbr>Rect</span><span class="decorator">(</span><span class="identifier">for<wbr>Bounds</span><span class="decorator">: CGRect) -&gt; CGRect</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the drawing rectangle for the slider’s track.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uislider/1621344-thumbrect"><code class="display-name"><span class="decorator">func </span><span class="identifier">thumb<wbr>Rect</span><span class="decorator">(</span><span class="identifier">for<wbr>Bounds</span><span class="decorator">: CGRect, </span><span class="identifier">track<wbr>Rect</span><span class="decorator">: CGRect, </span><span class="identifier">value</span><span class="decorator">: Float) -&gt; CGRect</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the drawing rectangle for the slider’s thumb image.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="relationships" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Relationships</h2>
+        <section id="inherits-from" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Inherits From</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <a class="symbol-name" href="/documentation/uikit/uicontrol"><code><span>UIControl</span></code></a>
+          </div>
+         </div>
+        </section>
+        <section id="conforms-to" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Conforms To</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <ul class="relationships-section-content-columns">
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/cvararg"><code><span>CVar<wbr>Arg</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/equatable"><code><span>Equatable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/hashable"><code><span>Hashable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/foundation/nscoding"><code><span>NSCoding</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiaccessibilityidentification"><code><span>UIAccessibility<wbr>Identification</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uipasteconfigurationsupporting"><code><span>UIPaste<wbr>Configuration<wbr>Supporting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiuseractivityrestoring"><code><span>UIUser<wbr>Activity<wbr>Restoring</span></code></a></li>
+           </ul>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="see-also" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">See Also</h2>
+        <section id="2864417" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Controls</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uicontrol"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIControl</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uibutton"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIButton</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control that executes your custom code in response to user interactions. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uidatepicker"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIDate<wbr>Picker</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control used for the inputting of date and time values. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uipagecontrol"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIPage<wbr>Control</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisegmentedcontrol"><code class="display-name"><span class="decorator">class </span><span class="identifier">UISegmented<wbr>Control</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A horizontal control made of multiple segments, each segment functioning as a discrete button.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistepper"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIStepper</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control used to increment or decrement a value.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiswitch"><code class="display-name"><span class="decorator">class </span><span class="identifier">UISwitch</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control that offers a binary choice, such as On/Off.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+    </main>
+    <section id="globalfooter-wrapper">
+     <footer id="globalfooter" role="contentinfo"> 
+      <nav class="footer-breadory"> 
+       <a href="/" class="home breadcrumbs-home"><span aria-hidden="true"></span><span class="breadcrumbs-home-label">Developer</span></a> 
+       <section class="breadcrumbs"> 
+        <ol class="breadcrumbs-list"> 
+         <li><a href="/documentation">Documentation</a></li> 
+        </ol> 
+       </section> 
+       <div id="directorynav" class="directorynav"> 
+        <div id="dn-cola" class="column"> 
+         <h3><a href="/discover/">Discover</a></h3> 
+         <ul> 
+          <li><a href="/macos/">macOS</a></li> 
+          <li><a href="/ios/">iOS</a></li> 
+          <li><a href="/watchos/">watchOS</a></li> 
+          <li><a href="/tvos/">tvOS</a></li> 
+          <li><a href="/safari/">Safari and Web</a></li> 
+          <li><a href="/games/">Games</a></li> 
+          <li><a href="/enterprise/">Enterprise</a></li> 
+          <li><a href="/education/">Education</a></li> 
+          <li><a href="/wwdc/">WWDC</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colb" class="column"> 
+         <h3><a href="/design/">Design</a></h3> 
+         <ul> 
+          <li><a href="/design/human-interface-guidelines/">Human Interface Guidelines</a></li> 
+          <li><a href="/design/resources/">Resources</a></li> 
+          <li><a href="/videos/design/">Videos</a></li> 
+          <li><a href="/design/awards/">Apple Design Awards</a></li> 
+          <li><a href="/accessibility/">Accessibility</a></li> 
+          <li><a href="/internationalization/">Internationalization</a></li> 
+          <li><a href="/accessories/">Accessories</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colc" class="column"> 
+         <h3><a href="/develop/">Develop</a></h3> 
+         <ul> 
+          <li><a href="/xcode/">Xcode</a></li> 
+          <li><a href="/swift/">Swift</a></li> 
+          <li><a href="/swift-playgrounds/">Swift Playgrounds</a></li> 
+          <li><a href="/testflight/">TestFlight</a></li> 
+          <li><a href="/documentation/">Documentation</a></li> 
+          <li><a href="/videos/">Videos</a></li> 
+          <li><a href="/download/">Downloads</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cold" class="column"> 
+         <h3><a href="/distribute/">Distribute</a></h3> 
+         <ul> 
+          <li><a href="/app-store/">App Store</a></li> 
+          <li><a href="/macos/distribution/">Mac Software</a></li> 
+          <li><a href="/app-store/review/">App Review</a></li> 
+          <li><a href="/programs/volume/">Volume Purchase Program</a></li> 
+          <li><a href="/programs/volume/b2b/">Custom B2B Apps</a></li> 
+          <li><a href="/enterprise/distribute/">Enterprise Apps</a></li> 
+          <li><a href="/safari/extensions/">Safari Extensions</a></li> 
+          <li><a href="/app-store/marketing/guidelines/">Marketing Resources</a></li> 
+          <li><a href="/softwarelicensing/">Trademark Licensing</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cole" class="column"> 
+         <h3><a href="/support/">Support</a></h3> 
+         <ul> 
+          <li><a href="https://forums.developer.apple.com">Developer Forums</a></li> 
+          <li><a href="/bug-reporting/">Bug Reporting</a></li> 
+          <li><a href="/terms/">License Agreements</a></li> 
+          <li><a href="/system-status/">System Status</a></li> 
+          <li><a href="/contact/">Contact Us</a></li> 
+          <br> 
+          <h3><a href="/account/">Account</a></h3> 
+          <ul> 
+           <li><a href="/programs/">Developer Program</a></li> 
+           <li><a href="/account/ios/certificate/">Certificates, IDs &amp; Profiles</a></li> 
+           <li><a href="https://appstoreconnect.apple.com/">App Store Connect</a></li> 
+          </ul> 
+         </ul> 
+        </div> 
+       </div> 
+      </nav> 
+      <div class="ac-gf-footer-legal"> 
+       <div class="ac-gf-footer-news">
+         To receive the latest developer news, visit and subscribe to our 
+        <a href="/news/">News and Updates</a>. 
+       </div> 
+       <div class="ac-gf-footer-legal-copyright">
+        Copyright © 2018 Apple Inc. All rights reserved.
+       </div> 
+       <div class="ac-gf-footer-legal-links"> 
+        <a href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a> 
+        <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a> 
+        <a href="/bug-reporting/">Report Bugs</a> 
+        <a href="/contact/submit/?subject=website-feedback">Feedback</a> 
+       </div> 
+       <div class="ac-gf-footer-language-links"> 
+        <a href="/cn/" class="first">简体中文</a> 
+        <a href="/jp/">日本語</a> 
+        <a href="/kr/">한국어</a> 
+       </div> 
+      </div> 
+     </footer>
+    </section>
+   </div>
+  </div>
+  <script id="bootstrap-data" type="application/json">{"id":1621350,"title":{"content":"UISlider"},"discussion":"<div><p>As you move the <strong>thumb<\/strong> of a slider, it passes its updated value to any actions attached to it. The appearance of sliders is configurable; you can tint the track and the thumb, and provide images to appear at the ends of the slider. You can add sliders to your interface programmatically or by using Interface Builder.<\/p><p><span class=\"reference\">Figure 1<\/span> shows the terms used to describe the constituent parts of a <code class=\"code-voice\"><span>UISlider<\/span><\/code> object in a left-to-right configuration.<\/p><figure id=\"2555491\"><figcaption><strong class=\"caption-title\">Figure 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Example UISlider object<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/e0791617a4\/14f9f16e-55c0-474a-ae62-f42ebf2cab33.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/e0791617a4\/14f9f16e-55c0-474a-ae62-f42ebf2cab33.png 2x\" alt=\"\" width=\"357\" height=\"auto\"\/><\/figure><p>The following steps are required to add a slider to your interface:<\/p><ul><li><p>Specify the range of values the slider represents.<\/p><\/li><li><p>Optionally, configure the appearance of the slider with appropriate tint colors, and limit images.<\/p><\/li><li><p>Connect one or more action methods to the slider.<\/p><\/li><li><p>Set up Auto Layout rules to govern the size and position of the slider in your interface.<\/p><\/li><\/ul><p><\/p><\/div><h3 id=\"2557863\">Responding to User Interaction<\/h3><div><p>Sliders use the <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/General\/Conceptual\/Devpedia-CocoaApp\/TargetAction.html#\/\/apple_ref\/doc\/uid\/TP40009071-CH3\">Target-Action<\/a> design pattern to notify your app when the user moves the slider. To be notified when the slider’s value changes, register your action method with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/event\/1618238-valuechanged\"><code><span>value<wbr\/>Changed<\/span><\/code><\/a> event. At runtime, the slider calls your method in response to the user changing the slider’s value.<\/p><p>By default, the slider sends value-changed events continuously as the user moves the slider’s thumb control. Setting the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621340-iscontinuous\"><code><span>is<wbr\/>Continuous<\/span><\/code><\/a> property to <code class=\"code-voice\"><span>false<\/span><\/code> causes the slider to send an event only when the user releases the slider’s thumb control, setting the final value.<\/p><p>You connect a slider to your action method by using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/1618259-addtarget\"><code><span>add<wbr\/>Target(_:<wbr\/>action:<wbr\/>for:)<\/span><\/code><\/a> method or by creating a connection in Interface Builder. The signature of an action method takes one of three forms, which are shown in <span class=\"reference\">Listing 1<\/span>. Choose the form that provides the information that you need to respond to the value change in the slider. <\/p><figure id=\"2555492\"><figcaption><strong class=\"caption-title\">Listing 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Action methods for sliders<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"code-listing\"><pre class=\"code-source\" data-language=\"swift\"><code>@IBAction func doSomething()\n@IBAction func doSomething(sender: UISlider)\n@IBAction func doSomething(sender: UISlider, forEvent event: UIEvent)\n<\/code><\/pre><\/div><\/div><\/figure><\/div><h3 id=\"2557867\">Debugging Sliders<\/h3><div><p>When debugging issues with sliders, follow these tips to avoid common pitfalls:<\/p><ul><li><p><strong>Use either a custom tint color or a custom image, but not both.<\/strong> When customizing slider appearance with images or tint, use one option or the other, but not both. Conflicting settings for track and thumb appearance are resolved in favor of the most recently set value. For example, setting a new minimum track image for any state clears any custom tint color you may have provided for minimum track images. Similarly, setting the thumb tint color removes any custom thumb images associated with the slider.<\/p><\/li><li><p><strong>The current value must be between the minimum and maximum values.<\/strong> If you try to programmatically set a slider’s current value to be below the minimum or above the maximum, it is set to the minimum or maximum instead. However, if you set the value beyond the range of the minimum or maximum in Interface Builder, the minimum or minimum values are updated instead.<\/p><\/li><li><p><strong>Set custom images for all control states.<\/strong> If you use custom track and thumb images for your slider, remember to set an image for every possible <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\/state\"><code><span>UIControl<wbr\/>.State<\/span><\/code><\/a>. Any control state that does not have a corresponding custom image assigned to it will display the standard image instead. If you set one custom image, be sure to set them all.<\/p><\/li><\/ul><\/div><h3 id=\"2557871\">Interface Builder Attributes<\/h3><div><p><span class=\"reference\">Table 1<\/span> lists the core attributes that you configure for sliders in Interface Builder.<\/p><figure id=\"2555493\"><figcaption><strong class=\"caption-title\">Table 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Core attributes<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"table-wrapper\"><table><thead><tr><th scope=\"col\"><p>Attribute<\/p><\/th><th scope=\"col\"><p>Description<\/p><\/th><\/tr><\/thead><tbody><tr><td><p>Value Minimum \/ Maximum<\/p><\/td><td><p>Specifies the values attached to the endpoints of the slider, the minimum representing the leading end of the slider and the maximum representing the trailing end. Access these values at runtime using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621345-minimumvalue\"><code><span>minimum<wbr\/>Value<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621341-maximumvalue\"><code><span>maximum<wbr\/>Value<\/span><\/code><\/a> properties.<\/p><\/td><\/tr><tr><td><p>Value Current<\/p><\/td><td><p>Represents the initial value of the slider. The value must be between the minimum and maximum values. Access this value at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621346-value\"><code><span>value<\/span><\/code><\/a> property.<\/p><\/td><\/tr><\/tbody><\/table><\/div><\/div><\/figure><p><span class=\"reference\">Table 2<\/span> lists the attributes that control the appearance of a slider.<\/p><figure id=\"2555494\"><figcaption><strong class=\"caption-title\">Table 2<\/strong> <div class=\"caption-content formatted-content\"><div><p>Appearance attributes<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"table-wrapper\"><table><thead><tr><th scope=\"col\"><p>Attribute<\/p><\/th><th scope=\"col\"><p>Description<\/p><\/th><\/tr><\/thead><tbody><tr><td><p>Min Image<\/p><\/td><td><p>Specifies the image displayed at the leading end of the slider. If blank, no image is displayed. Access this value at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621337-minimumvalueimage\"><code><span>minimum<wbr\/>Value<wbr\/>Image<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Max Image<\/p><\/td><td><p>Specifies the image displayed at the trailing end of the slider. If blank, no image is displayed. Access this value at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621329-maximumvalueimage\"><code><span>maximum<wbr\/>Value<wbr\/>Image<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Min Track Tint<\/p><\/td><td><p>Specifies the tint color of the track to the leading side of the slider’s thumb. The value defaults to the slider’s inherited tint color. Access this value at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621348-minimumtracktintcolor\"><code><span>minimum<wbr\/>Track<wbr\/>Tint<wbr\/>Color<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Max Track Tint<\/p><\/td><td><p>Specifies the tint color of the track to the trailing side of the slider’s thumb. Access this value at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621334-maximumtracktintcolor\"><code><span>maximum<wbr\/>Track<wbr\/>Tint<wbr\/>Color<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Thumb Tint<\/p><\/td><td><p>Controls the tint color of the slider’s thumb. Access this value at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621332-thumbtintcolor\"><code><span>thumb<wbr\/>Tint<wbr\/>Color<\/span><\/code><\/a> property.<\/p><\/td><\/tr><\/tbody><\/table><\/div><\/div><\/figure><p><span class=\"reference\">Table 3<\/span> lists the attributes that configure the events associated with a slider.<\/p><figure id=\"2555495\"><figcaption><strong class=\"caption-title\">Table 3<\/strong> <div class=\"caption-content formatted-content\"><div><p>Event attributes<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"table-wrapper\"><table><thead><tr><th scope=\"col\"><p>Attribute<\/p><\/th><th scope=\"col\"><p>Description<\/p><\/th><\/tr><\/thead><tbody><tr><td><p>Events: Continuous Updates<\/p><\/td><td><p>Controls when attached actions are triggered: when checked, action events are called whenever the thumb is moved during user interaction. When not checked, attached actions are triggered only on completion of user interaction. Access this value at runtime with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621340-iscontinuous\"><code><span>is<wbr\/>Continuous<\/span><\/code><\/a> property.<\/p><\/td><\/tr><\/tbody><\/table><\/div><\/div><\/figure><p>For information about the sliders’s inherited Interface Builder attributes, see <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\"><code><span>UIControl<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\"><code><span>UIView<\/span><\/code><\/a>.<\/p><\/div><h3 id=\"1653132\">Customizing the Slider’s Appearance<\/h3><div><p>Use Auto Layout to specify the position and width of a slider. The intrinsic height is determined by the intrinsic heights of the minimum and maximum images, if present. The width of the track automatically adjusts to accommodate the minimum and maximum images.<\/p><p>The most common way to customize the slider’s appearance is to provide custom minimum and maximum value images. These images sit at either end of the slider control and indicate which value that end of the slider represents. Set the values of the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621337-minimumvalueimage\"><code><span>minimum<wbr\/>Value<wbr\/>Image<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621329-maximumvalueimage\"><code><span>maximum<wbr\/>Value<wbr\/>Image<\/span><\/code><\/a> properties to appropriate <code class=\"code-voice\"><span>UIImage<\/span><\/code> objects to display images at the ends of the slider. <span class=\"reference\">Figure 2<\/span> shows a slider configured with minimum and maximum images that imply volume adjustment.<\/p><figure id=\"2555496\"><figcaption><strong class=\"caption-title\">Figure 2<\/strong> <div class=\"caption-content formatted-content\"><div><p>Slider minimum and maximum images<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/e0791617a4\/de311870-7bdb-4233-8f8a-8b787e046509.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/e0791617a4\/de311870-7bdb-4233-8f8a-8b787e046509.png 2x\" alt=\"\" width=\"357\" height=\"auto\"\/><\/figure><p>You can also specify the images used to draw the thumb and the track. Provide images for each of the control states (normal, highlighted, and so on) with the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621331-setminimumtrackimage\"><code><span>set<wbr\/>Minimum<wbr\/>Track<wbr\/>Image(_:<wbr\/>for:)<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621338-setmaximumtrackimage\"><code><span>set<wbr\/>Maximum<wbr\/>Track<wbr\/>Image(_:<wbr\/>for:)<\/span><\/code><\/a>, and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621336-setthumbimage\"><code><span>set<wbr\/>Thumb<wbr\/>Image(_:<wbr\/>for:)<\/span><\/code><\/a> methods. Set the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiimage\/1624097-capinsets\"><code><span>cap<wbr\/>Insets<\/span><\/code><\/a> property for the track images to facilitate horizontal stretching. To access the images used in the current control state, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621339-currentminimumtrackimage\"><code><span>current<wbr\/>Minimum<wbr\/>Track<wbr\/>Image<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621343-currentmaximumtrackimage\"><code><span>current<wbr\/>Maximum<wbr\/>Track<wbr\/>Image<\/span><\/code><\/a>, and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621347-currentthumbimage\"><code><span>current<wbr\/>Thumb<wbr\/>Image<\/span><\/code><\/a> properties, as shown in <span class=\"reference\">Figure 3<\/span>.<\/p><figure id=\"2555497\"><figcaption><strong class=\"caption-title\">Figure 3<\/strong> <div class=\"caption-content formatted-content\"><div><p>Slider track and thumb images<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/e0791617a4\/f5fe5bdf-beec-4073-a57f-258464d1310a.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/e0791617a4\/f5fe5bdf-beec-4073-a57f-258464d1310a.png 2x\" alt=\"\" width=\"339\" height=\"auto\"\/><\/figure><aside class=\"aside aside-note\" role=\"note\"><p class=\"aside-name\">Note<\/p><p>The slider control provides a set of default images for both the track and the thumb. If you do not specify any custom images, those images are used automatically.<\/p><\/aside><p>If you want to change only the colors of the track and thumb, you don’t need to resort to custom images. You can set custom tint colors for both the track and the thumb of a slider, using the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621348-minimumtracktintcolor\"><code><span>minimum<wbr\/>Track<wbr\/>Tint<wbr\/>Color<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621334-maximumtracktintcolor\"><code><span>maximum<wbr\/>Track<wbr\/>Tint<wbr\/>Color<\/span><\/code><\/a>, and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621332-thumbtintcolor\"><code><span>thumb<wbr\/>Tint<wbr\/>Color<\/span><\/code><\/a> properties, as shown in <span class=\"reference\">Figure 4<\/span>.<\/p><figure id=\"2555498\"><figcaption><strong class=\"caption-title\">Figure 4<\/strong> <div class=\"caption-content formatted-content\"><div><p>Slider tint colors<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/e0791617a4\/1201116a-d64e-48b9-a79a-ecc52275a0a2.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/e0791617a4\/1201116a-d64e-48b9-a79a-ecc52275a0a2.png 2x\" alt=\"\" width=\"312\" height=\"auto\"\/><\/figure><p>By default, the minimum track tint color defers to the tint color of the slider control.<\/p><\/div><h3 id=\"2557872\">Internationalization<\/h3><div><p>Sliders have no special properties related to internationalization. However, if you use a slider with a label, make sure you provide localized strings for the label.<\/p><p>Sliders automatically adjust to the appropriate interface direction, ensuring that the minimum end of the slider is always at the leading end and the maximum end at the trailing end. If you override <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621327-minimumvalueimagerect\"><code><span>minimum<wbr\/>Value<wbr\/>Image<wbr\/>Rect(for<wbr\/>Bounds:)<\/span><\/code><\/a> or <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\/1621333-maximumvalueimagerect\"><code><span>maximum<wbr\/>Value<wbr\/>Image<wbr\/>Rect(for<wbr\/>Bounds:)<\/span><\/code><\/a> in a subclass of <code class=\"code-voice\"><span>UISlider<\/span><\/code>, be sure to take the user interface layout direction into account.<\/p><p>For more information, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/MacOSX\/Conceptual\/BPInternational\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/10000171i\">Internationalization and Localization Guide<\/a>.<\/p><\/div><h3 id=\"2557873\">Accessibility<\/h3><div><p>Sliders are accessible by default. The default accessibility traits for a slider are User Interaction Enabled and Adjustable. <\/p><p>When enabled on a device, VoiceOver speaks the accessibility label, value, traits, and hint to the user. VoiceOver speaks this information when a user swipes up and down (not left and right) over the slider.  For example, using the Ringer and Alerts volume slider (Settings &gt; Sounds &gt; Ringer and Alerts), VoiceOver speaks the following:<\/p><figure id=\"2557421\"><div class=\"formatted-content\"><div class=\"code-listing\"><pre class=\"code-source\" data-language=\"occ\"><code>&quot;Sound volume: 13 percent. Adjustable. Swipe up or down with one finger to adjust the value.”\n<\/code><\/pre><\/div><\/div><\/figure><p>For general information about making iOS controls accessible, see <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uislider\"><code><span>UISlider<\/span><\/code><\/a>.<\/p><\/div>","abstract":"<div><p>A control used to select a single value from a continuous range of values.<\/p><\/div>","containingGroup":[{"id":2864417,"role":"task","paths":[],"symbols":[{"id":1618208,"role":"symbol","usr":"c:objc(cs)UIControl","name":"UIControl","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIControl<\/span><\/code>","paths":["documentation\/uikit\/uicontrol"],"title":{"content":"UIControl"},"abstract":"<div><p>The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.  <\/p><\/div>","hasChildren":true},{"id":1624013,"role":"symbol","usr":"c:objc(cs)UIButton","name":"UIButton","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIButton<\/span><\/code>","paths":["documentation\/uikit\/uibutton"],"title":{"content":"UIButton"},"abstract":"<div><p>A control that executes your custom code in response to user interactions. <\/p><\/div>","hasChildren":true},{"id":1615991,"role":"symbol","usr":"c:objc(cs)UIDatePicker","name":"UIDatePicker","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIDate<wbr\/>Picker<\/span><\/code>","paths":["documentation\/uikit\/uidatepicker"],"title":{"content":"UIDatePicker"},"abstract":"<div><p>A control used for the inputting of date and time values. <\/p><\/div>","hasChildren":true},{"id":1621236,"role":"symbol","usr":"c:objc(cs)UIPageControl","name":"UIPageControl","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIPage<wbr\/>Control<\/span><\/code>","paths":["documentation\/uikit\/uipagecontrol"],"title":{"content":"UIPageControl"},"abstract":"<div><p>A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity. <\/p><\/div>","hasChildren":true},{"id":1618568,"role":"symbol","usr":"c:objc(cs)UISegmentedControl","name":"UISegmentedControl","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISegmented<wbr\/>Control<\/span><\/code>","paths":["documentation\/uikit\/uisegmentedcontrol"],"title":{"content":"UISegmentedControl"},"abstract":"<div><p>A horizontal control made of multiple segments, each segment functioning as a discrete button.<\/p><\/div>","hasChildren":true},{"id":1621350,"role":"symbol","usr":"c:objc(cs)UISlider","name":"UISlider","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISlider<\/span><\/code>","paths":["documentation\/uikit\/uislider"],"title":{"content":"UISlider"},"abstract":"<div><p>A control used to select a single value from a continuous range of values.<\/p><\/div>","hasChildren":true},{"id":1624084,"role":"symbol","usr":"c:objc(cs)UIStepper","name":"UIStepper","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"5.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIStepper<\/span><\/code>","paths":["documentation\/uikit\/uistepper"],"title":{"content":"UIStepper"},"abstract":"<div><p>A control used to increment or decrement a value.<\/p><\/div>","hasChildren":true},{"id":1623692,"role":"symbol","usr":"c:objc(cs)UISwitch","name":"UISwitch","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISwitch<\/span><\/code>","paths":["documentation\/uikit\/uiswitch"],"title":{"content":"UISwitch"},"abstract":"<div><p>A control that offers a binary choice, such as On\/Off.<\/p><\/div>","hasChildren":true}],"abstract":"<div><p>Gather input and respond to user interactions with controls. <\/p><\/div>","title":{"content":"Controls"}}],"usr":"c:objc(cs)UISlider","name":"UISlider","domain":"swift","kind":"cl","availability":[{"platform":"iOS","current":"12.0","introduced":"2.0"}],"conformance":[{"id":1411471,"usr":"c:objc(pl)NSCoding","name":"NSCoding","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/foundation\/nscoding"],"title":{"content":"NSCoding"},"platforms":["iOS"]},{"id":1623131,"usr":"c:objc(pl)UIAccessibilityIdentification","name":"UIAccessibilityIdentification","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiaccessibilityidentification"],"title":{"content":"UIAccessibilityIdentification"},"platforms":["iOS"]},{"id":2882041,"usr":"c:objc(pl)UIPasteConfigurationSupporting","name":"UIPasteConfigurationSupporting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uipasteconfigurationsupporting"],"title":{"content":"UIPasteConfigurationSupporting"},"platforms":["iOS"]},{"id":1641507,"usr":"s:s7CVarArgP","name":"CVarArg","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/cvararg"],"title":{"content":"CVarArg"},"platforms":["iOS"]},{"id":2980935,"usr":"c:objc(pl)UIUserActivityRestoring","name":"UIUserActivityRestoring","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiuseractivityrestoring"],"title":{"content":"UIUserActivityRestoring"},"platforms":["iOS"]},{"id":1541213,"usr":"s:SQ","name":"Equatable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/equatable"],"title":{"content":"Equatable"},"platforms":["iOS"]},{"id":1540942,"usr":"s:SH","name":"Hashable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/hashable"],"title":{"content":"Hashable"},"platforms":["iOS"]}],"inheritance":[{"id":1618208,"usr":"c:objc(cs)UIControl","name":"UIControl","domain":"swift","kind":"cl","role":"symbol","paths":["documentation\/uikit\/uicontrol"],"title":{"content":"UIControl"},"platforms":["iOS"]}],"module":[{"title":{"content":"UIKit"},"importStatement":"<div><span class=\"syntax-identifier\">import<\/span> UIKit<\/div>","paths":["documentation\/uikit"],"platforms":["iOS"]}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISlider<\/span><\/code>","declaration":[{"content":"<span><span class=\"syntax-keyword\">class<\/span> <span class=\"syntax-identifier\">UISlider<\/span> : <a class=\"symbolref\" href=\"\/documentation\/uikit\/uicontrol\"><span>UIControl<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/foundation\/nscoding\"><span>NSCoding<\/span><\/a>\n<\/span>","platforms":["iOS"]}],"languages":["occ","swift"],"variants":{"occ":{"paths":["documentation\/uikit\/uislider"],"usr":"c:objc(cs)UISlider"},"swift":{"paths":["documentation\/uikit\/uislider"],"usr":"c:objc(cs)UISlider"}},"diffAvailability":{"minor":{"change":"modified","platform":"Xcode","versions":["9.4","10.0 beta 6"]},"major":{"change":"modified","platform":"Xcode","versions":["9.0","10.0 beta 6"]}},"pid":202416,"role":"symbol","language":"swift","paths":["documentation\/uikit\/uislider"],"hierarchy":[[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864393,"role":"collectionGroup","title":{"content":"Views and Controls"},"paths":["documentation\/uikit\/views_and_controls"]}]],"legalNotices":{"copyright":"Copyright &copy; 2018 Apple Inc. All rights reserved.","termsOfUse":"https:\/\/www.apple.com\/legal\/internet-services\/terms\/site.html","privacyPolicy":"https:\/\/www.apple.com\/privacy\/privacy-policy"},"tasks":[{"id":1653150,"role":"task","symbols":[{"id":1621346,"role":"symbol","usr":"c:objc(cs)UISlider(py)value","name":"value","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">value<\/span><span class=\"decorator\">: Float<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621346-value"],"title":{"content":"value"},"abstract":"<div><p>The slider’s current value.<\/p><\/div>"},{"id":1621330,"role":"symbol","usr":"c:objc(cs)UISlider(im)setValue:animated:","name":"setValue(_:animated:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Value<\/span><span class=\"decorator\">(Float, <\/span><span class=\"identifier\">animated<\/span><span class=\"decorator\">: Bool)<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621330-setvalue"],"title":{"content":"setValue(_:animated:)"},"abstract":"<div><p>Sets the slider’s current value, allowing you to animate the change visually.<\/p><\/div>"}],"title":{"content":"Accessing the Slider’s Value"}},{"id":1653184,"role":"task","symbols":[{"id":1621345,"role":"symbol","usr":"c:objc(cs)UISlider(py)minimumValue","name":"minimumValue","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">minimum<wbr\/>Value<\/span><span class=\"decorator\">: Float<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621345-minimumvalue"],"title":{"content":"minimumValue"},"abstract":"<div><p>The minimum value of the slider.<\/p><\/div>"},{"id":1621341,"role":"symbol","usr":"c:objc(cs)UISlider(py)maximumValue","name":"maximumValue","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">maximum<wbr\/>Value<\/span><span class=\"decorator\">: Float<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621341-maximumvalue"],"title":{"content":"maximumValue"},"abstract":"<div><p>The maximum value of the slider.<\/p><\/div>"}],"title":{"content":"Accessing the Slider’s Value Limits"}},{"id":1653217,"role":"task","symbols":[{"id":1621340,"role":"symbol","usr":"c:objc(cs)UISlider(py)continuous","name":"continuous","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Continuous<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621340-iscontinuous"],"title":{"content":"isContinuous"},"abstract":"<div><p>A Boolean value indicating whether changes in the slider’s value generate continuous update events.<\/p><\/div>"}],"title":{"content":"Modifying the Slider’s Behavior"}},{"id":1653242,"role":"task","symbols":[{"id":1621337,"role":"symbol","usr":"c:objc(cs)UISlider(py)minimumValueImage","name":"minimumValueImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">minimum<wbr\/>Value<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621337-minimumvalueimage"],"title":{"content":"minimumValueImage"},"abstract":"<div><p>The image representing the slider’s minimum value.<\/p><\/div>"},{"id":1621329,"role":"symbol","usr":"c:objc(cs)UISlider(py)maximumValueImage","name":"maximumValueImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">maximum<wbr\/>Value<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621329-maximumvalueimage"],"title":{"content":"maximumValueImage"},"abstract":"<div><p>The image representing the slider’s maximum value. <\/p><\/div>"},{"id":1621348,"role":"symbol","usr":"c:objc(cs)UISlider(py)minimumTrackTintColor","name":"minimumTrackTintColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"5.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">minimum<wbr\/>Track<wbr\/>Tint<wbr\/>Color<\/span><span class=\"decorator\">: UIColor?<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621348-minimumtracktintcolor"],"title":{"content":"minimumTrackTintColor"},"abstract":"<div><p>The color used to tint the default minimum track images.<\/p><\/div>"},{"id":1621339,"role":"symbol","usr":"c:objc(cs)UISlider(py)currentMinimumTrackImage","name":"currentMinimumTrackImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">current<wbr\/>Minimum<wbr\/>Track<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621339-currentminimumtrackimage"],"title":{"content":"currentMinimumTrackImage"},"abstract":"<div><p>The minimum track image currently being used to render the slider.<\/p><\/div>"},{"id":1621328,"role":"symbol","usr":"c:objc(cs)UISlider(im)minimumTrackImageForState:","name":"minimumTrackImageForState(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">minimum<wbr\/>Track<wbr\/>Image<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State) -&gt; UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621328-minimumtrackimage"],"title":{"content":"minimumTrackImage(for:)"},"abstract":"<div><p>Returns the minimum track image associated with the specified control state. <\/p><\/div>"},{"id":1621331,"role":"symbol","usr":"c:objc(cs)UISlider(im)setMinimumTrackImage:forState:","name":"setMinimumTrackImage(_:forState:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Minimum<wbr\/>Track<wbr\/>Image<\/span><span class=\"decorator\">(UIImage?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State)<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621331-setminimumtrackimage"],"title":{"content":"setMinimumTrackImage(_:for:)"},"abstract":"<div><p>Assigns a minimum track image to the specified control states. <\/p><\/div>"},{"id":1621334,"role":"symbol","usr":"c:objc(cs)UISlider(py)maximumTrackTintColor","name":"maximumTrackTintColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"5.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">maximum<wbr\/>Track<wbr\/>Tint<wbr\/>Color<\/span><span class=\"decorator\">: UIColor?<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621334-maximumtracktintcolor"],"title":{"content":"maximumTrackTintColor"},"abstract":"<div><p>The color used to tint the default maximum track images.<\/p><\/div>"},{"id":1621343,"role":"symbol","usr":"c:objc(cs)UISlider(py)currentMaximumTrackImage","name":"currentMaximumTrackImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">current<wbr\/>Maximum<wbr\/>Track<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621343-currentmaximumtrackimage"],"title":{"content":"currentMaximumTrackImage"},"abstract":"<div><p>Contains the maximum track image currently being used to render the slider. <\/p><\/div>"},{"id":1621335,"role":"symbol","usr":"c:objc(cs)UISlider(im)maximumTrackImageForState:","name":"maximumTrackImageForState(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">maximum<wbr\/>Track<wbr\/>Image<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State) -&gt; UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621335-maximumtrackimage"],"title":{"content":"maximumTrackImage(for:)"},"abstract":"<div><p>Returns the maximum track image associated with the specified control state.<\/p><\/div>"},{"id":1621338,"role":"symbol","usr":"c:objc(cs)UISlider(im)setMaximumTrackImage:forState:","name":"setMaximumTrackImage(_:forState:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Maximum<wbr\/>Track<wbr\/>Image<\/span><span class=\"decorator\">(UIImage?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State)<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621338-setmaximumtrackimage"],"title":{"content":"setMaximumTrackImage(_:for:)"},"abstract":"<div><p>Assigns a maximum track image to the specified control states. <\/p><\/div>"},{"id":1621332,"role":"symbol","usr":"c:objc(cs)UISlider(py)thumbTintColor","name":"thumbTintColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"5.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">thumb<wbr\/>Tint<wbr\/>Color<\/span><span class=\"decorator\">: UIColor?<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621332-thumbtintcolor"],"title":{"content":"thumbTintColor"},"abstract":"<div><p>The color used to tint the default thumb images.<\/p><\/div>"},{"id":1621347,"role":"symbol","usr":"c:objc(cs)UISlider(py)currentThumbImage","name":"currentThumbImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">current<wbr\/>Thumb<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621347-currentthumbimage"],"title":{"content":"currentThumbImage"},"abstract":"<div><p>The thumb image currently being used to render the slider. <\/p><\/div>"},{"id":1621342,"role":"symbol","usr":"c:objc(cs)UISlider(im)thumbImageForState:","name":"thumbImageForState(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">thumb<wbr\/>Image<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State) -&gt; UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621342-thumbimage"],"title":{"content":"thumbImage(for:)"},"abstract":"<div><p>Returns the thumb image associated with the specified control state. <\/p><\/div>"},{"id":1621336,"role":"symbol","usr":"c:objc(cs)UISlider(im)setThumbImage:forState:","name":"setThumbImage(_:forState:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Thumb<wbr\/>Image<\/span><span class=\"decorator\">(UIImage?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State)<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621336-setthumbimage"],"title":{"content":"setThumbImage(_:for:)"},"abstract":"<div><p>Assigns a thumb image to the specified control states. <\/p><\/div>"}],"title":{"content":"Changing the Slider’s Appearance"}},{"id":1653394,"role":"task","symbols":[{"id":1621333,"role":"symbol","usr":"c:objc(cs)UISlider(im)maximumValueImageRectForBounds:","name":"maximumValueImageRectForBounds(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">maximum<wbr\/>Value<wbr\/>Image<wbr\/>Rect<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Bounds<\/span><span class=\"decorator\">: CGRect) -&gt; CGRect<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621333-maximumvalueimagerect"],"title":{"content":"maximumValueImageRect(forBounds:)"},"abstract":"<div><p>Returns the drawing rectangle for the maximum value image.<\/p><\/div>"},{"id":1621327,"role":"symbol","usr":"c:objc(cs)UISlider(im)minimumValueImageRectForBounds:","name":"minimumValueImageRectForBounds(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">minimum<wbr\/>Value<wbr\/>Image<wbr\/>Rect<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Bounds<\/span><span class=\"decorator\">: CGRect) -&gt; CGRect<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621327-minimumvalueimagerect"],"title":{"content":"minimumValueImageRect(forBounds:)"},"abstract":"<div><p>Returns the drawing rectangle for the minimum value image.<\/p><\/div>"},{"id":1621349,"role":"symbol","usr":"c:objc(cs)UISlider(im)trackRectForBounds:","name":"trackRectForBounds(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">track<wbr\/>Rect<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Bounds<\/span><span class=\"decorator\">: CGRect) -&gt; CGRect<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621349-trackrect"],"title":{"content":"trackRect(forBounds:)"},"abstract":"<div><p>Returns the drawing rectangle for the slider’s track.<\/p><\/div>"},{"id":1621344,"role":"symbol","usr":"c:objc(cs)UISlider(im)thumbRectForBounds:trackRect:value:","name":"thumbRectForBounds(_:trackRect:value:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">thumb<wbr\/>Rect<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Bounds<\/span><span class=\"decorator\">: CGRect, <\/span><span class=\"identifier\">track<wbr\/>Rect<\/span><span class=\"decorator\">: CGRect, <\/span><span class=\"identifier\">value<\/span><span class=\"decorator\">: Float) -&gt; CGRect<\/span><\/code>","paths":["documentation\/uikit\/uislider\/1621344-thumbrect"],"title":{"content":"thumbRect(forBounds:trackRect:value:)"},"abstract":"<div><p>Returns the drawing rectangle for the slider’s thumb image.<\/p><\/div>"}],"title":{"content":"Overrides for Subclasses"}}]}</script>
+  <script src="/documentation/__assets/TopicDetail-018c52ac.js"></script>
+ </body>
+</html>

@@ -1,0 +1,44 @@
+api:
+ title: UIVibrancyEffect
+ description: An object that amplifies and adjusts the color of the content layered behind a visual effect view.
+ overview: 
+  description: A vibrancy effect is intended to be used as a subview of or layered on top of a UIVisualEffectView that has been configured with a UIBlurEffect. The use of a vibrancy effect can help the content placed inside the contentView become more vivid.
+ topics: 
+  topic: 
+    title: Creating a Vibrancy Effect
+     method: 
+      - 
+       name: init(blurEffect: UIBlurEffect)
+       description: Creates a vibrancy effect for a specific blur effect.
+      - 
+       name: class func widgetPrimary() -&amp;gt; UIVibrancyEffect
+       description: Creates a vibrancy effect suitable for use with certain supporting text and template images within a widget.
+      - 
+       name: class func widgetSecondary() -&amp;gt; UIVibrancyEffect
+       description: Creates a vibrancy effect suitable for indicating the secondary importance or relevance of supporting text and template images within a widget.
+      - 
+       name: class func notificationCenter() -&amp;gt; UIVibrancyEffect
+       description: Creates a vibrancy effect for use in Notification Center.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIVisualEffect
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+ see-also: 
+  control: 
+   - 
+    name: class UIVisualEffect
+    description: An initializer for visual effect views and blur and vibrancy effect objects.
+   - 
+    name: class UIVisualEffectView
+    description: An object that implements some complex visual effects.
+   - 
+    name: class UIBlurEffect
+    description: An object that applies a blurring effect to the content layered behind a visual effect view.

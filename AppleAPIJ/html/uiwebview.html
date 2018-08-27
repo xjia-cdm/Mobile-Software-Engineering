@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>UIWebView - UIKit | Apple Developer Documentation</title>
+  <meta content="width=device-width, initial-scale=1 viewport-fit=cover" name="viewport">
+  <meta data-pid="205358">
+  <link href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Mono,v1|SF+Pro+Icons,v1" media="all" rel="stylesheet" type="text/css">
+  <link href="/documentation/__assets/application-324aa72c.css" media="all" rel="stylesheet" type="text/css">
+  <noscript>
+   <link href="/documentation/__assets/nojs-c6be9131.css" media="all" rel="stylesheet" type="text/css">
+  </noscript>
+  <link rel="mask-icon" href="/documentation/__assets/apple-logo.svg" color="#000">
+  <link rel="shortcut icon" href="/documentation/__assets/favicon.ico">
+  <script src="/documentation/__assets/shared-f73bc3d2.js"></script>
+  <script id="init-data" type="application/json">{"variant":{"paths":["documentation\/uikit\/uiwebview"],"usr":"c:objc(cs)UIWebView"}}</script>
+  <script src="/documentation/__assets/init-88dd23db.js"></script>
+ </head>
+ <body>
+  <div id="_omniture_top"> 
+   <script type="text/javascript">
+        var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+      </script> 
+   <script type="text/javascript" src="https://www.apple.com/metrics/scripts/s_code_h.js"></script> 
+   <script type="text/javascript">
+        s.pageName=AC.Tracking.pageName();
+        s.channel="www.us.developer"
+
+        var s_code=s.t();if(s_code)document.write(s_code)
+      </script> 
+  </div>
+  <div id="app">
+   <div>
+    <a href="#main" id="skip-localnav" class="showonfocus hidden">Skip Navigation</a>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US">
+     <div class="ac-gn-content"> 
+      <ul class="ac-gn-header"> 
+       <li class="ac-gn-item ac-gn-menuicon"> <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span> </span> </label> <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open"> <span class="ac-gn-menuanchor-label">Open Menu</span> </a> <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close"> <span class="ac-gn-menuanchor-label">Close Menu</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus-small"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small"> <a class="ac-gn-link ac-gn-link-bag" href="/account/"> <span class="ac-gn-link-text">Account</span> <span class="ac-gn-bag-badge"></span> </a> <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span> </li> 
+      </ul> 
+      <ul class="ac-gn-list"> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-discover"> <a class="ac-gn-link" href="/discover/"> <span>Discover</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-design"> <a class="ac-gn-link" href="/design/"> <span>Design</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-develop"> <a class="ac-gn-link" href="/develop/"> <span>Develop</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-distribute"> <a class="ac-gn-link" href="/distribute/"> <span>Distribute</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-support"> <a class="ac-gn-link" href="/support/"> <span>Support</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-account"> <a class="ac-gn-link" href="/account/"> <span>Account</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search"> <a id="ac-gn-search-button" class="ac-gn-link ac-gn-link-search" href="/search/" aria-label="Search developer.apple.com"> <span class="ac-gn-search-placeholder" aria-hidden="true">Search</span> </a> </li> 
+      </ul> 
+      <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search"> 
+       <div class="ac-gn-searchview-content"> 
+        <form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get"> 
+         <div class="ac-gn-searchform-wrapper"> 
+          <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" placeholder="Search" data-placeholder-long="Search for documentation, videos, and more" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false"> 
+          <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit"></button> 
+          <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search"></button> 
+         </div> 
+        </form> 
+        <aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="Hit enter to search."> 
+        </aside> 
+       </div> 
+       <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search"> <span class="ac-gn-searchview-close-wrapper"> <span class="ac-gn-searchview-close-left"></span> <span class="ac-gn-searchview-close-right"></span> </span> </button> 
+      </aside> 
+     </div>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+    <input type="checkbox" id="localnav-menustate" class="localnav-menustate" aria-hidden="true">
+    <nav id="localnav" class="localnav localnav-dark theme-dark localnav-scrim localnav-noborder" role="navigation" aria-label="API Reference" data-sticky="true">
+     <div class="localnav-wrapper">
+      <div class="referencenav">
+       <div class="localnav-background"></div>
+       <div class="localnav-content">
+        <a href="/documentation" class="localnav-title">Documentation</a>
+        <div class="localnav-menu">
+         <a href="#localnav-menustate" id="localnav-menustate-open" class="localnav-menucta-anchor localnav-menucta-anchor-open"><span class="localnav-menucta-anchor-label" aria-hidden="true">Open Menu</span></a>
+         <a href="#" id="localnav-menustate-close" class="localnav-menucta-anchor localnav-menucta-anchor-close"><span class="localnav-menucta-anchor-label" aria-hidden="true">Close Menu</span></a>
+         <div class="localnav-menu-tray">
+          <ul aria-label="Breadcrumbs" class="localnav-menu-items localnav-menu-breadcrumbs hasviolator">
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit">UIKit</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit/views_and_controls">Views and Controls</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item">
+            <div class="localnav-menu-breadcrumb-current-container localnav-menu-link current">
+             <span aria-current="page" class="localnav-menu-breadcrumb-current">UIWebView</span>
+             <span class="violator violator-inline violator-deprecated localnav-violator" role="presentation">Deprecated</span>
+            </div></li>
+          </ul>
+          <ul class="localnav-menu-items localnav-menu-settings" data-breadcrumbs-count="3">
+           <li class="localnav-menu-setting language-container">
+            <div class="language-toggle-container">
+             <label for="language-toggle" class="language-toggle-label">Language:</label>
+             <select id="language-toggle" class="language-dropdown localnav-menu-link" style="width:auto;"><option selected value="swift">Swift</option><option value="occ">Objective-C</option></select>
+            </div>
+            <div class="language-list-container">
+             <span class="localnav-menu-setting-label">Language:</span>
+             <ul class="language-list">
+              <li class="language-list-item"><span data-language="swift" aria-current="page" class="current-language">Swift</span></li>
+              <li class="language-list-item"><a href="/documentation/uikit/uiwebview?language=objc" class="localnav-menu-setting-link">Objective-C</a></li>
+             </ul>
+            </div></li>
+           <li class="localnav-menu-setting"><span class="localnav-menu-setting-label">API Changes:</span><a href="/documentation/uikit/uiwebview?changes=latest_minor" class="localnav-menu-setting-link changes-toggle changes-toggle-show" aria-label="Show API Changes">Show</a></li>
+          </ul>
+         </div>
+         <div class="localnav-actions">
+          <div class="localnav-action localnav-action-menucta" aria-hidden="true">
+           <label for="localnav-menustate" class="localnav-menucta"><span class="localnav-menucta-chevron"></span></label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </nav>
+    <label for="localnav-menustate" id="localnav-curtain" aria-hidden="true"></label>
+    <main role="main" id="main" class="main" tabindex="0">
+     <div class="topic-title">
+      <span class="eyebrow">Class</span>
+      <h1 class="topic-heading"><span>UIWeb<wbr>View</span></h1>
+     </div>
+     <div class="topic-container section-content row">
+      <div class="topic-description column large-9 medium-9 small-12">
+       <div class="topic-abstract abstract formatted-content">
+        <div>
+         <p>A view that embeds web content in your app.</p>
+        </div>
+       </div>
+      </div>
+      <div class="topic-summary column large-3 medium-3 small-12">
+       <div class="topic-summary-section sdks" role="complementary" aria-label="SDK">
+        <p class="topic-summary-section-label subsection-label">SDK</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item sdk"><span aria-label="iOS 2.0–12.0, Deprecated, Introduced in iOS 2.0 and deprecated in iOS 12.0" role="text" title="Introduced in iOS 2.0 and deprecated in iOS 12.0">iOS 2.0–12.0</span><span class="violator violator-inline violator-deprecated sdk-violator" role="presentation">Deprecated</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section frameworks" role="complementary" aria-label="Framework">
+        <p class="topic-summary-section-label subsection-label">Framework</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item"><span>UIKit</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section onthispage">
+        <nav class="onthispage-nav" aria-labelledby="onthispage-title">
+         <p id="onthispage-title" class="topic-summary-section-label subsection-label">On This Page</p>
+         <ul class="topic-summary-section-list">
+          <li class="topic-summary-section-item"><a href="#overview" class="icon icon-after icon-chevrondowncircle">Overview</a></li>
+          <li class="topic-summary-section-item"><a href="#topics" class="icon icon-after icon-chevrondowncircle">Topics</a></li>
+          <li class="topic-summary-section-item"><a href="#relationships" class="icon icon-after icon-chevrondowncircle">Relationships</a></li>
+          <li class="topic-summary-section-item"><a href="#see-also" class="icon icon-after icon-chevrondowncircle">See Also</a></li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+      <div class="topic-content column large-9 medium-9 small-12" id="topic-content">
+       <section id="overview" class="section">
+        <h2>Overview</h2>
+        <div class="formatted-content">
+         <div>
+          <aside class="aside aside-note" role="note">
+           <p class="aside-name">Note</p>
+           <p>In apps that run in iOS 8 and later, use the <a class="symbol-name" href="/documentation/webkit/wkwebview"><code><span>WKWeb<wbr>View</span></code></a> class instead of using <code class="code-voice"><span>UIWeb<wbr>View</span></code>. Additionally, consider setting the <a class="symbol-name" href="/documentation/webkit/wkpreferences"><code><span>WKPreferences</span></code></a> property <a class="symbol-name" href="/documentation/webkit/wkpreferences/1536203-javascriptenabled"><code><span>java<wbr>Script<wbr>Enabled</span></code></a> to <code class="code-voice"><span>false</span></code> if you render files that are not supposed to run JavaScript.</p>
+          </aside>
+          <aside class="aside aside-important" aria-label="important">
+           <p class="aside-name">Important</p>
+           <p>An iOS app linked on or after iOS 10.0 must include in its <code class="code-voice"><span>Info<wbr>.plist</span></code> file the usage description keys for the types of data it needs to access or it will crash. To access a user’s photo data specifically, it must include <a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW17">NSPhotoLibraryUsageDescription</a> and <a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW24">NSCameraUsageDescription</a>. </p>
+          </aside>
+          <p>Use the <a class="symbol-name" href="/documentation/uikit/uiwebview/1617979-loadhtmlstring"><code><span>load<wbr>HTMLString(_:<wbr>base<wbr>URL:)</span></code></a> method to begin loading local HTML files or the <a class="symbol-name" href="/documentation/uikit/uiwebview/1617957-loadrequest"><code><span>load<wbr>Request(_:)</span></code></a> method to begin loading web content. Use the <a class="symbol-name" href="/documentation/uikit/uiwebview/1617974-stoploading"><code><span>stop<wbr>Loading()</span></code></a> method to stop loading, and the <a class="symbol-name" href="/documentation/uikit/uiwebview/1617978-isloading"><code><span>is<wbr>Loading</span></code></a> property to find out if a web view is in the process of loading.</p>
+          <p>If you allow the user to move back and forward through the webpage history, then you can use the <a class="symbol-name" href="/documentation/uikit/uiwebview/1617975-goback"><code><span>go<wbr>Back()</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uiwebview/1617940-goforward"><code><span>go<wbr>Forward()</span></code></a> methods as actions for buttons. Use the <a class="symbol-name" href="/documentation/uikit/uiwebview/1617931-cangoback"><code><span>can<wbr>Go<wbr>Back</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uiwebview/1617951-cangoforward"><code><span>can<wbr>Go<wbr>Forward</span></code></a> properties to disable the buttons when the user can’t move in a direction.</p>
+          <p>By default, a web view automatically converts telephone numbers that appear in web content to Phone links. When a Phone link is tapped, the Phone app launches and dials the number. To turn off this default behavior, set the <a class="symbol-name" href="/documentation/uikit/uiwebview/1617965-datadetectortypes"><code><span>data<wbr>Detector<wbr>Types</span></code></a> property with a <a class="symbol-name" href="/documentation/uikit/uidatadetectortypes"><code><span>UIData<wbr>Detector<wbr>Types</span></code></a> bitfield that does not contain the <a class="symbol-name" href="/documentation/uikit/uidatadetectortypes/1618507-phonenumber"><code><span>phone<wbr>Number</span></code></a> flag.</p>
+          <p>You can also use the <a class="symbol-name" href="/documentation/uikit/uiwebview/1617950-scalespagetofit"><code><span>scales<wbr>Page<wbr>To<wbr>Fit</span></code></a> property to programmatically set the scale of web content the first time it is displayed in a web view. Thereafter, the user can change the scale using gestures.</p>
+          <p>Set the <a class="symbol-name" href="/documentation/uikit/uiwebview/1617937-delegate"><code><span>delegate</span></code></a> property to an object conforming to the <a class="symbol-name" href="/documentation/uikit/uiwebviewdelegate"><code><span>UIWeb<wbr>View<wbr>Delegate</span></code></a> protocol if you want to track the loading of web content.</p>
+          <aside class="aside aside-important" aria-label="important">
+           <p class="aside-name">Important</p>
+           <p>You should not embed <code class="code-voice"><span>UIWeb<wbr>View</span></code> or <a class="symbol-name" href="/documentation/uikit/uitableview"><code><span>UITable<wbr>View</span></code></a> objects in <a class="symbol-name" href="/documentation/uikit/uiscrollview"><code><span>UIScroll<wbr>View</span></code></a> objects. If you do so, unexpected behavior can result because touch events for the two objects can be mixed up and wrongly handled.</p>
+          </aside>
+          <p>You can easily debug the HTML, CSS, and JavaScript contained inside a <code class="code-voice"><span>UIWeb<wbr>View</span></code> with Web Inspector. Read Debugging Web Content on iOS to learn how to configure Web Inspector for iOS. Read the rest of <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/Introduction/Introduction.html#//apple_ref/doc/uid/TP40002051">Safari Web Content Guide</a> to learn how to create web content that is optimized for Safari on iPhone and iPad.</p>
+          <p>For information about basic view behaviors, see <a href="https://developer.apple.com/library/archive/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009503">View Programming Guide for iOS</a>. </p>
+         </div>
+         <h3 id="1652665">Supported File Formats</h3>
+         <div>
+          <p>In addition to HTML content, <code class="code-voice"><span>UIWeb<wbr>View</span></code> objects can be used to display other content types, such as Keynote, PDF, and Pages documents. For the best rendering of plain and rich text in your app, however, you should use <a class="symbol-name" href="/documentation/uikit/uitextview"><code><span>UIText<wbr>View</span></code></a> instead.</p>
+         </div>
+         <h3 id="1652695">State Preservation</h3>
+         <div>
+          <p>In iOS 6 and later, if you assign a value to this view’s <a class="symbol-name" href="/documentation/uikit/uiviewcontroller/1621499-restorationidentifier"><code><span>restoration<wbr>Identifier</span></code></a> property, it attempts to preserve its URL history, the scaling and scrolling positions for each page, and information about which page is currently being viewed. During restoration, the view restores these values so that the web content appears just as it did before. For more information about how state preservation and restoration works, see <a href="https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007072">App Programming Guide for iOS</a>. </p>
+          <p>For more information about appearance and behavior configuration, see <a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/UIKitUICatalog/UIWebView.html#//apple_ref/doc/uid/TP40012857-UIWebView">Web Views</a>.</p>
+         </div>
+         <h3 id="1844981">Subclassing Notes</h3>
+         <div>
+          <p>The <code class="code-voice"><span>UIWeb<wbr>View</span></code> class should not be subclassed.</p>
+         </div>
+        </div>
+       </section>
+      </div>
+     </div>
+     <section id="topics" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Topics</h2>
+        <section id="1652726" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Responding to Web View Changes</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617937-delegate"><code class="display-name"><span class="decorator">var </span><span class="identifier">delegate</span><span class="decorator">: UIWeb<wbr>View<wbr>Delegate?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The receiver’s delegate.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebviewdelegate"><code class="display-name"><span class="decorator">protocol </span><span class="identifier">UIWeb<wbr>View<wbr>Delegate</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The <code class="code-voice"><span>UIWeb<wbr>View<wbr>Delegate</span></code> protocol defines methods that a delegate of a <a class="symbol-name" href="/documentation/uikit/uiwebview"><code><span>UIWeb<wbr>View</span></code></a> object can optionally implement to intervene when web content is loaded.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1652772" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Loading Content</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617941-load"><code class="display-name"><span class="decorator">func </span><span class="identifier">load</span><span class="decorator">(Data, </span><span class="identifier">mime<wbr>Type</span><span class="decorator">: String, </span><span class="identifier">text<wbr>Encoding<wbr>Name</span><span class="decorator">: String, </span><span class="identifier">base<wbr>URL</span><span class="decorator">: URL)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the main page contents, MIME type, content encoding, and base URL.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617979-loadhtmlstring"><code class="display-name"><span class="decorator">func </span><span class="identifier">load<wbr>HTMLString</span><span class="decorator">(String, </span><span class="identifier">base<wbr>URL</span><span class="decorator">: URL?)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the main page content and base URL.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617957-loadrequest"><code class="display-name"><span class="decorator">func </span><span class="identifier">load<wbr>Request</span><span class="decorator">(URLRequest)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Connects to a given URL by initiating an asynchronous client request.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617972-request"><code class="display-name"><span class="decorator">var </span><span class="identifier">request</span><span class="decorator">: URLRequest?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The URL request identifying the location of the content to load.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617978-isloading"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Loading</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the receiver is done loading content.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617974-stoploading"><code class="display-name"><span class="decorator">func </span><span class="identifier">stop<wbr>Loading</span><span class="decorator">()</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Stops the loading of any web content managed by the receiver.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617932-reload"><code class="display-name"><span class="decorator">func </span><span class="identifier">reload</span><span class="decorator">()</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Reloads the current page.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1652895" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Moving Back and Forward</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617931-cangoback"><code class="display-name"><span class="decorator">var </span><span class="identifier">can<wbr>Go<wbr>Back</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the receiver can move backward.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617951-cangoforward"><code class="display-name"><span class="decorator">var </span><span class="identifier">can<wbr>Go<wbr>Forward</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the receiver can move forward.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617975-goback"><code class="display-name"><span class="decorator">func </span><span class="identifier">go<wbr>Back</span><span class="decorator">()</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Loads the previous location in the back-forward list.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617940-goforward"><code class="display-name"><span class="decorator">func </span><span class="identifier">go<wbr>Forward</span><span class="decorator">()</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Loads the next location in the back-forward list.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1652978" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Setting Web Content Properties</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617976-allowslinkpreview"><code class="display-name"><span class="decorator">var </span><span class="identifier">allows<wbr>Link<wbr>Preview</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether pressing on a link displays a preview of the destination for the link.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617950-scalespagetofit"><code class="display-name"><span class="decorator">var </span><span class="identifier">scales<wbr>Page<wbr>To<wbr>Fit</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value determining whether the webpage scales to fit the view and the user can change the scale.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617955-scrollview"><code class="display-name"><span class="decorator">var </span><span class="identifier">scroll<wbr>View</span><span class="decorator">: UIScroll<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The scroll view associated with the web view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617984-suppressesincrementalrendering"><code class="display-name"><span class="decorator">var </span><span class="identifier">suppresses<wbr>Incremental<wbr>Rendering</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the web view suppresses content rendering until it is fully loaded into memory.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617967-keyboarddisplayrequiresuseractio"><code class="display-name"><span class="decorator">var </span><span class="identifier">keyboard<wbr>Display<wbr>Requires<wbr>User<wbr>Action</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether web content can programmatically display the keyboard.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617965-datadetectortypes"><code class="display-name"><span class="decorator">var </span><span class="identifier">data<wbr>Detector<wbr>Types</span><span class="decorator">: UIData<wbr>Detector<wbr>Types</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The types of data converted to clickable URLs in the web view’s content.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653098" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Running JavaScript</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617963-stringbyevaluatingjavascript"><code class="display-name"><span class="decorator">func </span><span class="identifier">string<wbr>By<wbr>Evaluating<wbr>Java<wbr>Script</span><span class="decorator">(</span><span class="identifier">from</span><span class="decorator">: String) -&gt; String?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the result of running a JavaScript script. Although this method is not deprecated, best practice is to use the <a class="symbol-name" href="/documentation/webkit/wkwebview/1415017-evaluatejavascript"><code><span>evaluate<wbr>Java<wbr>Script(_:<wbr>completion<wbr>Handler:)</span></code></a> method of the <code class="code-voice"><span>WKWeb<wbr>View</span></code> class instead.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653124" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing Media Playback</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617960-allowsinlinemediaplayback"><code class="display-name"><span class="decorator">var </span><span class="identifier">allows<wbr>Inline<wbr>Media<wbr>Playback</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether HTML5 videos play inline or use the native full-screen controller.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617954-mediaplaybackrequiresuseraction"><code class="display-name"><span class="decorator">var </span><span class="identifier">media<wbr>Playback<wbr>Requires<wbr>User<wbr>Action</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether HTML5 videos can play automatically or require the user to start playing them.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617973-mediaplaybackallowsairplay"><code class="display-name"><span class="decorator">var </span><span class="identifier">media<wbr>Playback<wbr>Allows<wbr>Air<wbr>Play</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether Air Play is allowed from this view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617944-allowspictureinpicturemediaplayb"><code class="display-name"><span class="decorator">var </span><span class="identifier">allows<wbr>Picture<wbr>In<wbr>Picture<wbr>Media<wbr>Playback</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether Picture in Picture playback is allowed from this view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653185" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing Pages</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617943-gapbetweenpages"><code class="display-name"><span class="decorator">var </span><span class="identifier">gap<wbr>Between<wbr>Pages</span><span class="decorator">: CGFloat</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The size of the gap, in points, between pages.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617968-pagecount"><code class="display-name"><span class="decorator">var </span><span class="identifier">page<wbr>Count</span><span class="decorator">: Int</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The number of pages produced by the layout of the web view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617980-pagelength"><code class="display-name"><span class="decorator">var </span><span class="identifier">page<wbr>Length</span><span class="decorator">: CGFloat</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The size of each page, in points, in the direction that the pages flow.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617933-paginationbreakingmode"><code class="display-name"><span class="decorator">var </span><span class="identifier">pagination<wbr>Breaking<wbr>Mode</span><span class="decorator">: UIWeb<wbr>View<wbr>.Pagination<wbr>Breaking<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The manner in which column- or page-breaking occurs.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="task-topic-deprecated has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/1617985-paginationmode"><code class="display-name"><span class="decorator">var </span><span class="identifier">pagination<wbr>Mode</span><span class="decorator">: UIWeb<wbr>View<wbr>.Pagination<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The layout of content in the web view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1681597" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Constants</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/navigationtype"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIWeb<wbr>View<wbr>.Navigation<wbr>Type</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Constant indicating the user’s action.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/paginationbreakingmode"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIWeb<wbr>View<wbr>.Pagination<wbr>Breaking<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The manner in which column- or page-breaking occurs.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiwebview/paginationmode"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIWeb<wbr>View<wbr>.Pagination<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The layout of content in the web view, which determines the direction that the pages flow.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uidatadetectortypes"><code class="display-name"><span class="decorator">struct </span><span class="identifier">UIData<wbr>Detector<wbr>Types</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Defines the types of information that can be detected in text-based content.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="relationships" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Relationships</h2>
+        <section id="inherits-from" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Inherits From</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <a class="symbol-name" href="/documentation/uikit/uiview"><code><span>UIView</span></code></a>
+          </div>
+         </div>
+        </section>
+        <section id="conforms-to" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Conforms To</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <ul class="relationships-section-content-columns">
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/cvararg"><code><span>CVar<wbr>Arg</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/equatable"><code><span>Equatable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/hashable"><code><span>Hashable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/foundation/nscoding"><code><span>NSCoding</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiaccessibilityidentification"><code><span>UIAccessibility<wbr>Identification</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uipasteconfigurationsupporting"><code><span>UIPaste<wbr>Configuration<wbr>Supporting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiscrollviewdelegate"><code><span>UIScroll<wbr>View<wbr>Delegate</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiuseractivityrestoring"><code><span>UIUser<wbr>Activity<wbr>Restoring</span></code></a></li>
+           </ul>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="see-also" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">See Also</h2>
+        <section id="2864416" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Content Views</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiactivityindicatorview"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIActivity<wbr>Indicator<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A view that shows that a task is in progress.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiimageview"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIImage<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>An object that displays a single image or a sequence of animated images in your interface.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uipickerview"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIPicker<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A view that uses a spinning-wheel or slot-machine metaphor to show one or more sets of values.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiprogressview"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIProgress<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A view that depicts the progress of a task over time.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+    </main>
+    <section id="globalfooter-wrapper">
+     <footer id="globalfooter" role="contentinfo"> 
+      <nav class="footer-breadory"> 
+       <a href="/" class="home breadcrumbs-home"><span aria-hidden="true"></span><span class="breadcrumbs-home-label">Developer</span></a> 
+       <section class="breadcrumbs"> 
+        <ol class="breadcrumbs-list"> 
+         <li><a href="/documentation">Documentation</a></li> 
+        </ol> 
+       </section> 
+       <div id="directorynav" class="directorynav"> 
+        <div id="dn-cola" class="column"> 
+         <h3><a href="/discover/">Discover</a></h3> 
+         <ul> 
+          <li><a href="/macos/">macOS</a></li> 
+          <li><a href="/ios/">iOS</a></li> 
+          <li><a href="/watchos/">watchOS</a></li> 
+          <li><a href="/tvos/">tvOS</a></li> 
+          <li><a href="/safari/">Safari and Web</a></li> 
+          <li><a href="/games/">Games</a></li> 
+          <li><a href="/enterprise/">Enterprise</a></li> 
+          <li><a href="/education/">Education</a></li> 
+          <li><a href="/wwdc/">WWDC</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colb" class="column"> 
+         <h3><a href="/design/">Design</a></h3> 
+         <ul> 
+          <li><a href="/design/human-interface-guidelines/">Human Interface Guidelines</a></li> 
+          <li><a href="/design/resources/">Resources</a></li> 
+          <li><a href="/videos/design/">Videos</a></li> 
+          <li><a href="/design/awards/">Apple Design Awards</a></li> 
+          <li><a href="/accessibility/">Accessibility</a></li> 
+          <li><a href="/internationalization/">Internationalization</a></li> 
+          <li><a href="/accessories/">Accessories</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colc" class="column"> 
+         <h3><a href="/develop/">Develop</a></h3> 
+         <ul> 
+          <li><a href="/xcode/">Xcode</a></li> 
+          <li><a href="/swift/">Swift</a></li> 
+          <li><a href="/swift-playgrounds/">Swift Playgrounds</a></li> 
+          <li><a href="/testflight/">TestFlight</a></li> 
+          <li><a href="/documentation/">Documentation</a></li> 
+          <li><a href="/videos/">Videos</a></li> 
+          <li><a href="/download/">Downloads</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cold" class="column"> 
+         <h3><a href="/distribute/">Distribute</a></h3> 
+         <ul> 
+          <li><a href="/app-store/">App Store</a></li> 
+          <li><a href="/macos/distribution/">Mac Software</a></li> 
+          <li><a href="/app-store/review/">App Review</a></li> 
+          <li><a href="/programs/volume/">Volume Purchase Program</a></li> 
+          <li><a href="/programs/volume/b2b/">Custom B2B Apps</a></li> 
+          <li><a href="/enterprise/distribute/">Enterprise Apps</a></li> 
+          <li><a href="/safari/extensions/">Safari Extensions</a></li> 
+          <li><a href="/app-store/marketing/guidelines/">Marketing Resources</a></li> 
+          <li><a href="/softwarelicensing/">Trademark Licensing</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cole" class="column"> 
+         <h3><a href="/support/">Support</a></h3> 
+         <ul> 
+          <li><a href="https://forums.developer.apple.com">Developer Forums</a></li> 
+          <li><a href="/bug-reporting/">Bug Reporting</a></li> 
+          <li><a href="/terms/">License Agreements</a></li> 
+          <li><a href="/system-status/">System Status</a></li> 
+          <li><a href="/contact/">Contact Us</a></li> 
+          <br> 
+          <h3><a href="/account/">Account</a></h3> 
+          <ul> 
+           <li><a href="/programs/">Developer Program</a></li> 
+           <li><a href="/account/ios/certificate/">Certificates, IDs &amp; Profiles</a></li> 
+           <li><a href="https://appstoreconnect.apple.com/">App Store Connect</a></li> 
+          </ul> 
+         </ul> 
+        </div> 
+       </div> 
+      </nav> 
+      <div class="ac-gf-footer-legal"> 
+       <div class="ac-gf-footer-news">
+         To receive the latest developer news, visit and subscribe to our 
+        <a href="/news/">News and Updates</a>. 
+       </div> 
+       <div class="ac-gf-footer-legal-copyright">
+        Copyright © 2018 Apple Inc. All rights reserved.
+       </div> 
+       <div class="ac-gf-footer-legal-links"> 
+        <a href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a> 
+        <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a> 
+        <a href="/bug-reporting/">Report Bugs</a> 
+        <a href="/contact/submit/?subject=website-feedback">Feedback</a> 
+       </div> 
+       <div class="ac-gf-footer-language-links"> 
+        <a href="/cn/" class="first">简体中文</a> 
+        <a href="/jp/">日本語</a> 
+        <a href="/kr/">한국어</a> 
+       </div> 
+      </div> 
+     </footer>
+    </section>
+   </div>
+  </div>
+  <script id="bootstrap-data" type="application/json">{"id":1617948,"title":{"content":"UIWebView"},"discussion":"<div><aside class=\"aside aside-note\" role=\"note\"><p class=\"aside-name\">Note<\/p><p>In apps that run in iOS 8 and later, use the <a class=\"symbol-name\" href=\"\/documentation\/webkit\/wkwebview\"><code><span>WKWeb<wbr\/>View<\/span><\/code><\/a> class instead of using <code class=\"code-voice\"><span>UIWeb<wbr\/>View<\/span><\/code>. Additionally, consider setting the <a class=\"symbol-name\" href=\"\/documentation\/webkit\/wkpreferences\"><code><span>WKPreferences<\/span><\/code><\/a> property <a class=\"symbol-name\" href=\"\/documentation\/webkit\/wkpreferences\/1536203-javascriptenabled\"><code><span>java<wbr\/>Script<wbr\/>Enabled<\/span><\/code><\/a> to <code class=\"code-voice\"><span>false<\/span><\/code> if you render files that are not supposed to run JavaScript.<\/p><\/aside><aside class=\"aside aside-important\" aria-label=\"important\"><p class=\"aside-name\">Important<\/p><p>An iOS app linked on or after iOS 10.0 must include in its <code class=\"code-voice\"><span>Info<wbr\/>.plist<\/span><\/code> file the usage description keys for the types of data it needs to access or it will crash. To access a user’s photo data specifically, it must include <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/General\/Reference\/InfoPlistKeyReference\/Articles\/CocoaKeys.html#\/\/apple_ref\/doc\/uid\/TP40009251-SW17\">NSPhotoLibraryUsageDescription<\/a> and <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/General\/Reference\/InfoPlistKeyReference\/Articles\/CocoaKeys.html#\/\/apple_ref\/doc\/uid\/TP40009251-SW24\">NSCameraUsageDescription<\/a>. <\/p><\/aside><p>Use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\/1617979-loadhtmlstring\"><code><span>load<wbr\/>HTMLString(_:<wbr\/>base<wbr\/>URL:)<\/span><\/code><\/a> method to begin loading local HTML files or the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\/1617957-loadrequest\"><code><span>load<wbr\/>Request(_:)<\/span><\/code><\/a> method to begin loading web content. Use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\/1617974-stoploading\"><code><span>stop<wbr\/>Loading()<\/span><\/code><\/a> method to stop loading, and the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\/1617978-isloading\"><code><span>is<wbr\/>Loading<\/span><\/code><\/a> property to find out if a web view is in the process of loading.<\/p><p>If you allow the user to move back and forward through the webpage history, then you can use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\/1617975-goback\"><code><span>go<wbr\/>Back()<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\/1617940-goforward\"><code><span>go<wbr\/>Forward()<\/span><\/code><\/a> methods as actions for buttons. Use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\/1617931-cangoback\"><code><span>can<wbr\/>Go<wbr\/>Back<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\/1617951-cangoforward\"><code><span>can<wbr\/>Go<wbr\/>Forward<\/span><\/code><\/a> properties to disable the buttons when the user can’t move in a direction.<\/p><p>By default, a web view automatically converts telephone numbers that appear in web content to Phone links. When a Phone link is tapped, the Phone app launches and dials the number. To turn off this default behavior, set the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\/1617965-datadetectortypes\"><code><span>data<wbr\/>Detector<wbr\/>Types<\/span><\/code><\/a> property with a <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uidatadetectortypes\"><code><span>UIData<wbr\/>Detector<wbr\/>Types<\/span><\/code><\/a> bitfield that does not contain the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uidatadetectortypes\/1618507-phonenumber\"><code><span>phone<wbr\/>Number<\/span><\/code><\/a> flag.<\/p><p>You can also use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\/1617950-scalespagetofit\"><code><span>scales<wbr\/>Page<wbr\/>To<wbr\/>Fit<\/span><\/code><\/a> property to programmatically set the scale of web content the first time it is displayed in a web view. Thereafter, the user can change the scale using gestures.<\/p><p>Set the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\/1617937-delegate\"><code><span>delegate<\/span><\/code><\/a> property to an object conforming to the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebviewdelegate\"><code><span>UIWeb<wbr\/>View<wbr\/>Delegate<\/span><\/code><\/a> protocol if you want to track the loading of web content.<\/p><aside class=\"aside aside-important\" aria-label=\"important\"><p class=\"aside-name\">Important<\/p><p>You should not embed <code class=\"code-voice\"><span>UIWeb<wbr\/>View<\/span><\/code> or <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitableview\"><code><span>UITable<wbr\/>View<\/span><\/code><\/a> objects in <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiscrollview\"><code><span>UIScroll<wbr\/>View<\/span><\/code><\/a> objects. If you do so, unexpected behavior can result because touch events for the two objects can be mixed up and wrongly handled.<\/p><\/aside><p>You can easily debug the HTML, CSS, and JavaScript contained inside a <code class=\"code-voice\"><span>UIWeb<wbr\/>View<\/span><\/code> with Web Inspector. Read Debugging Web Content on iOS to learn how to configure Web Inspector for iOS. Read the rest of <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/AppleApplications\/Reference\/SafariWebContent\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40002051\">Safari Web Content Guide<\/a> to learn how to create web content that is optimized for Safari on iPhone and iPad.<\/p><p>For information about basic view behaviors, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/WindowsViews\/Conceptual\/ViewPG_iPhoneOS\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40009503\">View Programming Guide for iOS<\/a>. <\/p><\/div><h3 id=\"1652665\">Supported File Formats<\/h3><div><p>In addition to HTML content, <code class=\"code-voice\"><span>UIWeb<wbr\/>View<\/span><\/code> objects can be used to display other content types, such as Keynote, PDF, and Pages documents. For the best rendering of plain and rich text in your app, however, you should use <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextview\"><code><span>UIText<wbr\/>View<\/span><\/code><\/a> instead.<\/p><\/div><h3 id=\"1652695\">State Preservation<\/h3><div><p>In iOS 6 and later, if you assign a value to this view’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiviewcontroller\/1621499-restorationidentifier\"><code><span>restoration<wbr\/>Identifier<\/span><\/code><\/a> property, it attempts to preserve its URL history,  the scaling and scrolling positions for each page, and information about which page is currently being viewed. During restoration, the view restores these values so that the web content appears just as it did before. For more information about how state preservation and restoration works, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/iPhone\/Conceptual\/iPhoneOSProgrammingGuide\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40007072\">App Programming Guide for iOS<\/a>.  <\/p><p>For more information about appearance and behavior configuration, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/UserExperience\/Conceptual\/UIKitUICatalog\/UIWebView.html#\/\/apple_ref\/doc\/uid\/TP40012857-UIWebView\">Web Views<\/a>.<\/p><\/div><h3 id=\"1844981\">Subclassing Notes<\/h3><div><p>The <code class=\"code-voice\"><span>UIWeb<wbr\/>View<\/span><\/code> class should not be subclassed.<\/p><\/div>","abstract":"<div><p>A view that embeds web content in your app.<\/p><\/div>","containingGroup":[{"id":2864416,"role":"task","paths":[],"symbols":[{"id":1622846,"role":"symbol","usr":"c:objc(cs)UIActivityIndicatorView","name":"UIActivityIndicatorView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIActivity<wbr\/>Indicator<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uiactivityindicatorview"],"title":{"content":"UIActivityIndicatorView"},"abstract":"<div><p>A view that shows that a task is in progress.<\/p><\/div>","hasChildren":true},{"id":1621067,"role":"symbol","usr":"c:objc(cs)UIImageView","name":"UIImageView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIImage<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uiimageview"],"title":{"content":"UIImageView"},"abstract":"<div><p>An object that displays a single image or a sequence of animated images in your interface.<\/p><\/div>","hasChildren":true},{"id":1614387,"role":"symbol","usr":"c:objc(cs)UIPickerView","name":"UIPickerView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIPicker<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uipickerview"],"title":{"content":"UIPickerView"},"abstract":"<div><p>A view that uses a spinning-wheel or slot-machine metaphor to show one or more sets of values.<\/p><\/div>","hasChildren":true},{"id":1619847,"role":"symbol","usr":"c:objc(cs)UIProgressView","name":"UIProgressView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIProgress<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uiprogressview"],"title":{"content":"UIProgressView"},"abstract":"<div><p>A view that depicts the progress of a task over time.<\/p><\/div>","hasChildren":true},{"id":1617948,"role":"symbol","usr":"c:objc(cs)UIWebView","name":"UIWebView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIWeb<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uiwebview"],"title":{"content":"UIWebView"},"abstract":"<div><p>A view that embeds web content in your app.<\/p><\/div>","hasChildren":true}],"title":{"content":"Content Views"}}],"usr":"c:objc(cs)UIWebView","name":"UIWebView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","current":"12.0","deprecated":"12.0","introduced":"2.0"}],"conformance":[{"id":1411471,"usr":"c:objc(pl)NSCoding","name":"NSCoding","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/foundation\/nscoding"],"title":{"content":"NSCoding"},"platforms":["iOS"]},{"id":1623131,"usr":"c:objc(pl)UIAccessibilityIdentification","name":"UIAccessibilityIdentification","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiaccessibilityidentification"],"title":{"content":"UIAccessibilityIdentification"},"platforms":["iOS"]},{"id":1619431,"usr":"c:objc(pl)UIScrollViewDelegate","name":"UIScrollViewDelegate","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiscrollviewdelegate"],"title":{"content":"UIScrollViewDelegate"},"platforms":["iOS"]},{"id":2882041,"usr":"c:objc(pl)UIPasteConfigurationSupporting","name":"UIPasteConfigurationSupporting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uipasteconfigurationsupporting"],"title":{"content":"UIPasteConfigurationSupporting"},"platforms":["iOS"]},{"id":1641507,"usr":"s:s7CVarArgP","name":"CVarArg","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/cvararg"],"title":{"content":"CVarArg"},"platforms":["iOS"]},{"id":2980935,"usr":"c:objc(pl)UIUserActivityRestoring","name":"UIUserActivityRestoring","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiuseractivityrestoring"],"title":{"content":"UIUserActivityRestoring"},"platforms":["iOS"]},{"id":1541213,"usr":"s:SQ","name":"Equatable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/equatable"],"title":{"content":"Equatable"},"platforms":["iOS"]},{"id":1540942,"usr":"s:SH","name":"Hashable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/hashable"],"title":{"content":"Hashable"},"platforms":["iOS"]}],"inheritance":[{"id":1622655,"usr":"c:objc(cs)UIView","name":"UIView","domain":"swift","kind":"cl","role":"symbol","paths":["documentation\/uikit\/uiview"],"title":{"content":"UIView"},"platforms":["iOS"]}],"module":[{"title":{"content":"UIKit"},"importStatement":"<div><span class=\"syntax-identifier\">import<\/span> UIKit<\/div>","paths":["documentation\/uikit"],"platforms":["iOS"]}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIWeb<wbr\/>View<\/span><\/code>","declaration":[{"content":"<span><span class=\"syntax-keyword\">class<\/span> <span class=\"syntax-identifier\">UIWebView<\/span> : <a class=\"symbolref\" href=\"\/documentation\/uikit\/uiview\"><span>UIView<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/foundation\/nscoding\"><span>NSCoding<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/uikit\/uiscrollviewdelegate\"><span>UIScroll<wbr\/>View<wbr\/>Delegate<\/span><\/a>\n<\/span>","platforms":["iOS"]}],"languages":["occ","swift"],"variants":{"occ":{"paths":["documentation\/uikit\/uiwebview"],"usr":"c:objc(cs)UIWebView"},"swift":{"paths":["documentation\/uikit\/uiwebview"],"usr":"c:objc(cs)UIWebView"}},"diffAvailability":{"minor":{"change":"modified","platform":"Xcode","versions":["9.4","10.0 beta 6"]},"major":{"change":"modified","platform":"Xcode","versions":["9.0","10.0 beta 6"]}},"pid":205358,"role":"symbol","language":"swift","paths":["documentation\/uikit\/uiwebview"],"hierarchy":[[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864393,"role":"collectionGroup","title":{"content":"Views and Controls"},"paths":["documentation\/uikit\/views_and_controls"]}]],"legalNotices":{"copyright":"Copyright &copy; 2018 Apple Inc. All rights reserved.","termsOfUse":"https:\/\/www.apple.com\/legal\/internet-services\/terms\/site.html","privacyPolicy":"https:\/\/www.apple.com\/privacy\/privacy-policy"},"tasks":[{"id":1652726,"role":"task","symbols":[{"id":1617937,"role":"symbol","usr":"c:objc(cs)UIWebView(py)delegate","name":"delegate","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">delegate<\/span><span class=\"decorator\">: UIWeb<wbr\/>View<wbr\/>Delegate?<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617937-delegate"],"title":{"content":"delegate"},"abstract":"<div><p>The receiver’s delegate.<\/p><\/div>"},{"id":1617949,"role":"symbol","usr":"c:objc(pl)UIWebViewDelegate","name":"UIWebViewDelegate","domain":"swift","kind":"intf","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">protocol <\/span><span class=\"identifier\">UIWeb<wbr\/>View<wbr\/>Delegate<\/span><\/code>","paths":["documentation\/uikit\/uiwebviewdelegate"],"title":{"content":"UIWebViewDelegate"},"abstract":"<div><p>The <code class=\"code-voice\"><span>UIWeb<wbr\/>View<wbr\/>Delegate<\/span><\/code> protocol defines methods that a delegate of a <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiwebview\"><code><span>UIWeb<wbr\/>View<\/span><\/code><\/a> object can optionally implement to intervene when web content is loaded.<\/p><\/div>","hasChildren":true}],"title":{"content":"Responding to Web View Changes"}},{"id":1652772,"role":"task","symbols":[{"id":1617941,"role":"symbol","usr":"c:objc(cs)UIWebView(im)loadData:MIMEType:textEncodingName:baseURL:","name":"loadData(_:MIMEType:textEncodingName:baseURL:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">load<\/span><span class=\"decorator\">(Data, <\/span><span class=\"identifier\">mime<wbr\/>Type<\/span><span class=\"decorator\">: String, <\/span><span class=\"identifier\">text<wbr\/>Encoding<wbr\/>Name<\/span><span class=\"decorator\">: String, <\/span><span class=\"identifier\">base<wbr\/>URL<\/span><span class=\"decorator\">: URL)<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617941-load"],"title":{"content":"load(_:mimeType:textEncodingName:baseURL:)"},"abstract":"<div><p>Sets the main page contents, MIME type, content encoding, and base URL.<\/p><\/div>"},{"id":1617979,"role":"symbol","usr":"c:objc(cs)UIWebView(im)loadHTMLString:baseURL:","name":"loadHTMLString(_:baseURL:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">load<wbr\/>HTMLString<\/span><span class=\"decorator\">(String, <\/span><span class=\"identifier\">base<wbr\/>URL<\/span><span class=\"decorator\">: URL?)<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617979-loadhtmlstring"],"title":{"content":"loadHTMLString(_:baseURL:)"},"abstract":"<div><p>Sets the main page content and base URL.<\/p><\/div>"},{"id":1617957,"role":"symbol","usr":"c:objc(cs)UIWebView(im)loadRequest:","name":"loadRequest(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">load<wbr\/>Request<\/span><span class=\"decorator\">(URLRequest)<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617957-loadrequest"],"title":{"content":"loadRequest(_:)"},"abstract":"<div><p>Connects to a given URL by initiating an asynchronous client request.<\/p><\/div>"},{"id":1617972,"role":"symbol","usr":"c:objc(cs)UIWebView(py)request","name":"request","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">request<\/span><span class=\"decorator\">: URLRequest?<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617972-request"],"title":{"content":"request"},"abstract":"<div><p>The URL request identifying the location of the content to load.<\/p><\/div>"},{"id":1617978,"role":"symbol","usr":"c:objc(cs)UIWebView(py)loading","name":"loading","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Loading<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617978-isloading"],"title":{"content":"isLoading"},"abstract":"<div><p>A Boolean value indicating whether the receiver is done loading content.<\/p><\/div>"},{"id":1617974,"role":"symbol","usr":"c:objc(cs)UIWebView(im)stopLoading","name":"stopLoading()","domain":"swift","kind":"instm","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">stop<wbr\/>Loading<\/span><span class=\"decorator\">()<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617974-stoploading"],"title":{"content":"stopLoading()"},"abstract":"<div><p>Stops the loading of any web content managed by the receiver.<\/p><\/div>"},{"id":1617932,"role":"symbol","usr":"c:objc(cs)UIWebView(im)reload","name":"reload()","domain":"swift","kind":"instm","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">reload<\/span><span class=\"decorator\">()<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617932-reload"],"title":{"content":"reload()"},"abstract":"<div><p>Reloads the current page.<\/p><\/div>"}],"title":{"content":"Loading Content"}},{"id":1652895,"role":"task","symbols":[{"id":1617931,"role":"symbol","usr":"c:objc(cs)UIWebView(py)canGoBack","name":"canGoBack","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">can<wbr\/>Go<wbr\/>Back<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617931-cangoback"],"title":{"content":"canGoBack"},"abstract":"<div><p>A Boolean value indicating whether the receiver can move backward.<\/p><\/div>"},{"id":1617951,"role":"symbol","usr":"c:objc(cs)UIWebView(py)canGoForward","name":"canGoForward","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">can<wbr\/>Go<wbr\/>Forward<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617951-cangoforward"],"title":{"content":"canGoForward"},"abstract":"<div><p>A Boolean value indicating whether the receiver can move forward.<\/p><\/div>"},{"id":1617975,"role":"symbol","usr":"c:objc(cs)UIWebView(im)goBack","name":"goBack()","domain":"swift","kind":"instm","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">go<wbr\/>Back<\/span><span class=\"decorator\">()<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617975-goback"],"title":{"content":"goBack()"},"abstract":"<div><p>Loads the previous location in the back-forward list.<\/p><\/div>"},{"id":1617940,"role":"symbol","usr":"c:objc(cs)UIWebView(im)goForward","name":"goForward()","domain":"swift","kind":"instm","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">go<wbr\/>Forward<\/span><span class=\"decorator\">()<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617940-goforward"],"title":{"content":"goForward()"},"abstract":"<div><p>Loads the next location in the back-forward list.<\/p><\/div>"}],"title":{"content":"Moving Back and Forward"}},{"id":1652978,"role":"task","symbols":[{"id":1617976,"role":"symbol","usr":"c:objc(cs)UIWebView(py)allowsLinkPreview","name":"allowsLinkPreview","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">allows<wbr\/>Link<wbr\/>Preview<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617976-allowslinkpreview"],"title":{"content":"allowsLinkPreview"},"abstract":"<div><p>A Boolean value that determines whether pressing on a link displays a preview of the destination for the link.<\/p><\/div>"},{"id":1617950,"role":"symbol","usr":"c:objc(cs)UIWebView(py)scalesPageToFit","name":"scalesPageToFit","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">scales<wbr\/>Page<wbr\/>To<wbr\/>Fit<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617950-scalespagetofit"],"title":{"content":"scalesPageToFit"},"abstract":"<div><p>A Boolean value determining whether the webpage scales to fit the view and the user can change the scale.<\/p><\/div>"},{"id":1617955,"role":"symbol","usr":"c:objc(cs)UIWebView(py)scrollView","name":"scrollView","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"5.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">scroll<wbr\/>View<\/span><span class=\"decorator\">: UIScroll<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617955-scrollview"],"title":{"content":"scrollView"},"abstract":"<div><p>The scroll view associated with the web view.<\/p><\/div>"},{"id":1617984,"role":"symbol","usr":"c:objc(cs)UIWebView(py)suppressesIncrementalRendering","name":"suppressesIncrementalRendering","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"6.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">suppresses<wbr\/>Incremental<wbr\/>Rendering<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617984-suppressesincrementalrendering"],"title":{"content":"suppressesIncrementalRendering"},"abstract":"<div><p>A Boolean value indicating whether the web view suppresses content rendering until it is fully loaded into memory.<\/p><\/div>"},{"id":1617967,"role":"symbol","usr":"c:objc(cs)UIWebView(py)keyboardDisplayRequiresUserAction","name":"keyboardDisplayRequiresUserAction","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"6.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">keyboard<wbr\/>Display<wbr\/>Requires<wbr\/>User<wbr\/>Action<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617967-keyboarddisplayrequiresuseractio"],"title":{"content":"keyboardDisplayRequiresUserAction"},"abstract":"<div><p>A Boolean value indicating whether web content can programmatically display the keyboard.<\/p><\/div>"},{"id":1617965,"role":"symbol","usr":"c:objc(cs)UIWebView(py)dataDetectorTypes","name":"dataDetectorTypes","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"3.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">data<wbr\/>Detector<wbr\/>Types<\/span><span class=\"decorator\">: UIData<wbr\/>Detector<wbr\/>Types<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617965-datadetectortypes"],"title":{"content":"dataDetectorTypes"},"abstract":"<div><p>The types of data converted to clickable URLs in the web view’s content.<\/p><\/div>"}],"title":{"content":"Setting Web Content Properties"}},{"id":1653098,"role":"task","symbols":[{"id":1617963,"role":"symbol","usr":"c:objc(cs)UIWebView(im)stringByEvaluatingJavaScriptFromString:","name":"stringByEvaluatingJavaScriptFromString(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">string<wbr\/>By<wbr\/>Evaluating<wbr\/>Java<wbr\/>Script<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">from<\/span><span class=\"decorator\">: String) -&gt; String?<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617963-stringbyevaluatingjavascript"],"title":{"content":"stringByEvaluatingJavaScript(from:)"},"abstract":"<div><p>Returns the result of running a JavaScript script. Although this method is not deprecated, best practice is to use the <a class=\"symbol-name\" href=\"\/documentation\/webkit\/wkwebview\/1415017-evaluatejavascript\"><code><span>evaluate<wbr\/>Java<wbr\/>Script(_:<wbr\/>completion<wbr\/>Handler:)<\/span><\/code><\/a> method of the <code class=\"code-voice\"><span>WKWeb<wbr\/>View<\/span><\/code> class instead.<\/p><\/div>"}],"title":{"content":"Running JavaScript"}},{"id":1653124,"role":"task","symbols":[{"id":1617960,"role":"symbol","usr":"c:objc(cs)UIWebView(py)allowsInlineMediaPlayback","name":"allowsInlineMediaPlayback","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"4.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">allows<wbr\/>Inline<wbr\/>Media<wbr\/>Playback<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617960-allowsinlinemediaplayback"],"title":{"content":"allowsInlineMediaPlayback"},"abstract":"<div><p>A Boolean value that determines whether HTML5 videos play inline or use the native full-screen controller.<\/p><\/div>"},{"id":1617954,"role":"symbol","usr":"c:objc(cs)UIWebView(py)mediaPlaybackRequiresUserAction","name":"mediaPlaybackRequiresUserAction","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"4.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">media<wbr\/>Playback<wbr\/>Requires<wbr\/>User<wbr\/>Action<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617954-mediaplaybackrequiresuseraction"],"title":{"content":"mediaPlaybackRequiresUserAction"},"abstract":"<div><p>A Boolean value that determines whether HTML5 videos can play automatically or require the user to start playing them.<\/p><\/div>"},{"id":1617973,"role":"symbol","usr":"c:objc(cs)UIWebView(py)mediaPlaybackAllowsAirPlay","name":"mediaPlaybackAllowsAirPlay","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"5.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">media<wbr\/>Playback<wbr\/>Allows<wbr\/>Air<wbr\/>Play<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617973-mediaplaybackallowsairplay"],"title":{"content":"mediaPlaybackAllowsAirPlay"},"abstract":"<div><p>A Boolean value that determines whether Air Play is allowed from this view.<\/p><\/div>"},{"id":1617944,"role":"symbol","usr":"c:objc(cs)UIWebView(py)allowsPictureInPictureMediaPlayback","name":"allowsPictureInPictureMediaPlayback","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">allows<wbr\/>Picture<wbr\/>In<wbr\/>Picture<wbr\/>Media<wbr\/>Playback<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617944-allowspictureinpicturemediaplayb"],"title":{"content":"allowsPictureInPictureMediaPlayback"},"abstract":"<div><p>A Boolean value that determines whether Picture in Picture playback is allowed from this view.<\/p><\/div>"}],"title":{"content":"Managing Media Playback"}},{"id":1653185,"role":"task","symbols":[{"id":1617943,"role":"symbol","usr":"c:objc(cs)UIWebView(py)gapBetweenPages","name":"gapBetweenPages","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"7.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">gap<wbr\/>Between<wbr\/>Pages<\/span><span class=\"decorator\">: CGFloat<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617943-gapbetweenpages"],"title":{"content":"gapBetweenPages"},"abstract":"<div><p>The size of the gap, in points, between pages.<\/p><\/div>"},{"id":1617968,"role":"symbol","usr":"c:objc(cs)UIWebView(py)pageCount","name":"pageCount","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"7.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">page<wbr\/>Count<\/span><span class=\"decorator\">: Int<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617968-pagecount"],"title":{"content":"pageCount"},"abstract":"<div><p>The number of pages produced by the layout of the web view.<\/p><\/div>"},{"id":1617980,"role":"symbol","usr":"c:objc(cs)UIWebView(py)pageLength","name":"pageLength","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"7.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">page<wbr\/>Length<\/span><span class=\"decorator\">: CGFloat<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617980-pagelength"],"title":{"content":"pageLength"},"abstract":"<div><p>The size of each page, in points, in the direction that the pages flow.<\/p><\/div>"},{"id":1617933,"role":"symbol","usr":"c:objc(cs)UIWebView(py)paginationBreakingMode","name":"paginationBreakingMode","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"7.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">pagination<wbr\/>Breaking<wbr\/>Mode<\/span><span class=\"decorator\">: UIWeb<wbr\/>View<wbr\/>.Pagination<wbr\/>Breaking<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617933-paginationbreakingmode"],"title":{"content":"paginationBreakingMode"},"abstract":"<div><p>The manner in which column- or page-breaking occurs.<\/p><\/div>"},{"id":1617985,"role":"symbol","usr":"c:objc(cs)UIWebView(py)paginationMode","name":"paginationMode","domain":"swift","kind":"instp","availability":[{"platform":"iOS","deprecated":"12.0","introduced":"7.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">pagination<wbr\/>Mode<\/span><span class=\"decorator\">: UIWeb<wbr\/>View<wbr\/>.Pagination<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/1617985-paginationmode"],"title":{"content":"paginationMode"},"abstract":"<div><p>The layout of content in the web view.<\/p><\/div>"}],"title":{"content":"Managing Pages"}},{"id":1681597,"role":"task","symbols":[{"id":1617961,"role":"symbol","usr":"c:@E@UIWebViewNavigationType","name":"UIWebViewNavigationType","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIWeb<wbr\/>View<wbr\/>.Navigation<wbr\/>Type<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/navigationtype"],"title":{"content":"UIWebView.NavigationType"},"abstract":"<div><p>Constant indicating the user’s action.<\/p><\/div>","hasChildren":true},{"id":1617958,"role":"symbol","usr":"c:@E@UIWebPaginationBreakingMode","name":"UIWebPaginationBreakingMode","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"7.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIWeb<wbr\/>View<wbr\/>.Pagination<wbr\/>Breaking<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/paginationbreakingmode"],"title":{"content":"UIWebView.PaginationBreakingMode"},"abstract":"<div><p>The manner in which column- or page-breaking occurs.<\/p><\/div>","hasChildren":true},{"id":1617977,"role":"symbol","usr":"c:@E@UIWebPaginationMode","name":"UIWebPaginationMode","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"7.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIWeb<wbr\/>View<wbr\/>.Pagination<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uiwebview\/paginationmode"],"title":{"content":"UIWebView.PaginationMode"},"abstract":"<div><p>The layout of content in the web view, which determines the direction that the pages flow.<\/p><\/div>","hasChildren":true},{"id":1618502,"role":"symbol","usr":"c:@E@UIDataDetectorTypes","name":"UIDataDetectorTypes","domain":"swift","kind":"struct","availability":[{"platform":"iOS","introduced":"3.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">struct <\/span><span class=\"identifier\">UIData<wbr\/>Detector<wbr\/>Types<\/span><\/code>","paths":["documentation\/uikit\/uidatadetectortypes"],"title":{"content":"UIDataDetectorTypes"},"abstract":"<div><p>Defines the types of information that can be detected in text-based content.<\/p><\/div>","hasChildren":true}],"title":{"content":"Constants"}}]}</script>
+  <script src="/documentation/__assets/TopicDetail-018c52ac.js"></script>
+ </body>
+</html>

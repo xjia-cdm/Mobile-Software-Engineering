@@ -1,0 +1,85 @@
+api:
+ title: UISwitch
+ description: A control that offers a binary choice, such as On/Off.
+ overview: 
+  description: The UISwitch class declares a property and a method to control its on/off state. As with UISlider, when the user manipulates the switch control (“flips” it) a valueChanged event is generated, which results in the control (if properly configured) sending an action message.
+ topics: 
+  topic: 
+   - 
+    title: Initializing the Switch Object
+     method: 
+      - 
+       name: init(frame: CGRect)
+       description: Returns an initialized switch object.
+      - 
+       name: init?(coder: NSCoder)
+   - 
+    title: Setting the Off/On State
+     method: 
+      - 
+       name: var isOn: Bool
+       description: A Boolean value that determines the off/on state of the switch.
+      - 
+       name: func setOn(Bool, animated: Bool)
+       description: Set the state of the switch to On or Off, optionally animating the transition.
+   - 
+    title: Customizing the Appearance of the Switch
+     method: 
+      - 
+       name: var onTintColor: UIColor?
+       description: The color used to tint the appearance of the switch when it is turned on.
+      - 
+       name: var tintColor: UIColor!
+       description: The color used to tint the outline of the switch when it is turned off.
+      - 
+       name: var thumbTintColor: UIColor?
+       description: The color used to tint the appearance of the thumb.
+      - 
+       name: var onImage: UIImage?
+       description: In iOS 6 and earlier, the image displayed when the switch is in the on position.
+      - 
+       name: var offImage: UIImage?
+       description: In iOS 6 and earlier, the image displayed when the switch is in the off position.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIControl
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: NSCoding
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UIControl
+    description: The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.
+   - 
+    name: class UIButton
+    description: A control that executes your custom code in response to user interactions.
+   - 
+    name: class UIDatePicker
+    description: A control used for the inputting of date and time values.
+   - 
+    name: class UIPageControl
+    description: A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity.
+   - 
+    name: class UISegmentedControl
+    description: A horizontal control made of multiple segments, each segment functioning as a discrete button.
+   - 
+    name: class UISlider
+    description: A control used to select a single value from a continuous range of values.
+   - 
+    name: class UIStepper
+    description: A control used to increment or decrement a value.

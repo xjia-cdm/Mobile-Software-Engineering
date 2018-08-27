@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>UIStackView - UIKit | Apple Developer Documentation</title>
+  <meta content="width=device-width, initial-scale=1 viewport-fit=cover" name="viewport">
+  <meta data-pid="201964">
+  <link href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Mono,v1|SF+Pro+Icons,v1" media="all" rel="stylesheet" type="text/css">
+  <link href="/documentation/__assets/application-324aa72c.css" media="all" rel="stylesheet" type="text/css">
+  <noscript>
+   <link href="/documentation/__assets/nojs-c6be9131.css" media="all" rel="stylesheet" type="text/css">
+  </noscript>
+  <link rel="mask-icon" href="/documentation/__assets/apple-logo.svg" color="#000">
+  <link rel="shortcut icon" href="/documentation/__assets/favicon.ico">
+  <script src="/documentation/__assets/shared-f73bc3d2.js"></script>
+  <script id="init-data" type="application/json">{"variant":{"paths":["documentation\/uikit\/uistackview"],"usr":"c:objc(cs)UIStackView"}}</script>
+  <script src="/documentation/__assets/init-88dd23db.js"></script>
+ </head>
+ <body>
+  <div id="_omniture_top"> 
+   <script type="text/javascript">
+        var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+      </script> 
+   <script type="text/javascript" src="https://www.apple.com/metrics/scripts/s_code_h.js"></script> 
+   <script type="text/javascript">
+        s.pageName=AC.Tracking.pageName();
+        s.channel="www.us.developer"
+
+        var s_code=s.t();if(s_code)document.write(s_code)
+      </script> 
+  </div>
+  <div id="app">
+   <div>
+    <a href="#main" id="skip-localnav" class="showonfocus hidden">Skip Navigation</a>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US">
+     <div class="ac-gn-content"> 
+      <ul class="ac-gn-header"> 
+       <li class="ac-gn-item ac-gn-menuicon"> <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span> </span> </label> <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open"> <span class="ac-gn-menuanchor-label">Open Menu</span> </a> <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close"> <span class="ac-gn-menuanchor-label">Close Menu</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus-small"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small"> <a class="ac-gn-link ac-gn-link-bag" href="/account/"> <span class="ac-gn-link-text">Account</span> <span class="ac-gn-bag-badge"></span> </a> <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span> </li> 
+      </ul> 
+      <ul class="ac-gn-list"> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-discover"> <a class="ac-gn-link" href="/discover/"> <span>Discover</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-design"> <a class="ac-gn-link" href="/design/"> <span>Design</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-develop"> <a class="ac-gn-link" href="/develop/"> <span>Develop</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-distribute"> <a class="ac-gn-link" href="/distribute/"> <span>Distribute</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-support"> <a class="ac-gn-link" href="/support/"> <span>Support</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-account"> <a class="ac-gn-link" href="/account/"> <span>Account</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search"> <a id="ac-gn-search-button" class="ac-gn-link ac-gn-link-search" href="/search/" aria-label="Search developer.apple.com"> <span class="ac-gn-search-placeholder" aria-hidden="true">Search</span> </a> </li> 
+      </ul> 
+      <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search"> 
+       <div class="ac-gn-searchview-content"> 
+        <form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get"> 
+         <div class="ac-gn-searchform-wrapper"> 
+          <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" placeholder="Search" data-placeholder-long="Search for documentation, videos, and more" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false"> 
+          <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit"></button> 
+          <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search"></button> 
+         </div> 
+        </form> 
+        <aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="Hit enter to search."> 
+        </aside> 
+       </div> 
+       <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search"> <span class="ac-gn-searchview-close-wrapper"> <span class="ac-gn-searchview-close-left"></span> <span class="ac-gn-searchview-close-right"></span> </span> </button> 
+      </aside> 
+     </div>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+    <input type="checkbox" id="localnav-menustate" class="localnav-menustate" aria-hidden="true">
+    <nav id="localnav" class="localnav localnav-dark theme-dark localnav-scrim localnav-noborder" role="navigation" aria-label="API Reference" data-sticky="true">
+     <div class="localnav-wrapper">
+      <div class="referencenav">
+       <div class="localnav-background"></div>
+       <div class="localnav-content">
+        <a href="/documentation" class="localnav-title">Documentation</a>
+        <div class="localnav-menu">
+         <a href="#localnav-menustate" id="localnav-menustate-open" class="localnav-menucta-anchor localnav-menucta-anchor-open"><span class="localnav-menucta-anchor-label" aria-hidden="true">Open Menu</span></a>
+         <a href="#" id="localnav-menustate-close" class="localnav-menucta-anchor localnav-menucta-anchor-close"><span class="localnav-menucta-anchor-label" aria-hidden="true">Close Menu</span></a>
+         <div class="localnav-menu-tray">
+          <ul aria-label="Breadcrumbs" class="localnav-menu-items localnav-menu-breadcrumbs">
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit">UIKit</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit/views_and_controls">Views and Controls</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item">
+            <div class="localnav-menu-breadcrumb-current-container localnav-menu-link current">
+             <span aria-current="page" class="localnav-menu-breadcrumb-current">UIStackView</span>
+            </div></li>
+          </ul>
+          <ul class="localnav-menu-items localnav-menu-settings" data-breadcrumbs-count="3">
+           <li class="localnav-menu-setting language-container">
+            <div class="language-toggle-container">
+             <label for="language-toggle" class="language-toggle-label">Language:</label>
+             <select id="language-toggle" class="language-dropdown localnav-menu-link" style="width:auto;"><option selected value="swift">Swift</option><option value="occ">Objective-C</option></select>
+            </div>
+            <div class="language-list-container">
+             <span class="localnav-menu-setting-label">Language:</span>
+             <ul class="language-list">
+              <li class="language-list-item"><span data-language="swift" aria-current="page" class="current-language">Swift</span></li>
+              <li class="language-list-item"><a href="/documentation/uikit/uistackview?language=objc" class="localnav-menu-setting-link">Objective-C</a></li>
+             </ul>
+            </div></li>
+           <li class="localnav-menu-setting"><span class="localnav-menu-setting-label">API Changes:</span><a href="/documentation/uikit/uistackview?changes=latest_minor" class="localnav-menu-setting-link changes-toggle changes-toggle-show" aria-label="Show API Changes">Show</a></li>
+          </ul>
+         </div>
+         <div class="localnav-actions">
+          <div class="localnav-action localnav-action-menucta" aria-hidden="true">
+           <label for="localnav-menustate" class="localnav-menucta"><span class="localnav-menucta-chevron"></span></label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </nav>
+    <label for="localnav-menustate" id="localnav-curtain" aria-hidden="true"></label>
+    <main role="main" id="main" class="main" tabindex="0">
+     <div class="topic-title">
+      <span class="eyebrow">Class</span>
+      <h1 class="topic-heading"><span>UIStack<wbr>View</span></h1>
+     </div>
+     <div class="topic-container section-content row">
+      <div class="topic-description column large-9 medium-9 small-12">
+       <div class="topic-abstract abstract formatted-content">
+        <div>
+         <p>A streamlined interface for laying out a collection of views in either a column or a row. </p>
+        </div>
+       </div>
+      </div>
+      <div class="topic-summary column large-3 medium-3 small-12">
+       <div class="topic-summary-section sdks" role="complementary" aria-label="SDKs">
+        <p class="topic-summary-section-label subsection-label">SDKs</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item sdk"><span aria-label="iOS 9.0+, Available on iOS 9.0 and later" role="text" title="Available on iOS 9.0 and later">iOS 9.0+</span></li>
+         <li class="topic-summary-section-item sdk"><span aria-label="tvOS 9.0+, Available on tvOS 9.0 and later" role="text" title="Available on tvOS 9.0 and later">tvOS 9.0+</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section frameworks" role="complementary" aria-label="Framework">
+        <p class="topic-summary-section-label subsection-label">Framework</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item"><span>UIKit</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section onthispage">
+        <nav class="onthispage-nav" aria-labelledby="onthispage-title">
+         <p id="onthispage-title" class="topic-summary-section-label subsection-label">On This Page</p>
+         <ul class="topic-summary-section-list">
+          <li class="topic-summary-section-item"><a href="#overview" class="icon icon-after icon-chevrondowncircle">Overview</a></li>
+          <li class="topic-summary-section-item"><a href="#topics" class="icon icon-after icon-chevrondowncircle">Topics</a></li>
+          <li class="topic-summary-section-item"><a href="#relationships" class="icon icon-after icon-chevrondowncircle">Relationships</a></li>
+          <li class="topic-summary-section-item"><a href="#see-also" class="icon icon-after icon-chevrondowncircle">See Also</a></li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+      <div class="topic-content column large-9 medium-9 small-12" id="topic-content">
+       <section id="overview" class="section">
+        <h2>Overview</h2>
+        <div class="formatted-content">
+         <div>
+          <p>Stack views let you leverage the power of Auto Layout, creating user interfaces that can dynamically adapt to the device’s orientation, screen size, and any changes in the available space. The stack view manages the layout of all the views in its <a class="symbol-name" href="/documentation/uikit/uistackview/1616232-arrangedsubviews"><code><span>arranged<wbr>Subviews</span></code></a> property. These views are arranged along the stack view’s axis, based on their order in the <a class="symbol-name" href="/documentation/uikit/uistackview/1616232-arrangedsubviews"><code><span>arranged<wbr>Subviews</span></code></a> array. The exact layout varies depending on the stack view’s <a class="symbol-name" href="/documentation/uikit/uistackview/1616223-axis"><code><span>axis</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uistackview/1616233-distribution"><code><span>distribution</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uistackview/1616243-alignment"><code><span>alignment</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uistackview/1616225-spacing"><code><span>spacing</span></code></a>, and other properties.</p>
+          <figure id="1968148">
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/82128953f6/uistack_hero_2x_04e50947-5aa0-4403-825b-26ba4c1662bd.png" srcset="https://docs-assets.developer.apple.com/published/82128953f6/uistack_hero_2x_04e50947-5aa0-4403-825b-26ba4c1662bd.png 2x" alt="" width="474" height="auto">
+          </figure>
+          <p>To use a stack view, open the Storyboard you wish to edit. Drag either a Horizontal Stack View or a Vertical Stack View out from the Object library, and position the stack view where desired. Next, drag out the stack’s content, dropping the view or control into the stack. You can continue to add views and controls to your stack, as needed. Interface Builder resizes the stack based on its content. You can also adjust the appearance of the stack’s content by modifying the Stack View’s properties in the Attributes inspector.</p>
+          <aside class="aside aside-note" role="note">
+           <p class="aside-name">Note</p>
+           <p>You are responsible for defining the position and (optionally) the size of the stack view. The stack view then manages the layout and size of its content.</p>
+          </aside>
+         </div>
+         <h3 id="1653096">Stack View and Auto Layout</h3>
+         <div>
+          <p>The stack view uses Auto Layout to position and size its arranged views. The stack view aligns the first and last arranged view with its edges along the stack’s axis. In a horizontal stack, this means the first arranged view’s leading edge is pinned to the stack’s leading edge, and the last arranged view’s trailing edge is pinned to the stack’s trailing edge. In vertical stacks, the top and bottom edges are pinned, to the stack’s top and bottom edges respectively. If you set the stack view’s <a class="symbol-name" href="/documentation/uikit/uistackview/1616220-islayoutmarginsrelativearrangeme"><code><span>is<wbr>Layout<wbr>Margins<wbr>Relative<wbr>Arrangement</span></code></a> property to <code class="code-voice"><span>true</span></code>, the stack view pins its content to the relevant margin instead of its edge.</p>
+          <p>For all distributions except the <a class="symbol-name" href="/documentation/uikit/uistackview/distribution/fillequally"><code><span>UIStack<wbr>View<wbr>.Distribution<wbr>.fill<wbr>Equally</span></code></a> distribution, the stack view uses each arranged view’s <a class="symbol-name" href="/documentation/uikit/uiview/1622600-intrinsiccontentsize"><code><span>intrinsic<wbr>Content<wbr>Size</span></code></a> property when calculating its size along the stack’s axis. <a class="symbol-name" href="/documentation/uikit/uistackview/distribution/fillequally"><code><span>UIStack<wbr>View<wbr>.Distribution<wbr>.fill<wbr>Equally</span></code></a> resizes all the arranged views so they are the same size, filling the stack view along its axis. If possible, the stack view stretches all the arranged views to match the view with the longest intrinsic size along the stack’s axis.</p>
+          <p>For all alignments except the <a class="symbol-name" href="/documentation/uikit/uistackview/alignment/fill"><code><span>UIStack<wbr>View<wbr>.Alignment<wbr>.fill</span></code></a> alignment, the stack view uses each arranged view’s <code class="code-voice"><span>intrinsic<wbr>Content<wbr>Size</span></code> property when calculating its size perpendicular to the stack’s axis. <a class="symbol-name" href="/documentation/uikit/uistackview/alignment/fill"><code><span>UIStack<wbr>View<wbr>.Alignment<wbr>.fill</span></code></a> resizes all the arranged views so that they fill the stack view perpendicularly to its axis. If possible, the stack view stretches all the arranged views to match the view with the largest intrinsic size perpendicular to the stack’s axis.</p>
+          <figure id="2923903">
+           <figcaption>
+            <strong class="caption-title">Figure 2</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Stack view</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/60e0116332/cd8978aa-c754-456a-b2b3-d5485952fc9d.png" srcset="https://docs-assets.developer.apple.com/published/60e0116332/cd8978aa-c754-456a-b2b3-d5485952fc9d.png 2x" alt="" width="634" height="auto">
+          </figure>
+         </div>
+         <h4 id="1968636">Positioning and Sizing the Stack View</h4>
+         <div>
+          <p>Although a stack view allows you to layout its contents without using Auto Layout directly, you still need to use Auto Layout to position the stack view, itself. In general, this means pinning at least two, adjacent edges of the stack view to define its position. Without additional constraints, the system calculates the size of the stack view based on its contents.</p>
+          <ul>
+           <li><p>Along the stack view’s axis, its fitting size is equal to the sum of the sizes of all the arranged views plus the space between views.</p></li>
+           <li><p>Perpendicular to the stack view’s axis, its fitting size is equal to the size of the largest arranged view.</p></li>
+           <li><p>If the stack view’s <a class="symbol-name" href="/documentation/uikit/uistackview/1616220-islayoutmarginsrelativearrangeme"><code><span>is<wbr>Layout<wbr>Margins<wbr>Relative<wbr>Arrangement</span></code></a> property is set to <code class="code-voice"><span>true</span></code>, the stack view’s fitting size is increased to include space for the margins.</p></li>
+          </ul>
+          <p>You can provide additional constraints to specify the stack view’s height, width, or both. In these cases, the stack view adjusts the layout and size of its arranged views to fill the specified area. The exact layout varies based on the stack view’s properties. See the <a class="symbol-name" href="/documentation/uikit/uistackview/distribution"><code><span>UIStack<wbr>View<wbr>.Distribution</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uistackview/alignment"><code><span>UIStack<wbr>View<wbr>.Alignment</span></code></a> enums for a complete description on how the stack view handles having either extra space or insufficient space for its content.</p>
+          <p>You can also position a stack view based on its first or last baseline, instead of using the top, bottom, or center Y position. Like the stack view’s fitting size, these baselines are calculated based on the stack view’s content.</p>
+          <ul>
+           <li><p>A horizontal stack view returns its tallest view for both the <a class="symbol-name" href="/documentation/uikit/uiview/1622452-forfirstbaselinelayout"><code><span>for<wbr>First<wbr>Baseline<wbr>Layout</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uiview/1622633-forlastbaselinelayout"><code><span>for<wbr>Last<wbr>Baseline<wbr>Layout</span></code></a> methods. If the tallest view is also a stack view, it returns the result of calling <code class="code-voice"><span>for<wbr>First<wbr>Baseline<wbr>Layout</span></code> or <code class="code-voice"><span>for<wbr>Last<wbr>Baseline<wbr>Layout</span></code> on the nested stack view. </p></li>
+           <li><p>A vertical stack view returns its first arranged view for <code class="code-voice"><span>for<wbr>First<wbr>Baseline<wbr>Layout</span></code> and its last arranged view for <code class="code-voice"><span>for<wbr>Last<wbr>Baseline<wbr>Layout</span></code>. If either of these views are also stack views, then it returns the result of calling <code class="code-voice"><span>for<wbr>First<wbr>Baseline<wbr>Layout</span></code> or <code class="code-voice"><span>for<wbr>Last<wbr>Baseline<wbr>Layout</span></code> on the nested stack view.</p></li>
+          </ul>
+          <aside class="aside aside-note" role="note">
+           <p class="aside-name">Note</p>
+           <p>Baseline alignment only works on views whose height matches their intrinsic content size’s height. If the view is stretched or compressed, the baseline appears in the wrong location.</p>
+          </aside>
+         </div>
+         <h4 id="1968637">Common Stack View Layouts</h4>
+         <div>
+          <p>Here are some common approaches for laying out content using stack views.</p>
+          <p><strong>Define the position only.</strong> You can define the stack view’s position by pinning two of its adjacent edges to its superview. In this case, the stack view’s size grows freely in both dimensions, based on its arranged views. This approach is particularly useful when you want the stack view’s content to appear at its intrinsic content size, and you want to arrange other user interface elements relative to the stack view.</p>
+          <p><a href="/documentation/uikit/uistackview#2934503">Figure 3</a> shows a stack view with its leading and top edges pinned to its superview. The labels are first baseline aligned, with an 8-point space between them, left-aligning the stack view’s content in its superview.</p>
+          <figure id="2934503">
+           <figcaption>
+            <strong class="caption-title">Figure 3</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Defining the position</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/f8e8e88004/786347a6-3c16-480d-949e-8319ebcc68f7.png" srcset="https://docs-assets.developer.apple.com/published/f8e8e88004/786347a6-3c16-480d-949e-8319ebcc68f7.png 2x" alt="" width="654" height="auto">
+          </figure>
+          <p><strong>Define the stack’s size along its axis.</strong> In this case, pin both edges of the stack along it’s axis to its superview, defining the stack view’s size in that dimension. You also need to pin one of the other edges to define the stack view’s position. The stack view sizes and positions its content along its axis to fill the defined space; however, the unpinned edge moves freely, based on the size of the largest arranged view.</p>
+          <p><a href="/documentation/uikit/uistackview#2934504">Figure 4</a> shows a stack view with the leading, top, and trailing edges pinned to its superview. Using the fill distribution causes the content to resize to fill the view’s width, and since the text field has a lower content hugging priority than the label, it is stretched as necessary.</p>
+          <figure id="2934504">
+           <figcaption>
+            <strong class="caption-title">Figure 4</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Defining the size along the stack view’s axis</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/19ba11ed1c/0b922694-dbfc-4123-b3d6-02f70ac60a6c.png" srcset="https://docs-assets.developer.apple.com/published/19ba11ed1c/0b922694-dbfc-4123-b3d6-02f70ac60a6c.png 2x" alt="" width="644" height="auto">
+          </figure>
+          <p><strong>Define the stack’s size perpendicular to its axis.</strong> This approach is similar to the previous example, but you pin the two edges perpendicular to the stack view’s axis and only one edge along the axis. This lets the stack view grow and shrink along its axis as you add and remove arranged views. Unless you use a fillEqually distribution, the arranged views are sized according to their intrinsic content size. Perpendicular to the axis, the views are laid out in the defined space based on the stack view’s alignment.</p>
+          <p><a href="/documentation/uikit/uistackview#2934505">Figure 5</a> shows a vertical stack containing four labels and a button. The stack uses 8.0 point spacing and the center alignment. The stack view’s height will grow and shrink as items are added to or removed from the stack.</p>
+          <figure id="2934505">
+           <figcaption>
+            <strong class="caption-title">Figure 5</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Defining the size perpendicular to the stack view’s axis</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/cc6e21faab/651cc05e-4df4-493a-8113-41fed7da7d3f.png" srcset="https://docs-assets.developer.apple.com/published/cc6e21faab/651cc05e-4df4-493a-8113-41fed7da7d3f.png 2x" alt="" width="642" height="auto">
+          </figure>
+          <p><strong>Define the size and position of the stack view.</strong> In this case, you pin all four edges of the stack view, causing the stack view to lays out its content within the provided space.</p>
+          <p><a href="/documentation/uikit/uistackview#2934506">Figure 6</a> shows a vertical stack view with all four edges pinned to its superview. By using the center alignment and fill distribution, the stack view ensures that its content is centered horizontally and vertically fills the screen. However, getting the desired layout with this approach requires a couple of additional steps. By default, the stack view vertically stretches the label and not the image view. To resize the image view, lower its content hugging priority below the label’s content hugging priority. Additionally, to maintain the image view’s aspect ratio as it resizes, set its Mode to Aspect Fit. Adding an equal width constraint between the image view and the stack view helps ensure the image is sized to fill the available space.</p>
+          <figure id="2934506">
+           <figcaption>
+            <strong class="caption-title">Figure 6</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Defining both the size and the position</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/e77213019f/1ccce13c-b8b5-4653-8866-f5cc53331641.png" srcset="https://docs-assets.developer.apple.com/published/e77213019f/1ccce13c-b8b5-4653-8866-f5cc53331641.png 2x" alt="" width="628" height="auto">
+          </figure>
+         </div>
+         <h3 id="1653112">Managing the Stack View’s Appearance</h3>
+         <div>
+          <p>The <code class="code-voice"><span>UIStack<wbr>View</span></code> is a nonrendering subclass of <a class="symbol-name" href="/documentation/uikit/uiview"><code><span>UIView</span></code></a>; that is, it does not provide any user interface of its own. Instead, it just manages the position and size of its arranged views. As a result, some properties (like <a class="symbol-name" href="/documentation/uikit/uiview/1622591-backgroundcolor"><code><span>background<wbr>Color</span></code></a>) have no effect on the stack view. Similarly, you cannot override <a class="symbol-name" href="/documentation/uikit/uiview/1622626-layerclass"><code><span>layer<wbr>Class</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uiview/1622529-draw"><code><span>draw(_:)</span></code></a>, or <em>draw(_:in:)</em>.</p>
+          <p>There are a number of properties that define how the stack view lays out its content.</p>
+          <ul>
+           <li><p>The <a class="symbol-name" href="/documentation/uikit/uistackview/1616223-axis"><code><span>axis</span></code></a> property determines the stack’s orientation, either vertically or horizontally.</p></li>
+           <li><p>The <a class="symbol-name" href="/documentation/uikit/uistackview/1616233-distribution"><code><span>distribution</span></code></a> property determines the layout of the arranged views along the stack’s axis.</p></li>
+           <li><p>The <a class="symbol-name" href="/documentation/uikit/uistackview/1616243-alignment"><code><span>alignment</span></code></a> property determines the layout of the arranged views perpendicular to the stack’s axis.</p></li>
+           <li><p>The <a class="symbol-name" href="/documentation/uikit/uistackview/1616225-spacing"><code><span>spacing</span></code></a> property determines the minimum spacing between arranged views.</p></li>
+           <li><p>The <a class="symbol-name" href="/documentation/uikit/uistackview/1616224-isbaselinerelativearrangement"><code><span>is<wbr>Baseline<wbr>Relative<wbr>Arrangement</span></code></a> property determines whether the vertical spacing between views is measured from the baselines.</p></li>
+           <li><p>The <a class="symbol-name" href="/documentation/uikit/uistackview/1616220-islayoutmarginsrelativearrangeme"><code><span>is<wbr>Layout<wbr>Margins<wbr>Relative<wbr>Arrangement</span></code></a> property determines whether the stack view lays out its arranged views relative to its layout margins.</p></li>
+          </ul>
+          <p>Typically, you use a single stack view to lay out a small number of items. You can build more complex view hierarchies by nesting stack views inside other stack views. For example, <a href="/documentation/uikit/uistackview#1965764">Figure 7</a> shows a vertical stack view containing two horizontal stack views. Each of the horizontal stack view contains a label and a text field.</p>
+          <figure id="1965764">
+           <figcaption>
+            <strong class="caption-title">Figure 7</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Nested stack views</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/82128953f6/NestedStacks_2x_551c6bce-06bc-4bcb-98ea-ab8776378d11.png" srcset="https://docs-assets.developer.apple.com/published/82128953f6/NestedStacks_2x_551c6bce-06bc-4bcb-98ea-ab8776378d11.png 2x" alt="" width="668" height="auto">
+          </figure>
+          <p>You can also fine tune an arranged view’s appearance by adding additional constraints to the arranged view. For example, you can use constraints to set a minimum or maximum height or width for the view. Or you can define an aspect ratio for the view. The stack view uses these constraints when laying out its content. For example, in the image view has an aspect ratio constraint that enforces a constant aspect ratio as the image is resized.</p>
+          <aside class="aside aside-note" role="note">
+           <p class="aside-name">Note</p>
+           <p>Be careful to avoid introducing conflicts when adding constraints to views inside a stack view. As a general rule of thumb, if a view’s size defaults back to its intrinsic content size for a given dimension, you can safely add a constraint for that dimension.</p>
+          </aside>
+         </div>
+         <h3 id="1653129">Maintaining Consistency Between the Arranged Views and Subviews</h3>
+         <div>
+          <p>The stack view ensures that its <a class="symbol-name" href="/documentation/uikit/uistackview/1616232-arrangedsubviews"><code><span>arranged<wbr>Subviews</span></code></a> property is always a subset of its <a class="symbol-name" href="/documentation/uikit/uiview/1622614-subviews"><code><span>subviews</span></code></a> property. Specifically, the stack view enforces the following rules:</p>
+          <ul>
+           <li><p>When the stack view adds a view to its <code class="code-voice"><span>arranged<wbr>Subviews</span></code> array, it also adds that view as a subview, if it isn’t already.</p></li>
+           <li><p>When a subview is removed from the stack view, the stack view also removes it from the <code class="code-voice"><span>arranged<wbr>Subviews</span></code> array.</p></li>
+           <li><p>Removing a view from the <code class="code-voice"><span>arranged<wbr>Subviews</span></code> array does not remove it as a subview. The stack view no longer manages the view’s size and position, but the view is still part of the view hierarchy, and is rendered on screen if it is visible.</p></li>
+          </ul>
+          <p>Although the <code class="code-voice"><span>arranged<wbr>Subviews</span></code> array always contains a subset of the <a class="symbol-name" href="/documentation/uikit/uiview/1622614-subviews"><code><span>subviews</span></code></a> array, the order of these arrays remain independent.</p>
+          <ul>
+           <li><p>The order of the <code class="code-voice"><span>arranged<wbr>Subviews</span></code> array defines the order in which views appear in the stack. For horizontal stacks, the views are laid out in reading order, with the lower index views appearing before the higher index views. In English, for example, the views are laid out in order from left to right. For vertical stacks, the views are laid out from top to bottom, with the lower index views above the higher index views.</p></li>
+           <li><p>The order of the subviews array defines the Z-order of the subviews. If the views overlap, subviews with a lower index appear behind subviews with a higher index.</p></li>
+          </ul>
+         </div>
+         <h3 id="1653153">Dynamically Changing the Stack View’s Content</h3>
+         <div>
+          <p>The stack view automatically updates its layout whenever views are added, removed or inserted into the <a class="symbol-name" href="/documentation/uikit/uistackview/1616232-arrangedsubviews"><code><span>arranged<wbr>Subviews</span></code></a> array, or whenever one of the arranged subviews’s <a class="symbol-name" href="/documentation/uikit/uiview/1622585-ishidden"><code><span>is<wbr>Hidden</span></code></a> property changes.</p>
+          <figure id="1968135">
+           <div class="formatted-content">
+            <div class="code-listing">
+             <pre class="code-source" data-language="swift"><code>// Appears to remove the first arranged view from the stack.
+// The view is still inside the stack, it's just no longer visible, and no longer contributes to the layout.
+let firstView = stackView.arrangedSubviews[0]
+firstView.isHidden = true
+</code></pre>
+            </div>
+           </div>
+          </figure>
+          <p>The stack view also automatically responds to changes to any of its properties. For example, you can dynamically change the stack’s orientation, by updating the stack view’s <a class="symbol-name" href="/documentation/uikit/uistackview/1616223-axis"><code><span>axis</span></code></a> property.</p>
+          <figure id="1968140">
+           <div class="formatted-content">
+            <div class="code-listing">
+             <pre class="code-source" data-language="swift"><code>// Toggle between a vertical and horizontal stack
+if stackView.axis == .Horizontal {
+    stackView.axis = .Vertical
+}
+else {
+    stackView.axis = .Horizontal
+}
+</code></pre>
+            </div>
+           </div>
+          </figure>
+          <p>You can animate both changes to the arranged subview’s <a class="symbol-name" href="/documentation/uikit/uiview/1622585-ishidden"><code><span>is<wbr>Hidden</span></code></a> property and changes to the stack view’s properties by placing these changes inside an animation block.</p>
+          <figure id="1968144">
+           <div class="formatted-content">
+            <div class="code-listing">
+             <pre class="code-source" data-language="swift"><code>// Animates removing the first item in the stack.
+UIView.animateWithDuration(0.25) { () -&gt; Void in
+    let firstView = stackView.arrangedSubviews[0]
+    firstView.isHidden = true
+}
+</code></pre>
+            </div>
+           </div>
+          </figure>
+          <p>Finally, you can define size-class specific values for many of the stack view’s properties directly in Interface Builder. The system automatically animates these changes whenever the stack view’s size class changes.</p>
+         </div>
+        </div>
+       </section>
+      </div>
+     </div>
+     <section id="topics" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Topics</h2>
+        <section id="1653171" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Initializing a Stack View</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/1616240-init"><code class="display-name"><span class="identifier">init</span><span class="decorator">(</span><span class="identifier">arranged<wbr>Subviews</span><span class="decorator">: [UIView])</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns a new stack view object that manages the provided views.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info has-inline-element">
+              <a class="symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/2097542-init"><code class="display-name"><span class="identifier">init</span><span class="decorator">(</span><span class="identifier">frame</span><span class="decorator">: CGRect)</span></code></a>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info has-inline-element">
+              <a class="symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/2097541-init"><code class="display-name"><span class="identifier">init</span><span class="decorator">(</span><span class="identifier">coder</span><span class="decorator">: NSCoder)</span></code></a>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653205" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing Arranged Subviews</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/1616227-addarrangedsubview"><code class="display-name"><span class="decorator">func </span><span class="identifier">add<wbr>Arranged<wbr>Subview</span><span class="decorator">(UIView)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Adds a view to the end of the <a class="symbol-name" href="/documentation/uikit/uistackview/1616232-arrangedsubviews"><code><span>arranged<wbr>Subviews</span></code></a> array.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/1616232-arrangedsubviews"><code class="display-name"><span class="decorator">var </span><span class="identifier">arranged<wbr>Subviews</span><span class="decorator">: [UIView]</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The list of views arranged by the stack view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/1616237-insertarrangedsubview"><code class="display-name"><span class="decorator">func </span><span class="identifier">insert<wbr>Arranged<wbr>Subview</span><span class="decorator">(UIView, </span><span class="identifier">at</span><span class="decorator">: Int)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Adds the provided view to the array of arranged subviews at the specified index.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/1616235-removearrangedsubview"><code class="display-name"><span class="decorator">func </span><span class="identifier">remove<wbr>Arranged<wbr>Subview</span><span class="decorator">(UIView)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Removes the provided view from the stack’s array of arranged subviews.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653276" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Configuring The Layout</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/1616243-alignment"><code class="display-name"><span class="decorator">var </span><span class="identifier">alignment</span><span class="decorator">: UIStack<wbr>View<wbr>.Alignment</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The alignment of the arranged subviews perpendicular to the stack view’s axis.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/1616223-axis"><code class="display-name"><span class="decorator">var </span><span class="identifier">axis</span><span class="decorator">: NSLayout<wbr>Constraint<wbr>.Axis</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The axis along which the arranged views are laid out.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/1616224-isbaselinerelativearrangement"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Baseline<wbr>Relative<wbr>Arrangement</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether the vertical spacing between views is measured from their baselines. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/1616233-distribution"><code class="display-name"><span class="decorator">var </span><span class="identifier">distribution</span><span class="decorator">: UIStack<wbr>View<wbr>.Distribution</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The distribution of the arranged views along the stack view’s axis.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/1616220-islayoutmarginsrelativearrangeme"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Layout<wbr>Margins<wbr>Relative<wbr>Arrangement</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that determines whether the stack view lays out its arranged views relative to its layout margins.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/1616225-spacing"><code class="display-name"><span class="decorator">var </span><span class="identifier">spacing</span><span class="decorator">: CGFloat</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The distance in points between the adjacent edges of the stack view’s arranged views.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="2868585" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Adding Space Between Items</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/2865827-customspacing"><code class="display-name"><span class="decorator">func </span><span class="identifier">custom<wbr>Spacing</span><span class="decorator">(</span><span class="identifier">after</span><span class="decorator">: UIView) -&gt; CGFloat</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the custom spacing after the specified view. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/2866023-setcustomspacing"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Custom<wbr>Spacing</span><span class="decorator">(CGFloat, </span><span class="identifier">after</span><span class="decorator">: UIView)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Applies custom spacing after the specified view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/2866085-spacingusedefault"><code class="display-name"><span class="decorator">class let </span><span class="identifier">spacing<wbr>Use<wbr>Default</span><span class="decorator">: CGFloat</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The default spacing for subviews within a stack view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/2866021-spacingusesystem"><code class="display-name"><span class="decorator">class let </span><span class="identifier">spacing<wbr>Use<wbr>System</span><span class="decorator">: CGFloat</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The system-defined spacing to the neighboring view.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1681777" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Constants</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/distribution"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIStack<wbr>View<wbr>.Distribution</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The layout that defines the size and position of the arranged views along the stack view’s axis.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uistackview/alignment"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIStack<wbr>View<wbr>.Alignment</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The layout of arranged views perpendicular to the stack view’s axis.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="relationships" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Relationships</h2>
+        <section id="inherits-from" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Inherits From</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <a class="symbol-name" href="/documentation/uikit/uiview"><code><span>UIView</span></code></a>
+          </div>
+         </div>
+        </section>
+        <section id="conforms-to" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Conforms To</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <ul class="relationships-section-content-columns">
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/cvararg"><code><span>CVar<wbr>Arg</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/equatable"><code><span>Equatable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/hashable"><code><span>Hashable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiaccessibilityidentification"><code><span>UIAccessibility<wbr>Identification</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uipasteconfigurationsupporting"><code><span>UIPaste<wbr>Configuration<wbr>Supporting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiuseractivityrestoring"><code><span>UIUser<wbr>Activity<wbr>Restoring</span></code></a></li>
+           </ul>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="see-also" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">See Also</h2>
+        <section id="2864441" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Container Views</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name" href="/documentation/uikit/views_and_controls/collection_views">
+               <svg xmlns="http://www.w3.org/2000/svg" height="16" viewbox="0 0 15 16" class="svg-icon symbol-name-icon" aria-hidden="true">
+                <title>API Collection</title>
+                <g class="svg-icon-small" fill-rule="evenodd">
+                 <path fill-rule="nonzero" d="M0,0 L15,0 L15,15 L0,15 L0,0 Z M1,14 L14,14 L14,1 L1,1 L1,14 Z"></path>
+                 <polygon points="4 11 3 11 3 10 4 10"></polygon>
+                 <polygon points="4 8 3 8 3 7 4 7"></polygon>
+                 <polygon points="4 5 3 5 3 4 4 4"></polygon>
+                 <polygon points="12 11 5 11 5 10 12 10"></polygon>
+                 <polygon points="12 8 5 8 5 7 12 7"></polygon>
+                 <polygon points="12 5 5 5 5 4 12 4"></polygon>
+                </g>
+               </svg><span>Collection Views</span></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Display nested views using a configurable and highly customizable layout.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name" href="/documentation/uikit/views_and_controls/table_views">
+               <svg xmlns="http://www.w3.org/2000/svg" height="16" viewbox="0 0 15 16" class="svg-icon symbol-name-icon" aria-hidden="true">
+                <title>API Collection</title>
+                <g class="svg-icon-small" fill-rule="evenodd">
+                 <path fill-rule="nonzero" d="M0,0 L15,0 L15,15 L0,15 L0,0 Z M1,14 L14,14 L14,1 L1,1 L1,14 Z"></path>
+                 <polygon points="4 11 3 11 3 10 4 10"></polygon>
+                 <polygon points="4 8 3 8 3 7 4 7"></polygon>
+                 <polygon points="4 5 3 5 3 4 4 4"></polygon>
+                 <polygon points="12 11 5 11 5 10 12 10"></polygon>
+                 <polygon points="12 8 5 8 5 7 12 7"></polygon>
+                 <polygon points="12 5 5 5 5 4 12 4"></polygon>
+                </g>
+               </svg><span>Table Views</span></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Display data in a single column of customizable rows.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uiscrollview"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIScroll<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A view that allows the scrolling and zooming of its contained views. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+    </main>
+    <section id="globalfooter-wrapper">
+     <footer id="globalfooter" role="contentinfo"> 
+      <nav class="footer-breadory"> 
+       <a href="/" class="home breadcrumbs-home"><span aria-hidden="true"></span><span class="breadcrumbs-home-label">Developer</span></a> 
+       <section class="breadcrumbs"> 
+        <ol class="breadcrumbs-list"> 
+         <li><a href="/documentation">Documentation</a></li> 
+        </ol> 
+       </section> 
+       <div id="directorynav" class="directorynav"> 
+        <div id="dn-cola" class="column"> 
+         <h3><a href="/discover/">Discover</a></h3> 
+         <ul> 
+          <li><a href="/macos/">macOS</a></li> 
+          <li><a href="/ios/">iOS</a></li> 
+          <li><a href="/watchos/">watchOS</a></li> 
+          <li><a href="/tvos/">tvOS</a></li> 
+          <li><a href="/safari/">Safari and Web</a></li> 
+          <li><a href="/games/">Games</a></li> 
+          <li><a href="/enterprise/">Enterprise</a></li> 
+          <li><a href="/education/">Education</a></li> 
+          <li><a href="/wwdc/">WWDC</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colb" class="column"> 
+         <h3><a href="/design/">Design</a></h3> 
+         <ul> 
+          <li><a href="/design/human-interface-guidelines/">Human Interface Guidelines</a></li> 
+          <li><a href="/design/resources/">Resources</a></li> 
+          <li><a href="/videos/design/">Videos</a></li> 
+          <li><a href="/design/awards/">Apple Design Awards</a></li> 
+          <li><a href="/accessibility/">Accessibility</a></li> 
+          <li><a href="/internationalization/">Internationalization</a></li> 
+          <li><a href="/accessories/">Accessories</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colc" class="column"> 
+         <h3><a href="/develop/">Develop</a></h3> 
+         <ul> 
+          <li><a href="/xcode/">Xcode</a></li> 
+          <li><a href="/swift/">Swift</a></li> 
+          <li><a href="/swift-playgrounds/">Swift Playgrounds</a></li> 
+          <li><a href="/testflight/">TestFlight</a></li> 
+          <li><a href="/documentation/">Documentation</a></li> 
+          <li><a href="/videos/">Videos</a></li> 
+          <li><a href="/download/">Downloads</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cold" class="column"> 
+         <h3><a href="/distribute/">Distribute</a></h3> 
+         <ul> 
+          <li><a href="/app-store/">App Store</a></li> 
+          <li><a href="/macos/distribution/">Mac Software</a></li> 
+          <li><a href="/app-store/review/">App Review</a></li> 
+          <li><a href="/programs/volume/">Volume Purchase Program</a></li> 
+          <li><a href="/programs/volume/b2b/">Custom B2B Apps</a></li> 
+          <li><a href="/enterprise/distribute/">Enterprise Apps</a></li> 
+          <li><a href="/safari/extensions/">Safari Extensions</a></li> 
+          <li><a href="/app-store/marketing/guidelines/">Marketing Resources</a></li> 
+          <li><a href="/softwarelicensing/">Trademark Licensing</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cole" class="column"> 
+         <h3><a href="/support/">Support</a></h3> 
+         <ul> 
+          <li><a href="https://forums.developer.apple.com">Developer Forums</a></li> 
+          <li><a href="/bug-reporting/">Bug Reporting</a></li> 
+          <li><a href="/terms/">License Agreements</a></li> 
+          <li><a href="/system-status/">System Status</a></li> 
+          <li><a href="/contact/">Contact Us</a></li> 
+          <br> 
+          <h3><a href="/account/">Account</a></h3> 
+          <ul> 
+           <li><a href="/programs/">Developer Program</a></li> 
+           <li><a href="/account/ios/certificate/">Certificates, IDs &amp; Profiles</a></li> 
+           <li><a href="https://appstoreconnect.apple.com/">App Store Connect</a></li> 
+          </ul> 
+         </ul> 
+        </div> 
+       </div> 
+      </nav> 
+      <div class="ac-gf-footer-legal"> 
+       <div class="ac-gf-footer-news">
+         To receive the latest developer news, visit and subscribe to our 
+        <a href="/news/">News and Updates</a>. 
+       </div> 
+       <div class="ac-gf-footer-legal-copyright">
+        Copyright © 2018 Apple Inc. All rights reserved.
+       </div> 
+       <div class="ac-gf-footer-legal-links"> 
+        <a href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a> 
+        <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a> 
+        <a href="/bug-reporting/">Report Bugs</a> 
+        <a href="/contact/submit/?subject=website-feedback">Feedback</a> 
+       </div> 
+       <div class="ac-gf-footer-language-links"> 
+        <a href="/cn/" class="first">简体中文</a> 
+        <a href="/jp/">日本語</a> 
+        <a href="/kr/">한국어</a> 
+       </div> 
+      </div> 
+     </footer>
+    </section>
+   </div>
+  </div>
+  <script id="bootstrap-data" type="application/json">{"id":1616219,"title":{"content":"UIStackView"},"discussion":"<div><p>Stack views let you leverage the power of Auto Layout, creating user interfaces that can dynamically adapt to the device’s orientation, screen size, and any changes in the available space. The stack view manages the layout of all the views in its <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616232-arrangedsubviews\"><code><span>arranged<wbr\/>Subviews<\/span><\/code><\/a> property. These views are arranged along the stack view’s axis, based on their order in the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616232-arrangedsubviews\"><code><span>arranged<wbr\/>Subviews<\/span><\/code><\/a> array. The exact layout varies depending on the stack view’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616223-axis\"><code><span>axis<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616233-distribution\"><code><span>distribution<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616243-alignment\"><code><span>alignment<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616225-spacing\"><code><span>spacing<\/span><\/code><\/a>, and other properties.<\/p><figure id=\"1968148\"><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/82128953f6\/uistack_hero_2x_04e50947-5aa0-4403-825b-26ba4c1662bd.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/82128953f6\/uistack_hero_2x_04e50947-5aa0-4403-825b-26ba4c1662bd.png 2x\" alt=\"\" width=\"474\" height=\"auto\"\/><\/figure><p>To use a stack view, open the Storyboard you wish to edit. Drag either a Horizontal Stack View or a Vertical Stack View out from the Object library, and position the stack view where desired. Next, drag out the stack’s content, dropping the view or control into the stack. You can continue to add views and controls to your stack, as needed. Interface Builder resizes the stack based on its content. You can also adjust the appearance of the stack’s content by modifying the Stack View’s properties in the Attributes inspector.<\/p><aside class=\"aside aside-note\" role=\"note\"><p class=\"aside-name\">Note<\/p><p>You are responsible for defining the position and (optionally) the size of the stack view. The stack view then manages the layout and size of its content.<\/p><\/aside><\/div><h3 id=\"1653096\">Stack View and Auto Layout<\/h3><div><p>The stack view uses Auto Layout to position and size its arranged views. The stack view aligns the first and last arranged view with its edges along the stack’s axis. In a horizontal stack, this means the first arranged view’s leading edge is pinned to the stack’s leading edge, and the last arranged view’s trailing edge is pinned to the stack’s trailing edge. In vertical stacks, the top and bottom edges are pinned, to the stack’s top and bottom edges respectively. If you set the stack view’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616220-islayoutmarginsrelativearrangeme\"><code><span>is<wbr\/>Layout<wbr\/>Margins<wbr\/>Relative<wbr\/>Arrangement<\/span><\/code><\/a> property to <code class=\"code-voice\"><span>true<\/span><\/code>, the stack view pins its content to the relevant margin instead of its edge.<\/p><p>For all distributions except the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/distribution\/fillequally\"><code><span>UIStack<wbr\/>View<wbr\/>.Distribution<wbr\/>.fill<wbr\/>Equally<\/span><\/code><\/a> distribution, the stack view uses each arranged view’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622600-intrinsiccontentsize\"><code><span>intrinsic<wbr\/>Content<wbr\/>Size<\/span><\/code><\/a> property when calculating its size along the stack’s axis. <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/distribution\/fillequally\"><code><span>UIStack<wbr\/>View<wbr\/>.Distribution<wbr\/>.fill<wbr\/>Equally<\/span><\/code><\/a> resizes all the arranged views so they are the same size, filling the stack view along its axis. If possible, the stack view stretches all the arranged views to match the view with the longest intrinsic size along the stack’s axis.<\/p><p>For all alignments except the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/alignment\/fill\"><code><span>UIStack<wbr\/>View<wbr\/>.Alignment<wbr\/>.fill<\/span><\/code><\/a> alignment, the stack view uses each arranged view’s <code class=\"code-voice\"><span>intrinsic<wbr\/>Content<wbr\/>Size<\/span><\/code> property when calculating its size perpendicular to the stack’s axis. <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/alignment\/fill\"><code><span>UIStack<wbr\/>View<wbr\/>.Alignment<wbr\/>.fill<\/span><\/code><\/a> resizes all the arranged views so that they fill the stack view perpendicularly to its axis. If possible, the stack view stretches all the arranged views to match the view with the largest intrinsic size perpendicular to the stack’s axis.<\/p><figure id=\"2923903\"><figcaption><strong class=\"caption-title\">Figure 2<\/strong> <div class=\"caption-content formatted-content\"><div><p>Stack view<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/60e0116332\/cd8978aa-c754-456a-b2b3-d5485952fc9d.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/60e0116332\/cd8978aa-c754-456a-b2b3-d5485952fc9d.png 2x\" alt=\"\" width=\"634\" height=\"auto\"\/><\/figure><\/div><h4 id=\"1968636\">Positioning and Sizing the Stack View<\/h4><div><p>Although a stack view allows you to layout its contents without using Auto Layout directly, you still need to use Auto Layout to position the stack view, itself. In general, this means pinning at least two, adjacent edges of the stack view to define its position. Without additional constraints, the system calculates the size of the stack view based on its contents.<\/p><ul><li><p>Along the stack view’s axis, its fitting size is equal to the sum of the sizes of all the arranged views plus the space between views.<\/p><\/li><li><p>Perpendicular to the stack view’s axis, its fitting size is equal to the size of the largest arranged view.<\/p><\/li><li><p>If the stack view’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616220-islayoutmarginsrelativearrangeme\"><code><span>is<wbr\/>Layout<wbr\/>Margins<wbr\/>Relative<wbr\/>Arrangement<\/span><\/code><\/a> property is set to <code class=\"code-voice\"><span>true<\/span><\/code>, the stack view’s fitting size is increased to include space for the margins.<\/p><\/li><\/ul><p>You can provide additional constraints to specify the stack view’s height, width, or both. In these cases, the stack view adjusts the layout and size of its arranged views to fill the specified area. The exact layout varies based on the stack view’s properties. See the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/distribution\"><code><span>UIStack<wbr\/>View<wbr\/>.Distribution<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/alignment\"><code><span>UIStack<wbr\/>View<wbr\/>.Alignment<\/span><\/code><\/a> enums for a complete description on how the stack view handles having either extra space or insufficient space for its content.<\/p><p>You can also position a stack view based on its first or last baseline, instead of using the top, bottom, or center Y position. Like the stack view’s fitting size, these baselines are calculated based on the stack view’s content.<\/p><ul><li><p>A horizontal stack view returns its tallest view for both the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622452-forfirstbaselinelayout\"><code><span>for<wbr\/>First<wbr\/>Baseline<wbr\/>Layout<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622633-forlastbaselinelayout\"><code><span>for<wbr\/>Last<wbr\/>Baseline<wbr\/>Layout<\/span><\/code><\/a> methods. If the tallest view is also a stack view, it returns the result of calling <code class=\"code-voice\"><span>for<wbr\/>First<wbr\/>Baseline<wbr\/>Layout<\/span><\/code> or <code class=\"code-voice\"><span>for<wbr\/>Last<wbr\/>Baseline<wbr\/>Layout<\/span><\/code> on the nested stack view. <\/p><\/li><li><p>A vertical stack view returns its first arranged view for <code class=\"code-voice\"><span>for<wbr\/>First<wbr\/>Baseline<wbr\/>Layout<\/span><\/code> and its last arranged view for <code class=\"code-voice\"><span>for<wbr\/>Last<wbr\/>Baseline<wbr\/>Layout<\/span><\/code>. If either of these views are also stack views, then it returns the result of calling <code class=\"code-voice\"><span>for<wbr\/>First<wbr\/>Baseline<wbr\/>Layout<\/span><\/code> or <code class=\"code-voice\"><span>for<wbr\/>Last<wbr\/>Baseline<wbr\/>Layout<\/span><\/code> on the nested stack view.<\/p><\/li><\/ul><aside class=\"aside aside-note\" role=\"note\"><p class=\"aside-name\">Note<\/p><p>Baseline alignment only works on views whose height matches their intrinsic content size’s height. If the view is stretched or compressed, the baseline appears in the wrong location.<\/p><\/aside><\/div><h4 id=\"1968637\">Common Stack View Layouts<\/h4><div><p>Here are some common approaches for laying out content using stack views.<\/p><p><strong>Define the position only.<\/strong> You can define the stack view’s position by pinning two of its adjacent edges to its superview. In this case, the stack view’s size grows freely in both dimensions, based on its arranged views. This approach is particularly useful when you want the stack view’s content to appear at its intrinsic content size, and you want to arrange other user interface elements relative to the stack view.<\/p><p><a href=\"\/documentation\/uikit\/uistackview#2934503\">Figure 3<\/a> shows a stack view with its leading and top edges pinned to its superview. The labels are first baseline aligned, with an 8-point space between them, left-aligning the stack view’s content in its superview.<\/p><figure id=\"2934503\"><figcaption><strong class=\"caption-title\">Figure 3<\/strong> <div class=\"caption-content formatted-content\"><div><p>Defining the position<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/f8e8e88004\/786347a6-3c16-480d-949e-8319ebcc68f7.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/f8e8e88004\/786347a6-3c16-480d-949e-8319ebcc68f7.png 2x\" alt=\"\" width=\"654\" height=\"auto\"\/><\/figure><p><strong>Define the stack’s size along its axis.<\/strong> In this case, pin both edges of the stack along it’s axis to its superview, defining the stack view’s size in that dimension. You also need to pin one of the other edges to define the stack view’s position. The stack view sizes and positions its content along its axis to fill the defined space; however, the unpinned edge moves freely, based on the size of the largest arranged view.<\/p><p><a href=\"\/documentation\/uikit\/uistackview#2934504\">Figure 4<\/a> shows a stack view with the leading, top, and trailing edges pinned to its superview. Using the fill distribution causes the content to resize to fill the view’s width, and since the text field has a lower content hugging priority than the label, it is stretched as necessary.<\/p><figure id=\"2934504\"><figcaption><strong class=\"caption-title\">Figure 4<\/strong> <div class=\"caption-content formatted-content\"><div><p>Defining the size along the stack view’s axis<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/19ba11ed1c\/0b922694-dbfc-4123-b3d6-02f70ac60a6c.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/19ba11ed1c\/0b922694-dbfc-4123-b3d6-02f70ac60a6c.png 2x\" alt=\"\" width=\"644\" height=\"auto\"\/><\/figure><p><strong>Define the stack’s size perpendicular to its axis.<\/strong> This approach is similar to the previous example, but you pin the two edges perpendicular to the stack view’s axis and only one edge along the axis. This lets the stack view grow and shrink along its axis as you add and remove arranged views. Unless you use a fillEqually distribution, the arranged views are sized according to their intrinsic content size. Perpendicular to the axis, the views are laid out in the defined space based on the stack view’s alignment.<\/p><p><a href=\"\/documentation\/uikit\/uistackview#2934505\">Figure 5<\/a> shows a vertical stack containing four labels and a button. The stack uses 8.0 point spacing and the center alignment. The stack view’s height will grow and shrink as items are added to or removed from the stack.<\/p><figure id=\"2934505\"><figcaption><strong class=\"caption-title\">Figure 5<\/strong> <div class=\"caption-content formatted-content\"><div><p>Defining the size perpendicular to the stack view’s axis<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/cc6e21faab\/651cc05e-4df4-493a-8113-41fed7da7d3f.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/cc6e21faab\/651cc05e-4df4-493a-8113-41fed7da7d3f.png 2x\" alt=\"\" width=\"642\" height=\"auto\"\/><\/figure><p><strong>Define the size and position of the stack view.<\/strong> In this case, you pin all four edges of the stack view, causing the stack view to lays out its content within the provided space.<\/p><p><a href=\"\/documentation\/uikit\/uistackview#2934506\">Figure 6<\/a> shows a vertical stack view with all four edges pinned to its superview. By using the center alignment and fill distribution, the stack view ensures that its content is centered horizontally and vertically fills the screen. However, getting the desired layout with this approach requires a couple of additional steps. By default, the stack view vertically stretches the label and not the image view. To resize the image view, lower its content hugging priority below the label’s content hugging priority. Additionally, to maintain the image view’s aspect ratio as it resizes, set its Mode to Aspect Fit. Adding an equal width constraint between the image view and the stack view helps ensure the image is sized to fill the available space.<\/p><figure id=\"2934506\"><figcaption><strong class=\"caption-title\">Figure 6<\/strong> <div class=\"caption-content formatted-content\"><div><p>Defining both the size and the position<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/e77213019f\/1ccce13c-b8b5-4653-8866-f5cc53331641.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/e77213019f\/1ccce13c-b8b5-4653-8866-f5cc53331641.png 2x\" alt=\"\" width=\"628\" height=\"auto\"\/><\/figure><\/div><h3 id=\"1653112\">Managing the Stack View’s Appearance<\/h3><div><p>The <code class=\"code-voice\"><span>UIStack<wbr\/>View<\/span><\/code> is a nonrendering subclass of <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\"><code><span>UIView<\/span><\/code><\/a>; that is, it does not provide any user interface of its own. Instead, it just manages the position and size of its arranged views. As a result, some properties (like <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622591-backgroundcolor\"><code><span>background<wbr\/>Color<\/span><\/code><\/a>) have no effect on the stack view. Similarly, you cannot override <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622626-layerclass\"><code><span>layer<wbr\/>Class<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622529-draw\"><code><span>draw(_:)<\/span><\/code><\/a>, or  <em>draw(_:in:)<\/em>.<\/p><p>There are a number of properties that define how the stack view lays out its content.<\/p><ul><li><p>The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616223-axis\"><code><span>axis<\/span><\/code><\/a> property determines the stack’s orientation, either vertically or horizontally.<\/p><\/li><li><p>The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616233-distribution\"><code><span>distribution<\/span><\/code><\/a> property determines the layout of the arranged views along the stack’s axis.<\/p><\/li><li><p>The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616243-alignment\"><code><span>alignment<\/span><\/code><\/a> property determines the layout of the arranged views perpendicular to the stack’s axis.<\/p><\/li><li><p>The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616225-spacing\"><code><span>spacing<\/span><\/code><\/a> property determines the minimum spacing between arranged views.<\/p><\/li><li><p>The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616224-isbaselinerelativearrangement\"><code><span>is<wbr\/>Baseline<wbr\/>Relative<wbr\/>Arrangement<\/span><\/code><\/a> property determines whether the vertical spacing between views is measured from the baselines.<\/p><\/li><li><p>The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616220-islayoutmarginsrelativearrangeme\"><code><span>is<wbr\/>Layout<wbr\/>Margins<wbr\/>Relative<wbr\/>Arrangement<\/span><\/code><\/a> property determines whether the stack view lays out its arranged views relative to its layout margins.<\/p><\/li><\/ul><p>Typically, you use a single stack view to lay out a small number of items. You can build more complex view hierarchies by nesting stack views inside other stack views. For example, <a href=\"\/documentation\/uikit\/uistackview#1965764\">Figure 7<\/a> shows a vertical stack view containing two horizontal stack views. Each of the horizontal stack view contains a label and a text field.<\/p><figure id=\"1965764\"><figcaption><strong class=\"caption-title\">Figure 7<\/strong> <div class=\"caption-content formatted-content\"><div><p>Nested stack views<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/82128953f6\/NestedStacks_2x_551c6bce-06bc-4bcb-98ea-ab8776378d11.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/82128953f6\/NestedStacks_2x_551c6bce-06bc-4bcb-98ea-ab8776378d11.png 2x\" alt=\"\" width=\"668\" height=\"auto\"\/><\/figure><p>You can also fine tune an arranged view’s appearance by adding additional constraints to the arranged view. For example, you can use constraints to set a minimum or maximum height or width for the view. Or you can define an aspect ratio for the view. The stack view uses these constraints when laying out its content. For example, in  the image view has an aspect ratio constraint that enforces a constant aspect ratio as the image is resized.<\/p><aside class=\"aside aside-note\" role=\"note\"><p class=\"aside-name\">Note<\/p><p>Be careful to avoid introducing conflicts when adding constraints to views inside a stack view. As a general rule of thumb, if a view’s size defaults back to its intrinsic content size for a given dimension, you can safely add a constraint for that dimension.<\/p><\/aside><\/div><h3 id=\"1653129\">Maintaining Consistency Between the Arranged Views and Subviews<\/h3><div><p>The stack view ensures that its <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616232-arrangedsubviews\"><code><span>arranged<wbr\/>Subviews<\/span><\/code><\/a> property is always a subset of its <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622614-subviews\"><code><span>subviews<\/span><\/code><\/a> property. Specifically, the stack view enforces the following rules:<\/p><ul><li><p>When the stack view adds a view to its <code class=\"code-voice\"><span>arranged<wbr\/>Subviews<\/span><\/code> array, it also adds that view as a subview, if it isn’t already.<\/p><\/li><li><p>When a subview is removed from the stack view, the stack view also removes it from the <code class=\"code-voice\"><span>arranged<wbr\/>Subviews<\/span><\/code> array.<\/p><\/li><li><p>Removing a view from the <code class=\"code-voice\"><span>arranged<wbr\/>Subviews<\/span><\/code> array does not remove it as a subview. The stack view no longer manages the view’s size and position, but the view is still part of the view hierarchy, and is rendered on screen if it is visible.<\/p><\/li><\/ul><p>Although the <code class=\"code-voice\"><span>arranged<wbr\/>Subviews<\/span><\/code> array always contains a subset of the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622614-subviews\"><code><span>subviews<\/span><\/code><\/a> array, the order of these arrays remain independent.<\/p><ul><li><p>The order of the <code class=\"code-voice\"><span>arranged<wbr\/>Subviews<\/span><\/code> array defines the order in which views appear in the stack. For horizontal stacks, the views are laid out in reading order, with the lower index views appearing before the higher index views. In English, for example, the views are laid out in order from left to right. For vertical stacks, the views are laid out from top to bottom, with the lower index views above the higher index views.<\/p><\/li><li><p>The order of the subviews array defines the Z-order of the subviews. If the views overlap, subviews with a lower index appear behind subviews with a higher index.<\/p><\/li><\/ul><\/div><h3 id=\"1653153\">Dynamically Changing the Stack View’s Content<\/h3><div><p>The stack view automatically updates its layout whenever views are added, removed or inserted into the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616232-arrangedsubviews\"><code><span>arranged<wbr\/>Subviews<\/span><\/code><\/a> array, or whenever one of the arranged subviews’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622585-ishidden\"><code><span>is<wbr\/>Hidden<\/span><\/code><\/a> property changes.<\/p><figure id=\"1968135\"><div class=\"formatted-content\"><div class=\"code-listing\"><pre class=\"code-source\" data-language=\"swift\"><code>\/\/ Appears to remove the first arranged view from the stack.\n\/\/ The view is still inside the stack, it&#x27;s just no longer visible, and no longer contributes to the layout.\nlet firstView = stackView.arrangedSubviews[0]\nfirstView.isHidden = true\n<\/code><\/pre><\/div><\/div><\/figure><p>The stack view also automatically responds to changes to any of its properties. For example, you can dynamically change the stack’s orientation, by updating the stack view’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616223-axis\"><code><span>axis<\/span><\/code><\/a> property.<\/p><figure id=\"1968140\"><div class=\"formatted-content\"><div class=\"code-listing\"><pre class=\"code-source\" data-language=\"swift\"><code>\/\/ Toggle between a vertical and horizontal stack\nif stackView.axis == .Horizontal {\n    stackView.axis = .Vertical\n}\nelse {\n    stackView.axis = .Horizontal\n}\n<\/code><\/pre><\/div><\/div><\/figure><p>You can animate both changes to the arranged subview’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622585-ishidden\"><code><span>is<wbr\/>Hidden<\/span><\/code><\/a> property and changes to the stack view’s properties by placing these changes inside an animation block.<\/p><figure id=\"1968144\"><div class=\"formatted-content\"><div class=\"code-listing\"><pre class=\"code-source\" data-language=\"swift\"><code>\/\/ Animates removing the first item in the stack.\nUIView.animateWithDuration(0.25) { () -&gt; Void in\n    let firstView = stackView.arrangedSubviews[0]\n    firstView.isHidden = true\n}\n<\/code><\/pre><\/div><\/div><\/figure><p>Finally, you can define size-class specific values for many of the stack view’s properties directly in Interface Builder. The system automatically animates these changes whenever the stack view’s size class changes.<\/p><\/div>","abstract":"<div><p>A streamlined interface for laying out a collection of views in either a column or a row. <\/p><\/div>","containingGroup":[{"id":2864441,"role":"task","paths":[],"symbols":[{"id":2864442,"role":"collectionGroup","paths":["documentation\/uikit\/views_and_controls\/collection_views"],"hasChildren":true,"abstract":"<div><p>Display nested views using a configurable and highly customizable layout.<\/p><\/div>","title":{"content":"Collection Views"}},{"id":2864443,"role":"collectionGroup","paths":["documentation\/uikit\/views_and_controls\/table_views"],"hasChildren":true,"abstract":"<div><p>Display data in a single column of customizable rows.<\/p><\/div>","title":{"content":"Table Views"}},{"id":1616219,"role":"symbol","usr":"c:objc(cs)UIStackView","name":"UIStackView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIStack<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uistackview"],"title":{"content":"UIStackView"},"abstract":"<div><p>A streamlined interface for laying out a collection of views in either a column or a row. <\/p><\/div>","hasChildren":true},{"id":1619411,"role":"symbol","usr":"c:objc(cs)UIScrollView","name":"UIScrollView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIScroll<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uiscrollview"],"title":{"content":"UIScrollView"},"abstract":"<div><p>A view that allows the scrolling and zooming of its contained views. <\/p><\/div>","hasChildren":true}],"abstract":"<div><p>Organize and present large data sets using container views. <\/p><\/div>","title":{"content":"Container Views"}}],"usr":"c:objc(cs)UIStackView","name":"UIStackView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","current":"12.0","introduced":"9.0"},{"platform":"tvOS","current":"12.0","introduced":"9.0"}],"conformance":[{"id":1623131,"usr":"c:objc(pl)UIAccessibilityIdentification","name":"UIAccessibilityIdentification","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiaccessibilityidentification"],"title":{"content":"UIAccessibilityIdentification"},"platforms":["iOS","tvOS"]},{"id":2882041,"usr":"c:objc(pl)UIPasteConfigurationSupporting","name":"UIPasteConfigurationSupporting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uipasteconfigurationsupporting"],"title":{"content":"UIPasteConfigurationSupporting"},"platforms":["iOS"]},{"id":1641507,"usr":"s:s7CVarArgP","name":"CVarArg","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/cvararg"],"title":{"content":"CVarArg"},"platforms":["iOS","tvOS"]},{"id":2980935,"usr":"c:objc(pl)UIUserActivityRestoring","name":"UIUserActivityRestoring","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiuseractivityrestoring"],"title":{"content":"UIUserActivityRestoring"},"platforms":["iOS","tvOS"]},{"id":1541213,"usr":"s:SQ","name":"Equatable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/equatable"],"title":{"content":"Equatable"},"platforms":["iOS","tvOS"]},{"id":1540942,"usr":"s:SH","name":"Hashable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/hashable"],"title":{"content":"Hashable"},"platforms":["iOS","tvOS"]}],"inheritance":[{"id":1622655,"usr":"c:objc(cs)UIView","name":"UIView","domain":"swift","kind":"cl","role":"symbol","paths":["documentation\/uikit\/uiview"],"title":{"content":"UIView"},"platforms":["iOS","tvOS"]}],"module":[{"title":{"content":"UIKit"},"importStatement":"<div><span class=\"syntax-identifier\">import<\/span> UIKit<\/div>","paths":["documentation\/uikit"],"platforms":["iOS","tvOS"]}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIStack<wbr\/>View<\/span><\/code>","declaration":[{"content":"<span><span class=\"syntax-keyword\">class<\/span> <span class=\"syntax-identifier\">UIStackView<\/span> : <a class=\"symbolref\" href=\"\/documentation\/uikit\/uiview\"><span>UIView<\/span><\/a>\n<\/span>","platforms":["iOS","tvOS"]}],"languages":["occ","swift"],"variants":{"occ":{"paths":["documentation\/uikit\/uistackview"],"usr":"c:objc(cs)UIStackView"},"swift":{"paths":["documentation\/uikit\/uistackview"],"usr":"c:objc(cs)UIStackView"}},"diffAvailability":{"minor":{"change":"modified","platform":"Xcode","versions":["9.4","10.0 beta 6"]},"major":{"change":"modified","platform":"Xcode","versions":["9.0","10.0 beta 6"]}},"pid":201964,"role":"symbol","language":"swift","paths":["documentation\/uikit\/uistackview"],"hierarchy":[[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864393,"role":"collectionGroup","title":{"content":"Views and Controls"},"paths":["documentation\/uikit\/views_and_controls"]}],[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2920810,"role":"collectionGroup","title":{"content":"View Layout"},"paths":["documentation\/uikit\/view_layout"]}]],"legalNotices":{"copyright":"Copyright &copy; 2018 Apple Inc. All rights reserved.","termsOfUse":"https:\/\/www.apple.com\/legal\/internet-services\/terms\/site.html","privacyPolicy":"https:\/\/www.apple.com\/privacy\/privacy-policy"},"tasks":[{"id":1653171,"role":"task","symbols":[{"id":1616240,"role":"symbol","usr":"c:objc(cs)UIStackView(im)initWithArrangedSubviews:","name":"init(arrangedSubviews:)","domain":"swift","kind":"instctr","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"identifier\">init<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">arranged<wbr\/>Subviews<\/span><span class=\"decorator\">: [UIView])<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/1616240-init"],"title":{"content":"init(arrangedSubviews:)"},"abstract":"<div><p>Returns a new stack view object that manages the provided views.<\/p><\/div>"},{"id":2097542,"role":"symbol","usr":"c:objc(cs)UIStackView(im)initWithFrame:","name":"init(frame:)","domain":"swift","kind":"instctr","availability":[{"platform":"iOS","introduced":"10.0"},{"platform":"tvOS","introduced":"10.0"}],"displayName":"<code class=\"display-name\"><span class=\"identifier\">init<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">frame<\/span><span class=\"decorator\">: CGRect)<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/2097542-init"],"title":{"content":"init(frame:)"}},{"id":2097541,"role":"symbol","usr":"c:objc(cs)UIStackView(im)initWithCoder:","name":"init(coder:)","domain":"swift","kind":"instctr","availability":[{"platform":"iOS","introduced":"10.0"},{"platform":"tvOS","introduced":"10.0"}],"displayName":"<code class=\"display-name\"><span class=\"identifier\">init<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">coder<\/span><span class=\"decorator\">: NSCoder)<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/2097541-init"],"title":{"content":"init(coder:)"}}],"title":{"content":"Initializing a Stack View"}},{"id":1653205,"role":"task","symbols":[{"id":1616227,"role":"symbol","usr":"c:objc(cs)UIStackView(im)addArrangedSubview:","name":"addArrangedSubview(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">add<wbr\/>Arranged<wbr\/>Subview<\/span><span class=\"decorator\">(UIView)<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/1616227-addarrangedsubview"],"title":{"content":"addArrangedSubview(_:)"},"abstract":"<div><p>Adds a view to the end of the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uistackview\/1616232-arrangedsubviews\"><code><span>arranged<wbr\/>Subviews<\/span><\/code><\/a> array.<\/p><\/div>"},{"id":1616232,"role":"symbol","usr":"c:objc(cs)UIStackView(py)arrangedSubviews","name":"arrangedSubviews","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">arranged<wbr\/>Subviews<\/span><span class=\"decorator\">: [UIView]<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/1616232-arrangedsubviews"],"title":{"content":"arrangedSubviews"},"abstract":"<div><p>The list of views arranged by the stack view.<\/p><\/div>"},{"id":1616237,"role":"symbol","usr":"c:objc(cs)UIStackView(im)insertArrangedSubview:atIndex:","name":"insertArrangedSubview(_:atIndex:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">insert<wbr\/>Arranged<wbr\/>Subview<\/span><span class=\"decorator\">(UIView, <\/span><span class=\"identifier\">at<\/span><span class=\"decorator\">: Int)<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/1616237-insertarrangedsubview"],"title":{"content":"insertArrangedSubview(_:at:)"},"abstract":"<div><p>Adds the provided view to the array of arranged subviews at the specified index.<\/p><\/div>"},{"id":1616235,"role":"symbol","usr":"c:objc(cs)UIStackView(im)removeArrangedSubview:","name":"removeArrangedSubview(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">remove<wbr\/>Arranged<wbr\/>Subview<\/span><span class=\"decorator\">(UIView)<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/1616235-removearrangedsubview"],"title":{"content":"removeArrangedSubview(_:)"},"abstract":"<div><p>Removes the provided view from the stack’s array of arranged subviews.<\/p><\/div>"}],"title":{"content":"Managing Arranged Subviews"}},{"id":1653276,"role":"task","symbols":[{"id":1616243,"role":"symbol","usr":"c:objc(cs)UIStackView(py)alignment","name":"alignment","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">alignment<\/span><span class=\"decorator\">: UIStack<wbr\/>View<wbr\/>.Alignment<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/1616243-alignment"],"title":{"content":"alignment"},"abstract":"<div><p>The alignment of the arranged subviews perpendicular to the stack view’s axis.<\/p><\/div>"},{"id":1616223,"role":"symbol","usr":"c:objc(cs)UIStackView(py)axis","name":"axis","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">axis<\/span><span class=\"decorator\">: NSLayout<wbr\/>Constraint<wbr\/>.Axis<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/1616223-axis"],"title":{"content":"axis"},"abstract":"<div><p>The axis along which the arranged views are laid out.<\/p><\/div>"},{"id":1616224,"role":"symbol","usr":"c:objc(cs)UIStackView(py)baselineRelativeArrangement","name":"baselineRelativeArrangement","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Baseline<wbr\/>Relative<wbr\/>Arrangement<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/1616224-isbaselinerelativearrangement"],"title":{"content":"isBaselineRelativeArrangement"},"abstract":"<div><p>A Boolean value that determines whether the vertical spacing between views is measured from their baselines. <\/p><\/div>"},{"id":1616233,"role":"symbol","usr":"c:objc(cs)UIStackView(py)distribution","name":"distribution","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">distribution<\/span><span class=\"decorator\">: UIStack<wbr\/>View<wbr\/>.Distribution<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/1616233-distribution"],"title":{"content":"distribution"},"abstract":"<div><p>The distribution of the arranged views along the stack view’s axis.<\/p><\/div>"},{"id":1616220,"role":"symbol","usr":"c:objc(cs)UIStackView(py)layoutMarginsRelativeArrangement","name":"layoutMarginsRelativeArrangement","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Layout<wbr\/>Margins<wbr\/>Relative<wbr\/>Arrangement<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/1616220-islayoutmarginsrelativearrangeme"],"title":{"content":"isLayoutMarginsRelativeArrangement"},"abstract":"<div><p>A Boolean value that determines whether the stack view lays out its arranged views relative to its layout margins.<\/p><\/div>"},{"id":1616225,"role":"symbol","usr":"c:objc(cs)UIStackView(py)spacing","name":"spacing","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">spacing<\/span><span class=\"decorator\">: CGFloat<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/1616225-spacing"],"title":{"content":"spacing"},"abstract":"<div><p>The distance in points between the adjacent edges of the stack view’s arranged views.<\/p><\/div>"}],"title":{"content":"Configuring The Layout"}},{"id":2868585,"role":"task","symbols":[{"id":2865827,"role":"symbol","usr":"c:objc(cs)UIStackView(im)customSpacingAfterView:","name":"customSpacing(after:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">custom<wbr\/>Spacing<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">after<\/span><span class=\"decorator\">: UIView) -&gt; CGFloat<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/2865827-customspacing"],"title":{"content":"customSpacing(after:)"},"abstract":"<div><p>Returns the custom spacing after the specified view. <\/p><\/div>"},{"id":2866023,"role":"symbol","usr":"c:objc(cs)UIStackView(im)setCustomSpacing:afterView:","name":"setCustomSpacing(_:after:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Custom<wbr\/>Spacing<\/span><span class=\"decorator\">(CGFloat, <\/span><span class=\"identifier\">after<\/span><span class=\"decorator\">: UIView)<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/2866023-setcustomspacing"],"title":{"content":"setCustomSpacing(_:after:)"},"abstract":"<div><p>Applies custom spacing after the specified view.<\/p><\/div>"},{"id":2866085,"role":"symbol","usr":"c:@UIStackViewSpacingUseDefault","name":"spacingUseDefault","domain":"swift","kind":"cldata","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class let <\/span><span class=\"identifier\">spacing<wbr\/>Use<wbr\/>Default<\/span><span class=\"decorator\">: CGFloat<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/2866085-spacingusedefault"],"title":{"content":"spacingUseDefault"},"abstract":"<div><p>The default spacing for subviews within a stack view.<\/p><\/div>"},{"id":2866021,"role":"symbol","usr":"c:@UIStackViewSpacingUseSystem","name":"spacingUseSystem","domain":"swift","kind":"cldata","availability":[{"platform":"iOS","introduced":"11.0"},{"platform":"tvOS","introduced":"11.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class let <\/span><span class=\"identifier\">spacing<wbr\/>Use<wbr\/>System<\/span><span class=\"decorator\">: CGFloat<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/2866021-spacingusesystem"],"title":{"content":"spacingUseSystem"},"abstract":"<div><p>The system-defined spacing to the neighboring view.<\/p><\/div>"}],"title":{"content":"Adding Space Between Items"}},{"id":1681777,"role":"task","symbols":[{"id":1616229,"role":"symbol","usr":"c:@E@UIStackViewDistribution","name":"UIStackViewDistribution","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIStack<wbr\/>View<wbr\/>.Distribution<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/distribution"],"title":{"content":"UIStackView.Distribution"},"abstract":"<div><p>The layout that defines the size and position of the arranged views along the stack view’s axis.<\/p><\/div>","hasChildren":true},{"id":1616221,"role":"symbol","usr":"c:@E@UIStackViewAlignment","name":"UIStackViewAlignment","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIStack<wbr\/>View<wbr\/>.Alignment<\/span><\/code>","paths":["documentation\/uikit\/uistackview\/alignment"],"title":{"content":"UIStackView.Alignment"},"abstract":"<div><p>The layout of arranged views perpendicular to the stack view’s axis.<\/p><\/div>","hasChildren":true}],"title":{"content":"Constants"}}]}</script>
+  <script src="/documentation/__assets/TopicDetail-018c52ac.js"></script>
+ </body>
+</html>

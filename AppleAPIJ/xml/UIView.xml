@@ -1,0 +1,872 @@
+<api>
+ <title>UIView</title>
+ <description>An object that manages the content for a rectangular area on the screen.</description>
+ <overview>
+ <description>Views are the fundamental building blocks of your app&amp;apos;s user interface, and the UIView class defines the behaviors that are common to all views. A view object renders content within its bounds rectangle and handles any interactions with that content. The UIView class is a concrete class that you can instantiate and use to display a fixed background color. You can also subclass it to draw more sophisticated content. To display labels, images, buttons, and other interface elements commonly found in apps, use the view subclasses provided by the UIKit framework rather than trying to define your own.</description>
+ <sub_overview>
+ <name>Creating a View</name>
+ <description>Normally, you create views in your storyboards by dragging them from the library to your canvas. You can also create views programmatically. When creating a view, you typically specify its initial size and position relative to its future superview. For example, the following example creates a view and places its top-left corner at the point (10, 10) in the superview&amp;apos;s coordinate system (once it is added to that superview). let rect = CGRect(x: 10, y: 10, width: 100, height: 100)
+let myView = UIView(frame: rect)
+ To add a subview to another view, call the addSubview(_:) method on the superview. You may add any number of subviews to a view, and sibling views may overlap each other without any issues in iOS. Each call to the addSubview(_:) method places the new view on top of all other siblings. You can specify the relative z-order of subview by adding it using the insertSubview(_:aboveSubview:) and insertSubview(_:belowSubview:) methods. You can also exchange the position of already added subviews using the exchangeSubview(at:withSubviewAt:) method. After creating a view, create Auto Layout rules to govern how the size and position of the view change in response to changes in the rest of the view hierarchy. For more information, see Auto Layout Guide.</description>
+ </sub_overview>
+ <sub_overview>
+ <name>The View Drawing Cycle</name>
+ <description>View drawing occurs on an as-needed basis. When a view is first shown, or when all or part of it becomes visible due to layout changes, the system asks the view to draw its contents. For views that contain custom content using UIKit or Core Graphics, the system calls the view’s draw(_:) method. Your implementation of this method is responsible for drawing the view’s content into the current graphics context, which is set up by the system automatically prior to calling this method. This creates a static visual representation of your view’s content that can then be displayed on the screen. When the actual content of your view changes, it is your responsibility to notify the system that your view needs to be redrawn. You do this by calling your view’s setNeedsDisplay() or setNeedsDisplay(_:) method of the view. These methods let the system know that it should update the view during the next drawing cycle. Because it waits until the next drawing cycle to update the view, you can call these methods on multiple views to update them at the same time. Note If you are using OpenGL ES to do your drawing, you should use the GLKView class instead of subclassing UIView. For more information about how to draw using OpenGL ES, see OpenGL ES Programming Guide. For detailed information about the view drawing cycle and the role your views have in this cycle, see View Programming Guide for iOS.</description>
+ </sub_overview>
+ <sub_overview>
+ <name>Animations</name>
+ <description>Changes to several view properties can be animated—that is, changing the property creates an animation starting at the current value and ending at the new value that you specify. The following properties of the UIView class are animatable: frame bounds center transform alpha backgroundColor To animate your changes, create a UIViewPropertyAnimator object and use its handler block to change the values of your view&amp;apos;s properties. The UIViewPropertyAnimator class lets you specify the duration and timing of your animations, but it performs the actual animations. You can pause a property-based animator that is currently running to interrupt the animation and drive it interactively. For more information, see UIViewPropertyAnimator.</description>
+ </sub_overview>
+ <sub_overview>
+ <name>Threading Considerations</name>
+ <description>Manipulations to your application’s user interface must occur on the main thread. Thus, you should always call the methods of the UIView class from code running in the main thread of your application. The only time this may not be strictly necessary is when creating the view object itself, but all other manipulations should occur on the main thread.</description>
+ </sub_overview>
+ <sub_overview>
+ <name>Subclassing Notes</name>
+ <description>The UIView class is a key subclassing point for visual content that also requires user interactions. Although there are many good reasons to subclass UIView, it is recommended that you do so only when the basic UIView class or the standard system views do not provide the capabilities that you need. Subclassing requires more work on your part to implement the view and to tune its performance. For information about ways to avoid subclassing, see Alternatives to Subclassing.</description>
+ </sub_overview>
+ </overview>
+ <topics>
+ <topic>
+ <title>Creating a View Object</title>
+ <method>
+ <name>init(frame: CGRect)</name>
+ <description>Initializes and returns a newly allocated view object with the specified frame rectangle.</description>
+ </method>
+ <method>
+ <name>init?(coder: NSCoder)</name>
+ </method>
+ </topic>
+ <topic>
+ <title>Configuring a View’s Visual Appearance</title>
+ <method>
+ <name>var backgroundColor: UIColor?</name>
+ <description>The view’s background color.</description>
+ </method>
+ <method>
+ <name>var isHidden: Bool</name>
+ <description>A Boolean value that determines whether the view is hidden.</description>
+ </method>
+ <method>
+ <name>var alpha: CGFloat</name>
+ <description>The view’s alpha value.</description>
+ </method>
+ <method>
+ <name>var isOpaque: Bool</name>
+ <description>A Boolean value that determines whether the view is opaque.</description>
+ </method>
+ <method>
+ <name>var tintColor: UIColor!</name>
+ <description>The first nondefault tint color value in the view’s hierarchy, ascending from and starting with the view itself.</description>
+ </method>
+ <method>
+ <name>var tintAdjustmentMode: UIView.TintAdjustmentMode</name>
+ <description>The first non-default tint adjustment mode value in the view’s hierarchy, ascending from and starting with the view itself.</description>
+ </method>
+ <method>
+ <name>var clipsToBounds: Bool</name>
+ <description>A Boolean value that determines whether subviews are confined to the bounds of the view.</description>
+ </method>
+ <method>
+ <name>var clearsContextBeforeDrawing: Bool</name>
+ <description>A Boolean value that determines whether the view’s bounds should be automatically cleared before drawing.</description>
+ </method>
+ <method>
+ <name>var mask: UIView?</name>
+ <description>An optional view whose alpha channel is used to mask a view’s content.</description>
+ </method>
+ <method>
+ <name>class var layerClass: AnyClass</name>
+ <description>Returns the class used to create the layer for instances of this class.</description>
+ </method>
+ <method>
+ <name>var layer: CALayer</name>
+ <description>The view’s Core Animation layer used for rendering.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Configuring the Event-Related Behavior</title>
+ <method>
+ <name>var isUserInteractionEnabled: Bool</name>
+ <description>A Boolean value that determines whether user events are ignored and removed from the event queue.</description>
+ </method>
+ <method>
+ <name>var isMultipleTouchEnabled: Bool</name>
+ <description>A Boolean value that indicates whether the view receives more than one touch at a time.</description>
+ </method>
+ <method>
+ <name>var isExclusiveTouch: Bool</name>
+ <description>A Boolean value that indicates whether the receiver handles touch events exclusively.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Configuring the Bounds and Frame Rectangles</title>
+ <method>
+ <name>var frame: CGRect</name>
+ <description>The frame rectangle, which describes the view’s location and size in its superview’s coordinate system.</description>
+ </method>
+ <method>
+ <name>var bounds: CGRect</name>
+ <description>The bounds rectangle, which describes the view’s location and size in its own coordinate system.</description>
+ </method>
+ <method>
+ <name>var center: CGPoint</name>
+ <description>The center point of the view&amp;apos;s frame rectangle.</description>
+ </method>
+ <method>
+ <name>var transform: CGAffineTransform</name>
+ <description>Specifies the transform applied to the view, relative to the center of its bounds.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing the View Hierarchy</title>
+ <method>
+ <name>var superview: UIView?</name>
+ <description>The receiver’s superview, or nil if it has none.</description>
+ </method>
+ <method>
+ <name>var subviews: [UIView]</name>
+ <description>The receiver’s immediate subviews.</description>
+ </method>
+ <method>
+ <name>var window: UIWindow?</name>
+ <description>The receiver’s window object, or nil if it has none.</description>
+ </method>
+ <method>
+ <name>func addSubview(UIView)</name>
+ <description>Adds a view to the end of the receiver’s list of subviews.</description>
+ </method>
+ <method>
+ <name>func bringSubviewToFront(UIView)</name>
+ <description>Moves the specified subview so that it appears on top of its siblings.</description>
+ </method>
+ <method>
+ <name>func sendSubviewToBack(UIView)</name>
+ <description>Moves the specified subview so that it appears behind its siblings.</description>
+ </method>
+ <method>
+ <name>func removeFromSuperview()</name>
+ <description>Unlinks the view from its superview and its window, and removes it from the responder chain.</description>
+ </method>
+ <method>
+ <name>func insertSubview(UIView, at: Int)</name>
+ <description>Inserts a subview at the specified index.</description>
+ </method>
+ <method>
+ <name>func insertSubview(UIView, aboveSubview: UIView)</name>
+ <description>Inserts a view above another view in the view hierarchy.</description>
+ </method>
+ <method>
+ <name>func insertSubview(UIView, belowSubview: UIView)</name>
+ <description>Inserts a view below another view in the view hierarchy.</description>
+ </method>
+ <method>
+ <name>func exchangeSubview(at: Int, withSubviewAt: Int)</name>
+ <description>Exchanges the subviews at the specified indices.</description>
+ </method>
+ <method>
+ <name>func isDescendant(of: UIView) -&amp;gt; Bool</name>
+ <description>Returns a Boolean value indicating whether the receiver is a subview of a given view or identical to that view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Observing View-Related Changes</title>
+ <method>
+ <name>func didAddSubview(UIView)</name>
+ <description>Tells the view that a subview was added.</description>
+ </method>
+ <method>
+ <name>func willRemoveSubview(UIView)</name>
+ <description>Tells the view that a subview is about to be removed.</description>
+ </method>
+ <method>
+ <name>func willMove(toSuperview: UIView?)</name>
+ <description>Tells the view that its superview is about to change to the specified superview.</description>
+ </method>
+ <method>
+ <name>func didMoveToSuperview()</name>
+ <description>Tells the view that its superview changed.</description>
+ </method>
+ <method>
+ <name>func willMove(toWindow: UIWindow?)</name>
+ <description>Tells the view that its window object is about to change.</description>
+ </method>
+ <method>
+ <name>func didMoveToWindow()</name>
+ <description>Tells the view that its window object changed.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Configuring Content Margins</title>
+ <method>
+ <name>Article Positioning Content Within Layout Margins</name>
+ <description>Position views so that they are not crowded by other content.</description>
+ </method>
+ <method>
+ <name>var directionalLayoutMargins: NSDirectionalEdgeInsets</name>
+ <description>The default spacing to use when laying out content in a view, taking into account the current language direction.</description>
+ </method>
+ <method>
+ <name>var layoutMargins: UIEdgeInsets</name>
+ <description>The default spacing to use when laying out content in the view.</description>
+ </method>
+ <method>
+ <name>var preservesSuperviewLayoutMargins: Bool</name>
+ <description>A Boolean value indicating whether the current view also respects the margins of its superview.</description>
+ </method>
+ <method>
+ <name>func layoutMarginsDidChange()</name>
+ <description>Notifies the view that the layout margins changed.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Getting the Safe Area</title>
+ <method>
+ <name>Article Positioning Content Relative to the Safe Area</name>
+ <description>Position views so that they are not obstructed by other content.</description>
+ </method>
+ <method>
+ <name>var safeAreaInsets: UIEdgeInsets</name>
+ <description>The insets that you use to determine the safe area for this view.</description>
+ </method>
+ <method>
+ <name>var safeAreaLayoutGuide: UILayoutGuide</name>
+ <description>The layout guide representing the portion of your view that is unobscured by bars and other content.</description>
+ </method>
+ <method>
+ <name>func safeAreaInsetsDidChange()</name>
+ <description>Called when the safe area of the view changes.</description>
+ </method>
+ <method>
+ <name>var insetsLayoutMarginsFromSafeArea: Bool</name>
+ <description>A Boolean value indicating whether the view&amp;apos;s layout margins are updated automatically to reflect the safe area.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing the View’s Constraints</title>
+ <method>
+ <name>var constraints: [NSLayoutConstraint]</name>
+ <description>The constraints held by the view.</description>
+ </method>
+ <method>
+ <name>func addConstraint(NSLayoutConstraint)</name>
+ <description>Adds a constraint on the layout of the receiving view or its subviews.</description>
+ </method>
+ <method>
+ <name>func addConstraints([NSLayoutConstraint])</name>
+ <description>Adds multiple constraints on the layout of the receiving view or its subviews.</description>
+ </method>
+ <method>
+ <name>func removeConstraint(NSLayoutConstraint)</name>
+ <description>Removes the specified constraint from the view.</description>
+ </method>
+ <method>
+ <name>func removeConstraints([NSLayoutConstraint])</name>
+ <description>Removes the specified constraints from the view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Creating Constraints Using Layout Anchors</title>
+ <method>
+ <name>var bottomAnchor: NSLayoutYAxisAnchor</name>
+ <description>A layout anchor representing the bottom edge of the view’s frame.</description>
+ </method>
+ <method>
+ <name>var centerXAnchor: NSLayoutXAxisAnchor</name>
+ <description>A layout anchor representing the horizontal center of the view’s frame.</description>
+ </method>
+ <method>
+ <name>var centerYAnchor: NSLayoutYAxisAnchor</name>
+ <description>A layout anchor representing the vertical center of the view’s frame.</description>
+ </method>
+ <method>
+ <name>var firstBaselineAnchor: NSLayoutYAxisAnchor</name>
+ <description>A layout anchor representing the baseline for the topmost line of text in the view.</description>
+ </method>
+ <method>
+ <name>var heightAnchor: NSLayoutDimension</name>
+ <description>A layout anchor representing the height of the view’s frame.</description>
+ </method>
+ <method>
+ <name>var lastBaselineAnchor: NSLayoutYAxisAnchor</name>
+ <description>A layout anchor representing the baseline for the bottommost line of text in the view.</description>
+ </method>
+ <method>
+ <name>var leadingAnchor: NSLayoutXAxisAnchor</name>
+ <description>A layout anchor representing the leading edge of the view’s frame.</description>
+ </method>
+ <method>
+ <name>var leftAnchor: NSLayoutXAxisAnchor</name>
+ <description>A layout anchor representing the left edge of the view’s frame.</description>
+ </method>
+ <method>
+ <name>var rightAnchor: NSLayoutXAxisAnchor</name>
+ <description>A layout anchor representing the right edge of the view’s frame.</description>
+ </method>
+ <method>
+ <name>var topAnchor: NSLayoutYAxisAnchor</name>
+ <description>A layout anchor representing the top edge of the view’s frame.</description>
+ </method>
+ <method>
+ <name>var trailingAnchor: NSLayoutXAxisAnchor</name>
+ <description>A layout anchor representing the trailing edge of the view’s frame.</description>
+ </method>
+ <method>
+ <name>var widthAnchor: NSLayoutDimension</name>
+ <description>A layout anchor representing the width of the view’s frame.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Working with Layout Guides</title>
+ <method>
+ <name>func addLayoutGuide(UILayoutGuide)</name>
+ <description>Adds the specified layout guide to the view.</description>
+ </method>
+ <method>
+ <name>var layoutGuides: [UILayoutGuide]</name>
+ <description>The array of layout guide objects owned by this view.</description>
+ </method>
+ <method>
+ <name>var layoutMarginsGuide: UILayoutGuide</name>
+ <description>A layout guide representing the view’s margins.</description>
+ </method>
+ <method>
+ <name>var readableContentGuide: UILayoutGuide</name>
+ <description>A layout guide representing an area with a readable width within the view.</description>
+ </method>
+ <method>
+ <name>func removeLayoutGuide(UILayoutGuide)</name>
+ <description>Removes the specified layout guide from the view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Measuring in Auto Layout</title>
+ <method>
+ <name>func systemLayoutSizeFitting(CGSize) -&amp;gt; CGSize</name>
+ <description>Returns the optimal size of the view based on its current constraints.</description>
+ </method>
+ <method>
+ <name>func systemLayoutSizeFitting(CGSize, withHorizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -&amp;gt; CGSize</name>
+ <description>Returns the optimal size of the view based on its constraints and the specified fitting priorities.</description>
+ </method>
+ <method>
+ <name>var intrinsicContentSize: CGSize</name>
+ <description>The natural size for the receiving view, considering only properties of the view itself.</description>
+ </method>
+ <method>
+ <name>func invalidateIntrinsicContentSize()</name>
+ <description>Invalidates the view’s intrinsic content size.</description>
+ </method>
+ <method>
+ <name>func contentCompressionResistancePriority(for: NSLayoutConstraint.Axis) -&amp;gt; UILayoutPriority</name>
+ <description>Returns the priority with which a view resists being made smaller than its intrinsic size.</description>
+ </method>
+ <method>
+ <name>func setContentCompressionResistancePriority(UILayoutPriority, for: NSLayoutConstraint.Axis)</name>
+ <description>Sets the priority with which a view resists being made smaller than its intrinsic size.</description>
+ </method>
+ <method>
+ <name>func contentHuggingPriority(for: NSLayoutConstraint.Axis) -&amp;gt; UILayoutPriority</name>
+ <description>Returns the priority with which a view resists being made larger than its intrinsic size.</description>
+ </method>
+ <method>
+ <name>func setContentHuggingPriority(UILayoutPriority, for: NSLayoutConstraint.Axis)</name>
+ <description>Sets the priority with which a view resists being made larger than its intrinsic size.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Aligning Views in Auto Layout</title>
+ <method>
+ <name>func alignmentRect(forFrame: CGRect) -&amp;gt; CGRect</name>
+ <description>Returns the view’s alignment rectangle for a given frame.</description>
+ </method>
+ <method>
+ <name>func frame(forAlignmentRect: CGRect) -&amp;gt; CGRect</name>
+ <description>Returns the view’s frame for a given alignment rectangle.</description>
+ </method>
+ <method>
+ <name>var alignmentRectInsets: UIEdgeInsets</name>
+ <description>The insets from the view’s frame that define its alignment rectangle.</description>
+ </method>
+ <method>
+ <name>func forBaselineLayout() -&amp;gt; UIView</name>
+ <description>Returns a view used to satisfy baseline constraints.</description>
+ </method>
+ <method>
+ <name>var forFirstBaselineLayout: UIView</name>
+ <description>Returns a view used to satisfy first baseline constraints.</description>
+ </method>
+ <method>
+ <name>var forLastBaselineLayout: UIView</name>
+ <description>Returns a view used to satisfy last baseline constraints.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Triggering Auto Layout</title>
+ <method>
+ <name>func needsUpdateConstraints() -&amp;gt; Bool</name>
+ <description>A Boolean value that determines whether the view’s constraints need updating.</description>
+ </method>
+ <method>
+ <name>func setNeedsUpdateConstraints()</name>
+ <description>Controls whether the view’s constraints need updating.</description>
+ </method>
+ <method>
+ <name>func updateConstraints()</name>
+ <description>Updates constraints for the view.</description>
+ </method>
+ <method>
+ <name>func updateConstraintsIfNeeded()</name>
+ <description>Updates the constraints for the receiving view and its subviews.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Debugging Auto Layout</title>
+ <method>
+ <name>func constraintsAffectingLayout(for: NSLayoutConstraint.Axis) -&amp;gt; [NSLayoutConstraint]</name>
+ <description>Returns the constraints impacting the layout of the view for a given axis.</description>
+ </method>
+ <method>
+ <name>var hasAmbiguousLayout: Bool</name>
+ <description>A Boolean value that determines whether the constraints impacting the layout of the view incompletely specify the location of the view.</description>
+ </method>
+ <method>
+ <name>func exerciseAmbiguityInLayout()</name>
+ <description>Randomly changes the frame of a view with an ambiguous layout between the different valid values.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Configuring the Resizing Behavior</title>
+ <method>
+ <name>var contentMode: UIView.ContentMode</name>
+ <description>A flag used to determine how a view lays out its content when its bounds change.</description>
+ </method>
+ <method>
+ <name>enum UIView.ContentMode</name>
+ <description>Options to specify how a view adjusts its content when its size changes.</description>
+ </method>
+ <method>
+ <name>func sizeThatFits(CGSize) -&amp;gt; CGSize</name>
+ <description>Asks the view to calculate and return the size that best fits the specified size.</description>
+ </method>
+ <method>
+ <name>func sizeToFit()</name>
+ <description>Resizes and moves the receiver view so it just encloses its subviews.</description>
+ </method>
+ <method>
+ <name>var autoresizesSubviews: Bool</name>
+ <description>A Boolean value that determines whether the receiver automatically resizes its subviews when its bounds change.</description>
+ </method>
+ <method>
+ <name>var autoresizingMask: UIView.AutoresizingMask</name>
+ <description>An integer bit mask that determines how the receiver resizes itself when its superview’s bounds change.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Laying out Subviews</title>
+ <method>
+ <name>func layoutSubviews()</name>
+ <description>Lays out subviews.</description>
+ </method>
+ <method>
+ <name>func setNeedsLayout()</name>
+ <description>Invalidates the current layout of the receiver and triggers a layout update during the next update cycle.</description>
+ </method>
+ <method>
+ <name>func layoutIfNeeded()</name>
+ <description>Lays out the subviews immediately, if layout updates are pending.</description>
+ </method>
+ <method>
+ <name>class var requiresConstraintBasedLayout: Bool</name>
+ <description>A Boolean value that indicates whether the receiver depends on the constraint-based layout system.</description>
+ </method>
+ <method>
+ <name>var translatesAutoresizingMaskIntoConstraints: Bool</name>
+ <description>A Boolean value that determines whether the view’s autoresizing mask is translated into Auto Layout constraints.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing the User Interface Direction</title>
+ <method>
+ <name>var semanticContentAttribute: UISemanticContentAttribute</name>
+ <description>A semantic description of the view’s contents, used to determine whether the view should be flipped when switching between left-to-right and right-to-left layouts.</description>
+ </method>
+ <method>
+ <name>var effectiveUserInterfaceLayoutDirection: UIUserInterfaceLayoutDirection</name>
+ <description>The user interface layout direction appropriate for arranging the immediate content of the view.</description>
+ </method>
+ <method>
+ <name>class func userInterfaceLayoutDirection(for: UISemanticContentAttribute) -&amp;gt; UIUserInterfaceLayoutDirection</name>
+ <description>Returns the user interface direction for the given semantic content attribute.</description>
+ </method>
+ <method>
+ <name>class func userInterfaceLayoutDirection(for: UISemanticContentAttribute, relativeTo: UIUserInterfaceLayoutDirection) -&amp;gt; UIUserInterfaceLayoutDirection</name>
+ <description>Returns the layout direction implied by the specified semantic content attribute, relative to the specified layout direction.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Supporting Drag and Drop Interactions</title>
+ <method>
+ <name>func addInteraction(UIInteraction)</name>
+ <description>Adds the specified drag, drop, or spring-loaded interaction to the view.</description>
+ </method>
+ <method>
+ <name>func removeInteraction(UIInteraction)</name>
+ <description>Removes the specified drag, drop, or spring-loaded interaction from the view.</description>
+ </method>
+ <method>
+ <name>var interactions: [UIInteraction]</name>
+ <description>The array of interactions for the view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Drawing and Updating the View</title>
+ <method>
+ <name>func draw(CGRect)</name>
+ <description>Draws the receiver’s image within the passed-in rectangle.</description>
+ </method>
+ <method>
+ <name>func setNeedsDisplay()</name>
+ <description>Marks the receiver’s entire bounds rectangle as needing to be redrawn.</description>
+ </method>
+ <method>
+ <name>func setNeedsDisplay(CGRect)</name>
+ <description>Marks the specified rectangle of the receiver as needing to be redrawn.</description>
+ </method>
+ <method>
+ <name>var contentScaleFactor: CGFloat</name>
+ <description>The scale factor applied to the view.</description>
+ </method>
+ <method>
+ <name>func tintColorDidChange()</name>
+ <description>Called by the system when the tintColor property changes.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Formatting Printed View Content</title>
+ <method>
+ <name>func viewPrintFormatter() -&amp;gt; UIViewPrintFormatter</name>
+ <description>Returns a print formatter for the receiving view.</description>
+ </method>
+ <method>
+ <name>func draw(CGRect, for: UIViewPrintFormatter)</name>
+ <description>Implemented to draw the view’s content for printing.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing Gesture Recognizers</title>
+ <method>
+ <name>func addGestureRecognizer(UIGestureRecognizer)</name>
+ <description>Attaches a gesture recognizer to the view.</description>
+ </method>
+ <method>
+ <name>func removeGestureRecognizer(UIGestureRecognizer)</name>
+ <description>Detaches a gesture recognizer from the receiving view.</description>
+ </method>
+ <method>
+ <name>var gestureRecognizers: [UIGestureRecognizer]?</name>
+ <description>The gesture-recognizer objects currently attached to the view.</description>
+ </method>
+ <method>
+ <name>func gestureRecognizerShouldBegin(UIGestureRecognizer) -&amp;gt; Bool</name>
+ <description>Asks the view if the gesture recognizer should be allowed to continue tracking touch events.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Observing Focus</title>
+ <method>
+ <name>var canBecomeFocused: Bool</name>
+ <description>A Boolean value that indicates whether the view is currently capable of being focused.</description>
+ </method>
+ <method>
+ <name>class var inheritedAnimationDuration: TimeInterval</name>
+ <description>Returns the inherited duration of the current animation.</description>
+ </method>
+ <method>
+ <name>var isFocused: Bool</name>
+ <description>A Boolean value that indicates whether the item is currently focused.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Using Motion Effects</title>
+ <method>
+ <name>func addMotionEffect(UIMotionEffect)</name>
+ <description>Begins applying a motion effect to the view.</description>
+ </method>
+ <method>
+ <name>var motionEffects: [UIMotionEffect]</name>
+ <description>The array of motion effects for the view.</description>
+ </method>
+ <method>
+ <name>func removeMotionEffect(UIMotionEffect)</name>
+ <description>Stops applying a motion effect to the view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Preserving and Restoring State</title>
+ <method>
+ <name>var restorationIdentifier: String?</name>
+ <description>The identifier that determines whether the view supports state restoration.</description>
+ </method>
+ <method>
+ <name>func encodeRestorableState(with: NSCoder)</name>
+ <description>Encodes state-related information for the view.</description>
+ </method>
+ <method>
+ <name>func decodeRestorableState(with: NSCoder)</name>
+ <description>Decodes and restores state-related information for the view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Capturing a View Snapshot</title>
+ <method>
+ <name>func snapshotView(afterScreenUpdates: Bool) -&amp;gt; UIView?</name>
+ <description>Returns a snapshot view based on the contents of the current view.</description>
+ </method>
+ <method>
+ <name>func resizableSnapshotView(from: CGRect, afterScreenUpdates: Bool, withCapInsets: UIEdgeInsets) -&amp;gt; UIView?</name>
+ <description>Returns a snapshot view based on the specified contents of the current view, with stretchable insets.</description>
+ </method>
+ <method>
+ <name>func drawHierarchy(in: CGRect, afterScreenUpdates: Bool) -&amp;gt; Bool</name>
+ <description>Renders a snapshot of the complete view hierarchy as visible onscreen into the current context.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Identifying the View at Runtime</title>
+ <method>
+ <name>var tag: Int</name>
+ <description>An integer that you can use to identify view objects in your application.</description>
+ </method>
+ <method>
+ <name>func viewWithTag(Int) -&amp;gt; UIView?</name>
+ <description>Returns the view whose tag matches the specified value.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Converting Between View Coordinate Systems</title>
+ <method>
+ <name>func convert(CGPoint, to: UIView?) -&amp;gt; CGPoint</name>
+ <description>Converts a point from the receiver’s coordinate system to that of the specified view.</description>
+ </method>
+ <method>
+ <name>func convert(CGPoint, from: UIView?) -&amp;gt; CGPoint</name>
+ <description>Converts a point from the coordinate system of a given view to that of the receiver.</description>
+ </method>
+ <method>
+ <name>func convert(CGRect, to: UIView?) -&amp;gt; CGRect</name>
+ <description>Converts a rectangle from the receiver’s coordinate system to that of another view.</description>
+ </method>
+ <method>
+ <name>func convert(CGRect, from: UIView?) -&amp;gt; CGRect</name>
+ <description>Converts a rectangle from the coordinate system of another view to that of the receiver.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Hit Testing in a View</title>
+ <method>
+ <name>func hitTest(CGPoint, with: UIEvent?) -&amp;gt; UIView?</name>
+ <description>Returns the farthest descendant of the receiver in the view hierarchy (including itself) that contains a specified point.</description>
+ </method>
+ <method>
+ <name>func point(inside: CGPoint, with: UIEvent?) -&amp;gt; Bool</name>
+ <description>Returns a Boolean value indicating whether the receiver contains the specified point.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Ending a View Editing Session</title>
+ <method>
+ <name>func endEditing(Bool) -&amp;gt; Bool</name>
+ <description>Causes the view (or one of its embedded text fields) to resign the first responder status.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Modifying the Accessibility Behavior</title>
+ <method>
+ <name>var accessibilityIgnoresInvertColors: Bool</name>
+ <description>A Boolean value indicating whether the view ignores an accessibility request to invert its colors.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Animating Views with Block Objects</title>
+ <method>
+ <name>class func animate(withDuration: TimeInterval, delay: TimeInterval, options: UIView.AnimationOptions = [], animations: () -&amp;gt; Void, completion: ((Bool) -&amp;gt; Void)? = nil)</name>
+ <description>Animate changes to one or more views using the specified duration, delay, options, and completion handler.</description>
+ </method>
+ <method>
+ <name>class func animate(withDuration: TimeInterval, animations: () -&amp;gt; Void, completion: ((Bool) -&amp;gt; Void)? = nil)</name>
+ <description>Animate changes to one or more views using the specified duration and completion handler.</description>
+ </method>
+ <method>
+ <name>class func animate(withDuration: TimeInterval, animations: () -&amp;gt; Void)</name>
+ <description>Animate changes to one or more views using the specified duration.</description>
+ </method>
+ <method>
+ <name>class func transition(with: UIView, duration: TimeInterval, options: UIView.AnimationOptions = [], animations: (() -&amp;gt; Void)?, completion: ((Bool) -&amp;gt; Void)? = nil)</name>
+ <description>Creates a transition animation for the specified container view.</description>
+ </method>
+ <method>
+ <name>class func transition(from: UIView, to: UIView, duration: TimeInterval, options: UIView.AnimationOptions = [], completion: ((Bool) -&amp;gt; Void)? = nil)</name>
+ <description>Creates a transition animation between the specified views using the given parameters.</description>
+ </method>
+ <method>
+ <name>class func animateKeyframes(withDuration: TimeInterval, delay: TimeInterval, options: UIView.KeyframeAnimationOptions = [], animations: () -&amp;gt; Void, completion: ((Bool) -&amp;gt; Void)? = nil)</name>
+ <description>Creates an animation block object that can be used to set up keyframe-based animations for the current view.</description>
+ </method>
+ <method>
+ <name>class func addKeyframe(withRelativeStartTime: Double, relativeDuration: Double, animations: () -&amp;gt; Void)</name>
+ <description>Specifies the timing and animation values for a single frame of a keyframe animation.</description>
+ </method>
+ <method>
+ <name>class func perform(UIView.SystemAnimation, on: [UIView], options: UIView.AnimationOptions = [], animations: (() -&amp;gt; Void)?, completion: ((Bool) -&amp;gt; Void)? = nil)</name>
+ <description>Performs a specified system-provided animation on one or more views, along with optional parallel animations that you define.</description>
+ </method>
+ <method>
+ <name>class func animate(withDuration: TimeInterval, delay: TimeInterval, usingSpringWithDamping: CGFloat, initialSpringVelocity: CGFloat, options: UIView.AnimationOptions = [], animations: () -&amp;gt; Void, completion: ((Bool) -&amp;gt; Void)? = nil)</name>
+ <description>Performs a view animation using a timing curve corresponding to the motion of a physical spring.</description>
+ </method>
+ <method>
+ <name>class func performWithoutAnimation(() -&amp;gt; Void)</name>
+ <description>Disables a view transition animation.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Animating Views</title>
+ <method>
+ <name>class func beginAnimations(String?, context: UnsafeMutableRawPointer?)</name>
+ <description>Marks the beginning of a begin/commit animation block.</description>
+ </method>
+ <method>
+ <name>class func commitAnimations()</name>
+ <description>Marks the end of a begin/commit animation block and schedules the animations for execution.</description>
+ </method>
+ <method>
+ <name>class func setAnimationStart(Date)</name>
+ <description>Sets the start time for the current animation block.</description>
+ </method>
+ <method>
+ <name>class func setAnimationsEnabled(Bool)</name>
+ <description>Sets whether animations are enabled.</description>
+ </method>
+ <method>
+ <name>class func setAnimationDelegate(Any?)</name>
+ <description>Sets the delegate for any animation messages.</description>
+ </method>
+ <method>
+ <name>class func setAnimationWillStart(Selector?)</name>
+ <description>Sets the message to send to the animation delegate when the animation starts.</description>
+ </method>
+ <method>
+ <name>class func setAnimationDidStop(Selector?)</name>
+ <description>Sets the message to send to the animation delegate when animation stops.</description>
+ </method>
+ <method>
+ <name>class func setAnimationDuration(TimeInterval)</name>
+ <description>Sets the duration (measured in seconds) of the animations in an animation block.</description>
+ </method>
+ <method>
+ <name>class func setAnimationDelay(TimeInterval)</name>
+ <description>Sets the amount of time (in seconds) to wait before animating property changes within an animation block.</description>
+ </method>
+ <method>
+ <name>class func setAnimationCurve(UIView.AnimationCurve)</name>
+ <description>Sets the curve to use when animating property changes within an animation block.</description>
+ </method>
+ <method>
+ <name>class func setAnimationRepeatCount(Float)</name>
+ <description>Sets the number of times animations within an animation block repeat.</description>
+ </method>
+ <method>
+ <name>class func setAnimationRepeatAutoreverses(Bool)</name>
+ <description>Sets whether the animations within an animation block automatically reverse themselves.</description>
+ </method>
+ <method>
+ <name>class func setAnimationBeginsFromCurrentState(Bool)</name>
+ <description>Sets whether the animation should begin playing from the current state.</description>
+ </method>
+ <method>
+ <name>class func setAnimationTransition(UIView.AnimationTransition, for: UIView, cache: Bool)</name>
+ <description>Sets a transition to apply to a view during an animation block.</description>
+ </method>
+ <method>
+ <name>class var areAnimationsEnabled: Bool</name>
+ <description>Returns a Boolean value indicating whether animations are enabled.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Constants</title>
+ <method>
+ <name>struct UIView.AnimationOptions</name>
+ <description>Options for animating views using block objects.</description>
+ </method>
+ <method>
+ <name>enum UIView.AnimationCurve</name>
+ <description>Specifies the supported animation curves.</description>
+ </method>
+ <method>
+ <name>enum UIView.AnimationTransition</name>
+ <description>Animation transition options for use in an animation block object.</description>
+ </method>
+ <method>
+ <name>enum UIView.SystemAnimation</name>
+ <description>Option to remove the views from the hierarchy when animation is complete.</description>
+ </method>
+ <method>
+ <name>struct UIView.KeyframeAnimationOptions</name>
+ <description>Key frame animation options used with the animateKeyframes(withDuration:delay:options:animations:completion:) method.</description>
+ </method>
+ <method>
+ <name>enum NSLayoutConstraint.Axis</name>
+ <description>Keys that specify a horizontal or vertical layout constraint between objects.</description>
+ </method>
+ <method>
+ <name>enum UIView.TintAdjustmentMode</name>
+ <description>The tint adjustment mode for the view.</description>
+ </method>
+ <method>
+ <name>class let layoutFittingCompressedSize: CGSize</name>
+ <description>The option to use the smallest possible size.</description>
+ </method>
+ <method>
+ <name>class let layoutFittingExpandedSize: CGSize</name>
+ <description>The option to use the largest possible size.</description>
+ </method>
+ <method>
+ <name>class let noIntrinsicMetric: CGFloat</name>
+ <description>The absence of an intrinsic metric for a given numeric view property.</description>
+ </method>
+ <method>
+ <name>struct UIView.AutoresizingMask</name>
+ <description>Options for automatic view resizing.</description>
+ </method>
+ <method>
+ <name>enum UISemanticContentAttribute</name>
+ <description>A semantic description of the view’s contents, used to determine whether the view should be flipped when switching between left-to-right and right-to-left layouts.</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIResponder</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CALayerDelegate</name>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSCoding</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIAppearance</name>
+ <name>UIAppearanceContainer</name>
+ <name>UICoordinateSpace</name>
+ <name>UIDynamicItem</name>
+ <name>UIFocusItem</name>
+ <name>UIFocusItemContainer</name>
+ <name>UIPasteConfigurationSupporting</name>
+ <name>UITraitEnvironment</name>
+ <name>UIUserActivityRestoring</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ </see-also>
+ </api>

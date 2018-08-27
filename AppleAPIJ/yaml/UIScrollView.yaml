@@ -1,0 +1,231 @@
+api:
+ title: UIScrollView
+ description: A view that allows the scrolling and zooming of its contained views.
+ overview: 
+  description: UIScrollView is the superclass of several UIKit classes including UITableView and UITextView.
+  sub_overview: 
+    name: State Preservation
+    description: If you assign a value to this view’s restorationIdentifier property, it attempts to preserve its scrolling-related information between app launches. Specifically, the values of the zoomScale, contentInset, and contentOffset properties are preserved. During restoration, the scroll view restores these values so that the content appears scrolled to the same position as before. For more information about how state preservation and restoration works, see App Programming Guide for iOS.
+ topics: 
+  topic: 
+   - 
+    title: Responding to Scroll View Interactions
+     method: 
+      - 
+       name: var delegate: UIScrollViewDelegate?
+       description: The delegate of the scroll-view object.
+      - 
+       name: protocol UIScrollViewDelegate
+       description: The methods declared by the UIScrollViewDelegate protocol allow the adopting delegate to respond to messages from the UIScrollView class and thus respond to, and in some affect, operations such as scrolling, zooming, deceleration of scrolled content, and scrolling animations.
+   - 
+    title: Managing the Content Size and Offset
+     method: 
+      - 
+       name: var contentSize: CGSize
+       description: The size of the content view.
+      - 
+       name: var contentOffset: CGPoint
+       description: The point at which the origin of the content view is offset from the origin of the scroll view.
+      - 
+       name: func setContentOffset(CGPoint, animated: Bool)
+       description: Sets the offset from the content view’s origin that corresponds to the receiver’s origin.
+   - 
+    title: Managing the Content Inset Behavior
+     method: 
+      - 
+       name: var adjustedContentInset: UIEdgeInsets
+       description: The insets derived from the content insets and the safe area of the scroll view.
+      - 
+       name: var contentInset: UIEdgeInsets
+       description: The custom distance that the content view is inset from the safe area or scroll view edges.
+      - 
+       name: var contentInsetAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior
+       description: The behavior for determining the adjusted content offsets.
+      - 
+       name: enum UIScrollView.ContentInsetAdjustmentBehavior
+       description: Constants indicating how safe area insets are added to the adjusted content inset.
+      - 
+       name: func adjustedContentInsetDidChange()
+       description: Called when the adjusted content insets of the scroll view change.
+   - 
+    title: Getting the Layout Guides
+     method: 
+      - 
+       name: var frameLayoutGuide: UILayoutGuide
+       description: The layout guide based on the untransformed frame rectangle of the scroll view.
+      - 
+       name: var contentLayoutGuide: UILayoutGuide
+       description: The layout guide based on the untranslated content rectangle of the scroll view.
+   - 
+    title: Configuring the Scroll View
+     method: 
+      - 
+       name: var isScrollEnabled: Bool
+       description: A Boolean value that determines whether scrolling is enabled.
+      - 
+       name: var isDirectionalLockEnabled: Bool
+       description: A Boolean value that determines whether scrolling is disabled in a particular direction.
+      - 
+       name: var isPagingEnabled: Bool
+       description: A Boolean value that determines whether paging is enabled for the scroll view.
+      - 
+       name: var scrollsToTop: Bool
+       description: A Boolean value that controls whether the scroll-to-top gesture is enabled.
+      - 
+       name: var bounces: Bool
+       description: A Boolean value that controls whether the scroll view bounces past the edge of content and back again.
+      - 
+       name: var alwaysBounceVertical: Bool
+       description: A Boolean value that determines whether bouncing always occurs when vertical scrolling reaches the end of the content.
+      - 
+       name: var alwaysBounceHorizontal: Bool
+       description: A Boolean value that determines whether bouncing always occurs when horizontal scrolling reaches the end of the content view.
+   - 
+    title: Getting the Scrolling State
+     method: 
+      - 
+       name: var isTracking: Bool
+       description: Returns whether the user has touched the content to initiate scrolling.
+      - 
+       name: var isDragging: Bool
+       description: A Boolean value that indicates whether the user has begun scrolling the content.
+      - 
+       name: var isDecelerating: Bool
+       description: Returns whether the content is moving in the scroll view after the user lifted their finger.
+      - 
+       name: var decelerationRate: UIScrollView.DecelerationRate
+       description: A floating-point value that determines the rate of deceleration after the user lifts their finger.
+      - 
+       name: struct UIScrollView.DecelerationRate
+       description: Deceleration rates for the scroll view.
+   - 
+    title: Managing the Scroll Indicator and Refresh Control
+     method: 
+      - 
+       name: var indicatorStyle: UIScrollView.IndicatorStyle
+       description: The style of the scroll indicators.
+      - 
+       name: enum UIScrollView.IndicatorStyle
+       description: The style of the scroll indicators. You use these constants to set the value of the indicatorStyle style.
+      - 
+       name: var scrollIndicatorInsets: UIEdgeInsets
+       description: The distance the scroll indicators are inset from the edge of the scroll view.
+      - 
+       name: var showsHorizontalScrollIndicator: Bool
+       description: A Boolean value that controls whether the horizontal scroll indicator is visible.
+      - 
+       name: var showsVerticalScrollIndicator: Bool
+       description: A Boolean value that controls whether the vertical scroll indicator is visible.
+      - 
+       name: func flashScrollIndicators()
+       description: Displays the scroll indicators momentarily.
+      - 
+       name: var refreshControl: UIRefreshControl?
+       description: The refresh control associated with the scroll view.
+   - 
+    title: Scrolling to a Specific Location
+     method: 
+       name: func scrollRectToVisible(CGRect, animated: Bool)
+       description: Scrolls a specific area of the content so that it is visible in the receiver.
+   - 
+    title: Managing Touches
+     method: 
+      - 
+       name: func touchesShouldBegin(Set&amp;lt;UITouch&amp;gt;, with: UIEvent?, in: UIView) -&amp;gt; Bool
+       description: Overridden by subclasses to customize the default behavior when a finger touches down in displayed content.
+      - 
+       name: func touchesShouldCancel(in: UIView) -&amp;gt; Bool
+       description: Returns whether to cancel touches related to the content subview and start dragging.
+      - 
+       name: var canCancelContentTouches: Bool
+       description: A Boolean value that controls whether touches in the content view always lead to tracking.
+      - 
+       name: var delaysContentTouches: Bool
+       description: A Boolean value that determines whether the scroll view delays the handling of touch-down gestures.
+      - 
+       name: var directionalPressGestureRecognizer: UIGestureRecognizer
+       description: The underlying gesture recognizer for directional button presses.
+   - 
+    title: Zooming and Panning
+     method: 
+      - 
+       name: var panGestureRecognizer: UIPanGestureRecognizer
+       description: The underlying gesture recognizer for pan gestures.
+      - 
+       name: var pinchGestureRecognizer: UIPinchGestureRecognizer?
+       description: The underlying gesture recognizer for pinch gestures.
+      - 
+       name: func zoom(to: CGRect, animated: Bool)
+       description: Zooms to a specific area of the content so that it is visible in the receiver.
+      - 
+       name: var zoomScale: CGFloat
+       description: A floating-point value that specifies the current scale factor applied to the scroll view&amp;apos;s content.
+      - 
+       name: func setZoomScale(CGFloat, animated: Bool)
+       description: A floating-point value that specifies the current zoom scale.
+      - 
+       name: var maximumZoomScale: CGFloat
+       description: A floating-point value that specifies the maximum scale factor that can be applied to the scroll view&amp;apos;s content.
+      - 
+       name: var minimumZoomScale: CGFloat
+       description: A floating-point value that specifies the minimum scale factor that can be applied to the scroll view&amp;apos;s content.
+      - 
+       name: var isZoomBouncing: Bool
+       description: A Boolean value that indicates that zooming has exceeded the scaling limits specified for the receiver.
+      - 
+       name: var isZooming: Bool
+       description: A Boolean value that indicates whether the content view is currently zooming in or out.
+      - 
+       name: var bouncesZoom: Bool
+       description: A Boolean value that determines whether the scroll view animates the content scaling when the scaling exceeds the maximum or minimum limits.
+   - 
+    title: Managing the Keyboard
+     method: 
+      - 
+       name: var keyboardDismissMode: UIScrollView.KeyboardDismissMode
+       description: The manner in which the keyboard is dismissed when a drag begins in the scroll view.
+      - 
+       name: enum UIScrollView.KeyboardDismissMode
+       description: The manner in which the keyboard is dismissed when a drag begins in the scroll view.
+   - 
+    title: Managing the Index
+     method: 
+      - 
+       name: var indexDisplayMode: UIScrollView.IndexDisplayMode
+       description: The manner in which the index is shown while the user is scrolling.
+      - 
+       name: enum UIScrollView.IndexDisplayMode
+       description: The manner in which the index is shown while the user is scrolling.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIView
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: NSCoding
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIFocusItemScrollableContainer
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: API Collection Collection Views
+    description: Display nested views using a configurable and highly customizable layout.
+   - 
+    name: API Collection Table Views
+    description: Display data in a single column of customizable rows.
+   - 
+    name: class UIStackView
+    description: A streamlined interface for laying out a collection of views in either a column or a row.

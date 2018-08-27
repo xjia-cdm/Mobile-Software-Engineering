@@ -1,0 +1,122 @@
+<api>
+ <title>UIToolbar</title>
+ <description>A control that displays one or more buttons along the bottom edge of your interface.</description>
+ <overview>
+ <description>To create toolbar items, use the UIBarButtonItem class. To add toolbar items to a toolbar, use the setItems(_:animated:) method.</description>
+ <sub_overview>
+ <name>Customizing Appearance</name>
+ <description>You use the methods listed in Customizing Appearance to customize the appearance of toolbars. You send the setter messages to the appearance proxy ([UIToolbar appearance]) to customize all toolbars, or to a specific UIToolbar instance. When a property is dependent on the bar metrics, you should typically specify a value for UIBarMetrics.default as well as for landscapePhone.</description>
+ </sub_overview>
+ </overview>
+ <topics>
+ <topic>
+ <title>Managing Toolbar Changes</title>
+ <method>
+ <name>var delegate: UIToolbarDelegate?</name>
+ <description>The toolbar’s delegate object.</description>
+ </method>
+ <method>
+ <name>protocol UIToolbarDelegate</name>
+ <description>The UIToolbarDelegate protocol defines the interface that toolbar delegate objects implement to manage the toolbar behavior. This protocol declares no methods of its own but conforms to the UIBarPositioningDelegate protocol to support the positioning of a toolbar when it is moved to a window.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Configuring Toolbar Items</title>
+ <method>
+ <name>var items: [UIBarButtonItem]?</name>
+ <description>The items displayed on the toolbar.</description>
+ </method>
+ <method>
+ <name>func setItems([UIBarButtonItem]?, animated: Bool)</name>
+ <description>Sets the items on the toolbar by animating the changes.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Customizing Appearance</title>
+ <method>
+ <name>var barStyle: UIBarStyle</name>
+ <description>The toolbar style that specifies its appearance.</description>
+ </method>
+ <method>
+ <name>var barTintColor: UIColor?</name>
+ <description>The tint color to apply to the toolbar background.</description>
+ </method>
+ <method>
+ <name>var tintColor: UIColor!</name>
+ <description>The tint color to apply to the bar button items.</description>
+ </method>
+ <method>
+ <name>var isTranslucent: Bool</name>
+ <description>A Boolean value that indicates whether the toolbar is translucent (true) or not (false).</description>
+ </method>
+ <method>
+ <name>func backgroundImage(forToolbarPosition: UIBarPosition, barMetrics: UIBarMetrics) -&amp;gt; UIImage?</name>
+ <description>Returns the image to use for the background in a given position and with given metrics.</description>
+ </method>
+ <method>
+ <name>func setBackgroundImage(UIImage?, forToolbarPosition: UIBarPosition, barMetrics: UIBarMetrics)</name>
+ <description>Sets the image to use for the background in a given position and with given metrics.</description>
+ </method>
+ <method>
+ <name>func shadowImage(forToolbarPosition: UIBarPosition) -&amp;gt; UIImage?</name>
+ <description>Returns the image to use for the toolbar shadow in a given position.</description>
+ </method>
+ <method>
+ <name>func setShadowImage(UIImage?, forToolbarPosition: UIBarPosition)</name>
+ <description>Sets the image to use for the toolbar shadow in a given position.</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIView</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIBarPositioning</name>
+ <name>UIPasteConfigurationSupporting</name>
+ <name>UIUserActivityRestoring</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UIBarItem</name>
+ <description>An abstract superclass for items that can be added to a bar that appears at the bottom of the screen.</description>
+ </control>
+ <control>
+ <name>class UIBarButtonItem</name>
+ <description>A button specialized for placement on a toolbar or tab bar.</description>
+ </control>
+ <control>
+ <name>class UIBarButtonItemGroup</name>
+ <description>A set of bar button items on the shortcuts bar above the keyboard on iPad.</description>
+ </control>
+ <control>
+ <name>class UINavigationBar</name>
+ <description>Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.</description>
+ </control>
+ <control>
+ <name>class UISearchBar</name>
+ <description>A specialized view for receiving search-related information from the user.</description>
+ </control>
+ <control>
+ <name>class UITabBar</name>
+ <description>A control that displays one or more buttons in a tab bar for selecting between different subtasks, views, or modes in an app.</description>
+ </control>
+ <control>
+ <name>class UITabBarItem</name>
+ <description>An item in a tab bar.</description>
+ </control>
+ <control>
+ <name>protocol UIBarPositioning</name>
+ <description>A set of methods for defining the ways that bars can be positioned in iOS apps.</description>
+ </control>
+ <control>
+ <name>protocol UIBarPositioningDelegate</name>
+ <description>A set of methods that support the positioning of a bar that conforms to the UIBarPositioning protocol.</description>
+ </control>
+ </see-also>
+ </api>

@@ -1,0 +1,282 @@
+<api>
+ <title>UIScrollView</title>
+ <description>A view that allows the scrolling and zooming of its contained views.</description>
+ <overview>
+ <description>UIScrollView is the superclass of several UIKit classes including UITableView and UITextView.</description>
+ <sub_overview>
+ <name>State Preservation</name>
+ <description>If you assign a value to this view’s restorationIdentifier property, it attempts to preserve its scrolling-related information between app launches. Specifically, the values of the zoomScale, contentInset, and contentOffset properties are preserved. During restoration, the scroll view restores these values so that the content appears scrolled to the same position as before. For more information about how state preservation and restoration works, see App Programming Guide for iOS.</description>
+ </sub_overview>
+ </overview>
+ <topics>
+ <topic>
+ <title>Responding to Scroll View Interactions</title>
+ <method>
+ <name>var delegate: UIScrollViewDelegate?</name>
+ <description>The delegate of the scroll-view object.</description>
+ </method>
+ <method>
+ <name>protocol UIScrollViewDelegate</name>
+ <description>The methods declared by the UIScrollViewDelegate protocol allow the adopting delegate to respond to messages from the UIScrollView class and thus respond to, and in some affect, operations such as scrolling, zooming, deceleration of scrolled content, and scrolling animations.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing the Content Size and Offset</title>
+ <method>
+ <name>var contentSize: CGSize</name>
+ <description>The size of the content view.</description>
+ </method>
+ <method>
+ <name>var contentOffset: CGPoint</name>
+ <description>The point at which the origin of the content view is offset from the origin of the scroll view.</description>
+ </method>
+ <method>
+ <name>func setContentOffset(CGPoint, animated: Bool)</name>
+ <description>Sets the offset from the content view’s origin that corresponds to the receiver’s origin.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing the Content Inset Behavior</title>
+ <method>
+ <name>var adjustedContentInset: UIEdgeInsets</name>
+ <description>The insets derived from the content insets and the safe area of the scroll view.</description>
+ </method>
+ <method>
+ <name>var contentInset: UIEdgeInsets</name>
+ <description>The custom distance that the content view is inset from the safe area or scroll view edges.</description>
+ </method>
+ <method>
+ <name>var contentInsetAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior</name>
+ <description>The behavior for determining the adjusted content offsets.</description>
+ </method>
+ <method>
+ <name>enum UIScrollView.ContentInsetAdjustmentBehavior</name>
+ <description>Constants indicating how safe area insets are added to the adjusted content inset.</description>
+ </method>
+ <method>
+ <name>func adjustedContentInsetDidChange()</name>
+ <description>Called when the adjusted content insets of the scroll view change.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Getting the Layout Guides</title>
+ <method>
+ <name>var frameLayoutGuide: UILayoutGuide</name>
+ <description>The layout guide based on the untransformed frame rectangle of the scroll view.</description>
+ </method>
+ <method>
+ <name>var contentLayoutGuide: UILayoutGuide</name>
+ <description>The layout guide based on the untranslated content rectangle of the scroll view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Configuring the Scroll View</title>
+ <method>
+ <name>var isScrollEnabled: Bool</name>
+ <description>A Boolean value that determines whether scrolling is enabled.</description>
+ </method>
+ <method>
+ <name>var isDirectionalLockEnabled: Bool</name>
+ <description>A Boolean value that determines whether scrolling is disabled in a particular direction.</description>
+ </method>
+ <method>
+ <name>var isPagingEnabled: Bool</name>
+ <description>A Boolean value that determines whether paging is enabled for the scroll view.</description>
+ </method>
+ <method>
+ <name>var scrollsToTop: Bool</name>
+ <description>A Boolean value that controls whether the scroll-to-top gesture is enabled.</description>
+ </method>
+ <method>
+ <name>var bounces: Bool</name>
+ <description>A Boolean value that controls whether the scroll view bounces past the edge of content and back again.</description>
+ </method>
+ <method>
+ <name>var alwaysBounceVertical: Bool</name>
+ <description>A Boolean value that determines whether bouncing always occurs when vertical scrolling reaches the end of the content.</description>
+ </method>
+ <method>
+ <name>var alwaysBounceHorizontal: Bool</name>
+ <description>A Boolean value that determines whether bouncing always occurs when horizontal scrolling reaches the end of the content view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Getting the Scrolling State</title>
+ <method>
+ <name>var isTracking: Bool</name>
+ <description>Returns whether the user has touched the content to initiate scrolling.</description>
+ </method>
+ <method>
+ <name>var isDragging: Bool</name>
+ <description>A Boolean value that indicates whether the user has begun scrolling the content.</description>
+ </method>
+ <method>
+ <name>var isDecelerating: Bool</name>
+ <description>Returns whether the content is moving in the scroll view after the user lifted their finger.</description>
+ </method>
+ <method>
+ <name>var decelerationRate: UIScrollView.DecelerationRate</name>
+ <description>A floating-point value that determines the rate of deceleration after the user lifts their finger.</description>
+ </method>
+ <method>
+ <name>struct UIScrollView.DecelerationRate</name>
+ <description>Deceleration rates for the scroll view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing the Scroll Indicator and Refresh Control</title>
+ <method>
+ <name>var indicatorStyle: UIScrollView.IndicatorStyle</name>
+ <description>The style of the scroll indicators.</description>
+ </method>
+ <method>
+ <name>enum UIScrollView.IndicatorStyle</name>
+ <description>The style of the scroll indicators. You use these constants to set the value of the indicatorStyle style.</description>
+ </method>
+ <method>
+ <name>var scrollIndicatorInsets: UIEdgeInsets</name>
+ <description>The distance the scroll indicators are inset from the edge of the scroll view.</description>
+ </method>
+ <method>
+ <name>var showsHorizontalScrollIndicator: Bool</name>
+ <description>A Boolean value that controls whether the horizontal scroll indicator is visible.</description>
+ </method>
+ <method>
+ <name>var showsVerticalScrollIndicator: Bool</name>
+ <description>A Boolean value that controls whether the vertical scroll indicator is visible.</description>
+ </method>
+ <method>
+ <name>func flashScrollIndicators()</name>
+ <description>Displays the scroll indicators momentarily.</description>
+ </method>
+ <method>
+ <name>var refreshControl: UIRefreshControl?</name>
+ <description>The refresh control associated with the scroll view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Scrolling to a Specific Location</title>
+ <method>
+ <name>func scrollRectToVisible(CGRect, animated: Bool)</name>
+ <description>Scrolls a specific area of the content so that it is visible in the receiver.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing Touches</title>
+ <method>
+ <name>func touchesShouldBegin(Set&amp;lt;UITouch&amp;gt;, with: UIEvent?, in: UIView) -&amp;gt; Bool</name>
+ <description>Overridden by subclasses to customize the default behavior when a finger touches down in displayed content.</description>
+ </method>
+ <method>
+ <name>func touchesShouldCancel(in: UIView) -&amp;gt; Bool</name>
+ <description>Returns whether to cancel touches related to the content subview and start dragging.</description>
+ </method>
+ <method>
+ <name>var canCancelContentTouches: Bool</name>
+ <description>A Boolean value that controls whether touches in the content view always lead to tracking.</description>
+ </method>
+ <method>
+ <name>var delaysContentTouches: Bool</name>
+ <description>A Boolean value that determines whether the scroll view delays the handling of touch-down gestures.</description>
+ </method>
+ <method>
+ <name>var directionalPressGestureRecognizer: UIGestureRecognizer</name>
+ <description>The underlying gesture recognizer for directional button presses.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Zooming and Panning</title>
+ <method>
+ <name>var panGestureRecognizer: UIPanGestureRecognizer</name>
+ <description>The underlying gesture recognizer for pan gestures.</description>
+ </method>
+ <method>
+ <name>var pinchGestureRecognizer: UIPinchGestureRecognizer?</name>
+ <description>The underlying gesture recognizer for pinch gestures.</description>
+ </method>
+ <method>
+ <name>func zoom(to: CGRect, animated: Bool)</name>
+ <description>Zooms to a specific area of the content so that it is visible in the receiver.</description>
+ </method>
+ <method>
+ <name>var zoomScale: CGFloat</name>
+ <description>A floating-point value that specifies the current scale factor applied to the scroll view&amp;apos;s content.</description>
+ </method>
+ <method>
+ <name>func setZoomScale(CGFloat, animated: Bool)</name>
+ <description>A floating-point value that specifies the current zoom scale.</description>
+ </method>
+ <method>
+ <name>var maximumZoomScale: CGFloat</name>
+ <description>A floating-point value that specifies the maximum scale factor that can be applied to the scroll view&amp;apos;s content.</description>
+ </method>
+ <method>
+ <name>var minimumZoomScale: CGFloat</name>
+ <description>A floating-point value that specifies the minimum scale factor that can be applied to the scroll view&amp;apos;s content.</description>
+ </method>
+ <method>
+ <name>var isZoomBouncing: Bool</name>
+ <description>A Boolean value that indicates that zooming has exceeded the scaling limits specified for the receiver.</description>
+ </method>
+ <method>
+ <name>var isZooming: Bool</name>
+ <description>A Boolean value that indicates whether the content view is currently zooming in or out.</description>
+ </method>
+ <method>
+ <name>var bouncesZoom: Bool</name>
+ <description>A Boolean value that determines whether the scroll view animates the content scaling when the scaling exceeds the maximum or minimum limits.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing the Keyboard</title>
+ <method>
+ <name>var keyboardDismissMode: UIScrollView.KeyboardDismissMode</name>
+ <description>The manner in which the keyboard is dismissed when a drag begins in the scroll view.</description>
+ </method>
+ <method>
+ <name>enum UIScrollView.KeyboardDismissMode</name>
+ <description>The manner in which the keyboard is dismissed when a drag begins in the scroll view.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Managing the Index</title>
+ <method>
+ <name>var indexDisplayMode: UIScrollView.IndexDisplayMode</name>
+ <description>The manner in which the index is shown while the user is scrolling.</description>
+ </method>
+ <method>
+ <name>enum UIScrollView.IndexDisplayMode</name>
+ <description>The manner in which the index is shown while the user is scrolling.</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIView</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSCoding</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIFocusItemScrollableContainer</name>
+ <name>UIPasteConfigurationSupporting</name>
+ <name>UIUserActivityRestoring</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>API Collection Collection Views</name>
+ <description>Display nested views using a configurable and highly customizable layout.</description>
+ </control>
+ <control>
+ <name>API Collection Table Views</name>
+ <description>Display data in a single column of customizable rows.</description>
+ </control>
+ <control>
+ <name>class UIStackView</name>
+ <description>A streamlined interface for laying out a collection of views in either a column or a row.</description>
+ </control>
+ </see-also>
+ </api>

@@ -1,0 +1,86 @@
+<api>
+ <title>UIBarButtonItemGroup</title>
+ <description>A set of bar button items on the shortcuts bar above the keyboard on iPad.</description>
+ <overview>
+ <description>A group contains one or more bar button items and an optional representative item that is displayed instead of the individual items when space is constrained. You can create any number of groups and configure each group with any number of items.</description>
+ </overview>
+ <topics>
+ <topic>
+ <title>Initializing a Bar Button Item Group</title>
+ <method>
+ <name>init(barButtonItems: [UIBarButtonItem], representativeItem: UIBarButtonItem?)</name>
+ <description>Initializes and returns a bar button item group with the specified items.</description>
+ </method>
+ <method>
+ <name>init?(coder: NSCoder)</name>
+ </method>
+ </topic>
+ <topic>
+ <title>Configuring the Group</title>
+ <method>
+ <name>var barButtonItems: [UIBarButtonItem]</name>
+ <description>The bar button items to display on the shortcuts bar.</description>
+ </method>
+ <method>
+ <name>var representativeItem: UIBarButtonItem?</name>
+ <description>The item to display for a group when space is constrained.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Determining the Group’s Appearance</title>
+ <method>
+ <name>var isDisplayingRepresentativeItem: Bool</name>
+ <description>A Boolean value indicating whether the representative item is being displayed in place of the group’s items.</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>NSObject</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSCoding</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UIBarItem</name>
+ <description>An abstract superclass for items that can be added to a bar that appears at the bottom of the screen.</description>
+ </control>
+ <control>
+ <name>class UIBarButtonItem</name>
+ <description>A button specialized for placement on a toolbar or tab bar.</description>
+ </control>
+ <control>
+ <name>class UINavigationBar</name>
+ <description>Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.</description>
+ </control>
+ <control>
+ <name>class UISearchBar</name>
+ <description>A specialized view for receiving search-related information from the user.</description>
+ </control>
+ <control>
+ <name>class UIToolbar</name>
+ <description>A control that displays one or more buttons along the bottom edge of your interface.</description>
+ </control>
+ <control>
+ <name>class UITabBar</name>
+ <description>A control that displays one or more buttons in a tab bar for selecting between different subtasks, views, or modes in an app.</description>
+ </control>
+ <control>
+ <name>class UITabBarItem</name>
+ <description>An item in a tab bar.</description>
+ </control>
+ <control>
+ <name>protocol UIBarPositioning</name>
+ <description>A set of methods for defining the ways that bars can be positioned in iOS apps.</description>
+ </control>
+ <control>
+ <name>protocol UIBarPositioningDelegate</name>
+ <description>A set of methods that support the positioning of a bar that conforms to the UIBarPositioning protocol.</description>
+ </control>
+ </see-also>
+ </api>

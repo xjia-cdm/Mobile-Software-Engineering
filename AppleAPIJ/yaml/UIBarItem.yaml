@@ -1,0 +1,104 @@
+api:
+ title: UIBarItem
+ description: An abstract superclass for items that can be added to a bar that appears at the bottom of the screen.
+ overview: 
+  description: Items on a bar behave in a way similar to buttons (instances of UIButton). They have a title, image, action, and target. You can also enable and disable an item on a bar.
+  sub_overview: 
+    name: Customizing Appearance
+    description: You can customize the image to represent the item, and the position of the image, using image and imageInsets respectively. In iOS v5.0 and later, you can also specify a custom image and position to use in landscape orientation when using the iPhone appearance idiom using landscapeImagePhone and landscapeImagePhoneInsets respectively. In addition, you can customize the title’s text attributes using setTitleTextAttributes(_:for:), either for a single item, or for all items by using the appearance proxy (for example, [UIBarItem appearance]).
+ topics: 
+  topic: 
+   - 
+    title: Initializing a Bar Item
+     method: 
+      - 
+       name: init()
+       description: Initializes the bar item to its default state.
+      - 
+       name: init?(coder: NSCoder)
+   - 
+    title: Getting and Setting Properties
+     method: 
+      - 
+       name: var title: String?
+       description: The title displayed on the item.
+      - 
+       name: var image: UIImage?
+       description: The image used to represent the item.
+      - 
+       name: var landscapeImagePhone: UIImage?
+       description: The image to use to represent the item in landscape orientation when using the iPhone appearance idiom.
+      - 
+       name: var largeContentSizeImage: UIImage?
+       description: The image to display for users with visual impairments.
+      - 
+       name: var imageInsets: UIEdgeInsets
+       description: The image inset or outset for each edge.
+      - 
+       name: var landscapeImagePhoneInsets: UIEdgeInsets
+       description: The image inset or outset for each edge of the image in landscape orientation when using the iPhone appearance idiom.
+      - 
+       name: var largeContentSizeImageInsets: UIEdgeInsets
+       description: The insets to apply to the bar item&amp;apos;s large image when displaying the image in an assistive UI.
+      - 
+       name: var isEnabled: Bool
+       description: A Boolean value indicating whether the item is enabled.
+      - 
+       name: var tag: Int
+       description: The receiver’s tag, an application-supplied integer that you can use to identify bar item objects in your application.
+   - 
+    title: Customizing Appearance
+     method: 
+      - 
+       name: func setTitleTextAttributes([NSAttributedString.Key : Any]?, for: UIControl.State)
+       description: Sets the title’s text attributes for a given control state.
+      - 
+       name: func titleTextAttributes(for: UIControl.State) -&amp;gt; [NSAttributedString.Key : Any]?
+       description: Returns the title’s text attributes for a given control state.
+ relationships: 
+  inherits_from: 
+   - 
+     name: NSObject
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: NSCoding
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIAppearance
+ see-also: 
+  control: 
+   - 
+    name: class UIBarButtonItem
+    description: A button specialized for placement on a toolbar or tab bar.
+   - 
+    name: class UIBarButtonItemGroup
+    description: A set of bar button items on the shortcuts bar above the keyboard on iPad.
+   - 
+    name: class UINavigationBar
+    description: Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.
+   - 
+    name: class UISearchBar
+    description: A specialized view for receiving search-related information from the user.
+   - 
+    name: class UIToolbar
+    description: A control that displays one or more buttons along the bottom edge of your interface.
+   - 
+    name: class UITabBar
+    description: A control that displays one or more buttons in a tab bar for selecting between different subtasks, views, or modes in an app.
+   - 
+    name: class UITabBarItem
+    description: An item in a tab bar.
+   - 
+    name: protocol UIBarPositioning
+    description: A set of methods for defining the ways that bars can be positioned in iOS apps.
+   - 
+    name: protocol UIBarPositioningDelegate
+    description: A set of methods that support the positioning of a bar that conforms to the UIBarPositioning protocol.

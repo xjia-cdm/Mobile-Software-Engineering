@@ -1,0 +1,80 @@
+api:
+ title: UIPageControl
+ description: A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity.
+ overview: 
+  description: For an example of a page control, see the Weather app when it&amp;apos;s configured to display information for more than one location.
+ topics: 
+  topic: 
+   - 
+    title: Managing the Page Navigation
+     method: 
+      - 
+       name: var currentPage: Int
+       description: The current page, shown by the receiver as a white dot.
+      - 
+       name: var numberOfPages: Int
+       description: The number of pages the receiver shows (as dots).
+      - 
+       name: var hidesForSinglePage: Bool
+       description: A Boolean value that controls whether the page control is hidden when there is only one page.
+   - 
+    title: Updating the Page Display
+     method: 
+      - 
+       name: var pageIndicatorTintColor: UIColor?
+       description: The tint color to be used for the page indicator.
+      - 
+       name: var currentPageIndicatorTintColor: UIColor?
+       description: The tint color to be used for the current page indicator.
+      - 
+       name: var defersCurrentPageDisplay: Bool
+       description: A Boolean value that controls when the current page is displayed.
+      - 
+       name: func updateCurrentPageDisplay()
+       description: Updates the page indicator to the current page.
+   - 
+    title: Resizing the Control
+     method: 
+       name: func size(forNumberOfPages: Int) -&amp;gt; CGSize
+       description: Returns the size the receiver’s bounds should be to accommodate the given number of pages.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIControl
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UIControl
+    description: The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.
+   - 
+    name: class UIButton
+    description: A control that executes your custom code in response to user interactions.
+   - 
+    name: class UIDatePicker
+    description: A control used for the inputting of date and time values.
+   - 
+    name: class UISegmentedControl
+    description: A horizontal control made of multiple segments, each segment functioning as a discrete button.
+   - 
+    name: class UISlider
+    description: A control used to select a single value from a continuous range of values.
+   - 
+    name: class UIStepper
+    description: A control used to increment or decrement a value.
+   - 
+    name: class UISwitch
+    description: A control that offers a binary choice, such as On/Off.

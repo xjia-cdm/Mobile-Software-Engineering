@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>UITextField - UIKit | Apple Developer Documentation</title>
+  <meta content="width=device-width, initial-scale=1 viewport-fit=cover" name="viewport">
+  <meta data-pid="201964">
+  <link href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Mono,v1|SF+Pro+Icons,v1" media="all" rel="stylesheet" type="text/css">
+  <link href="/documentation/__assets/application-324aa72c.css" media="all" rel="stylesheet" type="text/css">
+  <noscript>
+   <link href="/documentation/__assets/nojs-c6be9131.css" media="all" rel="stylesheet" type="text/css">
+  </noscript>
+  <link rel="mask-icon" href="/documentation/__assets/apple-logo.svg" color="#000">
+  <link rel="shortcut icon" href="/documentation/__assets/favicon.ico">
+  <script src="/documentation/__assets/shared-f73bc3d2.js"></script>
+  <script id="init-data" type="application/json">{"variant":{"paths":["documentation\/uikit\/uitextfield"],"usr":"c:objc(cs)UITextField"}}</script>
+  <script src="/documentation/__assets/init-88dd23db.js"></script>
+ </head>
+ <body>
+  <div id="_omniture_top"> 
+   <script type="text/javascript">
+        var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+      </script> 
+   <script type="text/javascript" src="https://www.apple.com/metrics/scripts/s_code_h.js"></script> 
+   <script type="text/javascript">
+        s.pageName=AC.Tracking.pageName();
+        s.channel="www.us.developer"
+
+        var s_code=s.t();if(s_code)document.write(s_code)
+      </script> 
+  </div>
+  <div id="app">
+   <div>
+    <a href="#main" id="skip-localnav" class="showonfocus hidden">Skip Navigation</a>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US">
+     <div class="ac-gn-content"> 
+      <ul class="ac-gn-header"> 
+       <li class="ac-gn-item ac-gn-menuicon"> <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span> </span> </label> <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open"> <span class="ac-gn-menuanchor-label">Open Menu</span> </a> <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close"> <span class="ac-gn-menuanchor-label">Close Menu</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus-small"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small"> <a class="ac-gn-link ac-gn-link-bag" href="/account/"> <span class="ac-gn-link-text">Account</span> <span class="ac-gn-bag-badge"></span> </a> <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span> </li> 
+      </ul> 
+      <ul class="ac-gn-list"> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-discover"> <a class="ac-gn-link" href="/discover/"> <span>Discover</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-design"> <a class="ac-gn-link" href="/design/"> <span>Design</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-develop"> <a class="ac-gn-link" href="/develop/"> <span>Develop</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-distribute"> <a class="ac-gn-link" href="/distribute/"> <span>Distribute</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-support"> <a class="ac-gn-link" href="/support/"> <span>Support</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-account"> <a class="ac-gn-link" href="/account/"> <span>Account</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search"> <a id="ac-gn-search-button" class="ac-gn-link ac-gn-link-search" href="/search/" aria-label="Search developer.apple.com"> <span class="ac-gn-search-placeholder" aria-hidden="true">Search</span> </a> </li> 
+      </ul> 
+      <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search"> 
+       <div class="ac-gn-searchview-content"> 
+        <form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get"> 
+         <div class="ac-gn-searchform-wrapper"> 
+          <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" placeholder="Search" data-placeholder-long="Search for documentation, videos, and more" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false"> 
+          <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit"></button> 
+          <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search"></button> 
+         </div> 
+        </form> 
+        <aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="Hit enter to search."> 
+        </aside> 
+       </div> 
+       <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search"> <span class="ac-gn-searchview-close-wrapper"> <span class="ac-gn-searchview-close-left"></span> <span class="ac-gn-searchview-close-right"></span> </span> </button> 
+      </aside> 
+     </div>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+    <input type="checkbox" id="localnav-menustate" class="localnav-menustate" aria-hidden="true">
+    <nav id="localnav" class="localnav localnav-dark theme-dark localnav-scrim localnav-noborder" role="navigation" aria-label="API Reference" data-sticky="true">
+     <div class="localnav-wrapper">
+      <div class="referencenav">
+       <div class="localnav-background"></div>
+       <div class="localnav-content">
+        <a href="/documentation" class="localnav-title">Documentation</a>
+        <div class="localnav-menu">
+         <a href="#localnav-menustate" id="localnav-menustate-open" class="localnav-menucta-anchor localnav-menucta-anchor-open"><span class="localnav-menucta-anchor-label" aria-hidden="true">Open Menu</span></a>
+         <a href="#" id="localnav-menustate-close" class="localnav-menucta-anchor localnav-menucta-anchor-close"><span class="localnav-menucta-anchor-label" aria-hidden="true">Close Menu</span></a>
+         <div class="localnav-menu-tray">
+          <ul aria-label="Breadcrumbs" class="localnav-menu-items localnav-menu-breadcrumbs">
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit">UIKit</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit/views_and_controls">Views and Controls</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item">
+            <div class="localnav-menu-breadcrumb-current-container localnav-menu-link current">
+             <span aria-current="page" class="localnav-menu-breadcrumb-current">UITextField</span>
+            </div></li>
+          </ul>
+          <ul class="localnav-menu-items localnav-menu-settings" data-breadcrumbs-count="3">
+           <li class="localnav-menu-setting language-container">
+            <div class="language-toggle-container">
+             <label for="language-toggle" class="language-toggle-label">Language:</label>
+             <select id="language-toggle" class="language-dropdown localnav-menu-link" style="width:auto;"><option selected value="swift">Swift</option><option value="occ">Objective-C</option></select>
+            </div>
+            <div class="language-list-container">
+             <span class="localnav-menu-setting-label">Language:</span>
+             <ul class="language-list">
+              <li class="language-list-item"><span data-language="swift" aria-current="page" class="current-language">Swift</span></li>
+              <li class="language-list-item"><a href="/documentation/uikit/uitextfield?language=objc" class="localnav-menu-setting-link">Objective-C</a></li>
+             </ul>
+            </div></li>
+           <li class="localnav-menu-setting"><span class="localnav-menu-setting-label">API Changes:</span><a href="/documentation/uikit/uitextfield?changes=latest_minor" class="localnav-menu-setting-link changes-toggle changes-toggle-show" aria-label="Show API Changes">Show</a></li>
+          </ul>
+         </div>
+         <div class="localnav-actions">
+          <div class="localnav-action localnav-action-menucta" aria-hidden="true">
+           <label for="localnav-menustate" class="localnav-menucta"><span class="localnav-menucta-chevron"></span></label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </nav>
+    <label for="localnav-menustate" id="localnav-curtain" aria-hidden="true"></label>
+    <main role="main" id="main" class="main" tabindex="0">
+     <div class="topic-title">
+      <span class="eyebrow">Class</span>
+      <h1 class="topic-heading"><span>UIText<wbr>Field</span></h1>
+     </div>
+     <div class="topic-container section-content row">
+      <div class="topic-description column large-9 medium-9 small-12">
+       <div class="topic-abstract abstract formatted-content">
+        <div>
+         <p>An object that displays an editable text area in your interface. </p>
+        </div>
+       </div>
+      </div>
+      <div class="topic-summary column large-3 medium-3 small-12">
+       <div class="topic-summary-section sdks" role="complementary" aria-label="SDKs">
+        <p class="topic-summary-section-label subsection-label">SDKs</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item sdk"><span aria-label="iOS 2.0+, Available on iOS 2.0 and later" role="text" title="Available on iOS 2.0 and later">iOS 2.0+</span></li>
+         <li class="topic-summary-section-item sdk"><span aria-label="tvOS 9.0+, Available on tvOS 9.0 and later" role="text" title="Available on tvOS 9.0 and later">tvOS 9.0+</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section frameworks" role="complementary" aria-label="Framework">
+        <p class="topic-summary-section-label subsection-label">Framework</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item"><span>UIKit</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section onthispage">
+        <nav class="onthispage-nav" aria-labelledby="onthispage-title">
+         <p id="onthispage-title" class="topic-summary-section-label subsection-label">On This Page</p>
+         <ul class="topic-summary-section-list">
+          <li class="topic-summary-section-item"><a href="#overview" class="icon icon-after icon-chevrondowncircle">Overview</a></li>
+          <li class="topic-summary-section-item"><a href="#topics" class="icon icon-after icon-chevrondowncircle">Topics</a></li>
+          <li class="topic-summary-section-item"><a href="#relationships" class="icon icon-after icon-chevrondowncircle">Relationships</a></li>
+          <li class="topic-summary-section-item"><a href="#see-also" class="icon icon-after icon-chevrondowncircle">See Also</a></li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+      <div class="topic-content column large-9 medium-9 small-12" id="topic-content">
+       <section id="overview" class="section">
+        <h2>Overview</h2>
+        <div class="formatted-content">
+         <div>
+          <p>You use text fields to gather text-based input from the user using the onscreen keyboard. The keyboard is configurable for many different types of input such as plain text, emails, numbers, and so on. Text fields use the target-action mechanism and a delegate object to report changes made during the course of editing.</p>
+          <p>In addition to its basic text-editing behavior, you can add overlay views to a text field to display additional information and provide additional tappable controls. You might add custom overlay views for elements such as a bookmarks button or search icon. Text fields provide a built-in overlay view to clear the current text. The use of custom overlay views is optional. </p>
+          <figure id="2557435">
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/ef3a6fcec5/uitextfield_intro_2x_a45e1f72-b6db-4bd6-8f82-4438e14dc1da.png" srcset="https://docs-assets.developer.apple.com/published/ef3a6fcec5/uitextfield_intro_2x_a45e1f72-b6db-4bd6-8f82-4438e14dc1da.png 2x" alt="" width="97" height="auto">
+          </figure>
+          <p>After adding a text field to your interface, you configure it for use in your app. Configuration involves performing some or all of the following tasks: </p>
+          <ul>
+           <li><p>Configure one or more targets and actions for the text field. </p></li>
+           <li><p>Configure the keyboard-related attributes of the text field.</p></li>
+           <li><p>Assign a delegate object to handle important tasks, such as:</p>
+            <ul>
+             <li><p>Determining whether the user should be allowed to edit the text field’s contents.</p></li>
+             <li><p>Validating the text entered by the user.</p></li>
+             <li><p>Responding to taps in the keyboard’s return button.</p></li>
+             <li><p>Forwarding the user-entered text to other parts of your app.</p></li>
+            </ul></li>
+           <li><p>Store a reference to the text field in one of your controller objects.</p></li>
+          </ul>
+          <p>For information about the methods of the text field’s delegate object, see <a class="symbol-name" href="/documentation/uikit/uitextfielddelegate"><code><span>UIText<wbr>Field<wbr>Delegate</span></code></a>. </p>
+         </div>
+         <h3 id="1652934">Showing and Hiding the Keyboard</h3>
+         <div>
+          <p>When a text field becomes first responder, the system automatically shows the keyboard and binds its input to the text field. A text field becomes the first responder automatically when the user taps it. You can also force a text field to become the first responder by calling its <a class="symbol-name" href="/documentation/uikit/uiresponder/1621113-becomefirstresponder"><code><span>become<wbr>First<wbr>Responder()</span></code></a> method. You might force a text field to become first responder when you require the user to enter some information.</p>
+          <aside class="aside aside-note" role="note">
+           <p class="aside-name">Note</p>
+           <p>The appearance of the keyboard has the potential to obscure portions of your user interface. You should update your interface as needed to ensure that the text field being edited is visible. Use the keyboard notifications to detect the appearance and disappearance of the keyboard and to make necessary changes to your interface. For more information, see <a href="/documentation/uikit/uitextfield#1652976">Responding to Keyboard-Related Notifications</a>. </p>
+          </aside>
+          <p>You can ask the system to dismiss the keyboard by calling the <a class="symbol-name" href="/documentation/uikit/uiresponder/1621097-resignfirstresponder"><code><span>resign<wbr>First<wbr>Responder()</span></code></a> method of your text field. Usually, you dismiss the keyboard in response to specific interactions. For example, you might dismiss the keyboard when the user taps the keyboard’s return key. The system can also dismiss the keyboard in response to user actions. Specifically, the system dismisses the keyboard when the user taps a new control that does not support keyboard input. </p>
+          <p>The appearance and dismissal of the keyboard affect the editing state of the text field. When the keyboard appears, the text field enters the editing state and sends the appropriate notifications to its delegate. Similarly, when the text field resigns the first responder status, it leaves the editing state and notifies its delegate. For more information about the sequence of events that occur during editing, see <a href="/documentation/uikit/uitextfield#1653000">Validating Text and Managing the Editing Process</a>. </p>
+         </div>
+         <h4 id="1652963">Configuring the Keyboard’s Appearance</h4>
+         <div>
+          <p>You customize your text field’s keyboard using the properties of the <a class="symbol-name" href="/documentation/uikit/uitextinputtraits"><code><span>UIText<wbr>Input<wbr>Traits</span></code></a> protocol, which the <code class="code-voice"><span>UIText<wbr>Field</span></code> class adopts. UIKit supports standard keyboards for the user’s current language and also supports specialized keyboards for entering numbers, URLs, email addresses, and other specific types of information. You use the properties of this protocol to adjust keyboard traits such as the following:</p>
+          <ul>
+           <li><p>The type of keyboard to display</p></li>
+           <li><p>The autocapitalization behavior of the keyboard</p></li>
+           <li><p>The autocorrection behavior of the keyboard</p></li>
+           <li><p>The type of return key to display</p></li>
+          </ul>
+          <p>For information about how to configure keyboard attributes in Interface Builder or in your code, see <a href="/documentation/uikit/uitextfield#1965766">Table 2</a>. </p>
+         </div>
+         <h4 id="1652976">Responding to Keyboard-Related Notifications</h4>
+         <div>
+          <p>Because the system manages the showing and hiding of the keyboard in response to responder changes, it posts the following notifications for tracking the keyboard-related changes:</p>
+          <ul>
+           <li><p><a class="symbol-name" href="/documentation/uikit/uiresponder/1621576-keyboardwillshownotification"><code><span>keyboard<wbr>Will<wbr>Show<wbr>Notification</span></code></a></p></li>
+           <li><p><a class="symbol-name" href="/documentation/uikit/uiresponder/1621602-keyboarddidshownotification"><code><span>keyboard<wbr>Did<wbr>Show<wbr>Notification</span></code></a></p></li>
+           <li><p><a class="symbol-name" href="/documentation/uikit/uiresponder/1621606-keyboardwillhidenotification"><code><span>keyboard<wbr>Will<wbr>Hide<wbr>Notification</span></code></a></p></li>
+           <li><p><a class="symbol-name" href="/documentation/uikit/uiresponder/1621579-keyboarddidhidenotification"><code><span>keyboard<wbr>Did<wbr>Hide<wbr>Notification</span></code></a></p></li>
+           <li><p><a class="symbol-name" href="/documentation/uikit/uiresponder/1621623-keyboardwillchangeframenotificat"><code><span>keyboard<wbr>Will<wbr>Change<wbr>Frame<wbr>Notification</span></code></a></p></li>
+           <li><p><a class="symbol-name" href="/documentation/uikit/uiresponder/1621619-keyboarddidchangeframenotificati"><code><span>keyboard<wbr>Did<wbr>Change<wbr>Frame<wbr>Notification</span></code></a></p></li>
+          </ul>
+          <p>Each notification contains a <a class="symbol-name" href="/documentation/foundation/nsnotification/1409222-userinfo"><code><span>user<wbr>Info</span></code></a> dictionary that includes the size of the keyboard. Because the keyboard can hide portions of your interface, you should use the size information to reposition your content on the screen. For content embedded in a scroll view, you can scroll the text field into view, as illustrated in <span class="reference">Figure 2</span>. In other cases, you can resize your main content view so that it is not covered by the keyboard.</p>
+          <figure id="1965762">
+           <figcaption>
+            <strong class="caption-title">Figure 2</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Adjusting the position of a text field when the keyboard appears</p>
+             </div>
+            </div>
+           </figcaption>
+           <img class="centered-block" src="https://docs-assets.developer.apple.com/published/ef3a6fcec5/keyboard_adjust_2x_4220aae9-104f-43e5-b753-aae36699e0d3.png" srcset="https://docs-assets.developer.apple.com/published/ef3a6fcec5/keyboard_adjust_2x_4220aae9-104f-43e5-b753-aae36699e0d3.png 2x" alt="" width="416" height="auto">
+          </figure>
+          <p>For more information about managing keyboard interactions, see <a href="https://developer.apple.com/library/archive/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009542">Text Programming Guide for iOS</a>.</p>
+         </div>
+         <h3 id="1968630">Formatting the Text in a Text Field</h3>
+         <div>
+          <p>There are two types of formatting you can do to a text field’s text:</p>
+          <ul>
+           <li><p>You can change the font, color, and style of the text using properties of this class. Alternatively, you can specify an <a class="symbol-name" href="/documentation/foundation/nsattributedstring"><code><span>NSAttributed<wbr>String</span></code></a> for the text field’s content.</p></li>
+           <li><p>You can format the content of a text field using an <a class="symbol-name" href="/documentation/foundation/formatter"><code><span>Formatter</span></code></a> object.</p></li>
+          </ul>
+          <p>The <a class="symbol-name" href="/documentation/uikit/uitextfield/1619604-font"><code><span>font</span></code></a>, <a class="symbol-name" href="/documentation/uikit/uitextfield/1619617-textcolor"><code><span>text<wbr>Color</span></code></a>, and <a class="symbol-name" href="/documentation/uikit/uitextfield/1619643-textalignment"><code><span>text<wbr>Alignment</span></code></a> properties, among others, affect the appearance of the text field’s string. Modifying these properties applies the specified characteristic to the entire string. To specify more granular formatting, specify the text field’s text using an <code class="code-voice"><span>NSAttributed<wbr>String</span></code> object.</p>
+          <p>The <code class="code-voice"><span>UIText<wbr>Field</span></code> class does not provide built-in support for formatting its string using an <code class="code-voice"><span>Formatter</span></code> object, but you can use the text field’s delegate to format the content yourself. To do so, use the text field’s delegate methods to validate text and to format it appropriately. For example, use the <a class="symbol-name" href="/documentation/uikit/uitextfielddelegate/1619599-textfield"><code><span>text<wbr>Field(_:<wbr>should<wbr>Change<wbr>Characters<wbr>In:<wbr>replacement<wbr>String:)</span></code></a> method to validate and format text while the user is typing. For information about how to use formatter objects, see <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/DataFormatting/DataFormatting.html#//apple_ref/doc/uid/10000029i">Data Formatting Guide</a>.</p>
+         </div>
+         <h3 id="1968631">Using Overlay Views to Edit Content</h3>
+         <div>
+          <p>Overlay views are small views displayed on the left and right sides of the text view’s editable area. Typically, overlay views are image-based buttons that you set up as additional editing controls. For example, you might use an overlay view to implement a bookmarks button. To configure a button as an overlay view, specify an image for the button’s content and configure the target and action of the button to respond to taps. </p>
+          <p><span class="reference">Listing 1</span> shows how to add a button as the left overlay of a text field. In this case, the code creates a button and configure its size and contents. The <a class="symbol-name" href="/documentation/uikit/uitextfield/1619588-leftviewmode"><code><span>left<wbr>View<wbr>Mode</span></code></a> property specifies when your button is displayed. When the user taps the button, the button calls the configured action method, which in this case is a custom <code class="code-voice"><span>display<wbr>Bookmarks:</span></code> method.</p>
+          <figure id="1943759">
+           <figcaption>
+            <strong class="caption-title">Listing 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Adding an overlay view to a text field</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="code-listing">
+             <pre class="code-source" data-language="occ"><code>UIButton* overlayButton = [UIButton buttonWithType:UIButtonTypeCustom];
+[overlayButton setImage:[UIImage imageNamed:@"bookmark"] forState:UIControlStateNormal];
+[overlayButton addTarget:self action:@selector(displayBookmarks:)
+        forControlEvents:UIControlEventTouchUpInside];
+overlayButton = CGRectMake(0, 0, 28, 28);
+ 
+// Assign the overlay button to a stored text field
+self.textField.leftView = overlayButton;
+self.textField.leftViewMode = UITextFieldViewModeAlways;
+</code></pre>
+            </div>
+           </div>
+          </figure>
+          <p>When configuring overlay views, consider whether you want your text field to display the built-in clear button. The clear button provides the user with a convenient way to delete all of the text field’s text. This button is displayed in the right overlay position, but if you provide a custom right overlay view, use the <a class="symbol-name" href="/documentation/uikit/uitextfield/1619607-rightviewmode"><code><span>right<wbr>View<wbr>Mode</span></code></a> and <a class="symbol-name" href="/documentation/uikit/uitextfield/1619622-clearbuttonmode"><code><span>clear<wbr>Button<wbr>Mode</span></code></a> properties to define when your custom overlay should be displayed and when the clear button should be displayed. </p>
+         </div>
+         <h3 id="1653000">Validating Text and Managing the Editing Process</h3>
+         <div>
+          <p>A text field manages the editing of its text with the help of its delegate object. As the user interacts with a text field, the text field notifies its delegate and gives it a chance to control what is happening. You can use the delegate methods to prevent the user from starting or stopping the editing process or to validate text as it is typed. You can also use the delegate methods to perform related tasks, such as updating other parts of your interface based on the information typed by the user. </p>
+          <p>For more information about using the text field’s delegate to manage editing interactions, see <a class="symbol-name" href="/documentation/uikit/uitextfielddelegate"><code><span>UIText<wbr>Field<wbr>Delegate</span></code></a>. </p>
+         </div>
+         <h3 id="1968632">Interface Builder Attributes</h3>
+         <div>
+          <p><span class="reference">Table 1</span> lists the attributes that you configure for text fields in Interface Builder. </p>
+          <figure id="1965765">
+           <figcaption>
+            <strong class="caption-title">Table 1</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Text Field attributes</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="table-wrapper">
+             <table>
+              <thead>
+               <tr>
+                <th scope="col"><p>Attribute</p></th>
+                <th scope="col"><p>Description</p></th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                <td><p>Text</p></td>
+                <td><p>The initial text displayed by the text field. You can specify the text as a plain string or as an attributed string. If you specify an attributed string, Interface Builder provides different options for editing the font, color, and formatting of the string.</p></td>
+               </tr>
+               <tr>
+                <td><p>Color</p></td>
+                <td><p>The color of the text field’s text. To set this attribute programmatically, use the <a class="symbol-name" href="/documentation/uikit/uitextfield/1619617-textcolor"><code><span>text<wbr>Color</span></code></a> property. </p></td>
+               </tr>
+               <tr>
+                <td><p>Font</p></td>
+                <td><p>The font of the text field’s text. To set this attribute programmatically, use the <a class="symbol-name" href="/documentation/uikit/uitextfield/1619604-font"><code><span>font</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Alignment</p></td>
+                <td><p>The alignment of the text field’s text inside the editing area. This option is available only when formatting plain strings. To set this attribute programmatically, use the <a class="symbol-name" href="/documentation/uikit/uitextfield/1619643-textalignment"><code><span>text<wbr>Alignment</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Placeholder</p></td>
+                <td><p>The placeholder text displayed by the text field. When the text field’s string is empty, the text field displays this string instead, formatting the string so as to indicate that it is not the actual text. Typing any text into the text field hides this string. To set this attribute programmatically, use the <a class="symbol-name" href="/documentation/uikit/uitextfield/1619621-placeholder"><code><span>placeholder</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Background</p></td>
+                <td><p>The background image to display when the text field is enabled. This image is displayed behind the rest of the text field’s content. To set this attribute programmatically, use the <a class="symbol-name" href="/documentation/uikit/uitextfield/1619623-background"><code><span>background</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Disabled</p></td>
+                <td><p>The background image to display when the text field is disabled. This image is displayed behind the rest of the text field’s content. To set this attribute programmatically, use the <a class="symbol-name" href="/documentation/uikit/uitextfield/1619611-disabledbackground"><code><span>disabled<wbr>Background</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Border Style</p></td>
+                <td><p>The visual style for the text field’s border. This attribute defines the visual border, if any, drawn around the editable text region. To set this attribute programatically, use the <a class="symbol-name" href="/documentation/uikit/uitextfield/1619624-borderstyle"><code><span>border<wbr>Style</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Clear Button</p></td>
+                <td><p>The behavior of the clear button. The clear button is a built-in overlay view that the user taps to delete all of the text in a text field. Use this attribute to define when the clear button appears. To set this attribute programatically, use the<a class="symbol-name" href="/documentation/uikit/uitextfield/1619622-clearbuttonmode"><code><span>clear<wbr>Button<wbr>Mode</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Min Font Size</p></td>
+                <td><p>The minimum font size for the text field’s text. When the Adjust to Fit option is enabled, the text field automatically varies the font size to ensure maximum legibility of the text. You can use this attribute to specify the smallest font size that your consider appropriate for your text. To set this attribute programatically, use the<a class="symbol-name" href="/documentation/uikit/uitextfield/1619605-minimumfontsize"><code><span>minimum<wbr>Font<wbr>Size</span></code></a> property.</p></td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+           </div>
+          </figure>
+          <p><span class="reference">Table 2</span> lists the keyboard-related attributes that you configure for text fields. This attributes correspond to properties of the <a class="symbol-name" href="/documentation/uikit/uitextinputtraits"><code><span>UIText<wbr>Input<wbr>Traits</span></code></a> protocol that the <code class="code-voice"><span>UIText<wbr>Field</span></code> class adopts. </p>
+          <figure id="1965766">
+           <figcaption>
+            <strong class="caption-title">Table 2</strong> 
+            <div class="caption-content formatted-content">
+             <div>
+              <p>Keyboard attributes</p>
+             </div>
+            </div>
+           </figcaption>
+           <div class="formatted-content">
+            <div class="table-wrapper">
+             <table>
+              <thead>
+               <tr>
+                <th scope="col"><p>Attribute</p></th>
+                <th scope="col"><p>Description</p></th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                <td><p>Capitalization</p></td>
+                <td><p>The automatic capitalization style to apply to typed text. This attribute determines at what time the Shift key is automatically pressed. You can access the value of this attribute programmatically using the text field’s <a class="symbol-name" href="/documentation/uikit/uitextinputtraits/1624447-autocapitalizationtype"><code><span>autocapitalization<wbr>Type</span></code></a> property. </p></td>
+               </tr>
+               <tr>
+                <td><p>Correction</p></td>
+                <td><p>The autocorrection behavior of the text field. This attribute determines whether autocorrection is enabled or disabled during typing. You can access the value of this attribute programmatically using the text field’s <a class="symbol-name" href="/documentation/uikit/uitextinputtraits/1624453-autocorrectiontype"><code><span>autocorrection<wbr>Type</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Spell Checking</p></td>
+                <td><p>The spell checking behavior of the text field. This attribute determines whether spell checking is enabled or disabled during typing. You can access the value of this attribute programmatically using the text field’s <a class="symbol-name" href="/documentation/uikit/uitextinputtraits/1624461-spellcheckingtype"><code><span>spell<wbr>Checking<wbr>Type</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Keyboard Type</p></td>
+                <td><p>The style of the text field’s keyboard. This property specifies the type of keyboard displayed when the text field is active. You can access the value of this attribute programmatically using the text field’s <a class="symbol-name" href="/documentation/uikit/uitextinputtraits/1624457-keyboardtype"><code><span>keyboard<wbr>Type</span></code></a> property.</p></td>
+               </tr>
+               <tr>
+                <td><p>Appearance</p></td>
+                <td><p>The visual style applied to the text field’s keyboard. Use this property to specify a dark or light keyboard. You can access the value of this attribute programmatically using the text field’s <a class="symbol-name" href="/documentation/uikit/uitextinputtraits/1624434-keyboardappearance"><code><span>keyboard<wbr>Appearance</span></code></a> property. </p></td>
+               </tr>
+               <tr>
+                <td><p>Return Key</p></td>
+                <td><p>The type of return key to display on the keyboard. Use this property to configure the text and visual style applied to the keyboard’s return key. You can access the value of this attribute programmatically using the text field’s <a class="symbol-name" href="/documentation/uikit/uitextinputtraits/1624446-returnkeytype"><code><span>return<wbr>Key<wbr>Type</span></code></a> property.</p><p>The return key is disabled by default and becomes enabled only when the user types some text into the text field. To respond to taps in the Return key, implement the <a class="symbol-name" href="/documentation/uikit/uitextfielddelegate/1619603-textfieldshouldreturn"><code><span>text<wbr>Field<wbr>Should<wbr>Return(_:)</span></code></a> method in the delegate you assign to the text field. </p></td>
+               </tr>
+              </tbody>
+             </table>
+            </div>
+           </div>
+          </figure>
+          <p>For information about additional attributes you can configure for a text view, see <a class="symbol-name" href="/documentation/uikit/uicontrol"><code><span>UIControl</span></code></a>.</p>
+         </div>
+         <h3 id="1968633">Internationalization</h3>
+         <div>
+          <p>The default language of the device affects the keyboard that pops up with the text field (including the return key). You do not need to do anything to enable this functionality; it is enabled by default. However, your text field should be able to handle input that comes from any language.</p>
+          <p>When using storyboards to build your interface, use Xcode’s base internationalization feature to configure the localizations your project supports. When you add a localization, Xcode creates a strings file for that localization. When configuring your interface programmatically, use the system’s built-in support for loading localized strings and resources. For more information about internationalizing your interface, see <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/Introduction/Introduction.html#//apple_ref/doc/uid/10000171i">Internationalization and Localization Guide</a>. </p>
+         </div>
+         <h3 id="1968634">Accessibility</h3>
+         <div>
+          <p>Text fields are accessible by default. The default accessibility trait for a text field is User Interaction Enabled.</p>
+          <p>For more information about making iOS controls accessible, see the accessibility information in <a class="symbol-name" href="/documentation/uikit/uicontrol"><code><span>UIControl</span></code></a>. For general information about making your interface accessible, see <a href="https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/iPhoneAccessibility/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008785">Accessibility Programming Guide for iOS</a>. </p>
+         </div>
+         <h3 id="1653026">State Preservation</h3>
+         <div>
+          <p>When you assign a value to a text field’s <a class="symbol-name" href="/documentation/uikit/uiview/1622494-restorationidentifier"><code><span>restoration<wbr>Identifier</span></code></a> property, it preserves the selected range of text, if any. During the next launch cycle, the text field attempts to restore that selection. If the selection range cannot be applied to the current text, no selection is made. For more information about how state preservation and restoration works, see <a href="https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007072">App Programming Guide for iOS</a>.</p>
+         </div>
+        </div>
+       </section>
+      </div>
+     </div>
+     <section id="topics" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Topics</h2>
+        <section id="1653466" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Validating and Handling Edits</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619595-delegate"><code class="display-name"><span class="decorator">var </span><span class="identifier">delegate</span><span class="decorator">: UIText<wbr>Field<wbr>Delegate?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The receiver’s delegate.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfielddelegate"><code class="display-name"><span class="decorator">protocol </span><span class="identifier">UIText<wbr>Field<wbr>Delegate</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A set of optional methods that you use to manage the editing and validation of text in a text field object.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653053" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Accessing the Text Attributes</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619635-text"><code class="display-name"><span class="decorator">var </span><span class="identifier">text</span><span class="decorator">: String?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The text displayed by the text field. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619602-attributedtext"><code class="display-name"><span class="decorator">var </span><span class="identifier">attributed<wbr>Text</span><span class="decorator">: NSAttributed<wbr>String?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The styled text displayed by the text field. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619621-placeholder"><code class="display-name"><span class="decorator">var </span><span class="identifier">placeholder</span><span class="decorator">: String?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The string that is displayed when there is no other text in the text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619610-attributedplaceholder"><code class="display-name"><span class="decorator">var </span><span class="identifier">attributed<wbr>Placeholder</span><span class="decorator">: NSAttributed<wbr>String?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The styled string that is displayed when there is no other text in the text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619618-defaulttextattributes"><code class="display-name"><span class="decorator">var </span><span class="identifier">default<wbr>Text<wbr>Attributes</span><span class="decorator">: [NSAttributed<wbr>String<wbr>.Key : Any]</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The default attributes to apply to the text.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619604-font"><code class="display-name"><span class="decorator">var </span><span class="identifier">font</span><span class="decorator">: UIFont?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The font of the text. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619617-textcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">text<wbr>Color</span><span class="decorator">: UIColor?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The color of the text.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619643-textalignment"><code class="display-name"><span class="decorator">var </span><span class="identifier">text<wbr>Alignment</span><span class="decorator">: NSText<wbr>Alignment</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The technique to use for aligning the text.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619632-typingattributes"><code class="display-name"><span class="decorator">var </span><span class="identifier">typing<wbr>Attributes</span><span class="decorator">: [NSAttributed<wbr>String<wbr>.Key : Any]?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The attributes to apply to new text being entered by the user.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/borderstyle"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIText<wbr>Field<wbr>.Border<wbr>Style</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The type of border drawn around the text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653196" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Sizing the Text Field’s Text</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619625-adjustsfontsizetofitwidth"><code class="display-name"><span class="decorator">var </span><span class="identifier">adjusts<wbr>Font<wbr>Size<wbr>To<wbr>Fit<wbr>Width</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the font size should be reduced in order to fit the text string into the text field’s bounding rectangle.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619605-minimumfontsize"><code class="display-name"><span class="decorator">var </span><span class="identifier">minimum<wbr>Font<wbr>Size</span><span class="decorator">: CGFloat</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The size of the smallest permissible font with which to draw the text field’s text. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653250" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing the Editing Behavior</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619608-isediting"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Editing</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the text field is currently in edit mode. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619639-clearsonbeginediting"><code class="display-name"><span class="decorator">var </span><span class="identifier">clears<wbr>On<wbr>Begin<wbr>Editing</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the text field removes old text when editing begins.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619631-clearsoninsertion"><code class="display-name"><span class="decorator">var </span><span class="identifier">clears<wbr>On<wbr>Insertion</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether inserting text replaces the previous contents.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619628-allowseditingtextattributes"><code class="display-name"><span class="decorator">var </span><span class="identifier">allows<wbr>Editing<wbr>Text<wbr>Attributes</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the user may edit the attributes of the text in the text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/didendeditingreason"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIText<wbr>Field<wbr>.Did<wbr>End<wbr>Editing<wbr>Reason</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Constants indicating the reason why editing ended in a text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info has-inline-element">
+              <a class="symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/2352215-didendeditingreasonuserinfokey"><code class="display-name"><span class="decorator">class let </span><span class="identifier">did<wbr>End<wbr>Editing<wbr>Reason<wbr>User<wbr>Info<wbr>Key</span><span class="decorator">: String</span></code></a>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619616-textdidbegineditingnotification"><code class="display-name"><span class="decorator">class let </span><span class="identifier">text<wbr>Did<wbr>Begin<wbr>Editing<wbr>Notification</span><span class="decorator">: NSNotification<wbr>.Name</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Notifies observers that an editing session began in a text field. The affected text field is stored in the <code class="code-voice"><span>object</span></code> parameter of the notification. The <code class="code-voice"><span>user<wbr>Info</span></code> dictionary is not used.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619640-textdidchangenotification"><code class="display-name"><span class="decorator">class let </span><span class="identifier">text<wbr>Did<wbr>Change<wbr>Notification</span><span class="decorator">: NSNotification<wbr>.Name</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Notifies observers that the text in a text field changed. The affected text field is stored in the <code class="code-voice"><span>object</span></code> parameter of the notification. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619633-textdidendeditingnotification"><code class="display-name"><span class="decorator">class let </span><span class="identifier">text<wbr>Did<wbr>End<wbr>Editing<wbr>Notification</span><span class="decorator">: NSNotification<wbr>.Name</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Notifies observers that the editing session ended for a text field. The affected text field is stored in the <code class="code-voice"><span>object</span></code> parameter of the notification. The <code class="code-voice"><span>user<wbr>Info</span></code> dictionary is not used.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653311" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Setting the View’s Background Appearance</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619624-borderstyle"><code class="display-name"><span class="decorator">var </span><span class="identifier">border<wbr>Style</span><span class="decorator">: UIText<wbr>Field<wbr>.Border<wbr>Style</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The border style used by the text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619623-background"><code class="display-name"><span class="decorator">var </span><span class="identifier">background</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The image that represents the background appearance of the text field when it is enabled. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619611-disabledbackground"><code class="display-name"><span class="decorator">var </span><span class="identifier">disabled<wbr>Background</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The image that represents the background appearance of the text field when it is disabled.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653369" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Managing Overlay Views</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619622-clearbuttonmode"><code class="display-name"><span class="decorator">var </span><span class="identifier">clear<wbr>Button<wbr>Mode</span><span class="decorator">: UIText<wbr>Field<wbr>.View<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Controls when the standard clear button appears in the text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619597-leftview"><code class="display-name"><span class="decorator">var </span><span class="identifier">left<wbr>View</span><span class="decorator">: UIView?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The overlay view displayed on the left (or leading) side of the text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619588-leftviewmode"><code class="display-name"><span class="decorator">var </span><span class="identifier">left<wbr>View<wbr>Mode</span><span class="decorator">: UIText<wbr>Field<wbr>.View<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Controls when the left overlay view appears in the text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619596-rightview"><code class="display-name"><span class="decorator">var </span><span class="identifier">right<wbr>View</span><span class="decorator">: UIView?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The overlay view displayed on the right (or trailing) side of the text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619607-rightviewmode"><code class="display-name"><span class="decorator">var </span><span class="identifier">right<wbr>View<wbr>Mode</span><span class="decorator">: UIText<wbr>Field<wbr>.View<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Controls when the right overlay view appears in the text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/viewmode"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIText<wbr>Field<wbr>.View<wbr>Mode</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Defines the times at which overlay views appear in a text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653493" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Drawing and Positioning Overrides</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619636-textrect"><code class="display-name"><span class="decorator">func </span><span class="identifier">text<wbr>Rect</span><span class="decorator">(</span><span class="identifier">for<wbr>Bounds</span><span class="decorator">: CGRect) -&gt; CGRect</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the drawing rectangle for the text field’s text.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619587-drawtext"><code class="display-name"><span class="decorator">func </span><span class="identifier">draw<wbr>Text</span><span class="decorator">(</span><span class="identifier">in</span><span class="decorator">: CGRect)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Draws the receiver’s text in the specified rectangle.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619615-placeholderrect"><code class="display-name"><span class="decorator">func </span><span class="identifier">placeholder<wbr>Rect</span><span class="decorator">(</span><span class="identifier">for<wbr>Bounds</span><span class="decorator">: CGRect) -&gt; CGRect</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the drawing rectangle for the text field’s placeholder text</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619637-drawplaceholder"><code class="display-name"><span class="decorator">func </span><span class="identifier">draw<wbr>Placeholder</span><span class="decorator">(</span><span class="identifier">in</span><span class="decorator">: CGRect)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Draws the receiver’s placeholder text in the specified rectangle.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619642-borderrect"><code class="display-name"><span class="decorator">func </span><span class="identifier">border<wbr>Rect</span><span class="decorator">(</span><span class="identifier">for<wbr>Bounds</span><span class="decorator">: CGRect) -&gt; CGRect</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the receiver’s border rectangle. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619589-editingrect"><code class="display-name"><span class="decorator">func </span><span class="identifier">editing<wbr>Rect</span><span class="decorator">(</span><span class="identifier">for<wbr>Bounds</span><span class="decorator">: CGRect) -&gt; CGRect</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the rectangle in which editable text can be displayed.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619600-clearbuttonrect"><code class="display-name"><span class="decorator">func </span><span class="identifier">clear<wbr>Button<wbr>Rect</span><span class="decorator">(</span><span class="identifier">for<wbr>Bounds</span><span class="decorator">: CGRect) -&gt; CGRect</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the drawing rectangle for the built-in clear button. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619586-leftviewrect"><code class="display-name"><span class="decorator">func </span><span class="identifier">left<wbr>View<wbr>Rect</span><span class="decorator">(</span><span class="identifier">for<wbr>Bounds</span><span class="decorator">: CGRect) -&gt; CGRect</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the drawing rectangle of the receiver’s left overlay view. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619638-rightviewrect"><code class="display-name"><span class="decorator">func </span><span class="identifier">right<wbr>View<wbr>Rect</span><span class="decorator">(</span><span class="identifier">for<wbr>Bounds</span><span class="decorator">: CGRect) -&gt; CGRect</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the drawing location of the receiver’s right overlay view. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653621" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Replacing the System Input Views</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619620-inputview"><code class="display-name"><span class="decorator">var </span><span class="identifier">input<wbr>View</span><span class="decorator">: UIView?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The custom input view to display when the text field becomes the first responder. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextfield/1619627-inputaccessoryview"><code class="display-name"><span class="decorator">var </span><span class="identifier">input<wbr>Accessory<wbr>View</span><span class="decorator">: UIView?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The custom accessory view to display when the text field becomes the first responder</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="relationships" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Relationships</h2>
+        <section id="inherits-from" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Inherits From</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <a class="symbol-name" href="/documentation/uikit/uicontrol"><code><span>UIControl</span></code></a>
+          </div>
+         </div>
+        </section>
+        <section id="conforms-to" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Conforms To</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <ul class="relationships-section-content-columns">
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/cvararg"><code><span>CVar<wbr>Arg</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/equatable"><code><span>Equatable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/hashable"><code><span>Hashable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/foundation/nscoding"><code><span>NSCoding</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiaccessibilityidentification"><code><span>UIAccessibility<wbr>Identification</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uicontentsizecategoryadjusting"><code><span>UIContent<wbr>Size<wbr>Category<wbr>Adjusting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uipasteconfigurationsupporting"><code><span>UIPaste<wbr>Configuration<wbr>Supporting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uitextdraggable"><code><span>UIText<wbr>Draggable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uitextdroppable"><code><span>UIText<wbr>Droppable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uitextinput"><code><span>UIText<wbr>Input</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uitextpasteconfigurationsupporting"><code><span>UIText<wbr>Paste<wbr>Configuration<wbr>Supporting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiuseractivityrestoring"><code><span>UIUser<wbr>Activity<wbr>Restoring</span></code></a></li>
+           </ul>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="see-also" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">See Also</h2>
+        <section id="2864418" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Text Views</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uilabel"><code class="display-name"><span class="decorator">class </span><span class="identifier">UILabel</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A view that displays one or more lines of read-only text, often used in conjunction with controls to describe their intended purpose.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitextview"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIText<wbr>View</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A scrollable, multiline text region. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name" href="/documentation/uikit/views_and_controls/drag_and_drop_customization">
+               <svg xmlns="http://www.w3.org/2000/svg" height="16" viewbox="0 0 15 16" class="svg-icon symbol-name-icon" aria-hidden="true">
+                <title>API Collection</title>
+                <g class="svg-icon-small" fill-rule="evenodd">
+                 <path fill-rule="nonzero" d="M0,0 L15,0 L15,15 L0,15 L0,0 Z M1,14 L14,14 L14,1 L1,1 L1,14 Z"></path>
+                 <polygon points="4 11 3 11 3 10 4 10"></polygon>
+                 <polygon points="4 8 3 8 3 7 4 7"></polygon>
+                 <polygon points="4 5 3 5 3 4 4 4"></polygon>
+                 <polygon points="12 11 5 11 5 10 12 10"></polygon>
+                 <polygon points="12 8 5 8 5 7 12 7"></polygon>
+                 <polygon points="12 5 5 5 5 4 12 4"></polygon>
+                </g>
+               </svg><span>Drag and Drop Customization</span></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Extend the standard drag and drop support for text views to include custom types of content. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+    </main>
+    <section id="globalfooter-wrapper">
+     <footer id="globalfooter" role="contentinfo"> 
+      <nav class="footer-breadory"> 
+       <a href="/" class="home breadcrumbs-home"><span aria-hidden="true"></span><span class="breadcrumbs-home-label">Developer</span></a> 
+       <section class="breadcrumbs"> 
+        <ol class="breadcrumbs-list"> 
+         <li><a href="/documentation">Documentation</a></li> 
+        </ol> 
+       </section> 
+       <div id="directorynav" class="directorynav"> 
+        <div id="dn-cola" class="column"> 
+         <h3><a href="/discover/">Discover</a></h3> 
+         <ul> 
+          <li><a href="/macos/">macOS</a></li> 
+          <li><a href="/ios/">iOS</a></li> 
+          <li><a href="/watchos/">watchOS</a></li> 
+          <li><a href="/tvos/">tvOS</a></li> 
+          <li><a href="/safari/">Safari and Web</a></li> 
+          <li><a href="/games/">Games</a></li> 
+          <li><a href="/enterprise/">Enterprise</a></li> 
+          <li><a href="/education/">Education</a></li> 
+          <li><a href="/wwdc/">WWDC</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colb" class="column"> 
+         <h3><a href="/design/">Design</a></h3> 
+         <ul> 
+          <li><a href="/design/human-interface-guidelines/">Human Interface Guidelines</a></li> 
+          <li><a href="/design/resources/">Resources</a></li> 
+          <li><a href="/videos/design/">Videos</a></li> 
+          <li><a href="/design/awards/">Apple Design Awards</a></li> 
+          <li><a href="/accessibility/">Accessibility</a></li> 
+          <li><a href="/internationalization/">Internationalization</a></li> 
+          <li><a href="/accessories/">Accessories</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colc" class="column"> 
+         <h3><a href="/develop/">Develop</a></h3> 
+         <ul> 
+          <li><a href="/xcode/">Xcode</a></li> 
+          <li><a href="/swift/">Swift</a></li> 
+          <li><a href="/swift-playgrounds/">Swift Playgrounds</a></li> 
+          <li><a href="/testflight/">TestFlight</a></li> 
+          <li><a href="/documentation/">Documentation</a></li> 
+          <li><a href="/videos/">Videos</a></li> 
+          <li><a href="/download/">Downloads</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cold" class="column"> 
+         <h3><a href="/distribute/">Distribute</a></h3> 
+         <ul> 
+          <li><a href="/app-store/">App Store</a></li> 
+          <li><a href="/macos/distribution/">Mac Software</a></li> 
+          <li><a href="/app-store/review/">App Review</a></li> 
+          <li><a href="/programs/volume/">Volume Purchase Program</a></li> 
+          <li><a href="/programs/volume/b2b/">Custom B2B Apps</a></li> 
+          <li><a href="/enterprise/distribute/">Enterprise Apps</a></li> 
+          <li><a href="/safari/extensions/">Safari Extensions</a></li> 
+          <li><a href="/app-store/marketing/guidelines/">Marketing Resources</a></li> 
+          <li><a href="/softwarelicensing/">Trademark Licensing</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cole" class="column"> 
+         <h3><a href="/support/">Support</a></h3> 
+         <ul> 
+          <li><a href="https://forums.developer.apple.com">Developer Forums</a></li> 
+          <li><a href="/bug-reporting/">Bug Reporting</a></li> 
+          <li><a href="/terms/">License Agreements</a></li> 
+          <li><a href="/system-status/">System Status</a></li> 
+          <li><a href="/contact/">Contact Us</a></li> 
+          <br> 
+          <h3><a href="/account/">Account</a></h3> 
+          <ul> 
+           <li><a href="/programs/">Developer Program</a></li> 
+           <li><a href="/account/ios/certificate/">Certificates, IDs &amp; Profiles</a></li> 
+           <li><a href="https://appstoreconnect.apple.com/">App Store Connect</a></li> 
+          </ul> 
+         </ul> 
+        </div> 
+       </div> 
+      </nav> 
+      <div class="ac-gf-footer-legal"> 
+       <div class="ac-gf-footer-news">
+         To receive the latest developer news, visit and subscribe to our 
+        <a href="/news/">News and Updates</a>. 
+       </div> 
+       <div class="ac-gf-footer-legal-copyright">
+        Copyright © 2018 Apple Inc. All rights reserved.
+       </div> 
+       <div class="ac-gf-footer-legal-links"> 
+        <a href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a> 
+        <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a> 
+        <a href="/bug-reporting/">Report Bugs</a> 
+        <a href="/contact/submit/?subject=website-feedback">Feedback</a> 
+       </div> 
+       <div class="ac-gf-footer-language-links"> 
+        <a href="/cn/" class="first">简体中文</a> 
+        <a href="/jp/">日本語</a> 
+        <a href="/kr/">한국어</a> 
+       </div> 
+      </div> 
+     </footer>
+    </section>
+   </div>
+  </div>
+  <script id="bootstrap-data" type="application/json">{"id":1619619,"title":{"content":"UITextField"},"discussion":"<div><p>You use text fields to gather text-based input from the user using the onscreen keyboard. The keyboard is configurable for many different types of input such as plain text, emails, numbers, and so on. Text fields use the target-action mechanism and a delegate object to report changes made during the course of editing.<\/p><p>In addition to its basic text-editing behavior, you can add overlay views to a text field to display additional information and provide additional tappable controls. You might add custom overlay views for elements such as a bookmarks button or search icon. Text fields provide a built-in overlay view to clear the current text. The use of custom overlay views is optional. <\/p><figure id=\"2557435\"><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/ef3a6fcec5\/uitextfield_intro_2x_a45e1f72-b6db-4bd6-8f82-4438e14dc1da.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/ef3a6fcec5\/uitextfield_intro_2x_a45e1f72-b6db-4bd6-8f82-4438e14dc1da.png 2x\" alt=\"\" width=\"97\" height=\"auto\"\/><\/figure><p>After adding a text field to your interface, you configure it for use in your app. Configuration involves performing some or all of the following tasks: <\/p><ul><li><p>Configure one or more targets and actions for the text field. <\/p><\/li><li><p>Configure the keyboard-related attributes of the text field.<\/p><\/li><li><p>Assign a delegate object to handle important tasks, such as:<\/p><ul><li><p>Determining whether the user should be allowed to edit the text field’s contents.<\/p><\/li><li><p>Validating the text entered by the user.<\/p><\/li><li><p>Responding to taps in the keyboard’s return button.<\/p><\/li><li><p>Forwarding the user-entered text to other parts of your app.<\/p><\/li><\/ul><\/li><li><p>Store a reference to the text field in one of your controller objects.<\/p><\/li><\/ul><p>For information about the methods of the text field’s delegate object, see <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfielddelegate\"><code><span>UIText<wbr\/>Field<wbr\/>Delegate<\/span><\/code><\/a>. <\/p><\/div><h3 id=\"1652934\">Showing and Hiding the Keyboard<\/h3><div><p>When a text field becomes first responder, the system automatically shows the keyboard and binds its input to the text field. A text field becomes the first responder automatically when the user taps it. You can also force a text field to become the first responder by calling its <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiresponder\/1621113-becomefirstresponder\"><code><span>become<wbr\/>First<wbr\/>Responder()<\/span><\/code><\/a> method. You might force a text field to become first responder when you require the user to enter some information.<\/p><aside class=\"aside aside-note\" role=\"note\"><p class=\"aside-name\">Note<\/p><p>The appearance of the keyboard has the potential to obscure portions of your user interface. You should update your interface as needed to ensure that the text field being edited is visible. Use the keyboard notifications to detect the appearance and disappearance of the keyboard and to make necessary changes to your interface. For more information, see <a href=\"\/documentation\/uikit\/uitextfield#1652976\">Responding to Keyboard-Related Notifications<\/a>.  <\/p><\/aside><p>You can ask the system to dismiss the keyboard by calling the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiresponder\/1621097-resignfirstresponder\"><code><span>resign<wbr\/>First<wbr\/>Responder()<\/span><\/code><\/a> method of your text field. Usually, you dismiss the keyboard in response to specific interactions. For example, you might dismiss the keyboard when the user taps the keyboard’s return key. The system can also dismiss the keyboard in response to user actions. Specifically, the system dismisses the keyboard when the user taps a new control that does not support keyboard input.  <\/p><p>The appearance and dismissal of the keyboard affect the editing state of the text field. When the keyboard appears, the text field enters the editing state and sends the appropriate notifications to its delegate. Similarly, when the text field resigns the first responder status, it leaves the editing state and notifies its delegate. For more information about the sequence of events that occur during editing, see <a href=\"\/documentation\/uikit\/uitextfield#1653000\">Validating Text and Managing the Editing Process<\/a>. <\/p><\/div><h4 id=\"1652963\">Configuring the Keyboard’s Appearance<\/h4><div><p>You customize your text field’s keyboard using the properties of the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextinputtraits\"><code><span>UIText<wbr\/>Input<wbr\/>Traits<\/span><\/code><\/a> protocol, which the <code class=\"code-voice\"><span>UIText<wbr\/>Field<\/span><\/code> class adopts. UIKit supports standard keyboards for the user’s current language and also supports specialized keyboards for entering numbers, URLs, email addresses, and other specific types of information. You use the properties of this protocol to adjust keyboard traits such as the following:<\/p><ul><li><p>The type of keyboard to display<\/p><\/li><li><p>The autocapitalization behavior of the keyboard<\/p><\/li><li><p>The autocorrection behavior of the keyboard<\/p><\/li><li><p>The type of return key to display<\/p><\/li><\/ul><p>For information about how to configure keyboard attributes in Interface Builder or in your code, see <a href=\"\/documentation\/uikit\/uitextfield#1965766\">Table 2<\/a>. <\/p><\/div><h4 id=\"1652976\">Responding to Keyboard-Related Notifications<\/h4><div><p>Because the system manages the showing and hiding of the keyboard in response to responder changes, it posts the following notifications for tracking the keyboard-related changes:<\/p><ul><li><p><a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiresponder\/1621576-keyboardwillshownotification\"><code><span>keyboard<wbr\/>Will<wbr\/>Show<wbr\/>Notification<\/span><\/code><\/a><\/p><\/li><li><p><a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiresponder\/1621602-keyboarddidshownotification\"><code><span>keyboard<wbr\/>Did<wbr\/>Show<wbr\/>Notification<\/span><\/code><\/a><\/p><\/li><li><p><a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiresponder\/1621606-keyboardwillhidenotification\"><code><span>keyboard<wbr\/>Will<wbr\/>Hide<wbr\/>Notification<\/span><\/code><\/a><\/p><\/li><li><p><a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiresponder\/1621579-keyboarddidhidenotification\"><code><span>keyboard<wbr\/>Did<wbr\/>Hide<wbr\/>Notification<\/span><\/code><\/a><\/p><\/li><li><p><a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiresponder\/1621623-keyboardwillchangeframenotificat\"><code><span>keyboard<wbr\/>Will<wbr\/>Change<wbr\/>Frame<wbr\/>Notification<\/span><\/code><\/a><\/p><\/li><li><p><a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiresponder\/1621619-keyboarddidchangeframenotificati\"><code><span>keyboard<wbr\/>Did<wbr\/>Change<wbr\/>Frame<wbr\/>Notification<\/span><\/code><\/a><\/p><\/li><\/ul><p>Each notification contains a <a class=\"symbol-name\" href=\"\/documentation\/foundation\/nsnotification\/1409222-userinfo\"><code><span>user<wbr\/>Info<\/span><\/code><\/a> dictionary that includes the size of the keyboard. Because the keyboard can hide portions of your interface, you should use the size information to reposition your content on the screen. For content embedded in a scroll view, you can scroll the text field into view, as illustrated in <span class=\"reference\">Figure 2<\/span>. In other cases, you can resize your main content view so that it is not covered by the keyboard.<\/p><figure id=\"1965762\"><figcaption><strong class=\"caption-title\">Figure 2<\/strong> <div class=\"caption-content formatted-content\"><div><p>Adjusting the position of a text field when the keyboard appears<\/p><\/div><\/div><\/figcaption><img class=\"centered-block\" src=\"https:\/\/docs-assets.developer.apple.com\/published\/ef3a6fcec5\/keyboard_adjust_2x_4220aae9-104f-43e5-b753-aae36699e0d3.png\" srcset=\"https:\/\/docs-assets.developer.apple.com\/published\/ef3a6fcec5\/keyboard_adjust_2x_4220aae9-104f-43e5-b753-aae36699e0d3.png 2x\" alt=\"\" width=\"416\" height=\"auto\"\/><\/figure><p>For more information about managing keyboard interactions, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/StringsTextFonts\/Conceptual\/TextAndWebiPhoneOS\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40009542\">Text Programming Guide for iOS<\/a>.<\/p><\/div><h3 id=\"1968630\">Formatting the Text in a Text Field<\/h3><div><p>There are two types of formatting you can do to a text field’s text:<\/p><ul><li><p>You can change the font, color, and style of the text using properties of this class. Alternatively, you can specify an <a class=\"symbol-name\" href=\"\/documentation\/foundation\/nsattributedstring\"><code><span>NSAttributed<wbr\/>String<\/span><\/code><\/a> for the text field’s content.<\/p><\/li><li><p>You can format the content of a text field using an <a class=\"symbol-name\" href=\"\/documentation\/foundation\/formatter\"><code><span>Formatter<\/span><\/code><\/a> object.<\/p><\/li><\/ul><p>The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619604-font\"><code><span>font<\/span><\/code><\/a>, <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619617-textcolor\"><code><span>text<wbr\/>Color<\/span><\/code><\/a>, and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619643-textalignment\"><code><span>text<wbr\/>Alignment<\/span><\/code><\/a> properties, among others, affect the appearance of the text field’s string. Modifying these properties applies the specified characteristic to the entire string. To specify more granular formatting, specify the text field’s text using an <code class=\"code-voice\"><span>NSAttributed<wbr\/>String<\/span><\/code> object.<\/p><p>The <code class=\"code-voice\"><span>UIText<wbr\/>Field<\/span><\/code> class does not provide built-in support for formatting its string using an <code class=\"code-voice\"><span>Formatter<\/span><\/code> object, but you can use the text field’s delegate to format the content yourself. To do so, use the text field’s delegate methods to validate text and to format it appropriately. For example, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfielddelegate\/1619599-textfield\"><code><span>text<wbr\/>Field(_:<wbr\/>should<wbr\/>Change<wbr\/>Characters<wbr\/>In:<wbr\/>replacement<wbr\/>String:)<\/span><\/code><\/a> method to validate and format text while the user is typing. For information about how to use formatter objects, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/Cocoa\/Conceptual\/DataFormatting\/DataFormatting.html#\/\/apple_ref\/doc\/uid\/10000029i\">Data Formatting Guide<\/a>.<\/p><\/div><h3 id=\"1968631\">Using Overlay Views to Edit Content<\/h3><div><p>Overlay views are small views displayed on the left and right sides of the text view’s editable area. Typically, overlay views are image-based buttons that you set up as additional editing controls. For example, you might use an overlay view to implement a bookmarks button. To configure a button as an overlay view, specify an image for the button’s content and configure the target and action of the button to respond to taps. <\/p><p><span class=\"reference\">Listing 1<\/span> shows how to add a button as the left overlay of a text field. In this case, the code creates a button and configure its size and contents. The <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619588-leftviewmode\"><code><span>left<wbr\/>View<wbr\/>Mode<\/span><\/code><\/a> property specifies when your button is displayed. When the user taps the button, the button calls the configured action method, which in this case is a custom <code class=\"code-voice\"><span>display<wbr\/>Bookmarks:<\/span><\/code> method.<\/p><figure id=\"1943759\"><figcaption><strong class=\"caption-title\">Listing 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Adding an overlay view to a text field<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"code-listing\"><pre class=\"code-source\" data-language=\"occ\"><code>UIButton* overlayButton = [UIButton buttonWithType:UIButtonTypeCustom];\n[overlayButton setImage:[UIImage imageNamed:@&quot;bookmark&quot;] forState:UIControlStateNormal];\n[overlayButton addTarget:self action:@selector(displayBookmarks:)\n        forControlEvents:UIControlEventTouchUpInside];\noverlayButton = CGRectMake(0, 0, 28, 28);\n \n\/\/ Assign the overlay button to a stored text field\nself.textField.leftView = overlayButton;\nself.textField.leftViewMode = UITextFieldViewModeAlways;\n<\/code><\/pre><\/div><\/div><\/figure><p>When configuring overlay views, consider whether you want your text field to display the built-in clear button. The clear button provides the user with a convenient way to delete all of the text field’s text. This button is displayed in the right overlay position, but if you provide a custom right overlay view, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619607-rightviewmode\"><code><span>right<wbr\/>View<wbr\/>Mode<\/span><\/code><\/a> and <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619622-clearbuttonmode\"><code><span>clear<wbr\/>Button<wbr\/>Mode<\/span><\/code><\/a> properties to define when your custom overlay should be displayed and when the clear button should be displayed.  <\/p><\/div><h3 id=\"1653000\">Validating Text and Managing the Editing Process<\/h3><div><p>A text field manages the editing of its text with the help of its delegate object. As the user interacts with a text field, the text field notifies its delegate and gives it a chance to control what is happening. You can use the delegate methods to prevent the user from starting or stopping the editing process or to validate text as it is typed. You can also use the delegate methods to perform related tasks, such as updating other parts of your interface based on the information typed by the user. <\/p><p>For more information about using the text field’s delegate to manage editing interactions, see <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfielddelegate\"><code><span>UIText<wbr\/>Field<wbr\/>Delegate<\/span><\/code><\/a>.  <\/p><\/div><h3 id=\"1968632\">Interface Builder Attributes<\/h3><div><p><span class=\"reference\">Table 1<\/span> lists the attributes that you configure for text fields in Interface Builder. <\/p><figure id=\"1965765\"><figcaption><strong class=\"caption-title\">Table 1<\/strong> <div class=\"caption-content formatted-content\"><div><p>Text Field attributes<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"table-wrapper\"><table><thead><tr><th scope=\"col\"><p>Attribute<\/p><\/th><th scope=\"col\"><p>Description<\/p><\/th><\/tr><\/thead><tbody><tr><td><p>Text<\/p><\/td><td><p>The initial text displayed by the text field. You can specify the text as a plain string or as an attributed string. If you specify an attributed string, Interface Builder provides different options for editing the font, color, and formatting of the string.<\/p><\/td><\/tr><tr><td><p>Color<\/p><\/td><td><p>The color of the text field’s text. To set this attribute programmatically, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619617-textcolor\"><code><span>text<wbr\/>Color<\/span><\/code><\/a> property. <\/p><\/td><\/tr><tr><td><p>Font<\/p><\/td><td><p>The font of the text field’s text. To set this attribute programmatically, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619604-font\"><code><span>font<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Alignment<\/p><\/td><td><p>The alignment of the text field’s text inside the editing area. This option is available only when formatting plain strings. To set this attribute programmatically, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619643-textalignment\"><code><span>text<wbr\/>Alignment<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Placeholder<\/p><\/td><td><p>The placeholder text displayed by the text field. When the text field’s string is empty, the text field displays this string instead, formatting the string so as to indicate that it is not the actual text. Typing any text into the text field hides this string. To set this attribute programmatically, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619621-placeholder\"><code><span>placeholder<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Background<\/p><\/td><td><p>The background image to display when the text field is enabled. This image is displayed behind the rest of the text field’s content. To set this attribute programmatically, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619623-background\"><code><span>background<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Disabled<\/p><\/td><td><p>The background image to display when the text field is disabled. This image is displayed behind the rest of the text field’s content. To set this attribute programmatically, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619611-disabledbackground\"><code><span>disabled<wbr\/>Background<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Border Style<\/p><\/td><td><p>The visual style for the text field’s border. This attribute defines the visual border, if any, drawn around the editable text region. To set this attribute programatically, use the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619624-borderstyle\"><code><span>border<wbr\/>Style<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Clear Button<\/p><\/td><td><p>The behavior of the clear button. The clear button is a built-in overlay view that the user taps to delete all of the text in a text field. Use this attribute to define when the clear button appears. To set this attribute programatically, use the<a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619622-clearbuttonmode\"><code><span>clear<wbr\/>Button<wbr\/>Mode<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Min Font Size<\/p><\/td><td><p>The minimum font size for the text field’s text. When the Adjust to Fit option is enabled, the text field automatically varies the font size to ensure maximum legibility of the text. You can use this attribute to specify the smallest font size that your consider appropriate for your text. To set this attribute programatically, use the<a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfield\/1619605-minimumfontsize\"><code><span>minimum<wbr\/>Font<wbr\/>Size<\/span><\/code><\/a> property.<\/p><\/td><\/tr><\/tbody><\/table><\/div><\/div><\/figure><p><span class=\"reference\">Table 2<\/span> lists the keyboard-related attributes that you configure for text fields. This attributes correspond to properties of the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextinputtraits\"><code><span>UIText<wbr\/>Input<wbr\/>Traits<\/span><\/code><\/a> protocol that the <code class=\"code-voice\"><span>UIText<wbr\/>Field<\/span><\/code> class adopts.  <\/p><figure id=\"1965766\"><figcaption><strong class=\"caption-title\">Table 2<\/strong> <div class=\"caption-content formatted-content\"><div><p>Keyboard attributes<\/p><\/div><\/div><\/figcaption><div class=\"formatted-content\"><div class=\"table-wrapper\"><table><thead><tr><th scope=\"col\"><p>Attribute<\/p><\/th><th scope=\"col\"><p>Description<\/p><\/th><\/tr><\/thead><tbody><tr><td><p>Capitalization<\/p><\/td><td><p>The automatic capitalization style to apply to typed text. This attribute determines at what time the Shift key is automatically pressed. You can access the value of this attribute programmatically using the text field’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextinputtraits\/1624447-autocapitalizationtype\"><code><span>autocapitalization<wbr\/>Type<\/span><\/code><\/a> property. <\/p><\/td><\/tr><tr><td><p>Correction<\/p><\/td><td><p>The autocorrection behavior of the text field. This attribute determines whether autocorrection is enabled or disabled during typing. You can access the value of this attribute programmatically using the text field’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextinputtraits\/1624453-autocorrectiontype\"><code><span>autocorrection<wbr\/>Type<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Spell Checking<\/p><\/td><td><p>The spell checking behavior of the text field. This attribute determines whether spell checking is enabled or disabled during typing. You can access the value of this attribute programmatically using the text field’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextinputtraits\/1624461-spellcheckingtype\"><code><span>spell<wbr\/>Checking<wbr\/>Type<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Keyboard Type<\/p><\/td><td><p>The style of the text field’s keyboard. This property specifies the type of keyboard displayed when the text field is active. You can access the value of this attribute programmatically using the text field’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextinputtraits\/1624457-keyboardtype\"><code><span>keyboard<wbr\/>Type<\/span><\/code><\/a> property.<\/p><\/td><\/tr><tr><td><p>Appearance<\/p><\/td><td><p>The visual style applied to the text field’s keyboard. Use this property to specify a dark or light keyboard. You can access the value of this attribute programmatically using the text field’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextinputtraits\/1624434-keyboardappearance\"><code><span>keyboard<wbr\/>Appearance<\/span><\/code><\/a> property. <\/p><\/td><\/tr><tr><td><p>Return Key<\/p><\/td><td><p>The type of return key to display on the keyboard. Use this property to configure the text and visual style applied to the keyboard’s return key. You can access the value of this attribute programmatically using the text field’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextinputtraits\/1624446-returnkeytype\"><code><span>return<wbr\/>Key<wbr\/>Type<\/span><\/code><\/a> property.<\/p><p>The return key is disabled by default and becomes enabled only when the user types some text into the text field. To respond to taps in the Return key, implement the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uitextfielddelegate\/1619603-textfieldshouldreturn\"><code><span>text<wbr\/>Field<wbr\/>Should<wbr\/>Return(_:)<\/span><\/code><\/a> method in the delegate you assign to the text field.  <\/p><\/td><\/tr><\/tbody><\/table><\/div><\/div><\/figure><p>For information about additional attributes you can configure for a text view, see <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\"><code><span>UIControl<\/span><\/code><\/a>.<\/p><\/div><h3 id=\"1968633\">Internationalization<\/h3><div><p>The default language of the device affects the keyboard that pops up with the text field (including the return key). You do not need to do anything to enable this functionality; it is enabled by default. However, your text field should be able to handle input that comes from any language.<\/p><p>When using storyboards to build your interface, use Xcode’s base internationalization feature to configure the localizations your project supports. When you add a localization, Xcode creates a strings file for that localization. When configuring your interface programmatically, use the system’s built-in support for loading localized strings and resources. For more information about internationalizing your interface, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/MacOSX\/Conceptual\/BPInternational\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/10000171i\">Internationalization and Localization Guide<\/a>.  <\/p><\/div><h3 id=\"1968634\">Accessibility<\/h3><div><p>Text fields are accessible by default. The default accessibility trait for a text field is User Interaction Enabled.<\/p><p>For more information about making iOS controls accessible, see the accessibility information in <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uicontrol\"><code><span>UIControl<\/span><\/code><\/a>. For general information about making your interface accessible, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/UserExperience\/Conceptual\/iPhoneAccessibility\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40008785\">Accessibility Programming Guide for iOS<\/a>. <\/p><\/div><h3 id=\"1653026\">State Preservation<\/h3><div><p>When you assign a value to a text field’s <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uiview\/1622494-restorationidentifier\"><code><span>restoration<wbr\/>Identifier<\/span><\/code><\/a> property, it preserves the selected range of text, if any. During the next launch cycle, the text field attempts to restore that selection. If the selection range cannot be applied to the current text, no selection is made. For more information about how state preservation and restoration works, see <a href=\"https:\/\/developer.apple.com\/library\/archive\/documentation\/iPhone\/Conceptual\/iPhoneOSProgrammingGuide\/Introduction\/Introduction.html#\/\/apple_ref\/doc\/uid\/TP40007072\">App Programming Guide for iOS<\/a>.<\/p><\/div>","abstract":"<div><p>An object that displays an editable text area in your interface.  <\/p><\/div>","containingGroup":[{"id":2864418,"role":"task","paths":[],"symbols":[{"id":1620537,"role":"symbol","usr":"c:objc(cs)UILabel","name":"UILabel","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UILabel<\/span><\/code>","paths":["documentation\/uikit\/uilabel"],"title":{"content":"UILabel"},"abstract":"<div><p>A view that displays one or more lines of read-only text, often used in conjunction with controls to describe their intended purpose.<\/p><\/div>","hasChildren":true},{"id":1619619,"role":"symbol","usr":"c:objc(cs)UITextField","name":"UITextField","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIText<wbr\/>Field<\/span><\/code>","paths":["documentation\/uikit\/uitextfield"],"title":{"content":"UITextField"},"abstract":"<div><p>An object that displays an editable text area in your interface.  <\/p><\/div>","hasChildren":true},{"id":1618604,"role":"symbol","usr":"c:objc(cs)UITextView","name":"UITextView","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIText<wbr\/>View<\/span><\/code>","paths":["documentation\/uikit\/uitextview"],"title":{"content":"UITextView"},"abstract":"<div><p>A scrollable, multiline text region. <\/p><\/div>","hasChildren":true},{"id":2891972,"role":"collectionGroup","paths":["documentation\/uikit\/views_and_controls\/drag_and_drop_customization"],"hasChildren":true,"abstract":"<div><p>Extend the standard drag and drop support for text views to include custom types of content. <\/p><\/div>","title":{"content":"Drag and Drop Customization"}}],"abstract":"<div><p>Display and edit text using text views.<\/p><\/div>","title":{"content":"Text Views"}}],"usr":"c:objc(cs)UITextField","name":"UITextField","domain":"swift","kind":"cl","availability":[{"platform":"iOS","current":"12.0","introduced":"2.0"},{"platform":"tvOS","current":"12.0","introduced":"9.0"}],"conformance":[{"id":1411471,"usr":"c:objc(pl)NSCoding","name":"NSCoding","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/foundation\/nscoding"],"title":{"content":"NSCoding"},"platforms":["iOS","tvOS"]},{"id":1614525,"usr":"c:objc(pl)UITextInput","name":"UITextInput","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uitextinput"],"title":{"content":"UITextInput"},"platforms":["iOS","tvOS"]},{"id":1623131,"usr":"c:objc(pl)UIAccessibilityIdentification","name":"UIAccessibilityIdentification","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiaccessibilityidentification"],"title":{"content":"UIAccessibilityIdentification"},"platforms":["iOS","tvOS"]},{"id":1685723,"usr":"c:objc(pl)UIContentSizeCategoryAdjusting","name":"UIContentSizeCategoryAdjusting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uicontentsizecategoryadjusting"],"title":{"content":"UIContentSizeCategoryAdjusting"},"platforms":["iOS","tvOS"]},{"id":2882041,"usr":"c:objc(pl)UIPasteConfigurationSupporting","name":"UIPasteConfigurationSupporting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uipasteconfigurationsupporting"],"title":{"content":"UIPasteConfigurationSupporting"},"platforms":["iOS"]},{"id":1641507,"usr":"s:s7CVarArgP","name":"CVarArg","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/cvararg"],"title":{"content":"CVarArg"},"platforms":["iOS","tvOS"]},{"id":2887495,"usr":"c:objc(pl)UITextPasteConfigurationSupporting","name":"UITextPasteConfigurationSupporting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uitextpasteconfigurationsupporting"],"title":{"content":"UITextPasteConfigurationSupporting"},"platforms":["iOS"]},{"id":2890847,"usr":"c:objc(pl)UITextDroppable","name":"UITextDroppable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uitextdroppable"],"title":{"content":"UITextDroppable"},"platforms":["iOS"]},{"id":2890899,"usr":"c:objc(pl)UITextDraggable","name":"UITextDraggable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uitextdraggable"],"title":{"content":"UITextDraggable"},"platforms":["iOS"]},{"id":2980935,"usr":"c:objc(pl)UIUserActivityRestoring","name":"UIUserActivityRestoring","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiuseractivityrestoring"],"title":{"content":"UIUserActivityRestoring"},"platforms":["iOS","tvOS"]},{"id":1541213,"usr":"s:SQ","name":"Equatable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/equatable"],"title":{"content":"Equatable"},"platforms":["iOS","tvOS"]},{"id":1540942,"usr":"s:SH","name":"Hashable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/hashable"],"title":{"content":"Hashable"},"platforms":["iOS","tvOS"]}],"inheritance":[{"id":1618208,"usr":"c:objc(cs)UIControl","name":"UIControl","domain":"swift","kind":"cl","role":"symbol","paths":["documentation\/uikit\/uicontrol"],"title":{"content":"UIControl"},"platforms":["iOS","tvOS"]}],"module":[{"title":{"content":"UIKit"},"importStatement":"<div><span class=\"syntax-identifier\">import<\/span> UIKit<\/div>","paths":["documentation\/uikit"],"platforms":["iOS","tvOS"]}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIText<wbr\/>Field<\/span><\/code>","declaration":[{"content":"<span><span class=\"syntax-keyword\">class<\/span> <span class=\"syntax-identifier\">UITextField<\/span> : <a class=\"symbolref\" href=\"\/documentation\/uikit\/uicontrol\"><span>UIControl<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/uikit\/uitextinput\"><span>UIText<wbr\/>Input<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/foundation\/nscoding\"><span>NSCoding<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/uikit\/uicontentsizecategoryadjusting\"><span>UIContent<wbr\/>Size<wbr\/>Category<wbr\/>Adjusting<\/span><\/a>\n<\/span>","platforms":["iOS","tvOS"]}],"languages":["occ","swift"],"variants":{"occ":{"paths":["documentation\/uikit\/uitextfield"],"usr":"c:objc(cs)UITextField"},"swift":{"paths":["documentation\/uikit\/uitextfield"],"usr":"c:objc(cs)UITextField"}},"diffAvailability":{"minor":{"change":"modified","platform":"Xcode","versions":["9.4","10.0 beta 6"]},"major":{"change":"modified","platform":"Xcode","versions":["9.0","10.0 beta 6"]}},"pid":201964,"role":"symbol","language":"swift","paths":["documentation\/uikit\/uitextfield"],"hierarchy":[[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864393,"role":"collectionGroup","title":{"content":"Views and Controls"},"paths":["documentation\/uikit\/views_and_controls"]}],[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864520,"role":"collectionGroup","title":{"content":"Text Display and Fonts"},"paths":["documentation\/uikit\/text_display_and_fonts"]}]],"legalNotices":{"copyright":"Copyright &copy; 2018 Apple Inc. All rights reserved.","termsOfUse":"https:\/\/www.apple.com\/legal\/internet-services\/terms\/site.html","privacyPolicy":"https:\/\/www.apple.com\/privacy\/privacy-policy"},"tasks":[{"id":1653466,"role":"task","symbols":[{"id":1619595,"role":"symbol","usr":"c:objc(cs)UITextField(py)delegate","name":"delegate","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">delegate<\/span><span class=\"decorator\">: UIText<wbr\/>Field<wbr\/>Delegate?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619595-delegate"],"title":{"content":"delegate"},"abstract":"<div><p>The receiver’s delegate.<\/p><\/div>"},{"id":1619606,"role":"symbol","usr":"c:objc(pl)UITextFieldDelegate","name":"UITextFieldDelegate","domain":"swift","kind":"intf","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">protocol <\/span><span class=\"identifier\">UIText<wbr\/>Field<wbr\/>Delegate<\/span><\/code>","paths":["documentation\/uikit\/uitextfielddelegate"],"title":{"content":"UITextFieldDelegate"},"abstract":"<div><p>A set of optional methods that you use to manage the editing and validation of text in a text field object.<\/p><\/div>","hasChildren":true}],"title":{"content":"Validating and Handling Edits"}},{"id":1653053,"role":"task","symbols":[{"id":1619635,"role":"symbol","usr":"c:objc(cs)UITextField(py)text","name":"text","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">text<\/span><span class=\"decorator\">: String?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619635-text"],"title":{"content":"text"},"abstract":"<div><p>The text displayed by the text field. <\/p><\/div>"},{"id":1619602,"role":"symbol","usr":"c:objc(cs)UITextField(py)attributedText","name":"attributedText","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"6.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">attributed<wbr\/>Text<\/span><span class=\"decorator\">: NSAttributed<wbr\/>String?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619602-attributedtext"],"title":{"content":"attributedText"},"abstract":"<div><p>The styled text displayed by the text field. <\/p><\/div>"},{"id":1619621,"role":"symbol","usr":"c:objc(cs)UITextField(py)placeholder","name":"placeholder","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">placeholder<\/span><span class=\"decorator\">: String?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619621-placeholder"],"title":{"content":"placeholder"},"abstract":"<div><p>The string that is displayed when there is no other text in the text field.<\/p><\/div>"},{"id":1619610,"role":"symbol","usr":"c:objc(cs)UITextField(py)attributedPlaceholder","name":"attributedPlaceholder","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"6.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">attributed<wbr\/>Placeholder<\/span><span class=\"decorator\">: NSAttributed<wbr\/>String?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619610-attributedplaceholder"],"title":{"content":"attributedPlaceholder"},"abstract":"<div><p>The styled string that is displayed when there is no other text in the text field.<\/p><\/div>"},{"id":1619618,"role":"symbol","usr":"c:objc(cs)UITextField(py)defaultTextAttributes","name":"defaultTextAttributes","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">default<wbr\/>Text<wbr\/>Attributes<\/span><span class=\"decorator\">: [NSAttributed<wbr\/>String<wbr\/>.Key : Any]<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619618-defaulttextattributes"],"title":{"content":"defaultTextAttributes"},"abstract":"<div><p>The default attributes to apply to the text.<\/p><\/div>"},{"id":1619604,"role":"symbol","usr":"c:objc(cs)UITextField(py)font","name":"font","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">font<\/span><span class=\"decorator\">: UIFont?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619604-font"],"title":{"content":"font"},"abstract":"<div><p>The font of the text. <\/p><\/div>"},{"id":1619617,"role":"symbol","usr":"c:objc(cs)UITextField(py)textColor","name":"textColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">text<wbr\/>Color<\/span><span class=\"decorator\">: UIColor?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619617-textcolor"],"title":{"content":"textColor"},"abstract":"<div><p>The color of the text.<\/p><\/div>"},{"id":1619643,"role":"symbol","usr":"c:objc(cs)UITextField(py)textAlignment","name":"textAlignment","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">text<wbr\/>Alignment<\/span><span class=\"decorator\">: NSText<wbr\/>Alignment<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619643-textalignment"],"title":{"content":"textAlignment"},"abstract":"<div><p>The technique to use for aligning the text.<\/p><\/div>"},{"id":1619632,"role":"symbol","usr":"c:objc(cs)UITextField(py)typingAttributes","name":"typingAttributes","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"6.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">typing<wbr\/>Attributes<\/span><span class=\"decorator\">: [NSAttributed<wbr\/>String<wbr\/>.Key : Any]?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619632-typingattributes"],"title":{"content":"typingAttributes"},"abstract":"<div><p>The attributes to apply to new text being entered by the user.<\/p><\/div>"},{"id":1619593,"role":"symbol","usr":"c:@E@UITextBorderStyle","name":"UITextBorderStyle","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIText<wbr\/>Field<wbr\/>.Border<wbr\/>Style<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/borderstyle"],"title":{"content":"UITextField.BorderStyle"},"abstract":"<div><p>The type of border drawn around the text field.<\/p><\/div>","hasChildren":true}],"title":{"content":"Accessing the Text Attributes"}},{"id":1653196,"role":"task","symbols":[{"id":1619625,"role":"symbol","usr":"c:objc(cs)UITextField(py)adjustsFontSizeToFitWidth","name":"adjustsFontSizeToFitWidth","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">adjusts<wbr\/>Font<wbr\/>Size<wbr\/>To<wbr\/>Fit<wbr\/>Width<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619625-adjustsfontsizetofitwidth"],"title":{"content":"adjustsFontSizeToFitWidth"},"abstract":"<div><p>A Boolean value indicating whether the font size should be reduced in order to fit the text string into the text field’s bounding rectangle.<\/p><\/div>"},{"id":1619605,"role":"symbol","usr":"c:objc(cs)UITextField(py)minimumFontSize","name":"minimumFontSize","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">minimum<wbr\/>Font<wbr\/>Size<\/span><span class=\"decorator\">: CGFloat<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619605-minimumfontsize"],"title":{"content":"minimumFontSize"},"abstract":"<div><p>The size of the smallest permissible font with which to draw the text field’s text. <\/p><\/div>"}],"title":{"content":"Sizing the Text Field’s Text"}},{"id":1653250,"role":"task","symbols":[{"id":1619608,"role":"symbol","usr":"c:objc(cs)UITextField(py)editing","name":"editing","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Editing<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619608-isediting"],"title":{"content":"isEditing"},"abstract":"<div><p>A Boolean value indicating whether the text field is currently in edit mode. <\/p><\/div>"},{"id":1619639,"role":"symbol","usr":"c:objc(cs)UITextField(py)clearsOnBeginEditing","name":"clearsOnBeginEditing","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">clears<wbr\/>On<wbr\/>Begin<wbr\/>Editing<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619639-clearsonbeginediting"],"title":{"content":"clearsOnBeginEditing"},"abstract":"<div><p>A Boolean value indicating whether the text field removes old text when editing begins.<\/p><\/div>"},{"id":1619631,"role":"symbol","usr":"c:objc(cs)UITextField(py)clearsOnInsertion","name":"clearsOnInsertion","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"6.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">clears<wbr\/>On<wbr\/>Insertion<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619631-clearsoninsertion"],"title":{"content":"clearsOnInsertion"},"abstract":"<div><p>A Boolean value indicating whether inserting text replaces the previous contents.<\/p><\/div>"},{"id":1619628,"role":"symbol","usr":"c:objc(cs)UITextField(py)allowsEditingTextAttributes","name":"allowsEditingTextAttributes","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"6.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">allows<wbr\/>Editing<wbr\/>Text<wbr\/>Attributes<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619628-allowseditingtextattributes"],"title":{"content":"allowsEditingTextAttributes"},"abstract":"<div><p>A Boolean value indicating whether the user may edit the attributes of the text in the text field.<\/p><\/div>"},{"id":2352216,"role":"symbol","usr":"c:@E@UITextFieldDidEndEditingReason","name":"UITextFieldDidEndEditingReason","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"10.0"},{"platform":"tvOS","introduced":"10.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIText<wbr\/>Field<wbr\/>.Did<wbr\/>End<wbr\/>Editing<wbr\/>Reason<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/didendeditingreason"],"title":{"content":"UITextField.DidEndEditingReason"},"abstract":"<div><p>Constants indicating the reason why editing ended in a text field.<\/p><\/div>","hasChildren":true},{"id":2352215,"role":"symbol","usr":"c:@UITextFieldDidEndEditingReasonKey","name":"didEndEditingReasonUserInfoKey","domain":"swift","kind":"cldata","availability":[{"platform":"iOS","introduced":"10.0"},{"platform":"tvOS","introduced":"10.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class let <\/span><span class=\"identifier\">did<wbr\/>End<wbr\/>Editing<wbr\/>Reason<wbr\/>User<wbr\/>Info<wbr\/>Key<\/span><span class=\"decorator\">: String<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/2352215-didendeditingreasonuserinfokey"],"title":{"content":"didEndEditingReasonUserInfoKey"}},{"id":1619616,"role":"symbol","usr":"c:@UITextFieldTextDidBeginEditingNotification","name":"textDidBeginEditingNotification","domain":"swift","kind":"cldata","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class let <\/span><span class=\"identifier\">text<wbr\/>Did<wbr\/>Begin<wbr\/>Editing<wbr\/>Notification<\/span><span class=\"decorator\">: NSNotification<wbr\/>.Name<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619616-textdidbegineditingnotification"],"title":{"content":"textDidBeginEditingNotification"},"abstract":"<div><p>Notifies observers that an editing session began in a text field. The affected text field is stored in the <code class=\"code-voice\"><span>object<\/span><\/code> parameter of the notification. The <code class=\"code-voice\"><span>user<wbr\/>Info<\/span><\/code> dictionary is not used.<\/p><\/div>"},{"id":1619640,"role":"symbol","usr":"c:@UITextFieldTextDidChangeNotification","name":"textDidChangeNotification","domain":"swift","kind":"cldata","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class let <\/span><span class=\"identifier\">text<wbr\/>Did<wbr\/>Change<wbr\/>Notification<\/span><span class=\"decorator\">: NSNotification<wbr\/>.Name<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619640-textdidchangenotification"],"title":{"content":"textDidChangeNotification"},"abstract":"<div><p>Notifies observers that the text in a text field changed. The affected text field is stored in the <code class=\"code-voice\"><span>object<\/span><\/code> parameter of the notification. <\/p><\/div>"},{"id":1619633,"role":"symbol","usr":"c:@UITextFieldTextDidEndEditingNotification","name":"textDidEndEditingNotification","domain":"swift","kind":"cldata","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class let <\/span><span class=\"identifier\">text<wbr\/>Did<wbr\/>End<wbr\/>Editing<wbr\/>Notification<\/span><span class=\"decorator\">: NSNotification<wbr\/>.Name<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619633-textdidendeditingnotification"],"title":{"content":"textDidEndEditingNotification"},"abstract":"<div><p>Notifies observers that the editing session ended for a text field. The affected text field is stored in the <code class=\"code-voice\"><span>object<\/span><\/code> parameter of the notification. The <code class=\"code-voice\"><span>user<wbr\/>Info<\/span><\/code> dictionary is not used.<\/p><\/div>"}],"title":{"content":"Managing the Editing Behavior"}},{"id":1653311,"role":"task","symbols":[{"id":1619624,"role":"symbol","usr":"c:objc(cs)UITextField(py)borderStyle","name":"borderStyle","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">border<wbr\/>Style<\/span><span class=\"decorator\">: UIText<wbr\/>Field<wbr\/>.Border<wbr\/>Style<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619624-borderstyle"],"title":{"content":"borderStyle"},"abstract":"<div><p>The border style used by the text field.<\/p><\/div>"},{"id":1619623,"role":"symbol","usr":"c:objc(cs)UITextField(py)background","name":"background","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">background<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619623-background"],"title":{"content":"background"},"abstract":"<div><p>The image that represents the background appearance of the text field when it is enabled. <\/p><\/div>"},{"id":1619611,"role":"symbol","usr":"c:objc(cs)UITextField(py)disabledBackground","name":"disabledBackground","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">disabled<wbr\/>Background<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619611-disabledbackground"],"title":{"content":"disabledBackground"},"abstract":"<div><p>The image that represents the background appearance of the text field when it is disabled.<\/p><\/div>"}],"title":{"content":"Setting the View’s Background Appearance"}},{"id":1653369,"role":"task","symbols":[{"id":1619622,"role":"symbol","usr":"c:objc(cs)UITextField(py)clearButtonMode","name":"clearButtonMode","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">clear<wbr\/>Button<wbr\/>Mode<\/span><span class=\"decorator\">: UIText<wbr\/>Field<wbr\/>.View<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619622-clearbuttonmode"],"title":{"content":"clearButtonMode"},"abstract":"<div><p>Controls when the standard clear button appears in the text field.<\/p><\/div>"},{"id":1619597,"role":"symbol","usr":"c:objc(cs)UITextField(py)leftView","name":"leftView","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">left<wbr\/>View<\/span><span class=\"decorator\">: UIView?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619597-leftview"],"title":{"content":"leftView"},"abstract":"<div><p>The overlay view displayed on the left (or leading) side of the text field.<\/p><\/div>"},{"id":1619588,"role":"symbol","usr":"c:objc(cs)UITextField(py)leftViewMode","name":"leftViewMode","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">left<wbr\/>View<wbr\/>Mode<\/span><span class=\"decorator\">: UIText<wbr\/>Field<wbr\/>.View<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619588-leftviewmode"],"title":{"content":"leftViewMode"},"abstract":"<div><p>Controls when the left overlay view appears in the text field.<\/p><\/div>"},{"id":1619596,"role":"symbol","usr":"c:objc(cs)UITextField(py)rightView","name":"rightView","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">right<wbr\/>View<\/span><span class=\"decorator\">: UIView?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619596-rightview"],"title":{"content":"rightView"},"abstract":"<div><p>The overlay view displayed on the right (or trailing) side of the text field.<\/p><\/div>"},{"id":1619607,"role":"symbol","usr":"c:objc(cs)UITextField(py)rightViewMode","name":"rightViewMode","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">right<wbr\/>View<wbr\/>Mode<\/span><span class=\"decorator\">: UIText<wbr\/>Field<wbr\/>.View<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619607-rightviewmode"],"title":{"content":"rightViewMode"},"abstract":"<div><p>Controls when the right overlay view appears in the text field.<\/p><\/div>"},{"id":1619612,"role":"symbol","usr":"c:@E@UITextFieldViewMode","name":"UITextFieldViewMode","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIText<wbr\/>Field<wbr\/>.View<wbr\/>Mode<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/viewmode"],"title":{"content":"UITextField.ViewMode"},"abstract":"<div><p>Defines the times at which overlay views appear in a text field.<\/p><\/div>","hasChildren":true}],"title":{"content":"Managing Overlay Views"}},{"id":1653493,"role":"task","symbols":[{"id":1619636,"role":"symbol","usr":"c:objc(cs)UITextField(im)textRectForBounds:","name":"textRectForBounds(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">text<wbr\/>Rect<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Bounds<\/span><span class=\"decorator\">: CGRect) -&gt; CGRect<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619636-textrect"],"title":{"content":"textRect(forBounds:)"},"abstract":"<div><p>Returns the drawing rectangle for the text field’s text.<\/p><\/div>"},{"id":1619587,"role":"symbol","usr":"c:objc(cs)UITextField(im)drawTextInRect:","name":"drawTextInRect(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">draw<wbr\/>Text<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">in<\/span><span class=\"decorator\">: CGRect)<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619587-drawtext"],"title":{"content":"drawText(in:)"},"abstract":"<div><p>Draws the receiver’s text in the specified rectangle.<\/p><\/div>"},{"id":1619615,"role":"symbol","usr":"c:objc(cs)UITextField(im)placeholderRectForBounds:","name":"placeholderRectForBounds(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">placeholder<wbr\/>Rect<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Bounds<\/span><span class=\"decorator\">: CGRect) -&gt; CGRect<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619615-placeholderrect"],"title":{"content":"placeholderRect(forBounds:)"},"abstract":"<div><p>Returns the drawing rectangle for the text field’s placeholder text<\/p><\/div>"},{"id":1619637,"role":"symbol","usr":"c:objc(cs)UITextField(im)drawPlaceholderInRect:","name":"drawPlaceholderInRect(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">draw<wbr\/>Placeholder<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">in<\/span><span class=\"decorator\">: CGRect)<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619637-drawplaceholder"],"title":{"content":"drawPlaceholder(in:)"},"abstract":"<div><p>Draws the receiver’s placeholder text in the specified rectangle.<\/p><\/div>"},{"id":1619642,"role":"symbol","usr":"c:objc(cs)UITextField(im)borderRectForBounds:","name":"borderRectForBounds(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">border<wbr\/>Rect<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Bounds<\/span><span class=\"decorator\">: CGRect) -&gt; CGRect<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619642-borderrect"],"title":{"content":"borderRect(forBounds:)"},"abstract":"<div><p>Returns the receiver’s border rectangle. <\/p><\/div>"},{"id":1619589,"role":"symbol","usr":"c:objc(cs)UITextField(im)editingRectForBounds:","name":"editingRectForBounds(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">editing<wbr\/>Rect<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Bounds<\/span><span class=\"decorator\">: CGRect) -&gt; CGRect<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619589-editingrect"],"title":{"content":"editingRect(forBounds:)"},"abstract":"<div><p>Returns the rectangle in which editable text can be displayed.<\/p><\/div>"},{"id":1619600,"role":"symbol","usr":"c:objc(cs)UITextField(im)clearButtonRectForBounds:","name":"clearButtonRectForBounds(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">clear<wbr\/>Button<wbr\/>Rect<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Bounds<\/span><span class=\"decorator\">: CGRect) -&gt; CGRect<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619600-clearbuttonrect"],"title":{"content":"clearButtonRect(forBounds:)"},"abstract":"<div><p>Returns the drawing rectangle for the built-in clear button. <\/p><\/div>"},{"id":1619586,"role":"symbol","usr":"c:objc(cs)UITextField(im)leftViewRectForBounds:","name":"leftViewRectForBounds(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">left<wbr\/>View<wbr\/>Rect<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Bounds<\/span><span class=\"decorator\">: CGRect) -&gt; CGRect<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619586-leftviewrect"],"title":{"content":"leftViewRect(forBounds:)"},"abstract":"<div><p>Returns the drawing rectangle of the receiver’s left overlay view. <\/p><\/div>"},{"id":1619638,"role":"symbol","usr":"c:objc(cs)UITextField(im)rightViewRectForBounds:","name":"rightViewRectForBounds(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">right<wbr\/>View<wbr\/>Rect<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Bounds<\/span><span class=\"decorator\">: CGRect) -&gt; CGRect<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619638-rightviewrect"],"title":{"content":"rightViewRect(forBounds:)"},"abstract":"<div><p>Returns the drawing location of the receiver’s right overlay view. <\/p><\/div>"}],"title":{"content":"Drawing and Positioning Overrides"}},{"id":1653621,"role":"task","symbols":[{"id":1619620,"role":"symbol","usr":"c:objc(cs)UITextField(py)inputView","name":"inputView","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.2"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">input<wbr\/>View<\/span><span class=\"decorator\">: UIView?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619620-inputview"],"title":{"content":"inputView"},"abstract":"<div><p>The custom input view to display when the text field becomes the first responder. <\/p><\/div>"},{"id":1619627,"role":"symbol","usr":"c:objc(cs)UITextField(py)inputAccessoryView","name":"inputAccessoryView","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.2"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">input<wbr\/>Accessory<wbr\/>View<\/span><span class=\"decorator\">: UIView?<\/span><\/code>","paths":["documentation\/uikit\/uitextfield\/1619627-inputaccessoryview"],"title":{"content":"inputAccessoryView"},"abstract":"<div><p>The custom accessory view to display when the text field becomes the first responder<\/p><\/div>"}],"title":{"content":"Replacing the System Input Views"}}]}</script>
+  <script src="/documentation/__assets/TopicDetail-018c52ac.js"></script>
+ </body>
+</html>

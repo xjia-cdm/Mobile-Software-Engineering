@@ -1,0 +1,81 @@
+api:
+ title: UITabBarItem
+ description: An item in a tab bar.
+ overview: 
+  description: A tab bar operates strictly in radio mode, where one item is selected at a time—tapping a tab bar item toggles the view above the tab bar. You can also specify a badge value on the tab bar item for adding additional visual information—for example, the Messages app uses a badge on the item to show the number of new messages. This class also provides a number of system defaults for creating items.
+  sub_overview: 
+    name: Customizing Appearance
+    description: In iOS v5.0 and later, you can customize the appearance of tab bars by setting item label text attributes using appearance selectors declared by UIBarItem. You can also use the methods listed in Customizing Appearance. You can customize the appearance of all tab bar items using the appearance proxy (for example, [UITabBarItem appearance]), or just of a single tab bar item. By default, unselected and selected images are automatically created from the alpha values in the source images. To prevent system coloring, provide images with UIImage.RenderingMode.alwaysOriginal. For more information about appearance and behavior configuration, see Tab Bars.
+ topics: 
+  topic: 
+   - 
+    title: Initializing an Item
+     method: 
+      - 
+       name: init(tabBarSystemItem: UITabBarItem.SystemItem, tag: Int)
+       description: Creates and returns a new item containing the specified system item.
+      - 
+       name: init(title: String?, image: UIImage?, tag: Int)
+       description: Creates and returns a new item using the specified properties.
+      - 
+       name: init(title: String?, image: UIImage?, selectedImage: UIImage?)
+       description: Creates and returns a new item with the specified title, unselected image, and selected image.
+      - 
+       name: init()
+       description: Initializes the tab bar item to its default state.
+      - 
+       name: init?(coder: NSCoder)
+      - 
+       name: enum UITabBarItem.SystemItem
+       description: System items that can be used on a tab bar.
+   - 
+    title: Customizing Appearance
+     method: 
+      - 
+       name: var selectedImage: UIImage?
+       description: The image displayed when the tab bar item is selected.
+      - 
+       name: var titlePositionAdjustment: UIOffset
+       description: The offset to use to adjust the title position.
+      - 
+       name: struct UIOffset
+       description: Defines a structure that specifies an amount to offset a position.
+   - 
+    title: Configuring the Badge
+     method: 
+      - 
+       name: var badgeValue: String?
+       description: Text that is displayed in the upper-right corner of the item with a surrounding red oval.
+      - 
+       name: var badgeColor: UIColor?
+       description: The background color to apply to the badge.
+      - 
+       name: func setBadgeTextAttributes([NSAttributedString.Key : Any]?, for: UIControl.State)
+       description: Assigns custom text attributes to the badge text.
+      - 
+       name: func badgeTextAttributes(for: UIControl.State) -&amp;gt; [NSAttributedString.Key : Any]?
+       description: Retrieves the custom text attributes associated with the item&amp;apos;s badge text.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIBarItem
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UISpringLoadedInteractionSupporting
+ see-also: 
+  control: 
+   - 
+    name: class UITabBarController
+    description: A container view controller that manages a radio-style selection interface, where the selection determines which child view controller to display.
+   - 
+    name: class UITabBar
+    description: A control that displays one or more buttons in a tab bar for selecting between different subtasks, views, or modes in an app.

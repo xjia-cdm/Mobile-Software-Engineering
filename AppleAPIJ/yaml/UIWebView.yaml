@@ -1,0 +1,175 @@
+api:
+ title: UIWebView
+ description: A view that embeds web content in your app.
+ overview: 
+  description: Note
+  sub_overview: 
+   - 
+    name: Supported File Formats
+    description: In addition to HTML content, UIWebView objects can be used to display other content types, such as Keynote, PDF, and Pages documents. For the best rendering of plain and rich text in your app, however, you should use UITextView instead.
+   - 
+    name: State Preservation
+    description: In iOS 6 and later, if you assign a value to this view’s restorationIdentifier property, it attempts to preserve its URL history, the scaling and scrolling positions for each page, and information about which page is currently being viewed. During restoration, the view restores these values so that the web content appears just as it did before. For more information about how state preservation and restoration works, see App Programming Guide for iOS. For more information about appearance and behavior configuration, see Web Views.
+   - 
+    name: Subclassing Notes
+    description: The UIWebView class should not be subclassed.
+ topics: 
+  topic: 
+   - 
+    title: Responding to Web View Changes
+     method: 
+      - 
+       name: var delegate: UIWebViewDelegate?
+       description: The receiver’s delegate.
+      - 
+       name: protocol UIWebViewDelegate
+       description: The UIWebViewDelegate protocol defines methods that a delegate of a UIWebView object can optionally implement to intervene when web content is loaded.
+   - 
+    title: Loading Content
+     method: 
+      - 
+       name: func load(Data, mimeType: String, textEncodingName: String, baseURL: URL)
+       description: Sets the main page contents, MIME type, content encoding, and base URL.
+      - 
+       name: func loadHTMLString(String, baseURL: URL?)
+       description: Sets the main page content and base URL.
+      - 
+       name: func loadRequest(URLRequest)
+       description: Connects to a given URL by initiating an asynchronous client request.
+      - 
+       name: var request: URLRequest?
+       description: The URL request identifying the location of the content to load.
+      - 
+       name: var isLoading: Bool
+       description: A Boolean value indicating whether the receiver is done loading content.
+      - 
+       name: func stopLoading()
+       description: Stops the loading of any web content managed by the receiver.
+      - 
+       name: func reload()
+       description: Reloads the current page.
+   - 
+    title: Moving Back and Forward
+     method: 
+      - 
+       name: var canGoBack: Bool
+       description: A Boolean value indicating whether the receiver can move backward.
+      - 
+       name: var canGoForward: Bool
+       description: A Boolean value indicating whether the receiver can move forward.
+      - 
+       name: func goBack()
+       description: Loads the previous location in the back-forward list.
+      - 
+       name: func goForward()
+       description: Loads the next location in the back-forward list.
+   - 
+    title: Setting Web Content Properties
+     method: 
+      - 
+       name: var allowsLinkPreview: Bool
+       description: A Boolean value that determines whether pressing on a link displays a preview of the destination for the link.
+      - 
+       name: var scalesPageToFit: Bool
+       description: A Boolean value determining whether the webpage scales to fit the view and the user can change the scale.
+      - 
+       name: var scrollView: UIScrollView
+       description: The scroll view associated with the web view.
+      - 
+       name: var suppressesIncrementalRendering: Bool
+       description: A Boolean value indicating whether the web view suppresses content rendering until it is fully loaded into memory.
+      - 
+       name: var keyboardDisplayRequiresUserAction: Bool
+       description: A Boolean value indicating whether web content can programmatically display the keyboard.
+      - 
+       name: var dataDetectorTypes: UIDataDetectorTypes
+       description: The types of data converted to clickable URLs in the web view’s content.
+   - 
+    title: Running JavaScript
+     method: 
+       name: func stringByEvaluatingJavaScript(from: String) -&amp;gt; String?
+       description: Returns the result of running a JavaScript script. Although this method is not deprecated, best practice is to use the evaluateJavaScript(_:completionHandler:) method of the WKWebView class instead.
+   - 
+    title: Managing Media Playback
+     method: 
+      - 
+       name: var allowsInlineMediaPlayback: Bool
+       description: A Boolean value that determines whether HTML5 videos play inline or use the native full-screen controller.
+      - 
+       name: var mediaPlaybackRequiresUserAction: Bool
+       description: A Boolean value that determines whether HTML5 videos can play automatically or require the user to start playing them.
+      - 
+       name: var mediaPlaybackAllowsAirPlay: Bool
+       description: A Boolean value that determines whether Air Play is allowed from this view.
+      - 
+       name: var allowsPictureInPictureMediaPlayback: Bool
+       description: A Boolean value that determines whether Picture in Picture playback is allowed from this view.
+   - 
+    title: Managing Pages
+     method: 
+      - 
+       name: var gapBetweenPages: CGFloat
+       description: The size of the gap, in points, between pages.
+      - 
+       name: var pageCount: Int
+       description: The number of pages produced by the layout of the web view.
+      - 
+       name: var pageLength: CGFloat
+       description: The size of each page, in points, in the direction that the pages flow.
+      - 
+       name: var paginationBreakingMode: UIWebView.PaginationBreakingMode
+       description: The manner in which column- or page-breaking occurs.
+      - 
+       name: var paginationMode: UIWebView.PaginationMode
+       description: The layout of content in the web view.
+   - 
+    title: Constants
+     method: 
+      - 
+       name: enum UIWebView.NavigationType
+       description: Constant indicating the user’s action.
+      - 
+       name: enum UIWebView.PaginationBreakingMode
+       description: The manner in which column- or page-breaking occurs.
+      - 
+       name: enum UIWebView.PaginationMode
+       description: The layout of content in the web view, which determines the direction that the pages flow.
+      - 
+       name: struct UIDataDetectorTypes
+       description: Defines the types of information that can be detected in text-based content.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIView
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: NSCoding
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UIScrollViewDelegate
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UIActivityIndicatorView
+    description: A view that shows that a task is in progress.
+   - 
+    name: class UIImageView
+    description: An object that displays a single image or a sequence of animated images in your interface.
+   - 
+    name: class UIPickerView
+    description: A view that uses a spinning-wheel or slot-machine metaphor to show one or more sets of values.
+   - 
+    name: class UIProgressView
+    description: A view that depicts the progress of a task over time.

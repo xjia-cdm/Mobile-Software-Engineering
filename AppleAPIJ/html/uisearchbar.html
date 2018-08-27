@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>UISearchBar - UIKit | Apple Developer Documentation</title>
+  <meta content="width=device-width, initial-scale=1 viewport-fit=cover" name="viewport">
+  <meta data-pid="201964">
+  <link href="https://www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Mono,v1|SF+Pro+Icons,v1" media="all" rel="stylesheet" type="text/css">
+  <link href="/documentation/__assets/application-324aa72c.css" media="all" rel="stylesheet" type="text/css">
+  <noscript>
+   <link href="/documentation/__assets/nojs-c6be9131.css" media="all" rel="stylesheet" type="text/css">
+  </noscript>
+  <link rel="mask-icon" href="/documentation/__assets/apple-logo.svg" color="#000">
+  <link rel="shortcut icon" href="/documentation/__assets/favicon.ico">
+  <script src="/documentation/__assets/shared-f73bc3d2.js"></script>
+  <script id="init-data" type="application/json">{"variant":{"paths":["documentation\/uikit\/uisearchbar"],"usr":"c:objc(cs)UISearchBar"}}</script>
+  <script src="/documentation/__assets/init-88dd23db.js"></script>
+ </head>
+ <body>
+  <div id="_omniture_top"> 
+   <script type="text/javascript">
+        var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+      </script> 
+   <script type="text/javascript" src="https://www.apple.com/metrics/scripts/s_code_h.js"></script> 
+   <script type="text/javascript">
+        s.pageName=AC.Tracking.pageName();
+        s.channel="www.us.developer"
+
+        var s_code=s.t();if(s_code)document.write(s_code)
+      </script> 
+  </div>
+  <div id="app">
+   <div>
+    <a href="#main" id="skip-localnav" class="showonfocus hidden">Skip Navigation</a>
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US">
+     <div class="ac-gn-content"> 
+      <ul class="ac-gn-header"> 
+       <li class="ac-gn-item ac-gn-menuicon"> <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span> </span> </label> <a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open"> <span class="ac-gn-menuanchor-label">Open Menu</span> </a> <a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close"> <span class="ac-gn-menuanchor-label">Close Menu</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus-small"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small"> <a class="ac-gn-link ac-gn-link-bag" href="/account/"> <span class="ac-gn-link-text">Account</span> <span class="ac-gn-bag-badge"></span> </a> <span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span> </li> 
+      </ul> 
+      <ul class="ac-gn-list"> 
+       <li class="ac-gn-item ac-gn-apple"> <a class="ac-gn-link ac-gn-link-apple" href="/" id="ac-gn-firstfocus"> <span class="ac-gn-link-text">Apple Developer</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-discover"> <a class="ac-gn-link" href="/discover/"> <span>Discover</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-design"> <a class="ac-gn-link" href="/design/"> <span>Design</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-develop"> <a class="ac-gn-link" href="/develop/"> <span>Develop</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-distribute"> <a class="ac-gn-link" href="/distribute/"> <span>Distribute</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-support"> <a class="ac-gn-link" href="/support/"> <span>Support</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-account"> <a class="ac-gn-link" href="/account/"> <span>Account</span> </a> </li> 
+       <li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search"> <a id="ac-gn-search-button" class="ac-gn-link ac-gn-link-search" href="/search/" aria-label="Search developer.apple.com"> <span class="ac-gn-search-placeholder" aria-hidden="true">Search</span> </a> </li> 
+      </ul> 
+      <aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search"> 
+       <div class="ac-gn-searchview-content"> 
+        <form id="ac-gn-searchform" class="ac-gn-searchform" action="/search/" method="get"> 
+         <div class="ac-gn-searchform-wrapper"> 
+          <input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" placeholder="Search" data-placeholder-long="Search for documentation, videos, and more" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false"> 
+          <button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit"></button> 
+          <button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search"></button> 
+         </div> 
+        </form> 
+        <aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults="Hit enter to search."> 
+        </aside> 
+       </div> 
+       <button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Close Search"> <span class="ac-gn-searchview-close-wrapper"> <span class="ac-gn-searchview-close-left"></span> <span class="ac-gn-searchview-close-right"></span> </span> </button> 
+      </aside> 
+     </div>
+    </nav>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+    <input type="checkbox" id="localnav-menustate" class="localnav-menustate" aria-hidden="true">
+    <nav id="localnav" class="localnav localnav-dark theme-dark localnav-scrim localnav-noborder" role="navigation" aria-label="API Reference" data-sticky="true">
+     <div class="localnav-wrapper">
+      <div class="referencenav">
+       <div class="localnav-background"></div>
+       <div class="localnav-content">
+        <a href="/documentation" class="localnav-title">Documentation</a>
+        <div class="localnav-menu">
+         <a href="#localnav-menustate" id="localnav-menustate-open" class="localnav-menucta-anchor localnav-menucta-anchor-open"><span class="localnav-menucta-anchor-label" aria-hidden="true">Open Menu</span></a>
+         <a href="#" id="localnav-menustate-close" class="localnav-menucta-anchor localnav-menucta-anchor-close"><span class="localnav-menucta-anchor-label" aria-hidden="true">Close Menu</span></a>
+         <div class="localnav-menu-tray">
+          <ul aria-label="Breadcrumbs" class="localnav-menu-items localnav-menu-breadcrumbs">
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit">UIKit</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item"><a class="localnav-menu-link" href="/documentation/uikit/views_and_controls">Views and Controls</a></li>
+           <li class="localnav-menu-item localnav-menu-breadcrumb-item">
+            <div class="localnav-menu-breadcrumb-current-container localnav-menu-link current">
+             <span aria-current="page" class="localnav-menu-breadcrumb-current">UISearchBar</span>
+            </div></li>
+          </ul>
+          <ul class="localnav-menu-items localnav-menu-settings" data-breadcrumbs-count="3">
+           <li class="localnav-menu-setting language-container">
+            <div class="language-toggle-container">
+             <label for="language-toggle" class="language-toggle-label">Language:</label>
+             <select id="language-toggle" class="language-dropdown localnav-menu-link" style="width:auto;"><option selected value="swift">Swift</option><option value="occ">Objective-C</option></select>
+            </div>
+            <div class="language-list-container">
+             <span class="localnav-menu-setting-label">Language:</span>
+             <ul class="language-list">
+              <li class="language-list-item"><span data-language="swift" aria-current="page" class="current-language">Swift</span></li>
+              <li class="language-list-item"><a href="/documentation/uikit/uisearchbar?language=objc" class="localnav-menu-setting-link">Objective-C</a></li>
+             </ul>
+            </div></li>
+           <li class="localnav-menu-setting"><span class="localnav-menu-setting-label">API Changes:</span><a href="/documentation/uikit/uisearchbar?changes=latest_minor" class="localnav-menu-setting-link changes-toggle changes-toggle-show" aria-label="Show API Changes">Show</a></li>
+          </ul>
+         </div>
+         <div class="localnav-actions">
+          <div class="localnav-action localnav-action-menucta" aria-hidden="true">
+           <label for="localnav-menustate" class="localnav-menucta"><span class="localnav-menucta-chevron"></span></label>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </nav>
+    <label for="localnav-menustate" id="localnav-curtain" aria-hidden="true"></label>
+    <main role="main" id="main" class="main" tabindex="0">
+     <div class="topic-title">
+      <span class="eyebrow">Class</span>
+      <h1 class="topic-heading"><span>UISearch<wbr>Bar</span></h1>
+     </div>
+     <div class="topic-container section-content row">
+      <div class="topic-description column large-9 medium-9 small-12">
+       <div class="topic-abstract abstract formatted-content">
+        <div>
+         <p>A specialized view for receiving search-related information from the user. </p>
+        </div>
+       </div>
+      </div>
+      <div class="topic-summary column large-3 medium-3 small-12">
+       <div class="topic-summary-section sdks" role="complementary" aria-label="SDKs">
+        <p class="topic-summary-section-label subsection-label">SDKs</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item sdk"><span aria-label="iOS 2.0+, Available on iOS 2.0 and later" role="text" title="Available on iOS 2.0 and later">iOS 2.0+</span></li>
+         <li class="topic-summary-section-item sdk"><span aria-label="tvOS 9.0+, Available on tvOS 9.0 and later" role="text" title="Available on tvOS 9.0 and later">tvOS 9.0+</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section frameworks" role="complementary" aria-label="Framework">
+        <p class="topic-summary-section-label subsection-label">Framework</p>
+        <ul class="topic-summary-section-list">
+         <li class="topic-summary-section-item"><span>UIKit</span></li>
+        </ul>
+       </div>
+       <div class="topic-summary-section onthispage">
+        <nav class="onthispage-nav" aria-labelledby="onthispage-title">
+         <p id="onthispage-title" class="topic-summary-section-label subsection-label">On This Page</p>
+         <ul class="topic-summary-section-list">
+          <li class="topic-summary-section-item"><a href="#overview" class="icon icon-after icon-chevrondowncircle">Overview</a></li>
+          <li class="topic-summary-section-item"><a href="#topics" class="icon icon-after icon-chevrondowncircle">Topics</a></li>
+          <li class="topic-summary-section-item"><a href="#relationships" class="icon icon-after icon-chevrondowncircle">Relationships</a></li>
+          <li class="topic-summary-section-item"><a href="#see-also" class="icon icon-after icon-chevrondowncircle">See Also</a></li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+      <div class="topic-content column large-9 medium-9 small-12" id="topic-content">
+       <section id="overview" class="section">
+        <h2>Overview</h2>
+        <div class="formatted-content">
+         <div>
+          <p><code class="code-voice"><span>UISearch<wbr>Bar</span></code> provides a text field for entering text, a search button, a bookmark button, and a cancel button. A search bar does not actually perform any searches. You use a delegate, an object conforming to the <a class="symbol-name" href="/documentation/uikit/uisearchbardelegate"><code><span>UISearch<wbr>Bar<wbr>Delegate</span></code></a> protocol, to implement the actions when text is entered and buttons are clicked.</p>
+         </div>
+         <h3 id="1653206">Customizing Appearance</h3>
+         <div>
+          <p>You can customize the appearance of search bars one at a time, or you can use the appearance proxy (<code class="code-voice"><span>[UISearch<wbr>Bar appearance]</span></code>) to customize the appearance of all search bars in an app.</p>
+          <p>In general, you should specify a value for the normal state to be used by other states which don’t have a custom value set. Similarly, when a property is dependent on the bar metrics (on iPhone, in landscape orientation bars have a different height from standard), you should specify a value for <code class="code-voice"><span>UIBar<wbr>Metrics<wbr>Default</span></code>.</p>
+         </div>
+        </div>
+       </section>
+      </div>
+     </div>
+     <section id="topics" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Topics</h2>
+        <section id="2858042" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Initializing the Search Bar</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624304-init"><code class="display-name"><span class="identifier">init</span><span class="decorator">()</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Initializes the search bar to its default state.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info has-inline-element">
+              <a class="symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624324-init"><code class="display-name"><span class="identifier">init</span><span class="decorator">?(</span><span class="identifier">coder</span><span class="decorator">: NSCoder)</span></code></a>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info has-inline-element">
+              <a class="symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624269-init"><code class="display-name"><span class="identifier">init</span><span class="decorator">(</span><span class="identifier">frame</span><span class="decorator">: CGRect)</span></code></a>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653450" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Handling Search Bar Interactions</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624291-delegate"><code class="display-name"><span class="decorator">var </span><span class="identifier">delegate</span><span class="decorator">: UISearch<wbr>Bar<wbr>Delegate?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The search bar’s delegate object.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbardelegate"><code class="display-name"><span class="decorator">protocol </span><span class="identifier">UISearch<wbr>Bar<wbr>Delegate</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A collection of optional methods that you implement to make a search bar control functional. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653222" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Text Content</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624322-placeholder"><code class="display-name"><span class="decorator">var </span><span class="identifier">placeholder</span><span class="decorator">: String?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The string that is displayed when there is no other text in the text field.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624326-prompt"><code class="display-name"><span class="decorator">var </span><span class="identifier">prompt</span><span class="decorator">: String?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A single line of text displayed at the top of the search bar.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624282-text"><code class="display-name"><span class="decorator">var </span><span class="identifier">text</span><span class="decorator">: String?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The current or starting search text.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653264" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Display Attributes</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624270-barstyle"><code class="display-name"><span class="decorator">var </span><span class="identifier">bar<wbr>Style</span><span class="decorator">: UIBar<wbr>Style</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A bar style that specifies the search bar’s appearance.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624295-bartintcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">bar<wbr>Tint<wbr>Color</span><span class="decorator">: UIColor?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The tint color to apply to the search bar background.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624281-searchbarstyle"><code class="display-name"><span class="decorator">var </span><span class="identifier">search<wbr>Bar<wbr>Style</span><span class="decorator">: UISearch<wbr>Bar<wbr>.Style</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A search bar style that specifies the search bar’s appearance.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624286-tintcolor"><code class="display-name"><span class="decorator">var </span><span class="identifier">tint<wbr>Color</span><span class="decorator">: UIColor!</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The tint color to apply to key elements in the search bar.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624321-istranslucent"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Translucent</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value that indicates whether the search bar is translucent (<code class="code-voice"><span>true</span></code>) or not (<code class="code-voice"><span>false</span></code>).</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653334" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Customizing the Keyboard Shortcut Items</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624275-inputassistantitem"><code class="display-name"><span class="decorator">var </span><span class="identifier">input<wbr>Assistant<wbr>Item</span><span class="decorator">: UIText<wbr>Input<wbr>Assistant<wbr>Item</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The input assistant to use for configuring the keyboard’s shortcuts bar.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653353" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Button Configuration</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624298-showsbookmarkbutton"><code class="display-name"><span class="decorator">var </span><span class="identifier">shows<wbr>Bookmark<wbr>Button</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the bookmark button is displayed.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624283-showscancelbutton"><code class="display-name"><span class="decorator">var </span><span class="identifier">shows<wbr>Cancel<wbr>Button</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the cancel button is displayed.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624293-setshowscancelbutton"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Shows<wbr>Cancel<wbr>Button</span><span class="decorator">(Bool, </span><span class="identifier">animated</span><span class="decorator">: Bool)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the display state of the cancel button optionally with animation.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624273-showssearchresultsbutton"><code class="display-name"><span class="decorator">var </span><span class="identifier">shows<wbr>Search<wbr>Results<wbr>Button</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the search results button is displayed.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624285-issearchresultsbuttonselected"><code class="display-name"><span class="decorator">var </span><span class="identifier">is<wbr>Search<wbr>Results<wbr>Button<wbr>Selected</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A Boolean value indicating whether the search results button is selected.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653404" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Scope Buttons</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624292-scopebuttontitles"><code class="display-name"><span class="decorator">var </span><span class="identifier">scope<wbr>Button<wbr>Titles</span><span class="decorator">: [String]?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>An array of strings indicating the titles of the scope buttons.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624287-selectedscopebuttonindex"><code class="display-name"><span class="decorator">var </span><span class="identifier">selected<wbr>Scope<wbr>Button<wbr>Index</span><span class="decorator">: Int</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The index of the selected scope button.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624319-showsscopebar"><code class="display-name"><span class="decorator">var </span><span class="identifier">shows<wbr>Scope<wbr>Bar</span><span class="decorator">: Bool</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Specifies whether the scope bar is displayed.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1653475" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Customizing Appearance</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624276-backgroundimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">background<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The background image for the search bar.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624274-backgroundimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">background<wbr>Image</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UIBar<wbr>Position, </span><span class="identifier">bar<wbr>Metrics</span><span class="decorator">: UIBar<wbr>Metrics) -&gt; UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the image used for the background in a given position and with given metrics.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624325-setbackgroundimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Background<wbr>Image</span><span class="decorator">(UIImage?, </span><span class="identifier">for</span><span class="decorator">: UIBar<wbr>Position, </span><span class="identifier">bar<wbr>Metrics</span><span class="decorator">: UIBar<wbr>Metrics)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the image to use for the background in a given position and with given metrics.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624296-image"><code class="display-name"><span class="decorator">func </span><span class="identifier">image</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UISearch<wbr>Bar<wbr>.Icon, </span><span class="identifier">state</span><span class="decorator">: UIControl<wbr>.State) -&gt; UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the image for a given search bar icon type and control state.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624330-setimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Image</span><span class="decorator">(UIImage?, </span><span class="identifier">for</span><span class="decorator">: UISearch<wbr>Bar<wbr>.Icon, </span><span class="identifier">state</span><span class="decorator">: UIControl<wbr>.State)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the image for a given search bar icon type and control state.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624323-positionadjustment"><code class="display-name"><span class="decorator">func </span><span class="identifier">position<wbr>Adjustment</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UISearch<wbr>Bar<wbr>.Icon) -&gt; UIOffset</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the position adjustment for a given icon.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624278-setpositionadjustment"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Position<wbr>Adjustment</span><span class="decorator">(UIOffset, </span><span class="identifier">for</span><span class="decorator">: UISearch<wbr>Bar<wbr>.Icon)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the position adjustment for a given icon.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624279-inputaccessoryview"><code class="display-name"><span class="decorator">var </span><span class="identifier">input<wbr>Accessory<wbr>View</span><span class="decorator">: UIView?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A custom input accessory view for the keyboard of the search bar.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624317-scopebarbackgroundimage"><code class="display-name"><span class="decorator">var </span><span class="identifier">scope<wbr>Bar<wbr>Background<wbr>Image</span><span class="decorator">: UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The background image for the scope bar.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624311-scopebarbuttonbackgroundimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">scope<wbr>Bar<wbr>Button<wbr>Background<wbr>Image</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State) -&gt; UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the background image for the scope bar button in a given state.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624290-setscopebarbuttonbackgroundimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Scope<wbr>Bar<wbr>Button<wbr>Background<wbr>Image</span><span class="decorator">(UIImage?, </span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the background image for the scope bar button in a given state.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624313-scopebarbuttondividerimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">scope<wbr>Bar<wbr>Button<wbr>Divider<wbr>Image</span><span class="decorator">(</span><span class="identifier">for<wbr>Left<wbr>Segment<wbr>State</span><span class="decorator">: UIControl<wbr>.State, </span><span class="identifier">right<wbr>Segment<wbr>State</span><span class="decorator">: UIControl<wbr>.State) -&gt; UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the divider image to use for a given combination of left and right segment states.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624308-setscopebarbuttondividerimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Scope<wbr>Bar<wbr>Button<wbr>Divider<wbr>Image</span><span class="decorator">(UIImage?, </span><span class="identifier">for<wbr>Left<wbr>Segment<wbr>State</span><span class="decorator">: UIControl<wbr>.State, </span><span class="identifier">right<wbr>Segment<wbr>State</span><span class="decorator">: UIControl<wbr>.State)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the divider image to use for a given combination of left and right segment states.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624309-scopebarbuttontitletextattribute"><code class="display-name"><span class="decorator">func </span><span class="identifier">scope<wbr>Bar<wbr>Button<wbr>Title<wbr>Text<wbr>Attributes</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State) -&gt; [NSAttributed<wbr>String<wbr>.Key : Any]?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the text attributes for the search bar’s button’s title string for a given state.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624277-setscopebarbuttontitletextattrib"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Scope<wbr>Bar<wbr>Button<wbr>Title<wbr>Text<wbr>Attributes</span><span class="decorator">([NSAttributed<wbr>String<wbr>.Key : Any]?, </span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the text attributes for the search bar’ button’s title string for a given state.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624288-searchfieldbackgroundimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">search<wbr>Field<wbr>Background<wbr>Image</span><span class="decorator">(</span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State) -&gt; UIImage?</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Returns the search text field image for a given state.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624307-setsearchfieldbackgroundimage"><code class="display-name"><span class="decorator">func </span><span class="identifier">set<wbr>Search<wbr>Field<wbr>Background<wbr>Image</span><span class="decorator">(UIImage?, </span><span class="identifier">for</span><span class="decorator">: UIControl<wbr>.State)</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Sets the search text field image for a given state.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624320-searchfieldbackgroundpositionadj"><code class="display-name"><span class="decorator">var </span><span class="identifier">search<wbr>Field<wbr>Background<wbr>Position<wbr>Adjustment</span><span class="decorator">: UIOffset</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The offset of the search text field background in the search bar.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/1624297-searchtextpositionadjustment"><code class="display-name"><span class="decorator">var </span><span class="identifier">search<wbr>Text<wbr>Position<wbr>Adjustment</span><span class="decorator">: UIOffset</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>The offset of the text within the search text field background.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+        <section id="1681826" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Constants</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/icon"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UISearch<wbr>Bar<wbr>.Icon</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Constants to identify the icons used in the search bar.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uisearchbar/style"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UISearch<wbr>Bar<wbr>.Style</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Specifies whether the search bar has a background.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uibarstyle"><code class="display-name"><span class="decorator">enum </span><span class="identifier">UIBar<wbr>Style</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Defines the stylistic appearance of different types of views.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uioffset"><code class="display-name"><span class="decorator">struct </span><span class="identifier">UIOffset</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Defines a structure that specifies an amount to offset a position. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="relationships" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">Relationships</h2>
+        <section id="inherits-from" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Inherits From</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <a class="symbol-name" href="/documentation/uikit/uiview"><code><span>UIView</span></code></a>
+          </div>
+         </div>
+        </section>
+        <section id="conforms-to" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Conforms To</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <ul class="relationships-section-content-columns">
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/cvararg"><code><span>CVar<wbr>Arg</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/equatable"><code><span>Equatable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/swift/hashable"><code><span>Hashable</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiaccessibilityidentification"><code><span>UIAccessibility<wbr>Identification</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uibarpositioning"><code><span>UIBar<wbr>Positioning</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uipasteconfigurationsupporting"><code><span>UIPaste<wbr>Configuration<wbr>Supporting</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uitextinputtraits"><code><span>UIText<wbr>Input<wbr>Traits</span></code></a></li>
+            <li class="relationships-section-content-columns-list-item"><a class="symbol-name" href="/documentation/uikit/uiuseractivityrestoring"><code><span>UIUser<wbr>Activity<wbr>Restoring</span></code></a></li>
+           </ul>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+     <section id="see-also" class="contenttable section alt-light-container row">
+      <div class="alt-light">
+       <div class="section-content">
+        <h2 class="contenttable-title">See Also</h2>
+        <section id="2864419" class="contenttable-section">
+         <div class="contenttable-container row">
+          <div class="contenttable-section-title-container column large-3 medium-3 small-12">
+           <h3 class="contenttable-section-title">Bars</h3>
+          </div>
+          <div class="contenttable-section-content column large-9 medium-9 small-12">
+           <div class="task-topics">
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uibaritem"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIBar<wbr>Item</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>An abstract superclass for items that can be added to a bar that appears at the bottom of the screen. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uibarbuttonitem"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIBar<wbr>Button<wbr>Item</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A button specialized for placement on a toolbar or tab bar. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uibarbuttonitemgroup"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIBar<wbr>Button<wbr>Item<wbr>Group</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A set of bar button items on the shortcuts bar above the keyboard on iPad. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uinavigationbar"><code class="display-name"><span class="decorator">class </span><span class="identifier">UINavigation<wbr>Bar</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitoolbar"><code class="display-name"><span class="decorator">class </span><span class="identifier">UIToolbar</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control that displays one or more buttons along the bottom edge of your interface. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitabbar"><code class="display-name"><span class="decorator">class </span><span class="identifier">UITab<wbr>Bar</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A control that displays one or more buttons in a tab bar for selecting between different subtasks, views, or modes in an app. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uitabbaritem"><code class="display-name"><span class="decorator">class </span><span class="identifier">UITab<wbr>Bar<wbr>Item</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>An item in a tab bar.</p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uibarpositioning"><code class="display-name"><span class="decorator">protocol </span><span class="identifier">UIBar<wbr>Positioning</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A set of methods for defining the ways that bars can be positioned in iOS apps. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+            <div class="task-topic">
+             <div class="task-topic-info">
+              <a class="has-adjacent-element symbol-name symbol-name-decorated" href="/documentation/uikit/uibarpositioningdelegate"><code class="display-name"><span class="decorator">protocol </span><span class="identifier">UIBar<wbr>Positioning<wbr>Delegate</span></code></a>
+              <div class="task-topic-abstract task-topic-data abstract formatted-content">
+               <div>
+                <p>A set of methods that support the positioning of a bar that conforms to the <a class="symbol-name" href="/documentation/uikit/uibarpositioning"><code><span>UIBar<wbr>Positioning</span></code></a> protocol. </p>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
+      </div>
+     </section>
+    </main>
+    <section id="globalfooter-wrapper">
+     <footer id="globalfooter" role="contentinfo"> 
+      <nav class="footer-breadory"> 
+       <a href="/" class="home breadcrumbs-home"><span aria-hidden="true"></span><span class="breadcrumbs-home-label">Developer</span></a> 
+       <section class="breadcrumbs"> 
+        <ol class="breadcrumbs-list"> 
+         <li><a href="/documentation">Documentation</a></li> 
+        </ol> 
+       </section> 
+       <div id="directorynav" class="directorynav"> 
+        <div id="dn-cola" class="column"> 
+         <h3><a href="/discover/">Discover</a></h3> 
+         <ul> 
+          <li><a href="/macos/">macOS</a></li> 
+          <li><a href="/ios/">iOS</a></li> 
+          <li><a href="/watchos/">watchOS</a></li> 
+          <li><a href="/tvos/">tvOS</a></li> 
+          <li><a href="/safari/">Safari and Web</a></li> 
+          <li><a href="/games/">Games</a></li> 
+          <li><a href="/enterprise/">Enterprise</a></li> 
+          <li><a href="/education/">Education</a></li> 
+          <li><a href="/wwdc/">WWDC</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colb" class="column"> 
+         <h3><a href="/design/">Design</a></h3> 
+         <ul> 
+          <li><a href="/design/human-interface-guidelines/">Human Interface Guidelines</a></li> 
+          <li><a href="/design/resources/">Resources</a></li> 
+          <li><a href="/videos/design/">Videos</a></li> 
+          <li><a href="/design/awards/">Apple Design Awards</a></li> 
+          <li><a href="/accessibility/">Accessibility</a></li> 
+          <li><a href="/internationalization/">Internationalization</a></li> 
+          <li><a href="/accessories/">Accessories</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-colc" class="column"> 
+         <h3><a href="/develop/">Develop</a></h3> 
+         <ul> 
+          <li><a href="/xcode/">Xcode</a></li> 
+          <li><a href="/swift/">Swift</a></li> 
+          <li><a href="/swift-playgrounds/">Swift Playgrounds</a></li> 
+          <li><a href="/testflight/">TestFlight</a></li> 
+          <li><a href="/documentation/">Documentation</a></li> 
+          <li><a href="/videos/">Videos</a></li> 
+          <li><a href="/download/">Downloads</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cold" class="column"> 
+         <h3><a href="/distribute/">Distribute</a></h3> 
+         <ul> 
+          <li><a href="/app-store/">App Store</a></li> 
+          <li><a href="/macos/distribution/">Mac Software</a></li> 
+          <li><a href="/app-store/review/">App Review</a></li> 
+          <li><a href="/programs/volume/">Volume Purchase Program</a></li> 
+          <li><a href="/programs/volume/b2b/">Custom B2B Apps</a></li> 
+          <li><a href="/enterprise/distribute/">Enterprise Apps</a></li> 
+          <li><a href="/safari/extensions/">Safari Extensions</a></li> 
+          <li><a href="/app-store/marketing/guidelines/">Marketing Resources</a></li> 
+          <li><a href="/softwarelicensing/">Trademark Licensing</a></li> 
+         </ul> 
+        </div> 
+        <div id="dn-cole" class="column"> 
+         <h3><a href="/support/">Support</a></h3> 
+         <ul> 
+          <li><a href="https://forums.developer.apple.com">Developer Forums</a></li> 
+          <li><a href="/bug-reporting/">Bug Reporting</a></li> 
+          <li><a href="/terms/">License Agreements</a></li> 
+          <li><a href="/system-status/">System Status</a></li> 
+          <li><a href="/contact/">Contact Us</a></li> 
+          <br> 
+          <h3><a href="/account/">Account</a></h3> 
+          <ul> 
+           <li><a href="/programs/">Developer Program</a></li> 
+           <li><a href="/account/ios/certificate/">Certificates, IDs &amp; Profiles</a></li> 
+           <li><a href="https://appstoreconnect.apple.com/">App Store Connect</a></li> 
+          </ul> 
+         </ul> 
+        </div> 
+       </div> 
+      </nav> 
+      <div class="ac-gf-footer-legal"> 
+       <div class="ac-gf-footer-news">
+         To receive the latest developer news, visit and subscribe to our 
+        <a href="/news/">News and Updates</a>. 
+       </div> 
+       <div class="ac-gf-footer-legal-copyright">
+        Copyright © 2018 Apple Inc. All rights reserved.
+       </div> 
+       <div class="ac-gf-footer-legal-links"> 
+        <a href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a> 
+        <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a> 
+        <a href="/bug-reporting/">Report Bugs</a> 
+        <a href="/contact/submit/?subject=website-feedback">Feedback</a> 
+       </div> 
+       <div class="ac-gf-footer-language-links"> 
+        <a href="/cn/" class="first">简体中文</a> 
+        <a href="/jp/">日本語</a> 
+        <a href="/kr/">한국어</a> 
+       </div> 
+      </div> 
+     </footer>
+    </section>
+   </div>
+  </div>
+  <script id="bootstrap-data" type="application/json">{"id":1624310,"title":{"content":"UISearchBar"},"discussion":"<div><p><code class=\"code-voice\"><span>UISearch<wbr\/>Bar<\/span><\/code> provides a text field for entering text, a search button, a bookmark button, and a cancel button. A search bar does not actually perform any searches. You use a delegate, an object conforming to the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uisearchbardelegate\"><code><span>UISearch<wbr\/>Bar<wbr\/>Delegate<\/span><\/code><\/a> protocol, to implement the actions when text is entered and buttons are clicked.<\/p><\/div><h3 id=\"1653206\">Customizing Appearance<\/h3><div><p>You can customize the appearance of search bars one at a time, or you can use the appearance proxy (<code class=\"code-voice\"><span>[UISearch<wbr\/>Bar appearance]<\/span><\/code>) to customize the appearance of all search bars in an app.<\/p><p>In general, you should specify a value for the normal state to be used by other states which don’t have a custom value set. Similarly, when a property is dependent on the bar metrics (on iPhone, in landscape orientation bars have a different height from standard), you should specify a value for <code class=\"code-voice\"><span>UIBar<wbr\/>Metrics<wbr\/>Default<\/span><\/code>.<\/p><\/div>","abstract":"<div><p>A specialized view for receiving search-related information from the user.   <\/p><\/div>","containingGroup":[{"id":2864419,"role":"task","paths":[],"symbols":[{"id":1616417,"role":"symbol","usr":"c:objc(cs)UIBarItem","name":"UIBarItem","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIBar<wbr\/>Item<\/span><\/code>","paths":["documentation\/uikit\/uibaritem"],"title":{"content":"UIBarItem"},"abstract":"<div><p>An abstract superclass for items that can be added to a bar that appears at the bottom of the screen. <\/p><\/div>","hasChildren":true},{"id":1617165,"role":"symbol","usr":"c:objc(cs)UIBarButtonItem","name":"UIBarButtonItem","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIBar<wbr\/>Button<wbr\/>Item<\/span><\/code>","paths":["documentation\/uikit\/uibarbuttonitem"],"title":{"content":"UIBarButtonItem"},"abstract":"<div><p>A button specialized for placement on a toolbar or tab bar. <\/p><\/div>","hasChildren":true},{"id":1623561,"role":"symbol","usr":"c:objc(cs)UIBarButtonItemGroup","name":"UIBarButtonItemGroup","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"9.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIBar<wbr\/>Button<wbr\/>Item<wbr\/>Group<\/span><\/code>","paths":["documentation\/uikit\/uibarbuttonitemgroup"],"title":{"content":"UIBarButtonItemGroup"},"abstract":"<div><p>A set of bar button items on the shortcuts bar above the keyboard on iPad. <\/p><\/div>","hasChildren":true},{"id":1624927,"role":"symbol","usr":"c:objc(cs)UINavigationBar","name":"UINavigationBar","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UINavigation<wbr\/>Bar<\/span><\/code>","paths":["documentation\/uikit\/uinavigationbar"],"title":{"content":"UINavigationBar"},"abstract":"<div><p>Navigational controls displayed in a bar along the top of the screen, usually in conjunction with a navigation controller.<\/p><\/div>","hasChildren":true},{"id":1624310,"role":"symbol","usr":"c:objc(cs)UISearchBar","name":"UISearchBar","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISearch<wbr\/>Bar<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar"],"title":{"content":"UISearchBar"},"abstract":"<div><p>A specialized view for receiving search-related information from the user.   <\/p><\/div>","hasChildren":true},{"id":1617996,"role":"symbol","usr":"c:objc(cs)UIToolbar","name":"UIToolbar","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UIToolbar<\/span><\/code>","paths":["documentation\/uikit\/uitoolbar"],"title":{"content":"UIToolbar"},"abstract":"<div><p>A control that displays one or more buttons along the bottom edge of your interface. <\/p><\/div>","hasChildren":true},{"id":1623467,"role":"symbol","usr":"c:objc(cs)UITabBar","name":"UITabBar","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UITab<wbr\/>Bar<\/span><\/code>","paths":["documentation\/uikit\/uitabbar"],"title":{"content":"UITabBar"},"abstract":"<div><p>A control that displays one or more buttons in a tab bar for selecting between different subtasks, views, or modes in an app.  <\/p><\/div>","hasChildren":true},{"id":1617050,"role":"symbol","usr":"c:objc(cs)UITabBarItem","name":"UITabBarItem","domain":"swift","kind":"cl","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UITab<wbr\/>Bar<wbr\/>Item<\/span><\/code>","paths":["documentation\/uikit\/uitabbaritem"],"title":{"content":"UITabBarItem"},"abstract":"<div><p>An item in a tab bar.<\/p><\/div>","hasChildren":true},{"id":1624858,"role":"symbol","usr":"c:objc(pl)UIBarPositioning","name":"UIBarPositioning","domain":"swift","kind":"intf","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">protocol <\/span><span class=\"identifier\">UIBar<wbr\/>Positioning<\/span><\/code>","paths":["documentation\/uikit\/uibarpositioning"],"title":{"content":"UIBarPositioning"},"abstract":"<div><p>A set of methods for defining the ways that bars can be positioned in iOS apps. <\/p><\/div>","hasChildren":true},{"id":1624860,"role":"symbol","usr":"c:objc(pl)UIBarPositioningDelegate","name":"UIBarPositioningDelegate","domain":"swift","kind":"intf","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">protocol <\/span><span class=\"identifier\">UIBar<wbr\/>Positioning<wbr\/>Delegate<\/span><\/code>","paths":["documentation\/uikit\/uibarpositioningdelegate"],"title":{"content":"UIBarPositioningDelegate"},"abstract":"<div><p>A set of methods that support the positioning of a bar that conforms to the <a class=\"symbol-name\" href=\"\/documentation\/uikit\/uibarpositioning\"><code><span>UIBar<wbr\/>Positioning<\/span><\/code><\/a> protocol. <\/p><\/div>","hasChildren":true}],"abstract":"<div><p>Manage the items displayed on navigation bars, tab bars, search bars, and tool bars. <\/p><\/div>","title":{"content":"Bars"}}],"usr":"c:objc(cs)UISearchBar","name":"UISearchBar","domain":"swift","kind":"cl","availability":[{"platform":"iOS","current":"12.0","introduced":"2.0"},{"platform":"tvOS","current":"12.0","introduced":"9.0"}],"conformance":[{"id":1624456,"usr":"c:objc(pl)UITextInputTraits","name":"UITextInputTraits","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uitextinputtraits"],"title":{"content":"UITextInputTraits"},"platforms":["iOS","tvOS"]},{"id":1623131,"usr":"c:objc(pl)UIAccessibilityIdentification","name":"UIAccessibilityIdentification","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiaccessibilityidentification"],"title":{"content":"UIAccessibilityIdentification"},"platforms":["iOS","tvOS"]},{"id":1624858,"usr":"c:objc(pl)UIBarPositioning","name":"UIBarPositioning","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uibarpositioning"],"title":{"content":"UIBarPositioning"},"platforms":["iOS","tvOS"]},{"id":2882041,"usr":"c:objc(pl)UIPasteConfigurationSupporting","name":"UIPasteConfigurationSupporting","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uipasteconfigurationsupporting"],"title":{"content":"UIPasteConfigurationSupporting"},"platforms":["iOS"]},{"id":1641507,"usr":"s:s7CVarArgP","name":"CVarArg","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/cvararg"],"title":{"content":"CVarArg"},"platforms":["iOS","tvOS"]},{"id":2980935,"usr":"c:objc(pl)UIUserActivityRestoring","name":"UIUserActivityRestoring","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/uikit\/uiuseractivityrestoring"],"title":{"content":"UIUserActivityRestoring"},"platforms":["iOS","tvOS"]},{"id":1541213,"usr":"s:SQ","name":"Equatable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/equatable"],"title":{"content":"Equatable"},"platforms":["iOS","tvOS"]},{"id":1540942,"usr":"s:SH","name":"Hashable","domain":"swift","kind":"intf","role":"symbol","paths":["documentation\/swift\/hashable"],"title":{"content":"Hashable"},"platforms":["iOS","tvOS"]}],"inheritance":[{"id":1622655,"usr":"c:objc(cs)UIView","name":"UIView","domain":"swift","kind":"cl","role":"symbol","paths":["documentation\/uikit\/uiview"],"title":{"content":"UIView"},"platforms":["iOS","tvOS"]}],"module":[{"title":{"content":"UIKit"},"importStatement":"<div><span class=\"syntax-identifier\">import<\/span> UIKit<\/div>","paths":["documentation\/uikit"],"platforms":["iOS","tvOS"]}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">class <\/span><span class=\"identifier\">UISearch<wbr\/>Bar<\/span><\/code>","declaration":[{"content":"<span><span class=\"syntax-keyword\">class<\/span> <span class=\"syntax-identifier\">UISearchBar<\/span> : <a class=\"symbolref\" href=\"\/documentation\/uikit\/uiview\"><span>UIView<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/uikit\/uibarpositioning\"><span>UIBar<wbr\/>Positioning<\/span><\/a>, <a class=\"symbolref\" href=\"\/documentation\/uikit\/uitextinputtraits\"><span>UIText<wbr\/>Input<wbr\/>Traits<\/span><\/a>\n<\/span>","platforms":["iOS","tvOS"]}],"languages":["occ","swift"],"variants":{"occ":{"paths":["documentation\/uikit\/uisearchbar"],"usr":"c:objc(cs)UISearchBar"},"swift":{"paths":["documentation\/uikit\/uisearchbar"],"usr":"c:objc(cs)UISearchBar"}},"diffAvailability":{"minor":{"change":"modified","platform":"Xcode","versions":["9.4","10.0 beta 6"]},"major":{"change":"modified","platform":"Xcode","versions":["9.0","10.0 beta 6"]}},"pid":201964,"role":"symbol","language":"swift","paths":["documentation\/uikit\/uisearchbar"],"hierarchy":[[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864393,"role":"collectionGroup","title":{"content":"Views and Controls"},"paths":["documentation\/uikit\/views_and_controls"]}],[{"id":1627115,"role":"collection","title":{"content":"UIKit"},"paths":["documentation\/uikit"]},{"id":2864394,"role":"collectionGroup","title":{"content":"View Controllers"},"paths":["documentation\/uikit\/view_controllers"]}]],"legalNotices":{"copyright":"Copyright &copy; 2018 Apple Inc. All rights reserved.","termsOfUse":"https:\/\/www.apple.com\/legal\/internet-services\/terms\/site.html","privacyPolicy":"https:\/\/www.apple.com\/privacy\/privacy-policy"},"tasks":[{"id":2858042,"role":"task","symbols":[{"id":1624304,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)init","name":"init()","domain":"swift","kind":"instctr","availability":[{"platform":"iOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"identifier\">init<\/span><span class=\"decorator\">()<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624304-init"],"title":{"content":"init()"},"abstract":"<div><p>Initializes the search bar to its default state.<\/p><\/div>"},{"id":1624324,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)initWithCoder:","name":"init(coder:)","domain":"swift","kind":"instctr","availability":[{"platform":"iOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"identifier\">init<\/span><span class=\"decorator\">?(<\/span><span class=\"identifier\">coder<\/span><span class=\"decorator\">: NSCoder)<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624324-init"],"title":{"content":"init(coder:)"}},{"id":1624269,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)initWithFrame:","name":"init(frame:)","domain":"swift","kind":"instctr","availability":[{"platform":"iOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"identifier\">init<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">frame<\/span><span class=\"decorator\">: CGRect)<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624269-init"],"title":{"content":"init(frame:)"}}],"title":{"content":"Initializing the Search Bar"}},{"id":1653450,"role":"task","symbols":[{"id":1624291,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)delegate","name":"delegate","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">delegate<\/span><span class=\"decorator\">: UISearch<wbr\/>Bar<wbr\/>Delegate?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624291-delegate"],"title":{"content":"delegate"},"abstract":"<div><p>The search bar’s delegate object.<\/p><\/div>"},{"id":1624327,"role":"symbol","usr":"c:objc(pl)UISearchBarDelegate","name":"UISearchBarDelegate","domain":"swift","kind":"intf","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">protocol <\/span><span class=\"identifier\">UISearch<wbr\/>Bar<wbr\/>Delegate<\/span><\/code>","paths":["documentation\/uikit\/uisearchbardelegate"],"title":{"content":"UISearchBarDelegate"},"abstract":"<div><p>A collection of optional methods that you implement to make a search bar control functional. <\/p><\/div>","hasChildren":true}],"title":{"content":"Handling Search Bar Interactions"}},{"id":1653222,"role":"task","symbols":[{"id":1624322,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)placeholder","name":"placeholder","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">placeholder<\/span><span class=\"decorator\">: String?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624322-placeholder"],"title":{"content":"placeholder"},"abstract":"<div><p>The string that is displayed when there is no other text in the text field.<\/p><\/div>"},{"id":1624326,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)prompt","name":"prompt","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">prompt<\/span><span class=\"decorator\">: String?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624326-prompt"],"title":{"content":"prompt"},"abstract":"<div><p>A single line of text displayed at the top of the search bar.<\/p><\/div>"},{"id":1624282,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)text","name":"text","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">text<\/span><span class=\"decorator\">: String?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624282-text"],"title":{"content":"text"},"abstract":"<div><p>The current or starting search text.<\/p><\/div>"}],"title":{"content":"Text Content"}},{"id":1653264,"role":"task","symbols":[{"id":1624270,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)barStyle","name":"barStyle","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">bar<wbr\/>Style<\/span><span class=\"decorator\">: UIBar<wbr\/>Style<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624270-barstyle"],"title":{"content":"barStyle"},"abstract":"<div><p>A bar style that specifies the search bar’s appearance.<\/p><\/div>"},{"id":1624295,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)barTintColor","name":"barTintColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">bar<wbr\/>Tint<wbr\/>Color<\/span><span class=\"decorator\">: UIColor?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624295-bartintcolor"],"title":{"content":"barTintColor"},"abstract":"<div><p>The tint color to apply to the search bar background.<\/p><\/div>"},{"id":1624281,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)searchBarStyle","name":"searchBarStyle","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">search<wbr\/>Bar<wbr\/>Style<\/span><span class=\"decorator\">: UISearch<wbr\/>Bar<wbr\/>.Style<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624281-searchbarstyle"],"title":{"content":"searchBarStyle"},"abstract":"<div><p>A search bar style that specifies the search bar’s appearance.<\/p><\/div>"},{"id":1624286,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)tintColor","name":"tintColor","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">tint<wbr\/>Color<\/span><span class=\"decorator\">: UIColor!<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624286-tintcolor"],"title":{"content":"tintColor"},"abstract":"<div><p>The tint color to apply to key elements in the search bar.<\/p><\/div>"},{"id":1624321,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)translucent","name":"translucent","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Translucent<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624321-istranslucent"],"title":{"content":"isTranslucent"},"abstract":"<div><p>A Boolean value that indicates whether the search bar is translucent (<code class=\"code-voice\"><span>true<\/span><\/code>) or not (<code class=\"code-voice\"><span>false<\/span><\/code>).<\/p><\/div>"}],"title":{"content":"Display Attributes"}},{"id":1653334,"role":"task","symbols":[{"id":1624275,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)inputAssistantItem","name":"inputAssistantItem","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">input<wbr\/>Assistant<wbr\/>Item<\/span><span class=\"decorator\">: UIText<wbr\/>Input<wbr\/>Assistant<wbr\/>Item<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624275-inputassistantitem"],"title":{"content":"inputAssistantItem"},"abstract":"<div><p>The input assistant to use for configuring the keyboard’s shortcuts bar.<\/p><\/div>"}],"title":{"content":"Customizing the Keyboard Shortcut Items"}},{"id":1653353,"role":"task","symbols":[{"id":1624298,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)showsBookmarkButton","name":"showsBookmarkButton","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">shows<wbr\/>Bookmark<wbr\/>Button<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624298-showsbookmarkbutton"],"title":{"content":"showsBookmarkButton"},"abstract":"<div><p>A Boolean value indicating whether the bookmark button is displayed.<\/p><\/div>"},{"id":1624283,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)showsCancelButton","name":"showsCancelButton","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">shows<wbr\/>Cancel<wbr\/>Button<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624283-showscancelbutton"],"title":{"content":"showsCancelButton"},"abstract":"<div><p>A Boolean value indicating whether the cancel button is displayed.<\/p><\/div>"},{"id":1624293,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)setShowsCancelButton:animated:","name":"setShowsCancelButton(_:animated:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"3.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Shows<wbr\/>Cancel<wbr\/>Button<\/span><span class=\"decorator\">(Bool, <\/span><span class=\"identifier\">animated<\/span><span class=\"decorator\">: Bool)<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624293-setshowscancelbutton"],"title":{"content":"setShowsCancelButton(_:animated:)"},"abstract":"<div><p>Sets the display state of the cancel button optionally with animation.<\/p><\/div>"},{"id":1624273,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)showsSearchResultsButton","name":"showsSearchResultsButton","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.2"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">shows<wbr\/>Search<wbr\/>Results<wbr\/>Button<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624273-showssearchresultsbutton"],"title":{"content":"showsSearchResultsButton"},"abstract":"<div><p>A Boolean value indicating whether the search results button is displayed.<\/p><\/div>"},{"id":1624285,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)searchResultsButtonSelected","name":"searchResultsButtonSelected","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.2"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">is<wbr\/>Search<wbr\/>Results<wbr\/>Button<wbr\/>Selected<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624285-issearchresultsbuttonselected"],"title":{"content":"isSearchResultsButtonSelected"},"abstract":"<div><p>A Boolean value indicating whether the search results button is selected.<\/p><\/div>"}],"title":{"content":"Button Configuration"}},{"id":1653404,"role":"task","symbols":[{"id":1624292,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)scopeButtonTitles","name":"scopeButtonTitles","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">scope<wbr\/>Button<wbr\/>Titles<\/span><span class=\"decorator\">: [String]?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624292-scopebuttontitles"],"title":{"content":"scopeButtonTitles"},"abstract":"<div><p>An array of strings indicating the titles of the scope buttons.<\/p><\/div>"},{"id":1624287,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)selectedScopeButtonIndex","name":"selectedScopeButtonIndex","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">selected<wbr\/>Scope<wbr\/>Button<wbr\/>Index<\/span><span class=\"decorator\">: Int<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624287-selectedscopebuttonindex"],"title":{"content":"selectedScopeButtonIndex"},"abstract":"<div><p>The index of the selected scope button.<\/p><\/div>"},{"id":1624319,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)showsScopeBar","name":"showsScopeBar","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"3.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">shows<wbr\/>Scope<wbr\/>Bar<\/span><span class=\"decorator\">: Bool<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624319-showsscopebar"],"title":{"content":"showsScopeBar"},"abstract":"<div><p>Specifies whether the scope bar is displayed.<\/p><\/div>"}],"title":{"content":"Scope Buttons"}},{"id":1653475,"role":"task","symbols":[{"id":1624276,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)backgroundImage","name":"backgroundImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">background<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624276-backgroundimage"],"title":{"content":"backgroundImage"},"abstract":"<div><p>The background image for the search bar.<\/p><\/div>"},{"id":1624274,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)backgroundImageForBarPosition:barMetrics:","name":"backgroundImageForBarPosition(_:barMetrics:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">background<wbr\/>Image<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIBar<wbr\/>Position, <\/span><span class=\"identifier\">bar<wbr\/>Metrics<\/span><span class=\"decorator\">: UIBar<wbr\/>Metrics) -&gt; UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624274-backgroundimage"],"title":{"content":"backgroundImage(for:barMetrics:)"},"abstract":"<div><p>Returns the image used for the background in a given position and with given metrics.<\/p><\/div>"},{"id":1624325,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)setBackgroundImage:forBarPosition:barMetrics:","name":"setBackgroundImage(_:forBarPosition:barMetrics:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Background<wbr\/>Image<\/span><span class=\"decorator\">(UIImage?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIBar<wbr\/>Position, <\/span><span class=\"identifier\">bar<wbr\/>Metrics<\/span><span class=\"decorator\">: UIBar<wbr\/>Metrics)<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624325-setbackgroundimage"],"title":{"content":"setBackgroundImage(_:for:barMetrics:)"},"abstract":"<div><p>Sets the image to use for the background in a given position and with given metrics.<\/p><\/div>"},{"id":1624296,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)imageForSearchBarIcon:state:","name":"imageForSearchBarIcon(_:state:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">image<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UISearch<wbr\/>Bar<wbr\/>.Icon, <\/span><span class=\"identifier\">state<\/span><span class=\"decorator\">: UIControl<wbr\/>.State) -&gt; UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624296-image"],"title":{"content":"image(for:state:)"},"abstract":"<div><p>Returns the image for a given search bar icon type and control state.<\/p><\/div>"},{"id":1624330,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)setImage:forSearchBarIcon:state:","name":"setImage(_:forSearchBarIcon:state:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Image<\/span><span class=\"decorator\">(UIImage?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UISearch<wbr\/>Bar<wbr\/>.Icon, <\/span><span class=\"identifier\">state<\/span><span class=\"decorator\">: UIControl<wbr\/>.State)<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624330-setimage"],"title":{"content":"setImage(_:for:state:)"},"abstract":"<div><p>Sets the image for a given search bar icon type and control state.<\/p><\/div>"},{"id":1624323,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)positionAdjustmentForSearchBarIcon:","name":"positionAdjustmentForSearchBarIcon(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">position<wbr\/>Adjustment<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UISearch<wbr\/>Bar<wbr\/>.Icon) -&gt; UIOffset<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624323-positionadjustment"],"title":{"content":"positionAdjustment(for:)"},"abstract":"<div><p>Returns the position adjustment for a given icon.<\/p><\/div>"},{"id":1624278,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)setPositionAdjustment:forSearchBarIcon:","name":"setPositionAdjustment(_:forSearchBarIcon:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Position<wbr\/>Adjustment<\/span><span class=\"decorator\">(UIOffset, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UISearch<wbr\/>Bar<wbr\/>.Icon)<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624278-setpositionadjustment"],"title":{"content":"setPositionAdjustment(_:for:)"},"abstract":"<div><p>Returns the position adjustment for a given icon.<\/p><\/div>"},{"id":1624279,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)inputAccessoryView","name":"inputAccessoryView","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"6.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">input<wbr\/>Accessory<wbr\/>View<\/span><span class=\"decorator\">: UIView?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624279-inputaccessoryview"],"title":{"content":"inputAccessoryView"},"abstract":"<div><p>A custom input accessory view for the keyboard of the search bar.<\/p><\/div>"},{"id":1624317,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)scopeBarBackgroundImage","name":"scopeBarBackgroundImage","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">scope<wbr\/>Bar<wbr\/>Background<wbr\/>Image<\/span><span class=\"decorator\">: UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624317-scopebarbackgroundimage"],"title":{"content":"scopeBarBackgroundImage"},"abstract":"<div><p>The background image for the scope bar.<\/p><\/div>"},{"id":1624311,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)scopeBarButtonBackgroundImageForState:","name":"scopeBarButtonBackgroundImageForState(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">scope<wbr\/>Bar<wbr\/>Button<wbr\/>Background<wbr\/>Image<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State) -&gt; UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624311-scopebarbuttonbackgroundimage"],"title":{"content":"scopeBarButtonBackgroundImage(for:)"},"abstract":"<div><p>Returns the background image for the scope bar button in a given state.<\/p><\/div>"},{"id":1624290,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)setScopeBarButtonBackgroundImage:forState:","name":"setScopeBarButtonBackgroundImage(_:forState:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Scope<wbr\/>Bar<wbr\/>Button<wbr\/>Background<wbr\/>Image<\/span><span class=\"decorator\">(UIImage?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State)<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624290-setscopebarbuttonbackgroundimage"],"title":{"content":"setScopeBarButtonBackgroundImage(_:for:)"},"abstract":"<div><p>Sets the background image for the scope bar button in a given state.<\/p><\/div>"},{"id":1624313,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)scopeBarButtonDividerImageForLeftSegmentState:rightSegmentState:","name":"scopeBarButtonDividerImageForLeftSegmentState(_:rightSegmentState:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">scope<wbr\/>Bar<wbr\/>Button<wbr\/>Divider<wbr\/>Image<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<wbr\/>Left<wbr\/>Segment<wbr\/>State<\/span><span class=\"decorator\">: UIControl<wbr\/>.State, <\/span><span class=\"identifier\">right<wbr\/>Segment<wbr\/>State<\/span><span class=\"decorator\">: UIControl<wbr\/>.State) -&gt; UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624313-scopebarbuttondividerimage"],"title":{"content":"scopeBarButtonDividerImage(forLeftSegmentState:rightSegmentState:)"},"abstract":"<div><p>Returns the divider image to use for a given combination of left and right segment states.<\/p><\/div>"},{"id":1624308,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)setScopeBarButtonDividerImage:forLeftSegmentState:rightSegmentState:","name":"setScopeBarButtonDividerImage(_:forLeftSegmentState:rightSegmentState:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Scope<wbr\/>Bar<wbr\/>Button<wbr\/>Divider<wbr\/>Image<\/span><span class=\"decorator\">(UIImage?, <\/span><span class=\"identifier\">for<wbr\/>Left<wbr\/>Segment<wbr\/>State<\/span><span class=\"decorator\">: UIControl<wbr\/>.State, <\/span><span class=\"identifier\">right<wbr\/>Segment<wbr\/>State<\/span><span class=\"decorator\">: UIControl<wbr\/>.State)<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624308-setscopebarbuttondividerimage"],"title":{"content":"setScopeBarButtonDividerImage(_:forLeftSegmentState:rightSegmentState:)"},"abstract":"<div><p>Sets the divider image to use for a given combination of left and right segment states.<\/p><\/div>"},{"id":1624309,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)scopeBarButtonTitleTextAttributesForState:","name":"scopeBarButtonTitleTextAttributesForState(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">scope<wbr\/>Bar<wbr\/>Button<wbr\/>Title<wbr\/>Text<wbr\/>Attributes<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State) -&gt; [NSAttributed<wbr\/>String<wbr\/>.Key : Any]?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624309-scopebarbuttontitletextattribute"],"title":{"content":"scopeBarButtonTitleTextAttributes(for:)"},"abstract":"<div><p>Returns the text attributes for the search bar’s button’s title string for a given state.<\/p><\/div>"},{"id":1624277,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)setScopeBarButtonTitleTextAttributes:forState:","name":"setScopeBarButtonTitleTextAttributes(_:forState:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Scope<wbr\/>Bar<wbr\/>Button<wbr\/>Title<wbr\/>Text<wbr\/>Attributes<\/span><span class=\"decorator\">([NSAttributed<wbr\/>String<wbr\/>.Key : Any]?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State)<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624277-setscopebarbuttontitletextattrib"],"title":{"content":"setScopeBarButtonTitleTextAttributes(_:for:)"},"abstract":"<div><p>Sets the text attributes for the search bar’ button’s title string for a given state.<\/p><\/div>"},{"id":1624288,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)searchFieldBackgroundImageForState:","name":"searchFieldBackgroundImageForState(_:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">search<wbr\/>Field<wbr\/>Background<wbr\/>Image<\/span><span class=\"decorator\">(<\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State) -&gt; UIImage?<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624288-searchfieldbackgroundimage"],"title":{"content":"searchFieldBackgroundImage(for:)"},"abstract":"<div><p>Returns the search text field image for a given state.<\/p><\/div>"},{"id":1624307,"role":"symbol","usr":"c:objc(cs)UISearchBar(im)setSearchFieldBackgroundImage:forState:","name":"setSearchFieldBackgroundImage(_:forState:)","domain":"swift","kind":"instm","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">func <\/span><span class=\"identifier\">set<wbr\/>Search<wbr\/>Field<wbr\/>Background<wbr\/>Image<\/span><span class=\"decorator\">(UIImage?, <\/span><span class=\"identifier\">for<\/span><span class=\"decorator\">: UIControl<wbr\/>.State)<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624307-setsearchfieldbackgroundimage"],"title":{"content":"setSearchFieldBackgroundImage(_:for:)"},"abstract":"<div><p>Sets the search text field image for a given state.<\/p><\/div>"},{"id":1624320,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)searchFieldBackgroundPositionAdjustment","name":"searchFieldBackgroundPositionAdjustment","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">search<wbr\/>Field<wbr\/>Background<wbr\/>Position<wbr\/>Adjustment<\/span><span class=\"decorator\">: UIOffset<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624320-searchfieldbackgroundpositionadj"],"title":{"content":"searchFieldBackgroundPositionAdjustment"},"abstract":"<div><p>The offset of the search text field background in the search bar.<\/p><\/div>"},{"id":1624297,"role":"symbol","usr":"c:objc(cs)UISearchBar(py)searchTextPositionAdjustment","name":"searchTextPositionAdjustment","domain":"swift","kind":"instp","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">var <\/span><span class=\"identifier\">search<wbr\/>Text<wbr\/>Position<wbr\/>Adjustment<\/span><span class=\"decorator\">: UIOffset<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/1624297-searchtextpositionadjustment"],"title":{"content":"searchTextPositionAdjustment"},"abstract":"<div><p>The offset of the text within the search text field background.<\/p><\/div>"}],"title":{"content":"Customizing Appearance"}},{"id":1681826,"role":"task","symbols":[{"id":1624318,"role":"symbol","usr":"c:@E@UISearchBarIcon","name":"UISearchBarIcon","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UISearch<wbr\/>Bar<wbr\/>.Icon<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/icon"],"title":{"content":"UISearchBar.Icon"},"abstract":"<div><p>Constants to identify the icons used in the search bar.<\/p><\/div>","hasChildren":true},{"id":1624289,"role":"symbol","usr":"c:@E@UISearchBarStyle","name":"UISearchBarStyle","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"7.0"},{"platform":"tvOS","introduced":"9.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UISearch<wbr\/>Bar<wbr\/>.Style<\/span><\/code>","paths":["documentation\/uikit\/uisearchbar\/style"],"title":{"content":"UISearchBar.Style"},"abstract":"<div><p>Specifies whether the search bar has a background.<\/p><\/div>","hasChildren":true},{"id":1623412,"role":"symbol","usr":"c:@E@UIBarStyle","name":"UIBarStyle","domain":"swift","kind":"enum","availability":[{"platform":"iOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">enum <\/span><span class=\"identifier\">UIBar<wbr\/>Style<\/span><\/code>","paths":["documentation\/uikit\/uibarstyle"],"title":{"content":"UIBarStyle"},"abstract":"<div><p>Defines the stylistic appearance of different types of views.<\/p><\/div>","hasChildren":true},{"id":1624500,"role":"symbol","usr":"c:@S@UIOffset","name":"UIOffset","domain":"swift","kind":"struct","availability":[{"platform":"iOS","introduced":"5.0"},{"platform":"tvOS","introduced":"9.0"},{"platform":"watchOS","introduced":"2.0"}],"displayName":"<code class=\"display-name\"><span class=\"decorator\">struct <\/span><span class=\"identifier\">UIOffset<\/span><\/code>","paths":["documentation\/uikit\/uioffset"],"title":{"content":"UIOffset"},"abstract":"<div><p>Defines a structure that specifies an amount to offset a position. <\/p><\/div>","hasChildren":true}],"title":{"content":"Constants"}}]}</script>
+  <script src="/documentation/__assets/TopicDetail-018c52ac.js"></script>
+ </body>
+</html>

@@ -1,0 +1,125 @@
+<api>
+ <title>UIStepper</title>
+ <description>A control used to increment or decrement a value.</description>
+ <overview>
+ <description>If you set stepper behavior to “autorepeat” (which is the default), pressing and holding one of its buttons increments or decrements the stepper’s value repeatedly. The rate of change depends on how long the user continues pressing the control.</description>
+ </overview>
+ <topics>
+ <topic>
+ <title>Configuring the Stepper</title>
+ <method>
+ <name>var isContinuous: Bool</name>
+ <description>The continuous vs. noncontinuous state of the stepper.</description>
+ </method>
+ <method>
+ <name>var autorepeat: Bool</name>
+ <description>The automatic vs. nonautomatic repeat state of the stepper.</description>
+ </method>
+ <method>
+ <name>var wraps: Bool</name>
+ <description>The wrap vs. no-wrap state of the stepper.</description>
+ </method>
+ <method>
+ <name>var minimumValue: Double</name>
+ <description>The lowest possible numeric value for the stepper.</description>
+ </method>
+ <method>
+ <name>var maximumValue: Double</name>
+ <description>The highest possible numeric value for the stepper.</description>
+ </method>
+ <method>
+ <name>var stepValue: Double</name>
+ <description>The step, or increment, value for the stepper.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Accessing the Stepper’s Value</title>
+ <method>
+ <name>var value: Double</name>
+ <description>The numeric value of the stepper.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Customizing Appearance</title>
+ <method>
+ <name>var tintColor: UIColor!</name>
+ <description>The tint color to apply to key elements in the stepper.</description>
+ </method>
+ <method>
+ <name>func backgroundImage(for: UIControl.State) -&amp;gt; UIImage?</name>
+ <description>Returns the background image associated with the specified control state.</description>
+ </method>
+ <method>
+ <name>func setBackgroundImage(UIImage?, for: UIControl.State)</name>
+ <description>Sets the background image for the control when it is in the specified state.</description>
+ </method>
+ <method>
+ <name>func decrementImage(for: UIControl.State) -&amp;gt; UIImage?</name>
+ <description>Returns the image used for the decrement glyph of the control.</description>
+ </method>
+ <method>
+ <name>func setDecrementImage(UIImage?, for: UIControl.State)</name>
+ <description>Sets the image to use for the decrement glyph of the control.</description>
+ </method>
+ <method>
+ <name>func dividerImage(forLeftSegmentState: UIControl.State, rightSegmentState: UIControl.State) -&amp;gt; UIImage?</name>
+ <description>Returns the divider image for the given combination of left and right states.</description>
+ </method>
+ <method>
+ <name>func setDividerImage(UIImage?, forLeftSegmentState: UIControl.State, rightSegmentState: UIControl.State)</name>
+ <description>Sets the image to use for the given combination of left and right states.</description>
+ </method>
+ <method>
+ <name>func incrementImage(for: UIControl.State) -&amp;gt; UIImage?</name>
+ <description>Returns the image used for the increment glyph of the control.</description>
+ </method>
+ <method>
+ <name>func setIncrementImage(UIImage?, for: UIControl.State)</name>
+ <description>Sets the image to use for the increment glyph of the control</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIControl</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIPasteConfigurationSupporting</name>
+ <name>UIUserActivityRestoring</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UIControl</name>
+ <description>The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.</description>
+ </control>
+ <control>
+ <name>class UIButton</name>
+ <description>A control that executes your custom code in response to user interactions.</description>
+ </control>
+ <control>
+ <name>class UIDatePicker</name>
+ <description>A control used for the inputting of date and time values.</description>
+ </control>
+ <control>
+ <name>class UIPageControl</name>
+ <description>A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity.</description>
+ </control>
+ <control>
+ <name>class UISegmentedControl</name>
+ <description>A horizontal control made of multiple segments, each segment functioning as a discrete button.</description>
+ </control>
+ <control>
+ <name>class UISlider</name>
+ <description>A control used to select a single value from a continuous range of values.</description>
+ </control>
+ <control>
+ <name>class UISwitch</name>
+ <description>A control that offers a binary choice, such as On/Off.</description>
+ </control>
+ </see-also>
+ </api>

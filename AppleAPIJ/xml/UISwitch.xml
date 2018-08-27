@@ -1,0 +1,97 @@
+<api>
+ <title>UISwitch</title>
+ <description>A control that offers a binary choice, such as On/Off.</description>
+ <overview>
+ <description>The UISwitch class declares a property and a method to control its on/off state. As with UISlider, when the user manipulates the switch control (“flips” it) a valueChanged event is generated, which results in the control (if properly configured) sending an action message.</description>
+ </overview>
+ <topics>
+ <topic>
+ <title>Initializing the Switch Object</title>
+ <method>
+ <name>init(frame: CGRect)</name>
+ <description>Returns an initialized switch object.</description>
+ </method>
+ <method>
+ <name>init?(coder: NSCoder)</name>
+ </method>
+ </topic>
+ <topic>
+ <title>Setting the Off/On State</title>
+ <method>
+ <name>var isOn: Bool</name>
+ <description>A Boolean value that determines the off/on state of the switch.</description>
+ </method>
+ <method>
+ <name>func setOn(Bool, animated: Bool)</name>
+ <description>Set the state of the switch to On or Off, optionally animating the transition.</description>
+ </method>
+ </topic>
+ <topic>
+ <title>Customizing the Appearance of the Switch</title>
+ <method>
+ <name>var onTintColor: UIColor?</name>
+ <description>The color used to tint the appearance of the switch when it is turned on.</description>
+ </method>
+ <method>
+ <name>var tintColor: UIColor!</name>
+ <description>The color used to tint the outline of the switch when it is turned off.</description>
+ </method>
+ <method>
+ <name>var thumbTintColor: UIColor?</name>
+ <description>The color used to tint the appearance of the thumb.</description>
+ </method>
+ <method>
+ <name>var onImage: UIImage?</name>
+ <description>In iOS 6 and earlier, the image displayed when the switch is in the on position.</description>
+ </method>
+ <method>
+ <name>var offImage: UIImage?</name>
+ <description>In iOS 6 and earlier, the image displayed when the switch is in the off position.</description>
+ </method>
+ </topic>
+ </topics>
+ <relationships>
+ <inherits_from>
+ <name>UIControl</name>
+ </inherits_from>
+ <conforms_to>
+ <name>CVarArg</name>
+ <name>Equatable</name>
+ <name>Hashable</name>
+ <name>NSCoding</name>
+ <name>UIAccessibilityIdentification</name>
+ <name>UIPasteConfigurationSupporting</name>
+ <name>UIUserActivityRestoring</name>
+ </conforms_to>
+ </relationships>
+ <see-also>
+ <control>
+ <name>class UIControl</name>
+ <description>The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.</description>
+ </control>
+ <control>
+ <name>class UIButton</name>
+ <description>A control that executes your custom code in response to user interactions.</description>
+ </control>
+ <control>
+ <name>class UIDatePicker</name>
+ <description>A control used for the inputting of date and time values.</description>
+ </control>
+ <control>
+ <name>class UIPageControl</name>
+ <description>A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity.</description>
+ </control>
+ <control>
+ <name>class UISegmentedControl</name>
+ <description>A horizontal control made of multiple segments, each segment functioning as a discrete button.</description>
+ </control>
+ <control>
+ <name>class UISlider</name>
+ <description>A control used to select a single value from a continuous range of values.</description>
+ </control>
+ <control>
+ <name>class UIStepper</name>
+ <description>A control used to increment or decrement a value.</description>
+ </control>
+ </see-also>
+ </api>

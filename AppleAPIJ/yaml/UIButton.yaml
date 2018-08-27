@@ -1,0 +1,193 @@
+api:
+ title: UIButton
+ description: A control that executes your custom code in response to user interactions.
+ overview: 
+  description: When you tap a button, or select a button that has focus, the button performs any actions attached to it. You communicate the purpose of a button using a text label, an image, or both. The appearance of buttons is configurable, so you can tint buttons or format titles to match the design of your app. You can add buttons to your interface programmatically or using Interface Builder.
+  sub_overview: 
+   - 
+    name: Responding to Button Taps
+    description: Buttons use the Target-Action design pattern to notify your app when the user taps the button. Rather than handle touch events directly, you assign action methods to the button and designate which events trigger calls to your methods. At runtime, the button handles all incoming touch events and calls your methods in response. You connect a button to your action method using the addTarget(_:action:for:) method or by creating a connection in Interface Builder. The signature of an action method takes one of three forms, which are listed in Listing 1. Choose the form that provides the information that you need to respond to the button tap. Listing 1 Action methods for buttons @IBAction func doSomething() @IBAction func doSomething(sender: UIButton) @IBAction func doSomething(sender: UIButton, forEvent event: UIEvent)
+   - 
+    name: Configuring a Button’s Appearance
+    description: A button’s type defines its basic appearance and behavior. You specify the type of a button at creation time using the init(type:) method or in your storyboard file. After creating a button, you cannot change its type. The most commonly used button types are the Custom and System types, but use the other types when appropriate. Note To configure the appearance of all buttons in your app, use the appearance proxy object. The UIButton class implements the appearance() class method, which you can use to fetch the appearance proxy for all buttons in your app.
+   - 
+    name: Interface Builder Attributes
+    description: Table 1 lists the core attributes that you configure for buttons in Interface Builder. Table 1 Core attributes Attribute Description Type The button type. This attribute determines the default settings for many other button attributes. The value of this attribute cannot be changed at runtime, but you can access it using the buttonType property. State Config The state selector. After selecting a value in this control, changes to the button’s attributes apply to the specified state. Title The button’s title. You can specify a button’s title as a plain string or attributed string. (Title Font and Attributes) The font and other attributes to apply to the button’s title string. The specific configuration options depends on whether you specified a plain string or attributed string for the button’s title. For a plain string, you can customize the font, text color, and shadow color. For an attributed string, you can specify alignment, text direction, indentation, hyphenation, and many other options. Image The button’s foreground image. Typically, you use template images for a button’s foreground, but you may specify any image in your Xcode project. Background The button’s background image. The background image is displayed behind its title and foreground image. Table 2 lists attributes that affect the button’s appearance. Table 2 Appearance attributes Attribute Description Shadow Offset The offsets and behavior of the button’s shadow. Shadows affect title strings only. Enable the Reverses on Highlight option to change the highlighting of the shadow when the button state changes to or from the highlighted state. Configure the offsets programmatically using the shadowOffset property of the button’s titleLabel object. Configure the highlighting behavior using the reversesTitleShadowWhenHighlighted property. Drawing The drawing behavior of the button. When the Shows Touch On Highlight (showsTouchWhenHighlighted) option is enabled, the button adds a white glow to the part of a button that the user touches. When the Highlighted Adjusts Image (adjustsImageWhenHighlighted) option is enabled, button images get darker when it is in the highlighted state. When the Disabled Adjusts Image (adjustsImageWhenDisabled) option is enabled, the image is dimmed when the button is disabled. Line Break The line breaking options for the button’s text. Use this attribute to define how the button’s title is modified to fit the available space. Table 3 lists the edge inset attributes for buttons. Use edge inset buttons to alter the rectangle for the button’s content. Table 3 Edge inset attributes Attribute Description Edge The edge insets to configure. You can specify separate edge insets for the button’s overall content, its title, and its image. Inset The inset values. Positive values shrink the corresponding edge, moving it closer to the center of the button. Negative values expand the edge, moving it away from the center of the button. Access these values at runtime using the contentEdgeInsets, titleEdgeInsets, and imageEdgeInsets properties. For information about the button’s inherited Interface Builder attributes, see UIControl and UIView.
+   - 
+    name: Internationalization
+    description: To internationalize a button, specify a localized string for the button’s title text. (You may also localize a button’s image as appropriate.) When using storyboards to build your interface, use Xcode’s base internationalization feature to configure the localizations your project supports. When you add a localization, Xcode creates a strings file for that localization. When configuring your interface programmatically, use the system’s built-in support for loading localized strings and resources. For more information about internationalizing your interface, see Internationalization and Localization Guide.
+   - 
+    name: Accessibility
+    description: Buttons are accessible by default. The default accessibility traits for a button are Button and User Interaction Enabled. The accessibility label, traits, and hint are spoken back to the user when VoiceOver is enabled on a device. The button’s title overwrites its accessibility label; even if you set a custom value for the label, VoiceOver speaks the value of the title. VoiceOver speaks this information when a user taps the button once. For example, when a user taps the Options button in Camera, VoiceOver speaks the following: &amp;quot;Options. Button. Shows additional camera options.&amp;quot; For more information about making iOS controls accessible, see the accessibility information in UIControl. For general information about making your interface accessible, see Accessibility Programming Guide for iOS.
+ topics: 
+  topic: 
+   - 
+    title: Creating Buttons
+     method: 
+      - 
+       name: init(type: UIButton.ButtonType)
+       description: Creates and returns a new button of the specified type.
+      - 
+       name: enum UIButton.ButtonType
+       description: Specifies the style of a button.
+   - 
+    title: Configuring the Button Title
+     method: 
+      - 
+       name: var titleLabel: UILabel?
+       description: A view that displays the value of the currentTitle property for a button.
+      - 
+       name: func title(for: UIControl.State) -&amp;gt; String?
+       description: Returns the title associated with the specified state.
+      - 
+       name: func setTitle(String?, for: UIControl.State)
+       description: Sets the title to use for the specified state.
+      - 
+       name: func attributedTitle(for: UIControl.State) -&amp;gt; NSAttributedString?
+       description: Returns the styled title associated with the specified state.
+      - 
+       name: func setAttributedTitle(NSAttributedString?, for: UIControl.State)
+       description: Sets the styled title to use for the specified state.
+      - 
+       name: func titleColor(for: UIControl.State) -&amp;gt; UIColor?
+       description: Returns the title color used for a state.
+      - 
+       name: func setTitleColor(UIColor?, for: UIControl.State)
+       description: Sets the color of the title to use for the specified state.
+      - 
+       name: func titleShadowColor(for: UIControl.State) -&amp;gt; UIColor?
+       description: Returns the shadow color of the title used for a state.
+      - 
+       name: func setTitleShadowColor(UIColor?, for: UIControl.State)
+       description: Sets the color of the title shadow to use for the specified state.
+      - 
+       name: var reversesTitleShadowWhenHighlighted: Bool
+       description: A Boolean value that determines whether the title shadow changes when the button is highlighted.
+   - 
+    title: Configuring Button Presentation
+     method: 
+      - 
+       name: var adjustsImageWhenHighlighted: Bool
+       description: A Boolean value that determines whether the image changes when the button is highlighted.
+      - 
+       name: var adjustsImageWhenDisabled: Bool
+       description: A Boolean value that determines whether the image changes when the button is disabled.
+      - 
+       name: var showsTouchWhenHighlighted: Bool
+       description: A Boolean value that determines whether tapping the button causes it to glow.
+      - 
+       name: func backgroundImage(for: UIControl.State) -&amp;gt; UIImage?
+       description: Returns the background image used for a button state.
+      - 
+       name: func image(for: UIControl.State) -&amp;gt; UIImage?
+       description: Returns the image used for a button state.
+      - 
+       name: func setBackgroundImage(UIImage?, for: UIControl.State)
+       description: Sets the background image to use for the specified button state.
+      - 
+       name: func setImage(UIImage?, for: UIControl.State)
+       description: Sets the image to use for the specified state.
+      - 
+       name: var tintColor: UIColor!
+       description: The tint color to apply to the button title and image.
+   - 
+    title: Configuring Edge Insets
+     method: 
+      - 
+       name: var contentEdgeInsets: UIEdgeInsets
+       description: The inset or outset margins for the rectangle surrounding all of the button’s content.
+      - 
+       name: var titleEdgeInsets: UIEdgeInsets
+       description: The inset or outset margins for the rectangle around the button’s title text.
+      - 
+       name: var imageEdgeInsets: UIEdgeInsets
+       description: The inset or outset margins for the rectangle around the button’s image.
+   - 
+    title: Getting the Current State
+     method: 
+      - 
+       name: var buttonType: UIButton.ButtonType
+       description: The button type.
+      - 
+       name: var currentTitle: String?
+       description: The current title that is displayed on the button.
+      - 
+       name: var currentAttributedTitle: NSAttributedString?
+       description: The current styled title that is displayed on the button.
+      - 
+       name: var currentTitleColor: UIColor
+       description: The color used to display the title.
+      - 
+       name: var currentTitleShadowColor: UIColor?
+       description: The color of the title’s shadow.
+      - 
+       name: var currentImage: UIImage?
+       description: The current image displayed on the button.
+      - 
+       name: var currentBackgroundImage: UIImage?
+       description: The current background image displayed on the button.
+      - 
+       name: var imageView: UIImageView?
+       description: The button’s image view.
+   - 
+    title: Getting Dimensions
+     method: 
+      - 
+       name: func backgroundRect(forBounds: CGRect) -&amp;gt; CGRect
+       description: Returns the rectangle in which the receiver draws its background.
+      - 
+       name: func contentRect(forBounds: CGRect) -&amp;gt; CGRect
+       description: Returns the rectangle in which the receiver draws its entire content.
+      - 
+       name: func titleRect(forContentRect: CGRect) -&amp;gt; CGRect
+       description: Returns the rectangle in which the receiver draws its title.
+      - 
+       name: func imageRect(forContentRect: CGRect) -&amp;gt; CGRect
+       description: Returns the rectangle in which the receiver draws its image.
+ relationships: 
+  inherits_from: 
+   - 
+     name: UIControl
+  conforms_to: 
+   - 
+    - 
+     name: CVarArg
+    - 
+     name: Equatable
+    - 
+     name: Hashable
+    - 
+     name: NSCoding
+    - 
+     name: UIAccessibilityContentSizeCategoryImageAdjusting
+    - 
+     name: UIAccessibilityIdentification
+    - 
+     name: UIPasteConfigurationSupporting
+    - 
+     name: UISpringLoadedInteractionSupporting
+    - 
+     name: UIUserActivityRestoring
+ see-also: 
+  control: 
+   - 
+    name: class UIControl
+    description: The base class for controls, which are visual elements that convey a specific action or intention in response to user interactions.
+   - 
+    name: class UIDatePicker
+    description: A control used for the inputting of date and time values.
+   - 
+    name: class UIPageControl
+    description: A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity.
+   - 
+    name: class UISegmentedControl
+    description: A horizontal control made of multiple segments, each segment functioning as a discrete button.
+   - 
+    name: class UISlider
+    description: A control used to select a single value from a continuous range of values.
+   - 
+    name: class UIStepper
+    description: A control used to increment or decrement a value.
+   - 
+    name: class UISwitch
+    description: A control that offers a binary choice, such as On/Off.
