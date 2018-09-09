@@ -1,6 +1,8 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import org.yaml.snakeyaml.Yaml;
+
+import java.io.*;
+import java.util.List;
+import java.util.Map;
 
 class AndroidApp {
 
@@ -156,6 +158,8 @@ class AndroidApp {
 
     String createLabelProgramatically(String label) {
 
+        searchAPI("TextView");
+
         String code = "";
         code += "\t\t RelativeLayout rl = (RelativeLayout) findViewById(R.id.rl); \n";
         code += "\t\t TextView tv = new TextView(getApplicationContext()); \n";
@@ -230,6 +234,33 @@ class AndroidApp {
         content += "\n </RelativeLayout> \n";
 
         UseFile.writeFile("android/app/src/main/res/layout/activity_main.xml", content);
+    }
+
+    void searchAPI(String file) {
+
+        try {
+            Yaml yaml = new Yaml();
+            Reader yamlFile = new FileReader("api/android/" + file + ".yaml");
+
+            Map<String, Object> yamlMaps = (Map<String, Object>) yaml.load(yamlFile);
+
+            final Map<String, Object> module_name = (Map<String, Object>) yamlMaps.get("api");
+            //System.out.println(module_name);
+
+            final Map<String, Object> module_name3 = (Map<String, Object>) module_name.get("public_methods");
+            //System.out.println(module_name3);
+
+            final List<Map<String, Object>> module_name4 = (List<Map<String, Object>>) module_name3.get("method");
+            //System.out.println(module_name4);
+
+            for (int i = 0; i < module_name4.size(); i++) {
+
+                if (module_name4.get(i).get("name").toString().contains("setText(CharSequence text)"))
+                    System.out.println(module_name4.get(i).get("name"));
+            }
+        } catch (FileNotFoundException e) {
+
+        }
     }
 
     void androidProject() {

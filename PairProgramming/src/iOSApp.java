@@ -1,6 +1,8 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import org.yaml.snakeyaml.Yaml;
+
+import java.io.*;
+import java.util.List;
+import java.util.Map;
 
 class iOSApp {
 
@@ -172,6 +174,8 @@ class iOSApp {
 
     String createLabelProgramatically(String label) {
 
+        searchAPI("UILabel");
+
         String code = "\t\t let label: UILabel = UILabel() \n";
         code += "\t\t label.frame = CGRect(x: 10, y: 20, width: 250, height: 100) \n";
         code += "\t\t label.text = \"" + label + "\" \n";
@@ -223,11 +227,38 @@ class iOSApp {
         //UseFile.writeFile("ios/MyApp/ViewController.swift", content);
     }
 
+    void searchAPI(String file) {
+
+        try {
+            Yaml yaml = new Yaml();
+            Reader yamlFile = new FileReader("api/ios/" + file + ".yaml");
+
+            Map<String, Object> yamlMaps = (Map<String, Object>) yaml.load(yamlFile);
+
+            final Map<String, Object> module_name = (Map<String, Object>) yamlMaps.get("api");
+            //System.out.println(module_name);
+
+            final List<Map<String, Object>> module_name1 = (List<Map<String, Object>>) module_name.get("method");
+            //System.out.println(module_name1);
+
+            for (int i = 0; i < module_name1.size(); i++) {
+
+                if (module_name1.get(i).get("name").toString().contains("text: String?"))
+                System.out.println(module_name1.get(i).get("name"));
+            }
+
+        } catch (FileNotFoundException e) {
+
+        }
+    }
+
     void iosProject() {
 
         try {
-            //Process p = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "cd ios; xcodegen; ls -l"});
+
             Process p = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "cd ios; "});
+
+            //Process p = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", "cd ios; xcodegen; ls -l"});
             //p.waitFor();
 
             /*
