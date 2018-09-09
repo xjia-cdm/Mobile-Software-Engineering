@@ -1,0 +1,908 @@
+api:
+ title: TextView
+ api-signature: public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
+ inheritance: java.lang.Object ↳ android.view.View ↳ android.widget.TextView
+ subclasses-direct: Button, CheckedTextView, Chronometer, DigitalClock, EditText, TextClock
+ subclasses-direct-summary: 
+  class: 
+   - 
+    name: Button
+    description: A user interface element the user can tap or click to perform an action.
+   - 
+    name: CheckedTextView
+    description: An extension to TextView that supports the Checkable interface and displays.
+   - 
+    name: Chronometer
+    description: Class that implements a simple timer.
+   - 
+    name: DigitalClock
+    description: This class was deprecated in API level 17. It is recommended you use TextClock instead.
+   - 
+    name: EditText
+    description: A user interface element for entering and modifying text.
+   - 
+    name: TextClock
+    description: TextClock can display the current date and/or time as a formatted string.
+ subclasses-indirect: AutoCompleteTextView, CheckBox, CompoundButton, ExtractEditText, MultiAutoCompleteTextView, RadioButton, Switch, ToggleButton
+ subclasses-indirect-summary: 
+  class: 
+   - 
+    name: AutoCompleteTextView
+    description: An editable text view that shows completion suggestions automatically while the user is typing.
+   - 
+    name: CheckBox
+    description: A checkbox is a specific type of two-states button that can be either checked or unchecked.
+   - 
+    name: CompoundButton
+    description: A button with two states, checked and unchecked.
+   - 
+    name: ExtractEditText
+    description: Specialization of EditText for showing and interacting with the extracted text in a full-screen input method.
+   - 
+    name: MultiAutoCompleteTextView
+    description: An editable text view, extending AutoCompleteTextView, that can show completion suggestions for the substring of the text where the user is typing instead of necessarily for the entire thing.
+   - 
+    name: RadioButton
+    description: A radio button is a two-states button that can be either checked or unchecked.
+   - 
+    name: Switch
+    description: A Switch is a two-state toggle switch widget that can select between two options.
+   - 
+    name: ToggleButton
+    description: Displays checked/unchecked states as a button with a "light" indicator and by default accompanied with the text "ON" or "OFF".
+ public_constructors: 
+  method: 
+   - 
+    name: TextView(Context context)
+   - 
+    name: TextView(Context context, AttributeSet attrs)
+   - 
+    name: TextView(Context context, AttributeSet attrs, int defStyleAttr)
+   - 
+    name: TextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes)
+ public_methods: 
+  method: 
+   - 
+    return-value: void
+    name: addExtraDataToAccessibilityNodeInfo(AccessibilityNodeInfo info, String extraDataKey, Bundle arguments)
+    description: Adds extra data to an AccessibilityNodeInfo based on an explicit request for the additional data.
+   - 
+    return-value: void
+    name: addTextChangedListener(TextWatcher watcher)
+    description: Adds a TextWatcher to the list of those whose methods are called whenever this TextView's text changes.
+   - 
+    return-value: final void
+    name: append(CharSequence text)
+    description: Convenience method to append the specified text to the TextView's display buffer, upgrading it to TextView.BufferType.EDITABLE if it was not already editable.
+   - 
+    return-value: void
+    name: append(CharSequence text, int start, int end)
+    description: Convenience method to append the specified text slice to the TextView's display buffer, upgrading it to TextView.BufferType.EDITABLE if it was not already editable.
+   - 
+    return-value: void
+    name: autofill(AutofillValue value)
+    description: Automatically fills the content of this view with the value.
+   - 
+    return-value: void
+    name: beginBatchEdit()
+   - 
+    return-value: boolean
+    name: bringPointIntoView(int offset)
+    description: Move the point, specified by the offset, into the view if it is needed.
+   - 
+    return-value: void
+    name: cancelLongPress()
+    description: Cancels a pending long press.
+   - 
+    return-value: void
+    name: clearComposingText()
+    description: Use BaseInputConnection.removeComposingSpans() to remove any IME composing state from this text view.
+   - 
+    return-value: void
+    name: computeScroll()
+    description: Called by a parent to request that a child update its values for mScrollX and mScrollY if necessary.
+   - 
+    return-value: void
+    name: debug(int depth)
+    description: Prints information about this view in the log output, with the tag VIEW_LOG_TAG.
+   - 
+    return-value: boolean
+    name: didTouchFocusSelect()
+    description: Returns true, only while processing a touch gesture, if the initial touch down event caused focus to move to the text view and as a result its selection changed.
+   - 
+    return-value: void
+    name: drawableHotspotChanged(float x, float y)
+    description: This function is called whenever the view hotspot changes and needs to be propagated to drawables or child views managed by the view.
+   - 
+    return-value: void
+    name: endBatchEdit()
+   - 
+    return-value: boolean
+    name: extractText(ExtractedTextRequest request, ExtractedText outText)
+    description: If this TextView contains editable content, extract a portion of it based on the information in request in to outText.
+   - 
+    return-value: void
+    name: findViewsWithText(ArrayList<View> outViews, CharSequence searched, int flags)
+    description: Finds the Views that contain given text.
+   - 
+    return-value: CharSequence
+    name: getAccessibilityClassName()
+    description: Return the class name of this object to be used for accessibility purposes.
+   - 
+    return-value: final int
+    name: getAutoLinkMask()
+    description: Gets the autolink mask of the text.
+   - 
+    return-value: int
+    name: getAutoSizeMaxTextSize()
+   - 
+    return-value: int
+    name: getAutoSizeMinTextSize()
+   - 
+    return-value: int
+    name: getAutoSizeStepGranularity()
+   - 
+    return-value: int[]
+    name: getAutoSizeTextAvailableSizes()
+   - 
+    return-value: int
+    name: getAutoSizeTextType()
+    description: Returns the type of auto-size set for this widget.
+   - 
+    return-value: int
+    name: getAutofillType()
+    description: Describes the autofill type of this view, so an AutofillService can create the proper AutofillValue when autofilling the view.
+   - 
+    return-value: AutofillValue
+    name: getAutofillValue()
+    description: Gets the TextView's current text for AutoFill.
+   - 
+    return-value: int
+    name: getBaseline()
+    description: 
+   - 
+    return-value: int
+    name: getBreakStrategy()
+    description: Gets the current strategy for breaking paragraphs into lines.
+   - 
+    return-value: int
+    name: getCompoundDrawablePadding()
+    description: Returns the padding between the compound drawables and the text.
+   - 
+    return-value: ColorStateList
+    name: getCompoundDrawableTintList()
+   - 
+    return-value: PorterDuff.Mode
+    name: getCompoundDrawableTintMode()
+    description: Returns the blending mode used to apply the tint to the compound drawables, if specified.
+   - 
+    return-value: Drawable[]
+    name: getCompoundDrawables()
+    description: Returns drawables for the left, top, right, and bottom borders.
+   - 
+    return-value: Drawable[]
+    name: getCompoundDrawablesRelative()
+    description: Returns drawables for the start, top, end, and bottom borders.
+   - 
+    return-value: int
+    name: getCompoundPaddingBottom()
+    description: Returns the bottom padding of the view, plus space for the bottom Drawable if any.
+   - 
+    return-value: int
+    name: getCompoundPaddingEnd()
+    description: Returns the end padding of the view, plus space for the end Drawable if any.
+   - 
+    return-value: int
+    name: getCompoundPaddingLeft()
+    description: Returns the left padding of the view, plus space for the left Drawable if any.
+   - 
+    return-value: int
+    name: getCompoundPaddingRight()
+    description: Returns the right padding of the view, plus space for the right Drawable if any.
+   - 
+    return-value: int
+    name: getCompoundPaddingStart()
+    description: Returns the start padding of the view, plus space for the start Drawable if any.
+   - 
+    return-value: int
+    name: getCompoundPaddingTop()
+    description: Returns the top padding of the view, plus space for the top Drawable if any.
+   - 
+    return-value: final int
+    name: getCurrentHintTextColor()
+    description: 
+   - 
+    return-value: final int
+    name: getCurrentTextColor()
+    description: Return the current color selected for normal text.
+   - 
+    return-value: ActionMode.Callback
+    name: getCustomInsertionActionModeCallback()
+    description: Retrieves the value set in setCustomInsertionActionModeCallback(ActionMode.Callback).
+   - 
+    return-value: ActionMode.Callback
+    name: getCustomSelectionActionModeCallback()
+    description: Retrieves the value set in setCustomSelectionActionModeCallback(ActionMode.Callback).
+   - 
+    return-value: Editable
+    name: getEditableText()
+    description: Return the text that TextView is displaying as an Editable object.
+   - 
+    return-value: TextUtils.TruncateAt
+    name: getEllipsize()
+    description: Returns where, if anywhere, words that are longer than the view is wide should be ellipsized.
+   - 
+    return-value: CharSequence
+    name: getError()
+    description: Returns the error message that was set to be displayed with setError(CharSequence), or null if no error was set or if it the error was cleared by the widget after user input.
+   - 
+    return-value: int
+    name: getExtendedPaddingBottom()
+    description: Returns the extended bottom padding of the view, including both the bottom Drawable if any and any extra space to keep more than maxLines of text from showing.
+   - 
+    return-value: int
+    name: getExtendedPaddingTop()
+    description: Returns the extended top padding of the view, including both the top Drawable if any and any extra space to keep more than maxLines of text from showing.
+   - 
+    return-value: InputFilter[]
+    name: getFilters()
+    description: Returns the current list of input filters.
+   - 
+    return-value: int
+    name: getFirstBaselineToTopHeight()
+    description: Returns the distance between the first text baseline and the top of this TextView.
+   - 
+    return-value: void
+    name: getFocusedRect(Rect r)
+    description: When a view has focus and the user navigates away from it, the next view is searched for starting from the rectangle filled in by this method.
+   - 
+    return-value: String
+    name: getFontFeatureSettings()
+    description: Returns the font feature settings.
+   - 
+    return-value: String
+    name: getFontVariationSettings()
+    description: Returns the font variation settings.
+   - 
+    return-value: boolean
+    name: getFreezesText()
+    description: Return whether this text view is including its entire text contents in frozen icicles.
+   - 
+    return-value: int
+    name: getGravity()
+    description: Returns the horizontal and vertical alignment of this TextView.
+   - 
+    return-value: int
+    name: getHighlightColor()
+   - 
+    return-value: CharSequence
+    name: getHint()
+    description: Returns the hint that is displayed when the text of the TextView is empty.
+   - 
+    return-value: final ColorStateList
+    name: getHintTextColors()
+   - 
+    return-value: int
+    name: getHyphenationFrequency()
+    description: Gets the current frequency of automatic hyphenation to be used when determining word breaks.
+   - 
+    return-value: int
+    name: getImeActionId()
+    description: Get the IME action ID previous set with setImeActionLabel(CharSequence, int).
+   - 
+    return-value: CharSequence
+    name: getImeActionLabel()
+    description: Get the IME action label previous set with setImeActionLabel(CharSequence, int).
+   - 
+    return-value: LocaleList
+    name: getImeHintLocales()
+   - 
+    return-value: int
+    name: getImeOptions()
+    description: Get the type of the Input Method Editor (IME).
+   - 
+    return-value: boolean
+    name: getIncludeFontPadding()
+    description: Gets whether the TextView includes extra top and bottom padding to make room for accents that go above the normal ascent and descent.
+   - 
+    return-value: Bundle
+    name: getInputExtras(boolean create)
+    description: Retrieve the input extras currently associated with the text view, which can be viewed as well as modified.
+   - 
+    return-value: int
+    name: getInputType()
+    description: Get the type of the editable content.
+   - 
+    return-value: int
+    name: getJustificationMode()
+   - 
+    return-value: final KeyListener
+    name: getKeyListener()
+    description: Gets the current KeyListener for the TextView.
+   - 
+    return-value: int
+    name: getLastBaselineToBottomHeight()
+    description: Returns the distance between the last text baseline and the bottom of this TextView.
+   - 
+    return-value: final Layout
+    name: getLayout()
+    description: Gets the Layout that is currently being used to display the text.
+   - 
+    return-value: float
+    name: getLetterSpacing()
+    description: Gets the text letter-space value, which determines the spacing between characters.
+   - 
+    return-value: int
+    name: getLineBounds(int line, Rect bounds)
+    description: Return the baseline for the specified line (0...getLineCount() - 1) If bounds is not null, return the top, left, right, bottom extents of the specified line in it.
+   - 
+    return-value: int
+    name: getLineCount()
+    description: Return the number of lines of text, or 0 if the internal Layout has not been built.
+   - 
+    return-value: int
+    name: getLineHeight()
+    description: Gets the vertical distance between lines of text, in pixels.
+   - 
+    return-value: float
+    name: getLineSpacingExtra()
+    description: Gets the line spacing extra space
+   - 
+    return-value: float
+    name: getLineSpacingMultiplier()
+    description: Gets the line spacing multiplier
+   - 
+    return-value: final ColorStateList
+    name: getLinkTextColors()
+   - 
+    return-value: final boolean
+    name: getLinksClickable()
+    description: Returns whether the movement method will automatically be set to LinkMovementMethod if setAutoLinkMask(int) has been set to nonzero and links are detected in setText(char[], int, int).
+   - 
+    return-value: int
+    name: getMarqueeRepeatLimit()
+    description: Gets the number of times the marquee animation is repeated.
+   - 
+    return-value: int
+    name: getMaxEms()
+    description: Returns the maximum width of TextView in terms of ems or -1 if the maximum width was set using setMaxWidth(int) or setWidth(int).
+   - 
+    return-value: int
+    name: getMaxHeight()
+    description: Returns the maximum height of TextView in terms of pixels or -1 if the maximum height was set using setMaxLines(int) or setLines(int).
+   - 
+    return-value: int
+    name: getMaxLines()
+    description: Returns the maximum height of TextView in terms of number of lines or -1 if the maximum height was set using setMaxHeight(int) or setHeight(int).
+   - 
+    return-value: int
+    name: getMaxWidth()
+    description: Returns the maximum width of TextView in terms of pixels or -1 if the maximum width was set using setMaxEms(int) or setEms(int).
+   - 
+    return-value: int
+    name: getMinEms()
+    description: Returns the minimum width of TextView in terms of ems or -1 if the minimum width was set using setMinWidth(int) or setWidth(int).
+   - 
+    return-value: int
+    name: getMinHeight()
+    description: Returns the minimum height of TextView in terms of pixels or -1 if the minimum height was set using setMinLines(int) or setLines(int).
+   - 
+    return-value: int
+    name: getMinLines()
+    description: Returns the minimum height of TextView in terms of number of lines or -1 if the minimum height was set using setMinHeight(int) or setHeight(int).
+   - 
+    return-value: int
+    name: getMinWidth()
+    description: Returns the minimum width of TextView in terms of pixels or -1 if the minimum width was set using setMinEms(int) or setEms(int).
+   - 
+    return-value: final MovementMethod
+    name: getMovementMethod()
+    description: Gets the MovementMethod being used for this TextView, which provides positioning, scrolling, and text selection functionality.
+   - 
+    return-value: int
+    name: getOffsetForPosition(float x, float y)
+    description: Get the character offset closest to the specified absolute position.
+   - 
+    return-value: TextPaint
+    name: getPaint()
+    description: Gets the TextPaint used for the text.
+   - 
+    return-value: int
+    name: getPaintFlags()
+    description: Gets the flags on the Paint being used to display the text.
+   - 
+    return-value: String
+    name: getPrivateImeOptions()
+    description: Get the private type of the content.
+   - 
+    return-value: int
+    name: getSelectionEnd()
+    description: Convenience for Selection.getSelectionEnd(CharSequence).
+   - 
+    return-value: int
+    name: getSelectionStart()
+    description: Convenience for Selection.getSelectionStart(CharSequence).
+   - 
+    return-value: int
+    name: getShadowColor()
+    description: Gets the color of the shadow layer.
+   - 
+    return-value: float
+    name: getShadowDx()
+   - 
+    return-value: float
+    name: getShadowDy()
+    description: Gets the vertical offset of the shadow layer.
+   - 
+    return-value: PointerIcon
+    name: onResolvePointerIcon(MotionEvent event, int pointerIndex)
+    description: Returns the pointer icon for the motion event, or null if it doesn't specify the icon.
+   - 
+    return-value: void
+    name: onRestoreInstanceState(Parcelable state)
+    description: Hook allowing a view to re-apply a representation of its internal state that had previously been generated by onSaveInstanceState().
+   - 
+    return-value: void
+    name: onRtlPropertiesChanged(int layoutDirection)
+    description: Called when any RTL property (layout direction or text direction or text alignment) has been changed.
+   - 
+    return-value: Parcelable
+    name: onSaveInstanceState()
+    description: Hook allowing a view to generate a representation of its internal state that can later be used to create a new instance with that same state.
+   - 
+    return-value: void
+    name: onScreenStateChanged(int screenState)
+    description: This method is called whenever the state of the screen this view is attached to changes.
+   - 
+    return-value: boolean
+    name: onTextContextMenuItem(int id)
+    description: Called when a context menu option for the text view is selected.
+   - 
+    return-value: boolean
+    name: onTouchEvent(MotionEvent event)
+    description: Implement this method to handle touch screen motion events.
+   - 
+    return-value: boolean
+    name: onTrackballEvent(MotionEvent event)
+    description: Implement this method to handle trackball motion events.
+   - 
+    return-value: void
+    name: onWindowFocusChanged(boolean hasWindowFocus)
+    description: Called when the window containing this view gains or loses focus.
+   - 
+    return-value: boolean
+    name: performLongClick()
+    description: Calls this view's OnLongClickListener, if it is defined.
+   - 
+    return-value: void
+    name: removeTextChangedListener(TextWatcher watcher)
+    description: Removes the specified TextWatcher from the list of those whose methods are called whenever this TextView's text changes.
+   - 
+    return-value: void
+    name: sendAccessibilityEventUnchecked(AccessibilityEvent event)
+    description: This method behaves exactly as sendAccessibilityEvent(int) but takes as an argument an empty AccessibilityEvent and does not perform a check whether accessibility is enabled.
+   - 
+    return-value: void
+    name: setAllCaps(boolean allCaps)
+    description: Sets the properties of this field to transform input to ALL CAPS display.
+   - 
+    return-value: final void
+    name: setAutoLinkMask(int mask)
+    description: Sets the autolink mask of the text.
+   - 
+    return-value: void
+    name: setAutoSizeTextTypeUniformWithConfiguration(int autoSizeMinTextSize, int autoSizeMaxTextSize, int autoSizeStepGranularity, int unit)
+    description: Specify whether this widget should automatically scale the text to try to perfectly fit within the layout bounds.
+   - 
+    return-value: void
+    name: setAutoSizeTextTypeUniformWithPresetSizes(int[] presetSizes, int unit)
+    description: Specify whether this widget should automatically scale the text to try to perfectly fit within the layout bounds.
+   - 
+    return-value: void
+    name: setAutoSizeTextTypeWithDefaults(int autoSizeTextType)
+    description: Specify whether this widget should automatically scale the text to try to perfectly fit within the layout bounds by using the default auto-size configuration.
+   - 
+    return-value: void
+    name: setBreakStrategy(int breakStrategy)
+    description: Sets the break strategy for breaking paragraphs into lines.
+   - 
+    return-value: void
+    name: setCompoundDrawablePadding(int pad)
+    description: Sets the size of the padding between the compound drawables and the text.
+   - 
+    return-value: void
+    name: setCompoundDrawableTintList(ColorStateList tint)
+    description: Applies a tint to the compound drawables.
+   - 
+    return-value: void
+    name: setCompoundDrawableTintMode(PorterDuff.Mode tintMode)
+    description: Specifies the blending mode used to apply the tint specified by setCompoundDrawableTintList(ColorStateList) to the compound drawables.
+   - 
+    return-value: void
+    name: setCompoundDrawables(Drawable left, Drawable top, Drawable right, Drawable bottom)
+    description: Sets the Drawables (if any) to appear to the left of, above, to the right of, and below the text.
+   - 
+    return-value: void
+    name: setCompoundDrawablesRelative(Drawable start, Drawable top, Drawable end, Drawable bottom)
+    description: Sets the Drawables (if any) to appear to the start of, above, to the end of, and below the text.
+   - 
+    return-value: void
+    name: setCompoundDrawablesRelativeWithIntrinsicBounds(Drawable start, Drawable top, Drawable end, Drawable bottom)
+    description: Sets the Drawables (if any) to appear to the start of, above, to the end of, and below the text.
+   - 
+    return-value: void
+    name: setCompoundDrawablesRelativeWithIntrinsicBounds(int start, int top, int end, int bottom)
+    description: Sets the Drawables (if any) to appear to the start of, above, to the end of, and below the text.
+   - 
+    return-value: void
+    name: setCompoundDrawablesWithIntrinsicBounds(Drawable left, Drawable top, Drawable right, Drawable bottom)
+    description: Sets the Drawables (if any) to appear to the left of, above, to the right of, and below the text.
+   - 
+    return-value: void
+    name: setCompoundDrawablesWithIntrinsicBounds(int left, int top, int right, int bottom)
+    description: Sets the Drawables (if any) to appear to the left of, above, to the right of, and below the text.
+   - 
+    return-value: void
+    name: setCursorVisible(boolean visible)
+    description: Set whether the cursor is visible.
+   - 
+    return-value: void
+    name: setCustomInsertionActionModeCallback(ActionMode.Callback actionModeCallback)
+    description: If provided, this ActionMode.Callback will be used to create the ActionMode when text insertion is initiated in this View.
+   - 
+    return-value: void
+    name: setCustomSelectionActionModeCallback(ActionMode.Callback actionModeCallback)
+    description: If provided, this ActionMode.Callback will be used to create the ActionMode when text selection is initiated in this View.
+   - 
+    return-value: final void
+    name: setEditableFactory(Editable.Factory factory)
+    description: Sets the Factory used to create new Editables.
+   - 
+    return-value: void
+    name: setElegantTextHeight(boolean elegant)
+    description: Set the TextView's elegant height metrics flag.
+   - 
+    return-value: void
+    name: setEllipsize(TextUtils.TruncateAt where)
+    description: Causes words in the text that are longer than the view's width to be ellipsized instead of broken in the middle.
+   - 
+    return-value: void
+    name: setEms(int ems)
+    description: Sets the width of the TextView to be exactly ems wide.
+   - 
+    return-value: void
+    name: setEnabled(boolean enabled)
+    description: Set the enabled state of this view.
+   - 
+    return-value: void
+    name: setError(CharSequence error)
+    description: Sets the right-hand compound drawable of the TextView to the "error" icon and sets an error message that will be displayed in a popup when the TextView has focus.
+   - 
+    return-value: void
+    name: setError(CharSequence error, Drawable icon)
+    description: Sets the right-hand compound drawable of the TextView to the specified icon and sets an error message that will be displayed in a popup when the TextView has focus.
+   - 
+    return-value: void
+    name: setExtractedText(ExtractedText text)
+    description: Apply to this text view the given extracted text, as previously returned by extractText(ExtractedTextRequest, ExtractedText).
+   - 
+    return-value: void
+    name: setFallbackLineSpacing(boolean enabled)
+    description: Set whether to respect the ascent and descent of the fallback fonts that are used in displaying the text (which is needed to avoid text from consecutive lines running into each other).
+   - 
+    return-value: void
+    name: setFilters(InputFilter[] filters)
+    description: Sets the list of input filters that will be used if the buffer is Editable.
+   - 
+    return-value: void
+    name: setFirstBaselineToTopHeight(int firstBaselineToTopHeight)
+    description: Updates the top padding of the TextView so that firstBaselineToTopHeight is equal to the distance between the firt text baseline and the top of this TextView.
+   - 
+    return-value: void
+    name: setFontFeatureSettings(String fontFeatureSettings)
+    description: Sets font feature settings.
+   - 
+    return-value: boolean
+    name: setFontVariationSettings(String fontVariationSettings)
+    description: Sets TrueType or OpenType font variation settings.
+   - 
+    return-value: void
+    name: setFreezesText(boolean freezesText)
+    description: Control whether this text view saves its entire text contents when freezing to an icicle, in addition to dynamic state such as cursor position.
+   - 
+    return-value: void
+    name: setGravity(int gravity)
+    description: Sets the horizontal alignment of the text and the vertical gravity that will be used when there is extra space in the TextView beyond what is required for the text itself.
+   - 
+    return-value: void
+    name: setHeight(int pixels)
+    description: Sets the height of the TextView to be exactly pixels tall.
+   - 
+    return-value: void
+    name: setHighlightColor(int color)
+    description: Sets the color used to display the selection highlight.
+   - 
+    return-value: final void
+    name: setHint(CharSequence hint)
+    description: Sets the text to be displayed when the text of the TextView is empty.
+   - 
+    return-value: final void
+    name: setHint(int resid)
+    description: Sets the text to be displayed when the text of the TextView is empty, from a resource.
+   - 
+    return-value: final void
+    name: setHintTextColor(ColorStateList colors)
+    description: Sets the color of the hint text.
+   - 
+    return-value: final void
+    name: setHintTextColor(int color)
+    description: Sets the color of the hint text for all the states (disabled, focussed, selected...) of this TextView.
+   - 
+    return-value: void
+    name: setHorizontallyScrolling(boolean whether)
+    description: Sets whether the text should be allowed to be wider than the View is.
+   - 
+    return-value: void
+    name: setHyphenationFrequency(int hyphenationFrequency)
+    description: Sets the frequency of automatic hyphenation to use when determining word breaks.
+   - 
+    return-value: void
+    name: setImeActionLabel(CharSequence label, int actionId)
+    description: Change the custom IME action associated with the text view, which will be reported to an IME with EditorInfo.actionLabel and EditorInfo.actionId when it has focus.
+   - 
+    return-value: void
+    name: setImeHintLocales(LocaleList hintLocales)
+    description: Change "hint" locales associated with the text view, which will be reported to an IME with EditorInfo.hintLocales when it has focus.
+   - 
+    return-value: void
+    name: setImeOptions(int imeOptions)
+    description: Change the editor type integer associated with the text view, which is reported to an Input Method Editor (IME) with EditorInfo.imeOptions when it has focus.
+   - 
+    return-value: void
+    name: setIncludeFontPadding(boolean includepad)
+    description: Set whether the TextView includes extra top and bottom padding to make room for accents that go above the normal ascent and descent.
+   - 
+    return-value: void
+    name: setInputExtras(int xmlResId)
+    description: Set the extra input data of the text, which is the TextBoxAttribute.extras Bundle that will be filled in when creating an input connection.
+   - 
+    return-value: void
+    name: setInputType(int type)
+    description: Set the type of the content with a constant as defined for EditorInfo.inputType.
+   - 
+    return-value: void
+    name: setJustificationMode(int justificationMode)
+    description: Set justification mode.
+   - 
+    return-value: void
+    name: setKeyListener(KeyListener input)
+    description: Sets the key listener to be used with this TextView.
+   - 
+    return-value: void
+    name: setLastBaselineToBottomHeight(int lastBaselineToBottomHeight)
+    description: Updates the bottom padding of the TextView so that lastBaselineToBottomHeight is equal to the distance between the last text baseline and the bottom of this TextView.
+   - 
+    return-value: void
+    name: setLetterSpacing(float letterSpacing)
+    description: Sets text letter-spacing in em units.
+   - 
+    return-value: void
+    name: setLineHeight(int lineHeight)
+    description: Sets an explicit line height for this TextView.
+   - 
+    return-value: void
+    name: setLineSpacing(float add, float mult)
+    description: Sets line spacing for this TextView.
+   - 
+    return-value: void
+    name: setLines(int lines)
+    description: Sets the height of the TextView to be exactly lines tall.
+   - 
+    return-value: final void
+    name: setLinkTextColor(ColorStateList colors)
+    description: Sets the color of links in the text.
+   - 
+    return-value: final void
+    name: setLinkTextColor(int color)
+    description: Sets the color of links in the text.
+   - 
+    return-value: final void
+    name: setLinksClickable(boolean whether)
+    description: Sets whether the movement method will automatically be set to LinkMovementMethod if setAutoLinkMask(int) has been set to nonzero and links are detected in setText(char[], int, int).
+   - 
+    return-value: void
+    name: setMarqueeRepeatLimit(int marqueeLimit)
+    description: Sets how many times to repeat the marquee animation.
+   - 
+    return-value: void
+    name: setMaxEms(int maxEms)
+    description: Sets the width of the TextView to be at most maxEms wide.
+   - 
+    return-value: void
+    name: setMaxHeight(int maxPixels)
+    description: Sets the height of the TextView to be at most maxPixels tall.
+   - 
+    return-value: void
+    name: setMaxLines(int maxLines)
+    description: Sets the height of the TextView to be at most maxLines tall.
+   - 
+    return-value: void
+    name: setMaxWidth(int maxPixels)
+    description: Sets the width of the TextView to be at most maxPixels wide.
+   - 
+    return-value: void
+    name: setMinEms(int minEms)
+    description: Sets the width of the TextView to be at least minEms wide.
+   - 
+    return-value: void
+    name: setMinHeight(int minPixels)
+    description: Sets the height of the TextView to be at least minPixels tall.
+   - 
+    return-value: void
+    name: setMinLines(int minLines)
+    description: Sets the height of the TextView to be at least minLines tall.
+   - 
+    return-value: void
+    name: setMinWidth(int minPixels)
+    description: Sets the width of the TextView to be at least minPixels wide.
+   - 
+    return-value: final void
+    name: setMovementMethod(MovementMethod movement)
+    description: Sets the MovementMethod for handling arrow key movement for this TextView.
+   - 
+    return-value: void
+    name: setOnEditorActionListener(TextView.OnEditorActionListener l)
+    description: Set a special listener to be called when an action is performed on the text view.
+   - 
+    return-value: void
+    name: setPadding(int left, int top, int right, int bottom)
+    description: Sets the padding.
+   - 
+    return-value: void
+    name: setPaddingRelative(int start, int top, int end, int bottom)
+    description: Sets the relative padding.
+   - 
+    return-value: void
+    name: setPaintFlags(int flags)
+    description: Sets flags on the Paint being used to display the text and reflows the text if they are different from the old flags.
+   - 
+    return-value: void
+    name: setPrivateImeOptions(String type)
+    description: Set the private content type of the text, which is the EditorInfo.privateImeOptions field that will be filled in when creating an input connection.
+   - 
+    return-value: void
+    name: setRawInputType(int type)
+    description: Directly change the content type integer of the text view, without modifying any other state.
+   - 
+    return-value: void
+    name: setScroller(Scroller s)
+    description: Sets the Scroller used for producing a scrolling animation
+   - 
+    return-value: void
+    name: setSelectAllOnFocus(boolean selectAllOnFocus)
+    description: Set the TextView so that when it takes focus, all the text is selected.
+   - 
+    return-value: void
+    name: setSelected(boolean selected)
+    description: Changes the selection state of this view.
+   - 
+    return-value: void
+    name: setShadowLayer(float radius, float dx, float dy, int color)
+    description: Gives the text a shadow of the specified blur radius and color, the specified distance from its drawn position.
+   - 
+    return-value: final void
+    name: setShowSoftInputOnFocus(boolean show)
+    description: Sets whether the soft input method will be made visible when this TextView gets focused.
+   - 
+    return-value: void
+    name: setSingleLine(boolean singleLine)
+    description: If true, sets the properties of this field (number of lines, horizontally scrolling, transformation method) to be for a single-line input; if false, restores these to the default conditions.
+   - 
+    return-value: void
+    name: setSingleLine()
+    description: Sets the properties of this field (lines, horizontally scrolling, transformation method) to be for a single-line input.
+   - 
+    return-value: final void
+    name: setSpannableFactory(Spannable.Factory factory)
+    description: Sets the Factory used to create new Spannables.
+   - 
+    return-value: final void
+    name: setText(int resid)
+    description: Sets the text to be displayed using a string resource identifier.
+   - 
+    return-value: final void
+    name: setText(CharSequence text)
+    description: Sets the text to be displayed.
+   - 
+    return-value: void
+    name: setText(CharSequence text, TextView.BufferType type)
+    description: Sets the text to be displayed and the TextView.BufferType.
+   - 
+    return-value: final void
+    name: setText(int resid, TextView.BufferType type)
+    description: Sets the text to be displayed using a string resource identifier and the TextView.BufferType.
+   - 
+    return-value: final void
+    name: setText(char[] text, int start, int len)
+    description: Sets the TextView to display the specified slice of the specified char array.
+   - 
+    return-value: void
+    name: setTextAppearance(Context context, int resId)
+    description: This method was deprecated in API level 23. Use setTextAppearance(int) instead.
+   - 
+    return-value: void
+    name: setTextAppearance(int resId)
+    description: Sets the text appearance from the specified style resource.
+   - 
+    return-value: void
+    name: setTextClassifier(TextClassifier textClassifier)
+    description: Sets the TextClassifier for this TextView.
+   - 
+    return-value: void
+    name: setTextColor(int color)
+    description: Sets the text color for all the states (normal, selected, focused) to be this color.
+   - 
+    return-value: void
+    name: setTextColor(ColorStateList colors)
+    description: Sets the text color.
+   - 
+    return-value: void
+    name: setTextIsSelectable(boolean selectable)
+    description: Sets whether the content of this view is selectable by the user.
+   - 
+    return-value: final void
+    name: setTextKeepState(CharSequence text)
+    description: Sets the text to be displayed but retains the cursor position.
+   - 
+    return-value: final void
+    name: setTextKeepState(CharSequence text, TextView.BufferType type)
+    description: Sets the text to be displayed and the TextView.BufferType but retains the cursor position.
+   - 
+    return-value: void
+    name: setTextLocale(Locale locale)
+    description: Set the default Locale of the text in this TextView to a one-member LocaleList containing just the given Locale.
+   - 
+    return-value: void
+    name: setTextLocales(LocaleList locales)
+    description: Set the default LocaleList of the text in this TextView to the given value.
+   - 
+    return-value: void
+    name: setTextMetricsParams(PrecomputedText.Params params)
+    description: Apply the text layout parameter.
+   - 
+    return-value: void
+    name: setTextScaleX(float size)
+    description: Sets the horizontal scale factor for text.
+   - 
+    return-value: void
+    name: setTextSize(int unit, float size)
+    description: Set the default text size to a given unit and value.
+   - 
+    return-value: void
+    name: setTextSize(float size)
+    description: Set the default text size to the given value, interpreted as "scaled pixel" units.
+   - 
+    return-value: final void
+    name: setTransformationMethod(TransformationMethod method)
+    description: Sets the transformation that is applied to the text that this TextView is displaying.
+   - 
+    return-value: void
+    name: setTypeface(Typeface tf)
+    description: Sets the typeface and style in which the text should be displayed.
+   - 
+    return-value: void
+    name: setTypeface(Typeface tf, int style)
+    description: Sets the typeface and style in which the text should be displayed, and turns on the fake bold and italic bits in the Paint if the Typeface that you provided does not have all the bits in the style that you specified.
+   - 
+    return-value: void
+    name: setWidth(int pixels)
+    description: Sets the width of the TextView to be exactly pixels wide.
+   - 
+    return-value: boolean
+    name: showContextMenu()
+    description: Shows the context menu for this view.
+   - 
+    return-value: boolean
+    name: showContextMenu(float x, float y)
+    description: Shows the context menu for this view anchored to the specified view-relative coordinate.
+ 
