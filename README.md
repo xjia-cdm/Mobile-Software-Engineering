@@ -16,4 +16,6 @@ https://github.com/yonaskolb/XcodeGen
 
 https://docs.gradle.org/current/userguide/installation.html  
 
+- For Snake Yaml project, please install Snake Yaml from the following link:
 
+https://bitbucket.org/asomov/snakeyaml 
