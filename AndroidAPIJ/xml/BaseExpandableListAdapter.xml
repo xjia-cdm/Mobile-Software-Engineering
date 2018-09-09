@@ -1,0 +1,467 @@
+<api>
+ <title>BaseExpandableListAdapter</title>
+ <api-signature>public abstract class BaseExpandableListAdapter extends Object implements ExpandableListAdapter, HeterogeneousExpandableList</api-signature>
+ <inheritance>java.lang.Object ↳ android.widget.BaseExpandableListAdapter</inheritance>
+ <subclasses-direct>CursorTreeAdapter, SimpleExpandableListAdapter</subclasses-direct>
+ <subclasses-direct-summary>
+ <class>
+ <name>CursorTreeAdapter</name>
+ <description>An adapter that exposes data from a series of Cursors to an ExpandableListView widget.</description>
+ </class>
+ <class>
+ <name>SimpleExpandableListAdapter</name>
+ <description>An easy adapter to map static data to group and child views defined in an XML file.</description>
+ </class>
+ </subclasses-direct-summary>
+ <subclasses-indirect>ResourceCursorTreeAdapter, SimpleCursorTreeAdapter</subclasses-indirect>
+ <subclasses-indirect-summary>
+ <class>
+ <name>ResourceCursorTreeAdapter</name>
+ <description>A fairly simple ExpandableListAdapter that creates views defined in an XML file.</description>
+ </class>
+ <class>
+ <name>SimpleCursorTreeAdapter</name>
+ <description>An easy adapter to map columns from a cursor to TextViews or ImageViews defined in an XML file.</description>
+ </class>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ </inherited_constants>
+ <inherited_fields>
+ </inherited_fields>
+ <inherited_methods>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ <name>android.widget.ExpandableListAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>areAllItemsEnabled()</name>
+ </method>
+ <method>
+ <return-value>abstract Object</return-value>
+ <name>getChild(int groupPosition, int childPosition)</name>
+ <description>Gets the data associated with the given child within the given group.</description>
+ </method>
+ <method>
+ <return-value>abstract long</return-value>
+ <name>getChildId(int groupPosition, int childPosition)</name>
+ <description>Gets the ID for the given child within the given group.</description>
+ </method>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays the data for the given child within the given group.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getChildrenCount(int groupPosition)</name>
+ <description>Gets the number of children in a specified group.</description>
+ </method>
+ <method>
+ <return-value>abstract long</return-value>
+ <name>getCombinedChildId(long groupId, long childId)</name>
+ <description>Gets an ID for a child that is unique across any item (either group or child) that is in this list.</description>
+ </method>
+ <method>
+ <return-value>abstract long</return-value>
+ <name>getCombinedGroupId(long groupId)</name>
+ <description>Gets an ID for a group that is unique across any item (either group or child) that is in this list.</description>
+ </method>
+ <method>
+ <return-value>abstract Object</return-value>
+ <name>getGroup(int groupPosition)</name>
+ <description>Gets the data associated with the given group.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getGroupCount()</name>
+ <description>Gets the number of groups.</description>
+ </method>
+ <method>
+ <return-value>abstract long</return-value>
+ <name>getGroupId(int groupPosition)</name>
+ <description>Gets the ID for the group at the given position.</description>
+ </method>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays the given group.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>hasStableIds()</name>
+ <description>Indicates whether the child and group IDs are stable across changes to the underlying data.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>isChildSelectable(int groupPosition, int childPosition)</name>
+ <description>Whether the child at the specified position is selectable.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>isEmpty()</name>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>onGroupCollapsed(int groupPosition)</name>
+ <description>Called when a group is collapsed.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>onGroupExpanded(int groupPosition)</name>
+ <description>Called when a group is expanded.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>registerDataSetObserver(DataSetObserver observer)</name>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>unregisterDataSetObserver(DataSetObserver observer)</name>
+ </method>
+ </class>
+ <name>android.widget.HeterogeneousExpandableList</name>
+ <class>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getChildType(int groupPosition, int childPosition)</name>
+ <description>Get the type of child View that will be created by ExpandableListAdapter.getChildView(int, int, boolean, View, ViewGroup) for the specified child item.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getChildTypeCount()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getGroupType(int groupPosition)</name>
+ <description>Get the type of group View that will be created by ExpandableListAdapter.getGroupView(int, boolean, View, ViewGroup) .</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getGroupTypeCount()</name>
+ <description></description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ <method>
+ <name>BaseExpandableListAdapter()</name>
+ </method>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>boolean</return-value>
+ <name>areAllItemsEnabled()</name>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getChildType(int groupPosition, int childPosition)</name>
+ <description>Get the type of child View that will be created by ExpandableListAdapter.getChildView(int, int, boolean, View, ViewGroup) for the specified child item.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getChildTypeCount()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>long</return-value>
+ <name>getCombinedChildId(long groupId, long childId)</name>
+ <description>Override this method if you foresee a clash in IDs based on this scheme:</description>
+ </method>
+ <method>
+ <return-value>long</return-value>
+ <name>getCombinedGroupId(long groupId)</name>
+ <description>Override this method if you foresee a clash in IDs based on this scheme:</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getGroupType(int groupPosition)</name>
+ <description>Get the type of group View that will be created by ExpandableListAdapter.getGroupView(int, boolean, View, ViewGroup) .</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getGroupTypeCount()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isEmpty()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>notifyDataSetChanged()</name>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>notifyDataSetInvalidated()</name>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onGroupCollapsed(int groupPosition)</name>
+ <description>Called when a group is collapsed.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onGroupExpanded(int groupPosition)</name>
+ <description>Called when a group is expanded.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>registerDataSetObserver(DataSetObserver observer)</name>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>unregisterDataSetObserver(DataSetObserver observer)</name>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>BaseExpandableListAdapter</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public BaseExpandableListAdapter ()</api_signature>
+ <description></description>
+ </api>
+ <api>
+ <name>areAllItemsEnabled</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public boolean areAllItemsEnabled ()</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>boolean</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getChildType</name>
+ <api_level>API level 8</api_level>
+ <api_signature>public int getChildType (int groupPosition, 
+                int childPosition)</api_signature>
+ <description>Get the type of child View that will be created by ExpandableListAdapter.getChildView(int, int, boolean, View, ViewGroup) for the specified child item.</description>
+ <parameters>
+ <parameter>
+ <name>groupPosition</name>
+ <description>int: the position of the group that the child resides in</description>
+ </parameter>
+ <parameter>
+ <name>childPosition</name>
+ <description>int: the position of the child with respect to other children in the group</description>
+ </parameter>
+ <parameter>
+ <name>int</name>
+ <description>0 for any group or child position, since only one child type count is declared.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getChildTypeCount</name>
+ <api_level>API level 8</api_level>
+ <api_signature>public int getChildTypeCount ()</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>1 as a default value in BaseExpandableListAdapter.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getCombinedChildId</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public long getCombinedChildId (long groupId, 
+                long childId)</api_signature>
+ <description>Override this method if you foresee a clash in IDs based on this scheme:</description>
+ <parameters>
+ <parameter>
+ <name>groupId</name>
+ <description>long: The ID of the group that contains this child.</description>
+ </parameter>
+ <parameter>
+ <name>childId</name>
+ <description>long: The ID of the child.</description>
+ </parameter>
+ <parameter>
+ <name>long</name>
+ <description>The unique (and possibly stable) ID of the child across all groups and children in this list.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getCombinedGroupId</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public long getCombinedGroupId (long groupId)</api_signature>
+ <description>Override this method if you foresee a clash in IDs based on this scheme:</description>
+ <parameters>
+ <parameter>
+ <name>groupId</name>
+ <description>long: The ID of the group</description>
+ </parameter>
+ <parameter>
+ <name>long</name>
+ <description>The unique (and possibly stable) ID of the group across all groups and children in this list.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getGroupType</name>
+ <api_level>API level 8</api_level>
+ <api_signature>public int getGroupType (int groupPosition)</api_signature>
+ <description>Get the type of group View that will be created by ExpandableListAdapter.getGroupView(int, boolean, View, ViewGroup) . for the specified group item.</description>
+ <parameters>
+ <parameter>
+ <name>groupPosition</name>
+ <description>int: the position of the group for which the type should be returned.</description>
+ </parameter>
+ <parameter>
+ <name>int</name>
+ <description>0 for any groupPosition, since only one group type count is declared.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getGroupTypeCount</name>
+ <api_level>API level 8</api_level>
+ <api_signature>public int getGroupTypeCount ()</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>1 as a default value in BaseExpandableListAdapter.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>isEmpty</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public boolean isEmpty ()</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>boolean</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>notifyDataSetChanged</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void notifyDataSetChanged ()</api_signature>
+ <description></description>
+ </api>
+ <api>
+ <name>notifyDataSetInvalidated</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void notifyDataSetInvalidated ()</api_signature>
+ <description></description>
+ </api>
+ <api>
+ <name>onGroupCollapsed</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void onGroupCollapsed (int groupPosition)</api_signature>
+ <description>Called when a group is collapsed.</description>
+ <parameters>
+ <parameter>
+ <name>groupPosition</name>
+ <description>int: The group being collapsed.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>onGroupExpanded</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void onGroupExpanded (int groupPosition)</api_signature>
+ <description>Called when a group is expanded.</description>
+ <parameters>
+ <parameter>
+ <name>groupPosition</name>
+ <description>int: The group being expanded.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>registerDataSetObserver</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void registerDataSetObserver (DataSetObserver observer)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>observer</name>
+ <description>DataSetObserver</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>unregisterDataSetObserver</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void unregisterDataSetObserver (DataSetObserver observer)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>observer</name>
+ <description>DataSetObserver</description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>

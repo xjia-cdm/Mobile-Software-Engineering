@@ -1,0 +1,421 @@
+<api>
+ <title>BaseAdapter</title>
+ <api-signature>public abstract class BaseAdapter extends Object implements ListAdapter, SpinnerAdapter</api-signature>
+ <inheritance>java.lang.Object ↳ android.widget.BaseAdapter</inheritance>
+ <subclasses-direct>ArrayAdapter&amp;lt;T&amp;gt;, CursorAdapter, SimpleAdapter</subclasses-direct>
+ <subclasses-direct-summary>
+ <class>
+ <name>ArrayAdapter&amp;lt;T&amp;gt;</name>
+ <description>You can use this adapter to provide views for an AdapterView, Returns a view for each object in a collection of data objects you provide, and can be used with list-based user interface widgets such as ListView or Spinner.</description>
+ </class>
+ <class>
+ <name>CursorAdapter</name>
+ <description>Adapter that exposes data from a Cursor to a ListView widget.</description>
+ </class>
+ <class>
+ <name>SimpleAdapter</name>
+ <description>An easy adapter to map static data to views defined in an XML file.</description>
+ </class>
+ </subclasses-direct-summary>
+ <subclasses-indirect>ResourceCursorAdapter, SimpleCursorAdapter</subclasses-indirect>
+ <subclasses-indirect-summary>
+ <class>
+ <name>ResourceCursorAdapter</name>
+ <description>An easy adapter that creates views defined in an XML file.</description>
+ </class>
+ <class>
+ <name>SimpleCursorAdapter</name>
+ <description>An easy adapter to map columns from a cursor to TextViews or ImageViews defined in an XML file.</description>
+ </class>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ <class>
+ <name>android.widget.Adapter</name>
+ <constant>
+ <type>int</type>
+ <name>IGNORE_ITEM_VIEW_TYPE</name>
+ <description>An item view type that causes the AdapterView to ignore the item view.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>NO_SELECTION</name>
+ <description></description>
+ </constant>
+ </class>
+ </inherited_constants>
+ <inherited_fields>
+ </inherited_fields>
+ <inherited_methods>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ <name>android.widget.ListAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>areAllItemsEnabled()</name>
+ <description>Indicates whether all the items in this adapter are enabled.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>isEnabled(int position)</name>
+ <description>Returns true if the item at the specified position is not a separator.</description>
+ </method>
+ </class>
+ <name>android.widget.SpinnerAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>getDropDownView(int position, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ </method>
+ </class>
+ <name>android.widget.Adapter</name>
+ <class>
+ <method>
+ <return-value>default CharSequence[]</return-value>
+ <name>getAutofillOptions()</name>
+ <description>Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getCount()</name>
+ <description>How many items are in the data set represented by this Adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract Object</return-value>
+ <name>getItem(int position)</name>
+ <description>Get the data item associated with the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>abstract long</return-value>
+ <name>getItemId(int position)</name>
+ <description>Get the row id associated with the specified position in the list.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getItemViewType(int position)</name>
+ <description>Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.</description>
+ </method>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>getView(int position, View convertView, ViewGroup parent)</name>
+ <description>Get a View that displays the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getViewTypeCount()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>hasStableIds()</name>
+ <description>Indicates whether the item ids are stable across changes to the underlying data.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>isEmpty()</name>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>registerDataSetObserver(DataSetObserver observer)</name>
+ <description>Register an observer that is called when changes happen to the data used by this adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>unregisterDataSetObserver(DataSetObserver observer)</name>
+ <description>Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).</description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ <method>
+ <name>BaseAdapter()</name>
+ </method>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>boolean</return-value>
+ <name>areAllItemsEnabled()</name>
+ <description>Indicates whether all the items in this adapter are enabled.</description>
+ </method>
+ <method>
+ <return-value>CharSequence[]</return-value>
+ <name>getAutofillOptions()</name>
+ <description>Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>getDropDownView(int position, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getItemViewType(int position)</name>
+ <description>Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getViewTypeCount()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>hasStableIds()</name>
+ <description>Indicates whether the item ids are stable across changes to the underlying data.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isEmpty()</name>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isEnabled(int position)</name>
+ <description>Returns true if the item at the specified position is not a separator.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>notifyDataSetChanged()</name>
+ <description>Notifies the attached observers that the underlying data has been changed and any View reflecting the data set should refresh itself.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>notifyDataSetInvalidated()</name>
+ <description>Notifies the attached observers that the underlying data is no longer valid or available.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>registerDataSetObserver(DataSetObserver observer)</name>
+ <description>Register an observer that is called when changes happen to the data used by this adapter.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setAutofillOptions(CharSequence... options)</name>
+ <description>Sets the value returned by getAutofillOptions()</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>unregisterDataSetObserver(DataSetObserver observer)</name>
+ <description>Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).</description>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>BaseAdapter</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public BaseAdapter ()</api_signature>
+ <description></description>
+ </api>
+ <api>
+ <name>areAllItemsEnabled</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public boolean areAllItemsEnabled ()</api_signature>
+ <description>Indicates whether all the items in this adapter are enabled. If the value returned by this method changes over time, there is no guarantee it will take effect. If true, it means all items are selectable and clickable (there is no separator.)</description>
+ <parameters>
+ <parameter>
+ <name>boolean</name>
+ <description>True if all items are enabled, false otherwise.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getDropDownView</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public View getDropDownView (int position, 
+                View convertView, 
+                ViewGroup parent)</api_signature>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ <parameters>
+ <parameter>
+ <name>position</name>
+ <description>int: index of the item whose view we want.</description>
+ </parameter>
+ <parameter>
+ <name>convertView</name>
+ <description>View: the old view to reuse, if possible. Note: You should check that this view is non-null and of an appropriate type before using. If it is not possible to convert this view to display the correct data, this method can create a new view.</description>
+ </parameter>
+ <parameter>
+ <name>parent</name>
+ <description>ViewGroup: the parent that this view will eventually be attached to</description>
+ </parameter>
+ <parameter>
+ <name>View</name>
+ <description>a View corresponding to the data at the specified position.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getItemViewType</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public int getItemViewType (int position)</api_signature>
+ <description>Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.</description>
+ <parameters>
+ <parameter>
+ <name>position</name>
+ <description>int: The position of the item within the adapter&amp;apos;s data set whose view type we want.</description>
+ </parameter>
+ <parameter>
+ <name>int</name>
+ <description>An integer representing the type of View. Two views should share the same type if one can be converted to the other in getView(int, View, ViewGroup). Note: Integers must be in the range 0 to getViewTypeCount() - 1. IGNORE_ITEM_VIEW_TYPE can also be returned.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getViewTypeCount</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public int getViewTypeCount ()</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>The number of types of Views that will be created by this adapter</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>hasStableIds</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public boolean hasStableIds ()</api_signature>
+ <description>Indicates whether the item ids are stable across changes to the underlying data.</description>
+ <parameters>
+ <parameter>
+ <name>boolean</name>
+ <description>True if the same id always refers to the same object.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>isEmpty</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public boolean isEmpty ()</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>boolean</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>isEnabled</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public boolean isEnabled (int position)</api_signature>
+ <description>Returns true if the item at the specified position is not a separator. (A separator is a non-selectable, non-clickable item). The result is unspecified if position is invalid. An ArrayIndexOutOfBoundsException should be thrown in that case for fast failure.</description>
+ <parameters>
+ <parameter>
+ <name>position</name>
+ <description>int: Index of the item</description>
+ </parameter>
+ <parameter>
+ <name>boolean</name>
+ <description>True if the item is not a separator</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>notifyDataSetChanged</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void notifyDataSetChanged ()</api_signature>
+ <description>Notifies the attached observers that the underlying data has been changed and any View reflecting the data set should refresh itself.</description>
+ </api>
+ <api>
+ <name>notifyDataSetInvalidated</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void notifyDataSetInvalidated ()</api_signature>
+ <description>Notifies the attached observers that the underlying data is no longer valid or available. Once invoked this adapter is no longer valid and should not report further data set changes.</description>
+ </api>
+ <api>
+ <name>registerDataSetObserver</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void registerDataSetObserver (DataSetObserver observer)</api_signature>
+ <description>Register an observer that is called when changes happen to the data used by this adapter.</description>
+ <parameters>
+ <parameter>
+ <name>observer</name>
+ <description>DataSetObserver: the object that gets notified when the data set changes.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setAutofillOptions</name>
+ <api_level>API level 27</api_level>
+ <api_signature>public void setAutofillOptions (CharSequence... options)</api_signature>
+ <description>Sets the value returned by getAutofillOptions()</description>
+ <parameters>
+ <parameter>
+ <name>options</name>
+ <description>CharSequence This value may be null.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>unregisterDataSetObserver</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void unregisterDataSetObserver (DataSetObserver observer)</api_signature>
+ <description>Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).</description>
+ <parameters>
+ <parameter>
+ <name>observer</name>
+ <description>DataSetObserver: the object to unregister.</description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>

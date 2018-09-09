@@ -1,0 +1,198 @@
+<api>
+ <title>TextView.SavedState</title>
+ <api-signature>public static class TextView.SavedState extends View.BaseSavedState</api-signature>
+ <inheritance>java.lang.Object ↳ android.view.AbsSavedState ↳ android.view.View.BaseSavedState ↳ android.widget.TextView.SavedState</inheritance>
+ <subclasses-direct-summary>
+ </subclasses-direct-summary>
+ <subclasses-indirect-summary>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ <class>
+ <name>android.os.Parcelable</name>
+ <constant>
+ <type>int</type>
+ <name>CONTENTS_FILE_DESCRIPTOR</name>
+ <description>Descriptor bit used with describeContents(): indicates that the Parcelable object&amp;apos;s flattened representation includes a file descriptor.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>PARCELABLE_WRITE_RETURN_VALUE</name>
+ <description>Flag for use with writeToParcel(Parcel, int): the object being written is a return value, that is the result of a function such as &amp;quot;Parcelable someFunction()&amp;quot;, &amp;quot;void someFunction(out Parcelable)&amp;quot;, or &amp;quot;void someFunction(inout Parcelable)&amp;quot;.</description>
+ </constant>
+ </class>
+ </inherited_constants>
+ <inherited_fields>
+ <class>
+ <name>android.view.View.BaseSavedState</name>
+ <field>
+ <type>public static final Creator&amp;lt;View.BaseSavedState&amp;gt;</type>
+ <name>CREATOR</name>
+ <description></description>
+ </field>
+ </class>
+ <class>
+ <name>android.view.AbsSavedState</name>
+ <field>
+ <type>public static final Creator&amp;lt;AbsSavedState&amp;gt;</type>
+ <name>CREATOR</name>
+ <description></description>
+ </field>
+ <field>
+ <type>public static final AbsSavedState</type>
+ <name>EMPTY_STATE</name>
+ <description></description>
+ </field>
+ </class>
+ </inherited_fields>
+ <inherited_methods>
+ <name>android.view.View.BaseSavedState</name>
+ <class>
+ <method>
+ <return-value>void</return-value>
+ <name>writeToParcel(Parcel out, int flags)</name>
+ <description>Flatten this object in to a Parcel.</description>
+ </method>
+ </class>
+ <name>android.view.AbsSavedState</name>
+ <class>
+ <method>
+ <return-value>int</return-value>
+ <name>describeContents()</name>
+ <description>Describe the kinds of special objects contained in this Parcelable instance&amp;apos;s marshaled representation.</description>
+ </method>
+ <method>
+ <return-value>final Parcelable</return-value>
+ <name>getSuperState()</name>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>writeToParcel(Parcel dest, int flags)</name>
+ <description>Flatten this object in to a Parcel.</description>
+ </method>
+ </class>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ <name>android.os.Parcelable</name>
+ <class>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>describeContents()</name>
+ <description>Describe the kinds of special objects contained in this Parcelable instance&amp;apos;s marshaled representation.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>writeToParcel(Parcel dest, int flags)</name>
+ <description>Flatten this object in to a Parcel.</description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>writeToParcel(Parcel out, int flags)</name>
+ <description>Flatten this object in to a Parcel.</description>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>CREATOR</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public static final Creator&amp;lt;TextView.SavedState&amp;gt; CREATOR</api_signature>
+ <description></description>
+ </api>
+ <api>
+ <name>toString</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public String toString ()</api_signature>
+ <description>Returns a string representation of the object. In general, the toString method returns a string that &amp;quot;textually represents&amp;quot; this object. The result should be a concise but informative representation that is easy for a person to read. It is recommended that all subclasses override this method.</description>
+ <parameters>
+ <parameter>
+ <name>String</name>
+ <description>a string representation of the object.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>writeToParcel</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void writeToParcel (Parcel out, 
+                int flags)</api_signature>
+ <description>Flatten this object in to a Parcel.</description>
+ <parameters>
+ <parameter>
+ <name>out</name>
+ <description>Parcel: The Parcel in which the object should be written.</description>
+ </parameter>
+ <parameter>
+ <name>flags</name>
+ <description>int: Additional flags about how the object should be written. May be 0 or Parcelable.PARCELABLE_WRITE_RETURN_VALUE.</description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>

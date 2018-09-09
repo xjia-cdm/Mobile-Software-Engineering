@@ -1,0 +1,732 @@
+<api>
+ <title>SimpleCursorAdapter</title>
+ <api-signature>public class SimpleCursorAdapter extends ResourceCursorAdapter</api-signature>
+ <inheritance>java.lang.Object ↳ android.widget.BaseAdapter ↳ android.widget.CursorAdapter ↳ android.widget.ResourceCursorAdapter ↳ android.widget.SimpleCursorAdapter</inheritance>
+ <subclasses-direct-summary>
+ </subclasses-direct-summary>
+ <subclasses-indirect-summary>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ <class>
+ <name>android.widget.CursorAdapter</name>
+ <constant>
+ <type>int</type>
+ <name>FLAG_AUTO_REQUERY</name>
+ <description>This constant was deprecated in API level 11. This option is discouraged, as it results in Cursor queries being performed on the application&amp;apos;s UI thread and thus can cause poor responsiveness or even Application Not Responding errors. As an alternative, use LoaderManager with a CursorLoader.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>FLAG_REGISTER_CONTENT_OBSERVER</name>
+ <description>If set the adapter will register a content observer on the cursor and will call onContentChanged() when a notification comes in.</description>
+ </constant>
+ </class>
+ <class>
+ <name>android.widget.Adapter</name>
+ <constant>
+ <type>int</type>
+ <name>IGNORE_ITEM_VIEW_TYPE</name>
+ <description>An item view type that causes the AdapterView to ignore the item view.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>NO_SELECTION</name>
+ <description></description>
+ </constant>
+ </class>
+ </inherited_constants>
+ <inherited_fields>
+ </inherited_fields>
+ <inherited_methods>
+ <name>android.widget.ResourceCursorAdapter</name>
+ <class>
+ <method>
+ <return-value>View</return-value>
+ <name>newDropDownView(Context context, Cursor cursor, ViewGroup parent)</name>
+ <description>Makes a new drop down view to hold the data pointed to by cursor.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>newView(Context context, Cursor cursor, ViewGroup parent)</name>
+ <description>Inflates view(s) from the specified XML file.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setDropDownViewResource(int dropDownLayout)</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setDropDownViewTheme(Resources.Theme theme)</name>
+ <description>Sets the Resources.Theme against which drop-down views are inflated.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setViewResource(int layout)</name>
+ <description></description>
+ </method>
+ </class>
+ <name>android.widget.CursorAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>bindView(View view, Context context, Cursor cursor)</name>
+ <description>Bind an existing view to the data pointed to by cursor</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>changeCursor(Cursor cursor)</name>
+ <description>Change the underlying cursor to a new cursor.</description>
+ </method>
+ <method>
+ <return-value>CharSequence</return-value>
+ <name>convertToString(Cursor cursor)</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getCount()</name>
+ <description>How many items are in the data set represented by this Adapter.</description>
+ </method>
+ <method>
+ <return-value>Cursor</return-value>
+ <name>getCursor()</name>
+ <description>Returns the cursor.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>getDropDownView(int position, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>Resources.Theme</return-value>
+ <name>getDropDownViewTheme()</name>
+ <description>Returns the value previously set by a call to setDropDownViewTheme(Theme).</description>
+ </method>
+ <method>
+ <return-value>Filter</return-value>
+ <name>getFilter()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>FilterQueryProvider</return-value>
+ <name>getFilterQueryProvider()</name>
+ <description>Returns the query filter provider used for filtering.</description>
+ </method>
+ <method>
+ <return-value>Object</return-value>
+ <name>getItem(int position)</name>
+ <description>Get the data item associated with the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>long</return-value>
+ <name>getItemId(int position)</name>
+ <description>Get the row id associated with the specified position in the list.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>getView(int position, View convertView, ViewGroup parent)</name>
+ <description>Get a View that displays the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>hasStableIds()</name>
+ <description>Indicates whether the item ids are stable across changes to the underlying data.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>init(Context context, Cursor c, boolean autoRequery)</name>
+ <description>This method was deprecated in API level 11. Don&amp;apos;t use this, use the normal constructor. This will be removed in the future.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>newDropDownView(Context context, Cursor cursor, ViewGroup parent)</name>
+ <description>Makes a new drop down view to hold the data pointed to by cursor.</description>
+ </method>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>newView(Context context, Cursor cursor, ViewGroup parent)</name>
+ <description>Makes a new view to hold the data pointed to by cursor.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onContentChanged()</name>
+ <description>Called when the ContentObserver on the cursor receives a change notification.</description>
+ </method>
+ <method>
+ <return-value>Cursor</return-value>
+ <name>runQueryOnBackgroundThread(CharSequence constraint)</name>
+ <description>Runs a query with the specified constraint.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setDropDownViewTheme(Resources.Theme theme)</name>
+ <description>Sets the Resources.Theme against which drop-down views are inflated.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setFilterQueryProvider(FilterQueryProvider filterQueryProvider)</name>
+ <description>Sets the query filter provider used to filter the current Cursor.</description>
+ </method>
+ <method>
+ <return-value>Cursor</return-value>
+ <name>swapCursor(Cursor newCursor)</name>
+ <description>Swap in a new Cursor, returning the old Cursor.</description>
+ </method>
+ </class>
+ <name>android.widget.BaseAdapter</name>
+ <class>
+ <method>
+ <return-value>boolean</return-value>
+ <name>areAllItemsEnabled()</name>
+ <description>Indicates whether all the items in this adapter are enabled.</description>
+ </method>
+ <method>
+ <return-value>CharSequence[]</return-value>
+ <name>getAutofillOptions()</name>
+ <description>Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>getDropDownView(int position, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getItemViewType(int position)</name>
+ <description>Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getViewTypeCount()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>hasStableIds()</name>
+ <description>Indicates whether the item ids are stable across changes to the underlying data.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isEmpty()</name>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isEnabled(int position)</name>
+ <description>Returns true if the item at the specified position is not a separator.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>notifyDataSetChanged()</name>
+ <description>Notifies the attached observers that the underlying data has been changed and any View reflecting the data set should refresh itself.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>notifyDataSetInvalidated()</name>
+ <description>Notifies the attached observers that the underlying data is no longer valid or available.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>registerDataSetObserver(DataSetObserver observer)</name>
+ <description>Register an observer that is called when changes happen to the data used by this adapter.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setAutofillOptions(CharSequence... options)</name>
+ <description>Sets the value returned by getAutofillOptions()</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>unregisterDataSetObserver(DataSetObserver observer)</name>
+ <description>Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).</description>
+ </method>
+ </class>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ <name>android.widget.Filterable</name>
+ <class>
+ <method>
+ <return-value>abstract Filter</return-value>
+ <name>getFilter()</name>
+ <description></description>
+ </method>
+ </class>
+ <name>android.widget.ThemedSpinnerAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract Resources.Theme</return-value>
+ <name>getDropDownViewTheme()</name>
+ <description>Returns the value previously set by a call to setDropDownViewTheme(Theme).</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>setDropDownViewTheme(Resources.Theme theme)</name>
+ <description>Sets the Resources.Theme against which drop-down views are inflated.</description>
+ </method>
+ </class>
+ <name>android.widget.ListAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>areAllItemsEnabled()</name>
+ <description>Indicates whether all the items in this adapter are enabled.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>isEnabled(int position)</name>
+ <description>Returns true if the item at the specified position is not a separator.</description>
+ </method>
+ </class>
+ <name>android.widget.SpinnerAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>getDropDownView(int position, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ </method>
+ </class>
+ <name>android.widget.Adapter</name>
+ <class>
+ <method>
+ <return-value>default CharSequence[]</return-value>
+ <name>getAutofillOptions()</name>
+ <description>Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getCount()</name>
+ <description>How many items are in the data set represented by this Adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract Object</return-value>
+ <name>getItem(int position)</name>
+ <description>Get the data item associated with the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>abstract long</return-value>
+ <name>getItemId(int position)</name>
+ <description>Get the row id associated with the specified position in the list.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getItemViewType(int position)</name>
+ <description>Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.</description>
+ </method>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>getView(int position, View convertView, ViewGroup parent)</name>
+ <description>Get a View that displays the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getViewTypeCount()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>hasStableIds()</name>
+ <description>Indicates whether the item ids are stable across changes to the underlying data.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>isEmpty()</name>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>registerDataSetObserver(DataSetObserver observer)</name>
+ <description>Register an observer that is called when changes happen to the data used by this adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>unregisterDataSetObserver(DataSetObserver observer)</name>
+ <description>Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).</description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ <method>
+ <name>SimpleCursorAdapter(Context context, int layout, Cursor c, String[] from, int[] to)</name>
+ <description>This constructor was deprecated in API level 11. This option is discouraged, as it results in Cursor queries being performed on the application&amp;apos;s UI thread and thus can cause poor responsiveness or even Application Not Responding errors. As an alternative, use LoaderManager with a CursorLoader.</description>
+ </method>
+ <method>
+ <name>SimpleCursorAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags)</name>
+ <description>Standard constructor.</description>
+ </method>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>void</return-value>
+ <name>bindView(View view, Context context, Cursor cursor)</name>
+ <description>Binds all of the field names passed into the &amp;quot;to&amp;quot; parameter of the constructor with their corresponding cursor columns as specified in the &amp;quot;from&amp;quot; parameter.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>changeCursorAndColumns(Cursor c, String[] from, int[] to)</name>
+ <description>Change the cursor and change the column-to-view mappings at the same time.</description>
+ </method>
+ <method>
+ <return-value>CharSequence</return-value>
+ <name>convertToString(Cursor cursor)</name>
+ <description>Returns a CharSequence representation of the specified Cursor as defined by the current CursorToStringConverter.</description>
+ </method>
+ <method>
+ <return-value>SimpleCursorAdapter.CursorToStringConverter</return-value>
+ <name>getCursorToStringConverter()</name>
+ <description>Returns the converter used to convert the filtering Cursor into a String.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getStringConversionColumn()</name>
+ <description>Return the index of the column used to get a String representation of the Cursor.</description>
+ </method>
+ <method>
+ <return-value>SimpleCursorAdapter.ViewBinder</return-value>
+ <name>getViewBinder()</name>
+ <description>Returns the SimpleCursorAdapter.ViewBinder used to bind data to views.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setCursorToStringConverter(SimpleCursorAdapter.CursorToStringConverter cursorToStringConverter)</name>
+ <description>Sets the converter used to convert the filtering Cursor into a String.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setStringConversionColumn(int stringConversionColumn)</name>
+ <description>Defines the index of the column in the Cursor used to get a String representation of that Cursor.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setViewBinder(SimpleCursorAdapter.ViewBinder viewBinder)</name>
+ <description>Sets the binder used to bind data to views.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setViewImage(ImageView v, String value)</name>
+ <description>Called by bindView() to set the image for an ImageView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to an ImageView.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setViewText(TextView v, String text)</name>
+ <description>Called by bindView() to set the text for a TextView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to a TextView.</description>
+ </method>
+ <method>
+ <return-value>Cursor</return-value>
+ <name>swapCursor(Cursor c)</name>
+ <description>Swap in a new Cursor, returning the old Cursor.</description>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>SimpleCursorAdapter</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public SimpleCursorAdapter (Context context, 
+                int layout, 
+                Cursor c, 
+                String[] from, 
+                int[] to)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context</description>
+ </parameter>
+ <parameter>
+ <name>layout</name>
+ <description>int</description>
+ </parameter>
+ <parameter>
+ <name>c</name>
+ <description>Cursor</description>
+ </parameter>
+ <parameter>
+ <name>from</name>
+ <description>String</description>
+ </parameter>
+ <parameter>
+ <name>to</name>
+ <description>int</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>SimpleCursorAdapter</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public SimpleCursorAdapter (Context context, 
+                int layout, 
+                Cursor c, 
+                String[] from, 
+                int[] to, 
+                int flags)</api_signature>
+ <description>Standard constructor.</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context: The context where the ListView associated with this SimpleListItemFactory is running</description>
+ </parameter>
+ <parameter>
+ <name>layout</name>
+ <description>int: resource identifier of a layout file that defines the views for this list item. The layout file should include at least those named views defined in &amp;quot;to&amp;quot;</description>
+ </parameter>
+ <parameter>
+ <name>c</name>
+ <description>Cursor: The database cursor. Can be null if the cursor is not available yet.</description>
+ </parameter>
+ <parameter>
+ <name>from</name>
+ <description>String: A list of column names representing the data to bind to the UI. Can be null if the cursor is not available yet.</description>
+ </parameter>
+ <parameter>
+ <name>to</name>
+ <description>int: The views that should display column in the &amp;quot;from&amp;quot; parameter. These should all be TextViews. The first N views in this list are given the values of the first N columns in the from parameter. Can be null if the cursor is not available yet.</description>
+ </parameter>
+ <parameter>
+ <name>flags</name>
+ <description>int: Flags used to determine the behavior of the adapter, as per CursorAdapter.CursorAdapter(Context, Cursor, int).</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>bindView</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void bindView (View view, 
+                Context context, 
+                Cursor cursor)</api_signature>
+ <description>Binds all of the field names passed into the &amp;quot;to&amp;quot; parameter of the constructor with their corresponding cursor columns as specified in the &amp;quot;from&amp;quot; parameter. Binding occurs in two phases. First, if a SimpleCursorAdapter.ViewBinder is available, SimpleCursorAdapter.ViewBinder.setViewValue(android.view.View, android.database.Cursor, int) is invoked. If the returned value is true, binding has occured. If the returned value is false and the view to bind is a TextView, setViewText(TextView, String) is invoked. If the returned value is false and the view to bind is an ImageView, setViewImage(ImageView, String) is invoked. If no appropriate binding can be found, an IllegalStateException is thrown.</description>
+ <parameters>
+ <parameter>
+ <name>view</name>
+ <description>View: Existing view, returned earlier by newView</description>
+ </parameter>
+ <parameter>
+ <name>context</name>
+ <description>Context: Interface to application&amp;apos;s global information</description>
+ </parameter>
+ <parameter>
+ <name>cursor</name>
+ <description>Cursor: The cursor from which to get the data. The cursor is already moved to the correct position.</description>
+ </parameter>
+ <parameter>
+ <name>IllegalStateException</name>
+ <description>if binding cannot occur</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>changeCursorAndColumns</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void changeCursorAndColumns (Cursor c, 
+                String[] from, 
+                int[] to)</api_signature>
+ <description>Change the cursor and change the column-to-view mappings at the same time.</description>
+ <parameters>
+ <parameter>
+ <name>c</name>
+ <description>Cursor: The database cursor. Can be null if the cursor is not available yet.</description>
+ </parameter>
+ <parameter>
+ <name>from</name>
+ <description>String: A list of column names representing the data to bind to the UI. Can be null if the cursor is not available yet.</description>
+ </parameter>
+ <parameter>
+ <name>to</name>
+ <description>int: The views that should display column in the &amp;quot;from&amp;quot; parameter. These should all be TextViews. The first N views in this list are given the values of the first N columns in the from parameter. Can be null if the cursor is not available yet.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>convertToString</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public CharSequence convertToString (Cursor cursor)</api_signature>
+ <description>Returns a CharSequence representation of the specified Cursor as defined by the current CursorToStringConverter. If no CursorToStringConverter has been set, the String conversion column is used instead. If the conversion column is -1, the returned String is empty if the cursor is null or Cursor.toString().</description>
+ <parameters>
+ <parameter>
+ <name>cursor</name>
+ <description>Cursor: the Cursor to convert to a CharSequence</description>
+ </parameter>
+ <parameter>
+ <name>CharSequence</name>
+ <description>a non-null CharSequence representing the cursor</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getCursorToStringConverter</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public SimpleCursorAdapter.CursorToStringConverter getCursorToStringConverter ()</api_signature>
+ <description>Returns the converter used to convert the filtering Cursor into a String.</description>
+ <parameters>
+ <parameter>
+ <name>SimpleCursorAdapter.CursorToStringConverter</name>
+ <description>null if the converter does not exist or an instance of SimpleCursorAdapter.CursorToStringConverter</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getStringConversionColumn</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public int getStringConversionColumn ()</api_signature>
+ <description>Return the index of the column used to get a String representation of the Cursor.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>a valid index in the current Cursor or -1</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getViewBinder</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public SimpleCursorAdapter.ViewBinder getViewBinder ()</api_signature>
+ <description>Returns the SimpleCursorAdapter.ViewBinder used to bind data to views.</description>
+ <parameters>
+ <parameter>
+ <name>SimpleCursorAdapter.ViewBinder</name>
+ <description>a ViewBinder or null if the binder does not exist</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setCursorToStringConverter</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setCursorToStringConverter (SimpleCursorAdapter.CursorToStringConverter cursorToStringConverter)</api_signature>
+ <description>Sets the converter used to convert the filtering Cursor into a String.</description>
+ <parameters>
+ <parameter>
+ <name>cursorToStringConverter</name>
+ <description>SimpleCursorAdapter.CursorToStringConverter: the Cursor to String converter, or null to remove the converter</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setStringConversionColumn</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setStringConversionColumn (int stringConversionColumn)</api_signature>
+ <description>Defines the index of the column in the Cursor used to get a String representation of that Cursor. The column is used to convert the Cursor to a String only when the current CursorToStringConverter is null.</description>
+ <parameters>
+ <parameter>
+ <name>stringConversionColumn</name>
+ <description>int: a valid index in the current Cursor or -1 to use the default conversion mechanism</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setViewBinder</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setViewBinder (SimpleCursorAdapter.ViewBinder viewBinder)</api_signature>
+ <description>Sets the binder used to bind data to views.</description>
+ <parameters>
+ <parameter>
+ <name>viewBinder</name>
+ <description>SimpleCursorAdapter.ViewBinder: the binder used to bind data to views, can be null to remove the existing binder</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setViewImage</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setViewImage (ImageView v, 
+                String value)</api_signature>
+ <description>Called by bindView() to set the image for an ImageView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to an ImageView. By default, the value will be treated as an image resource. If the value cannot be used as an image resource, the value is used as an image Uri. Intended to be overridden by Adapters that need to filter strings retrieved from the database.</description>
+ <parameters>
+ <parameter>
+ <name>v</name>
+ <description>ImageView: ImageView to receive an image</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>String: the value retrieved from the cursor</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setViewText</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setViewText (TextView v, 
+                String text)</api_signature>
+ <description>Called by bindView() to set the text for a TextView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to a TextView. Intended to be overridden by Adapters that need to filter strings retrieved from the database.</description>
+ <parameters>
+ <parameter>
+ <name>v</name>
+ <description>TextView: TextView to receive text</description>
+ </parameter>
+ <parameter>
+ <name>text</name>
+ <description>String: the text to be set for the TextView</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>swapCursor</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public Cursor swapCursor (Cursor c)</api_signature>
+ <description>Swap in a new Cursor, returning the old Cursor. Unlike changeCursor(Cursor), the returned old Cursor is not closed.</description>
+ <parameters>
+ <parameter>
+ <name>c</name>
+ <description>Cursor: The new cursor to be used.</description>
+ </parameter>
+ <parameter>
+ <name>Cursor</name>
+ <description>Returns the previously set Cursor, or null if there wasa not one. If the given new Cursor is the same instance is the previously set Cursor, null is also returned.</description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>

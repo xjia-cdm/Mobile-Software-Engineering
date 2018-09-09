@@ -1,0 +1,253 @@
+<api>
+ <title>ShareActionProvider</title>
+ <api-signature>public class ShareActionProvider extends ActionProvider</api-signature>
+ <inheritance>java.lang.Object ↳ android.view.ActionProvider ↳ android.widget.ShareActionProvider</inheritance>
+ <subclasses-direct-summary>
+ </subclasses-direct-summary>
+ <subclasses-indirect-summary>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ </inherited_constants>
+ <inherited_fields>
+ </inherited_fields>
+ <inherited_methods>
+ <name>android.view.ActionProvider</name>
+ <class>
+ <method>
+ <return-value>boolean</return-value>
+ <name>hasSubMenu()</name>
+ <description>Determines if this ActionProvider has a submenu associated with it.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isVisible()</name>
+ <description>If overridesItemVisibility() returns true, the return value of this method will help determine the visibility of the MenuItem this ActionProvider is bound to.</description>
+ </method>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>onCreateActionView()</name>
+ <description>This method was deprecated in API level 16. use onCreateActionView(MenuItem)</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>onCreateActionView(MenuItem forItem)</name>
+ <description>Factory method called by the Android framework to create new action views.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>onPerformDefaultAction()</name>
+ <description>Performs an optional default action.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onPrepareSubMenu(SubMenu subMenu)</name>
+ <description>Called to prepare an associated submenu for the menu item backed by this ActionProvider.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>overridesItemVisibility()</name>
+ <description>The result of this method determines whether or not isVisible() will be used by the MenuItem this ActionProvider is bound to help determine its visibility.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>refreshVisibility()</name>
+ <description>If this ActionProvider is associated with an item in a menu, refresh the visibility of the item based on overridesItemVisibility() and isVisible().</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setVisibilityListener(ActionProvider.VisibilityListener listener)</name>
+ <description>Set a listener to be notified when this ActionProvider&amp;apos;s overridden visibility changes.</description>
+ </method>
+ </class>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ <method>
+ <name>ShareActionProvider(Context context)</name>
+ <description>Creates a new instance.</description>
+ </method>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>boolean</return-value>
+ <name>hasSubMenu()</name>
+ <description>Determines if this ActionProvider has a submenu associated with it.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>onCreateActionView()</name>
+ <description>This method is deprecated. use onCreateActionView(MenuItem)</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onPrepareSubMenu(SubMenu subMenu)</name>
+ <description>Called to prepare an associated submenu for the menu item backed by this ActionProvider.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setOnShareTargetSelectedListener(ShareActionProvider.OnShareTargetSelectedListener listener)</name>
+ <description>Sets a listener to be notified when a share target has been selected.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setShareHistoryFileName(String shareHistoryFile)</name>
+ <description>Sets the file name of a file for persisting the share history which history will be used for ordering share targets.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setShareIntent(Intent shareIntent)</name>
+ <description>Sets an intent with information about the share action.</description>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>DEFAULT_SHARE_HISTORY_FILE_NAME</name>
+ <api_level>API level 14</api_level>
+ <api_signature>public static final String DEFAULT_SHARE_HISTORY_FILE_NAME</api_signature>
+ <description>The default name for storing share history.</description>
+ </api>
+ <api>
+ <name>ShareActionProvider</name>
+ <api_level>API level 14</api_level>
+ <api_signature>public ShareActionProvider (Context context)</api_signature>
+ <description>Creates a new instance.</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context: Context for accessing resources.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>hasSubMenu</name>
+ <api_level>API level 14</api_level>
+ <api_signature>public boolean hasSubMenu ()</api_signature>
+ <description>Determines if this ActionProvider has a submenu associated with it.</description>
+ <parameters>
+ <parameter>
+ <name>boolean</name>
+ <description>true if the item backed by this provider should have an associated submenu</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>onCreateActionView</name>
+ <api_level>API level 14</api_level>
+ <api_signature>public View onCreateActionView ()</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>View</name>
+ <description>A new action view.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>onPrepareSubMenu</name>
+ <api_level>API level 14</api_level>
+ <api_signature>public void onPrepareSubMenu (SubMenu subMenu)</api_signature>
+ <description>Called to prepare an associated submenu for the menu item backed by this ActionProvider.</description>
+ <parameters>
+ <parameter>
+ <name>subMenu</name>
+ <description>SubMenu: Submenu that will be displayed</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setOnShareTargetSelectedListener</name>
+ <api_level>API level 14</api_level>
+ <api_signature>public void setOnShareTargetSelectedListener (ShareActionProvider.OnShareTargetSelectedListener listener)</api_signature>
+ <description>Sets a listener to be notified when a share target has been selected. The listener can optionally decide to handle the selection and not rely on the default behavior which is to launch the activity.</description>
+ <parameters>
+ <parameter>
+ <name>listener</name>
+ <description>ShareActionProvider.OnShareTargetSelectedListener: The listener.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setShareHistoryFileName</name>
+ <api_level>API level 14</api_level>
+ <api_signature>public void setShareHistoryFileName (String shareHistoryFile)</api_signature>
+ <description>Sets the file name of a file for persisting the share history which history will be used for ordering share targets. This file will be used for all view created by onCreateActionView(). Defaults to DEFAULT_SHARE_HISTORY_FILE_NAME. Set to null if share history should not be persisted between sessions.</description>
+ <parameters>
+ <parameter>
+ <name>shareHistoryFile</name>
+ <description>String: The share history file name.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setShareIntent</name>
+ <api_level>API level 14</api_level>
+ <api_signature>public void setShareIntent (Intent shareIntent)</api_signature>
+ <description>Sets an intent with information about the share action. Here is a sample for constructing a share intent:</description>
+ <parameters>
+ <parameter>
+ <name>shareIntent</name>
+ <description>Intent: The share intent.</description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>

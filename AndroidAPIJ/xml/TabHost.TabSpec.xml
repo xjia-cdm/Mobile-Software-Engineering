@@ -1,0 +1,229 @@
+<api>
+ <title>TabHost.TabSpec</title>
+ <api-signature>public class TabHost.TabSpec extends Object</api-signature>
+ <inheritance>java.lang.Object ↳ android.widget.TabHost.TabSpec</inheritance>
+ <subclasses-direct-summary>
+ </subclasses-direct-summary>
+ <subclasses-indirect-summary>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ </inherited_constants>
+ <inherited_fields>
+ </inherited_fields>
+ <inherited_methods>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>String</return-value>
+ <name>getTag()</name>
+ <description>Returns the tag for this tab specification.</description>
+ </method>
+ <method>
+ <return-value>TabHost.TabSpec</return-value>
+ <name>setContent(Intent intent)</name>
+ <description>Specify an intent to use to launch an activity as the tab content.</description>
+ </method>
+ <method>
+ <return-value>TabHost.TabSpec</return-value>
+ <name>setContent(TabHost.TabContentFactory contentFactory)</name>
+ <description>Specify a TabHost.TabContentFactory to use to create the content of the tab.</description>
+ </method>
+ <method>
+ <return-value>TabHost.TabSpec</return-value>
+ <name>setContent(int viewId)</name>
+ <description>Specify the id of the view that should be used as the content of the tab.</description>
+ </method>
+ <method>
+ <return-value>TabHost.TabSpec</return-value>
+ <name>setIndicator(View view)</name>
+ <description>Specify a view as the tab indicator.</description>
+ </method>
+ <method>
+ <return-value>TabHost.TabSpec</return-value>
+ <name>setIndicator(CharSequence label)</name>
+ <description>Specify a label as the tab indicator.</description>
+ </method>
+ <method>
+ <return-value>TabHost.TabSpec</return-value>
+ <name>setIndicator(CharSequence label, Drawable icon)</name>
+ <description>Specify a label and icon as the tab indicator.</description>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>getTag</name>
+ <api_level>API level 4</api_level>
+ <api_signature>public String getTag ()</api_signature>
+ <description>Returns the tag for this tab specification.</description>
+ <parameters>
+ <parameter>
+ <name>String</name>
+ <description>the tag for this tab specification This value will never be null.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setContent</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public TabHost.TabSpec setContent (Intent intent)</api_signature>
+ <description>Specify an intent to use to launch an activity as the tab content.</description>
+ <parameters>
+ <parameter>
+ <name>intent</name>
+ <description>Intent</description>
+ </parameter>
+ <parameter>
+ <name>TabHost.TabSpec</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setContent</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public TabHost.TabSpec setContent (TabHost.TabContentFactory contentFactory)</api_signature>
+ <description>Specify a TabHost.TabContentFactory to use to create the content of the tab.</description>
+ <parameters>
+ <parameter>
+ <name>contentFactory</name>
+ <description>TabHost.TabContentFactory</description>
+ </parameter>
+ <parameter>
+ <name>TabHost.TabSpec</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setContent</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public TabHost.TabSpec setContent (int viewId)</api_signature>
+ <description>Specify the id of the view that should be used as the content of the tab.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int</description>
+ </parameter>
+ <parameter>
+ <name>TabHost.TabSpec</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setIndicator</name>
+ <api_level>API level 4</api_level>
+ <api_signature>public TabHost.TabSpec setIndicator (View view)</api_signature>
+ <description>Specify a view as the tab indicator.</description>
+ <parameters>
+ <parameter>
+ <name>view</name>
+ <description>View</description>
+ </parameter>
+ <parameter>
+ <name>TabHost.TabSpec</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setIndicator</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public TabHost.TabSpec setIndicator (CharSequence label)</api_signature>
+ <description>Specify a label as the tab indicator.</description>
+ <parameters>
+ <parameter>
+ <name>label</name>
+ <description>CharSequence</description>
+ </parameter>
+ <parameter>
+ <name>TabHost.TabSpec</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setIndicator</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public TabHost.TabSpec setIndicator (CharSequence label, 
+                Drawable icon)</api_signature>
+ <description>Specify a label and icon as the tab indicator.</description>
+ <parameters>
+ <parameter>
+ <name>label</name>
+ <description>CharSequence</description>
+ </parameter>
+ <parameter>
+ <name>icon</name>
+ <description>Drawable</description>
+ </parameter>
+ <parameter>
+ <name>TabHost.TabSpec</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>

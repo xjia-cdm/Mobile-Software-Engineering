@@ -1,0 +1,587 @@
+<api>
+ <title>ResourceCursorAdapter</title>
+ <api-signature>public abstract class ResourceCursorAdapter extends CursorAdapter</api-signature>
+ <inheritance>java.lang.Object ↳ android.widget.BaseAdapter ↳ android.widget.CursorAdapter ↳ android.widget.ResourceCursorAdapter</inheritance>
+ <subclasses-direct>SimpleCursorAdapter</subclasses-direct>
+ <subclasses-direct-summary>
+ <class>
+ <name>SimpleCursorAdapter</name>
+ <description>An easy adapter to map columns from a cursor to TextViews or ImageViews defined in an XML file.</description>
+ </class>
+ </subclasses-direct-summary>
+ <subclasses-indirect-summary>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ <class>
+ <name>android.widget.CursorAdapter</name>
+ <constant>
+ <type>int</type>
+ <name>FLAG_AUTO_REQUERY</name>
+ <description>This constant was deprecated in API level 11. This option is discouraged, as it results in Cursor queries being performed on the application&amp;apos;s UI thread and thus can cause poor responsiveness or even Application Not Responding errors. As an alternative, use LoaderManager with a CursorLoader.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>FLAG_REGISTER_CONTENT_OBSERVER</name>
+ <description>If set the adapter will register a content observer on the cursor and will call onContentChanged() when a notification comes in.</description>
+ </constant>
+ </class>
+ <class>
+ <name>android.widget.Adapter</name>
+ <constant>
+ <type>int</type>
+ <name>IGNORE_ITEM_VIEW_TYPE</name>
+ <description>An item view type that causes the AdapterView to ignore the item view.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>NO_SELECTION</name>
+ <description></description>
+ </constant>
+ </class>
+ </inherited_constants>
+ <inherited_fields>
+ </inherited_fields>
+ <inherited_methods>
+ <name>android.widget.CursorAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>bindView(View view, Context context, Cursor cursor)</name>
+ <description>Bind an existing view to the data pointed to by cursor</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>changeCursor(Cursor cursor)</name>
+ <description>Change the underlying cursor to a new cursor.</description>
+ </method>
+ <method>
+ <return-value>CharSequence</return-value>
+ <name>convertToString(Cursor cursor)</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getCount()</name>
+ <description>How many items are in the data set represented by this Adapter.</description>
+ </method>
+ <method>
+ <return-value>Cursor</return-value>
+ <name>getCursor()</name>
+ <description>Returns the cursor.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>getDropDownView(int position, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>Resources.Theme</return-value>
+ <name>getDropDownViewTheme()</name>
+ <description>Returns the value previously set by a call to setDropDownViewTheme(Theme).</description>
+ </method>
+ <method>
+ <return-value>Filter</return-value>
+ <name>getFilter()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>FilterQueryProvider</return-value>
+ <name>getFilterQueryProvider()</name>
+ <description>Returns the query filter provider used for filtering.</description>
+ </method>
+ <method>
+ <return-value>Object</return-value>
+ <name>getItem(int position)</name>
+ <description>Get the data item associated with the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>long</return-value>
+ <name>getItemId(int position)</name>
+ <description>Get the row id associated with the specified position in the list.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>getView(int position, View convertView, ViewGroup parent)</name>
+ <description>Get a View that displays the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>hasStableIds()</name>
+ <description>Indicates whether the item ids are stable across changes to the underlying data.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>init(Context context, Cursor c, boolean autoRequery)</name>
+ <description>This method was deprecated in API level 11. Don&amp;apos;t use this, use the normal constructor. This will be removed in the future.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>newDropDownView(Context context, Cursor cursor, ViewGroup parent)</name>
+ <description>Makes a new drop down view to hold the data pointed to by cursor.</description>
+ </method>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>newView(Context context, Cursor cursor, ViewGroup parent)</name>
+ <description>Makes a new view to hold the data pointed to by cursor.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onContentChanged()</name>
+ <description>Called when the ContentObserver on the cursor receives a change notification.</description>
+ </method>
+ <method>
+ <return-value>Cursor</return-value>
+ <name>runQueryOnBackgroundThread(CharSequence constraint)</name>
+ <description>Runs a query with the specified constraint.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setDropDownViewTheme(Resources.Theme theme)</name>
+ <description>Sets the Resources.Theme against which drop-down views are inflated.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setFilterQueryProvider(FilterQueryProvider filterQueryProvider)</name>
+ <description>Sets the query filter provider used to filter the current Cursor.</description>
+ </method>
+ <method>
+ <return-value>Cursor</return-value>
+ <name>swapCursor(Cursor newCursor)</name>
+ <description>Swap in a new Cursor, returning the old Cursor.</description>
+ </method>
+ </class>
+ <name>android.widget.BaseAdapter</name>
+ <class>
+ <method>
+ <return-value>boolean</return-value>
+ <name>areAllItemsEnabled()</name>
+ <description>Indicates whether all the items in this adapter are enabled.</description>
+ </method>
+ <method>
+ <return-value>CharSequence[]</return-value>
+ <name>getAutofillOptions()</name>
+ <description>Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>getDropDownView(int position, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getItemViewType(int position)</name>
+ <description>Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getViewTypeCount()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>hasStableIds()</name>
+ <description>Indicates whether the item ids are stable across changes to the underlying data.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isEmpty()</name>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isEnabled(int position)</name>
+ <description>Returns true if the item at the specified position is not a separator.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>notifyDataSetChanged()</name>
+ <description>Notifies the attached observers that the underlying data has been changed and any View reflecting the data set should refresh itself.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>notifyDataSetInvalidated()</name>
+ <description>Notifies the attached observers that the underlying data is no longer valid or available.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>registerDataSetObserver(DataSetObserver observer)</name>
+ <description>Register an observer that is called when changes happen to the data used by this adapter.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setAutofillOptions(CharSequence... options)</name>
+ <description>Sets the value returned by getAutofillOptions()</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>unregisterDataSetObserver(DataSetObserver observer)</name>
+ <description>Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).</description>
+ </method>
+ </class>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ <name>android.widget.Filterable</name>
+ <class>
+ <method>
+ <return-value>abstract Filter</return-value>
+ <name>getFilter()</name>
+ <description></description>
+ </method>
+ </class>
+ <name>android.widget.ThemedSpinnerAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract Resources.Theme</return-value>
+ <name>getDropDownViewTheme()</name>
+ <description>Returns the value previously set by a call to setDropDownViewTheme(Theme).</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>setDropDownViewTheme(Resources.Theme theme)</name>
+ <description>Sets the Resources.Theme against which drop-down views are inflated.</description>
+ </method>
+ </class>
+ <name>android.widget.ListAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>areAllItemsEnabled()</name>
+ <description>Indicates whether all the items in this adapter are enabled.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>isEnabled(int position)</name>
+ <description>Returns true if the item at the specified position is not a separator.</description>
+ </method>
+ </class>
+ <name>android.widget.SpinnerAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>getDropDownView(int position, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ </method>
+ </class>
+ <name>android.widget.Adapter</name>
+ <class>
+ <method>
+ <return-value>default CharSequence[]</return-value>
+ <name>getAutofillOptions()</name>
+ <description>Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getCount()</name>
+ <description>How many items are in the data set represented by this Adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract Object</return-value>
+ <name>getItem(int position)</name>
+ <description>Get the data item associated with the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>abstract long</return-value>
+ <name>getItemId(int position)</name>
+ <description>Get the row id associated with the specified position in the list.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getItemViewType(int position)</name>
+ <description>Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.</description>
+ </method>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>getView(int position, View convertView, ViewGroup parent)</name>
+ <description>Get a View that displays the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getViewTypeCount()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>hasStableIds()</name>
+ <description>Indicates whether the item ids are stable across changes to the underlying data.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>isEmpty()</name>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>registerDataSetObserver(DataSetObserver observer)</name>
+ <description>Register an observer that is called when changes happen to the data used by this adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>unregisterDataSetObserver(DataSetObserver observer)</name>
+ <description>Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).</description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ <method>
+ <name>ResourceCursorAdapter(Context context, int layout, Cursor c)</name>
+ <description>This constructor was deprecated in API level 11. This option is discouraged, as it results in Cursor queries being performed on the application&amp;apos;s UI thread and thus can cause poor responsiveness or even Application Not Responding errors. As an alternative, use LoaderManager with a CursorLoader.</description>
+ </method>
+ <method>
+ <name>ResourceCursorAdapter(Context context, int layout, Cursor c, boolean autoRequery)</name>
+ <description>Constructor with default behavior as per CursorAdapter.CursorAdapter(Context, Cursor, boolean); it is recommended you not use this, but instead ResourceCursorAdapter(Context, int, Cursor, int).</description>
+ </method>
+ <method>
+ <name>ResourceCursorAdapter(Context context, int layout, Cursor c, int flags)</name>
+ <description>Standard constructor.</description>
+ </method>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>View</return-value>
+ <name>newDropDownView(Context context, Cursor cursor, ViewGroup parent)</name>
+ <description>Makes a new drop down view to hold the data pointed to by cursor.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>newView(Context context, Cursor cursor, ViewGroup parent)</name>
+ <description>Inflates view(s) from the specified XML file.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setDropDownViewResource(int dropDownLayout)</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setDropDownViewTheme(Resources.Theme theme)</name>
+ <description>Sets the Resources.Theme against which drop-down views are inflated.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setViewResource(int layout)</name>
+ <description></description>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>ResourceCursorAdapter</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public ResourceCursorAdapter (Context context, 
+                int layout, 
+                Cursor c)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context: The context where the ListView associated with this adapter is running</description>
+ </parameter>
+ <parameter>
+ <name>layout</name>
+ <description>int: resource identifier of a layout file that defines the views for this list item. Unless you override them later, this will define both the item views and the drop down views.</description>
+ </parameter>
+ <parameter>
+ <name>c</name>
+ <description>Cursor</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>ResourceCursorAdapter</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public ResourceCursorAdapter (Context context, 
+                int layout, 
+                Cursor c, 
+                boolean autoRequery)</api_signature>
+ <description>Constructor with default behavior as per CursorAdapter.CursorAdapter(Context, Cursor, boolean); it is recommended you not use this, but instead ResourceCursorAdapter(Context, int, Cursor, int). When using this constructor, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER will always be set.</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context: The context where the ListView associated with this adapter is running</description>
+ </parameter>
+ <parameter>
+ <name>layout</name>
+ <description>int: resource identifier of a layout file that defines the views for this list item. Unless you override them later, this will define both the item views and the drop down views.</description>
+ </parameter>
+ <parameter>
+ <name>c</name>
+ <description>Cursor: The cursor from which to get the data.</description>
+ </parameter>
+ <parameter>
+ <name>autoRequery</name>
+ <description>boolean: If true the adapter will call requery() on the cursor whenever it changes so the most recent data is always displayed. Using true here is discouraged.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>ResourceCursorAdapter</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public ResourceCursorAdapter (Context context, 
+                int layout, 
+                Cursor c, 
+                int flags)</api_signature>
+ <description>Standard constructor.</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context: The context where the ListView associated with this adapter is running</description>
+ </parameter>
+ <parameter>
+ <name>layout</name>
+ <description>int: Resource identifier of a layout file that defines the views for this list item. Unless you override them later, this will define both the item views and the drop down views.</description>
+ </parameter>
+ <parameter>
+ <name>c</name>
+ <description>Cursor: The cursor from which to get the data.</description>
+ </parameter>
+ <parameter>
+ <name>flags</name>
+ <description>int: Flags used to determine the behavior of the adapter, as per CursorAdapter.CursorAdapter(Context, Cursor, int).</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>newDropDownView</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public View newDropDownView (Context context, 
+                Cursor cursor, 
+                ViewGroup parent)</api_signature>
+ <description>Makes a new drop down view to hold the data pointed to by cursor.</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context: Interface to application&amp;apos;s global information</description>
+ </parameter>
+ <parameter>
+ <name>cursor</name>
+ <description>Cursor: The cursor from which to get the data. The cursor is already moved to the correct position.</description>
+ </parameter>
+ <parameter>
+ <name>parent</name>
+ <description>ViewGroup: The parent to which the new view is attached to</description>
+ </parameter>
+ <parameter>
+ <name>View</name>
+ <description>the newly created view.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>newView</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public View newView (Context context, 
+                Cursor cursor, 
+                ViewGroup parent)</api_signature>
+ <description>Inflates view(s) from the specified XML file.</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context: Interface to application&amp;apos;s global information</description>
+ </parameter>
+ <parameter>
+ <name>cursor</name>
+ <description>Cursor: The cursor from which to get the data. The cursor is already moved to the correct position.</description>
+ </parameter>
+ <parameter>
+ <name>parent</name>
+ <description>ViewGroup: The parent to which the new view is attached to</description>
+ </parameter>
+ <parameter>
+ <name>View</name>
+ <description>the newly created view.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setDropDownViewResource</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setDropDownViewResource (int dropDownLayout)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>dropDownLayout</name>
+ <description>int: the layout resources used to create drop down views</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setDropDownViewTheme</name>
+ <api_level>API level 23</api_level>
+ <api_signature>public void setDropDownViewTheme (Resources.Theme theme)</api_signature>
+ <description>Sets the Resources.Theme against which drop-down views are inflated.</description>
+ <parameters>
+ <parameter>
+ <name>theme</name>
+ <description>Resources.Theme: the theme against which to inflate drop-down views or null to use the theme from the adapter&amp;apos;s context</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setViewResource</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setViewResource (int layout)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>layout</name>
+ <description>int: the layout resources used to create item views</description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>

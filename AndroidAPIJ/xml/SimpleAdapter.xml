@@ -1,0 +1,585 @@
+<api>
+ <title>SimpleAdapter</title>
+ <api-signature>public class SimpleAdapter extends BaseAdapter implements Filterable, ThemedSpinnerAdapter</api-signature>
+ <inheritance>java.lang.Object ↳ android.widget.BaseAdapter ↳ android.widget.SimpleAdapter</inheritance>
+ <subclasses-direct-summary>
+ </subclasses-direct-summary>
+ <subclasses-indirect-summary>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ <class>
+ <name>android.widget.Adapter</name>
+ <constant>
+ <type>int</type>
+ <name>IGNORE_ITEM_VIEW_TYPE</name>
+ <description>An item view type that causes the AdapterView to ignore the item view.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>NO_SELECTION</name>
+ <description></description>
+ </constant>
+ </class>
+ </inherited_constants>
+ <inherited_fields>
+ </inherited_fields>
+ <inherited_methods>
+ <name>android.widget.BaseAdapter</name>
+ <class>
+ <method>
+ <return-value>boolean</return-value>
+ <name>areAllItemsEnabled()</name>
+ <description>Indicates whether all the items in this adapter are enabled.</description>
+ </method>
+ <method>
+ <return-value>CharSequence[]</return-value>
+ <name>getAutofillOptions()</name>
+ <description>Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>getDropDownView(int position, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getItemViewType(int position)</name>
+ <description>Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getViewTypeCount()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>hasStableIds()</name>
+ <description>Indicates whether the item ids are stable across changes to the underlying data.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isEmpty()</name>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isEnabled(int position)</name>
+ <description>Returns true if the item at the specified position is not a separator.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>notifyDataSetChanged()</name>
+ <description>Notifies the attached observers that the underlying data has been changed and any View reflecting the data set should refresh itself.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>notifyDataSetInvalidated()</name>
+ <description>Notifies the attached observers that the underlying data is no longer valid or available.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>registerDataSetObserver(DataSetObserver observer)</name>
+ <description>Register an observer that is called when changes happen to the data used by this adapter.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setAutofillOptions(CharSequence... options)</name>
+ <description>Sets the value returned by getAutofillOptions()</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>unregisterDataSetObserver(DataSetObserver observer)</name>
+ <description>Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).</description>
+ </method>
+ </class>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ <name>android.widget.ListAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>areAllItemsEnabled()</name>
+ <description>Indicates whether all the items in this adapter are enabled.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>isEnabled(int position)</name>
+ <description>Returns true if the item at the specified position is not a separator.</description>
+ </method>
+ </class>
+ <name>android.widget.SpinnerAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>getDropDownView(int position, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ </method>
+ </class>
+ <name>android.widget.Filterable</name>
+ <class>
+ <method>
+ <return-value>abstract Filter</return-value>
+ <name>getFilter()</name>
+ <description></description>
+ </method>
+ </class>
+ <name>android.widget.ThemedSpinnerAdapter</name>
+ <class>
+ <method>
+ <return-value>abstract Resources.Theme</return-value>
+ <name>getDropDownViewTheme()</name>
+ <description>Returns the value previously set by a call to setDropDownViewTheme(Theme).</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>setDropDownViewTheme(Resources.Theme theme)</name>
+ <description>Sets the Resources.Theme against which drop-down views are inflated.</description>
+ </method>
+ </class>
+ <name>android.widget.Adapter</name>
+ <class>
+ <method>
+ <return-value>default CharSequence[]</return-value>
+ <name>getAutofillOptions()</name>
+ <description>Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getCount()</name>
+ <description>How many items are in the data set represented by this Adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract Object</return-value>
+ <name>getItem(int position)</name>
+ <description>Get the data item associated with the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>abstract long</return-value>
+ <name>getItemId(int position)</name>
+ <description>Get the row id associated with the specified position in the list.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getItemViewType(int position)</name>
+ <description>Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.</description>
+ </method>
+ <method>
+ <return-value>abstract View</return-value>
+ <name>getView(int position, View convertView, ViewGroup parent)</name>
+ <description>Get a View that displays the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getViewTypeCount()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>hasStableIds()</name>
+ <description>Indicates whether the item ids are stable across changes to the underlying data.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>isEmpty()</name>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>registerDataSetObserver(DataSetObserver observer)</name>
+ <description>Register an observer that is called when changes happen to the data used by this adapter.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>unregisterDataSetObserver(DataSetObserver observer)</name>
+ <description>Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).</description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ <method>
+ <name>SimpleAdapter(Context context, List&amp;lt;? extends Map&amp;lt;String, ?&amp;gt;&amp;gt; data, int resource, String[] from, int[] to)</name>
+ <description>Constructor</description>
+ </method>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>int</return-value>
+ <name>getCount()</name>
+ <description>How many items are in the data set represented by this Adapter.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>getDropDownView(int position, View convertView, ViewGroup parent)</name>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>Resources.Theme</return-value>
+ <name>getDropDownViewTheme()</name>
+ <description>Returns the value previously set by a call to setDropDownViewTheme(Theme).</description>
+ </method>
+ <method>
+ <return-value>Filter</return-value>
+ <name>getFilter()</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>Object</return-value>
+ <name>getItem(int position)</name>
+ <description>Get the data item associated with the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>long</return-value>
+ <name>getItemId(int position)</name>
+ <description>Get the row id associated with the specified position in the list.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>getView(int position, View convertView, ViewGroup parent)</name>
+ <description>Get a View that displays the data at the specified position in the data set.</description>
+ </method>
+ <method>
+ <return-value>SimpleAdapter.ViewBinder</return-value>
+ <name>getViewBinder()</name>
+ <description>Returns the SimpleAdapter.ViewBinder used to bind data to views.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setDropDownViewResource(int resource)</name>
+ <description></description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setDropDownViewTheme(Resources.Theme theme)</name>
+ <description>Sets the Resources.Theme against which drop-down views are inflated.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setViewBinder(SimpleAdapter.ViewBinder viewBinder)</name>
+ <description>Sets the binder used to bind data to views.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setViewImage(ImageView v, int value)</name>
+ <description>Called by bindView() to set the image for an ImageView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to an ImageView.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setViewImage(ImageView v, String value)</name>
+ <description>Called by bindView() to set the image for an ImageView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to an ImageView.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setViewText(TextView v, String text)</name>
+ <description>Called by bindView() to set the text for a TextView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to a TextView.</description>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>SimpleAdapter</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public SimpleAdapter (Context context, 
+                List&amp;lt;? extends Map&amp;lt;String, ?&amp;gt;&amp;gt; data, 
+                int resource, 
+                String[] from, 
+                int[] to)</api_signature>
+ <description>Constructor</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context: The context where the View associated with this SimpleAdapter is running</description>
+ </parameter>
+ <parameter>
+ <name>data</name>
+ <description>List: A List of Maps. Each entry in the List corresponds to one row in the list. The Maps contain the data for each row, and should include all the entries specified in &amp;quot;from&amp;quot;</description>
+ </parameter>
+ <parameter>
+ <name>resource</name>
+ <description>int: Resource identifier of a view layout that defines the views for this list item. The layout file should include at least those named views defined in &amp;quot;to&amp;quot;</description>
+ </parameter>
+ <parameter>
+ <name>from</name>
+ <description>String: A list of column names that will be added to the Map associated with each item.</description>
+ </parameter>
+ <parameter>
+ <name>to</name>
+ <description>int: The views that should display column in the &amp;quot;from&amp;quot; parameter. These should all be TextViews. The first N views in this list are given the values of the first N columns in the from parameter.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getCount</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public int getCount ()</api_signature>
+ <description>How many items are in the data set represented by this Adapter.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>Count of items.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getDropDownView</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public View getDropDownView (int position, 
+                View convertView, 
+                ViewGroup parent)</api_signature>
+ <description>Gets a View that displays in the drop down popup the data at the specified position in the data set.</description>
+ <parameters>
+ <parameter>
+ <name>position</name>
+ <description>int: index of the item whose view we want.</description>
+ </parameter>
+ <parameter>
+ <name>convertView</name>
+ <description>View: the old view to reuse, if possible. Note: You should check that this view is non-null and of an appropriate type before using. If it is not possible to convert this view to display the correct data, this method can create a new view.</description>
+ </parameter>
+ <parameter>
+ <name>parent</name>
+ <description>ViewGroup: the parent that this view will eventually be attached to</description>
+ </parameter>
+ <parameter>
+ <name>View</name>
+ <description>a View corresponding to the data at the specified position.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getDropDownViewTheme</name>
+ <api_level>API level 23</api_level>
+ <api_signature>public Resources.Theme getDropDownViewTheme ()</api_signature>
+ <description>Returns the value previously set by a call to setDropDownViewTheme(Theme).</description>
+ <parameters>
+ <parameter>
+ <name>Resources.Theme</name>
+ <description>the Resources.Theme against which drop-down views are inflated, or null if one has not been explicitly set</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getFilter</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public Filter getFilter ()</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>Filter</name>
+ <description>a filter used to constrain data</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getItem</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public Object getItem (int position)</api_signature>
+ <description>Get the data item associated with the specified position in the data set.</description>
+ <parameters>
+ <parameter>
+ <name>position</name>
+ <description>int: Position of the item whose data we want within the adapter&amp;apos;s data set.</description>
+ </parameter>
+ <parameter>
+ <name>Object</name>
+ <description>The data at the specified position.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getItemId</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public long getItemId (int position)</api_signature>
+ <description>Get the row id associated with the specified position in the list.</description>
+ <parameters>
+ <parameter>
+ <name>position</name>
+ <description>int: The position of the item within the adapter&amp;apos;s data set whose row id we want.</description>
+ </parameter>
+ <parameter>
+ <name>long</name>
+ <description>The id of the item at the specified position.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getView</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public View getView (int position, 
+                View convertView, 
+                ViewGroup parent)</api_signature>
+ <description>Get a View that displays the data at the specified position in the data set. You can either create a View manually or inflate it from an XML layout file. When the View is inflated, the parent View (GridView, ListView...) will apply default layout parameters unless you use LayoutInflater.inflate(int, android.view.ViewGroup, boolean) to specify a root view and to prevent attachment to the root.</description>
+ <parameters>
+ <parameter>
+ <name>position</name>
+ <description>int: The position of the item within the adapter&amp;apos;s data set of the item whose view we want.</description>
+ </parameter>
+ <parameter>
+ <name>convertView</name>
+ <description>View: The old view to reuse, if possible. Note: You should check that this view is non-null and of an appropriate type before using. If it is not possible to convert this view to display the correct data, this method can create a new view. Heterogeneous lists can specify their number of view types, so that this View is always of the right type (see BaseAdapter.getViewTypeCount() and BaseAdapter.getItemViewType(int)).</description>
+ </parameter>
+ <parameter>
+ <name>parent</name>
+ <description>ViewGroup: The parent that this view will eventually be attached to</description>
+ </parameter>
+ <parameter>
+ <name>View</name>
+ <description>A View corresponding to the data at the specified position.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getViewBinder</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public SimpleAdapter.ViewBinder getViewBinder ()</api_signature>
+ <description>Returns the SimpleAdapter.ViewBinder used to bind data to views.</description>
+ <parameters>
+ <parameter>
+ <name>SimpleAdapter.ViewBinder</name>
+ <description>a ViewBinder or null if the binder does not exist</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setDropDownViewResource</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setDropDownViewResource (int resource)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>resource</name>
+ <description>int: the layout resource defining the drop down views</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setDropDownViewTheme</name>
+ <api_level>API level 23</api_level>
+ <api_signature>public void setDropDownViewTheme (Resources.Theme theme)</api_signature>
+ <description>Sets the Resources.Theme against which drop-down views are inflated.</description>
+ <parameters>
+ <parameter>
+ <name>theme</name>
+ <description>Resources.Theme: the theme against which to inflate drop-down views or null to use the theme from the adapter&amp;apos;s context</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setViewBinder</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setViewBinder (SimpleAdapter.ViewBinder viewBinder)</api_signature>
+ <description>Sets the binder used to bind data to views.</description>
+ <parameters>
+ <parameter>
+ <name>viewBinder</name>
+ <description>SimpleAdapter.ViewBinder: the binder used to bind data to views, can be null to remove the existing binder</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setViewImage</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setViewImage (ImageView v, 
+                int value)</api_signature>
+ <description>Called by bindView() to set the image for an ImageView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to an ImageView. This method is called instead of setViewImage(ImageView, String) if the supplied data is an int or Integer.</description>
+ <parameters>
+ <parameter>
+ <name>v</name>
+ <description>ImageView: ImageView to receive an image</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>int: the value retrieved from the data set</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setViewImage</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setViewImage (ImageView v, 
+                String value)</api_signature>
+ <description>Called by bindView() to set the image for an ImageView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to an ImageView. By default, the value will be treated as an image resource. If the value cannot be used as an image resource, the value is used as an image Uri. This method is called instead of setViewImage(ImageView, int) if the supplied data is not an int or Integer.</description>
+ <parameters>
+ <parameter>
+ <name>v</name>
+ <description>ImageView: ImageView to receive an image</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>String: the value retrieved from the data set</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setViewText</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setViewText (TextView v, 
+                String text)</api_signature>
+ <description>Called by bindView() to set the text for a TextView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to a TextView.</description>
+ <parameters>
+ <parameter>
+ <name>v</name>
+ <description>TextView: TextView to receive text</description>
+ </parameter>
+ <parameter>
+ <name>text</name>
+ <description>String: the text to be set for the TextView</description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>

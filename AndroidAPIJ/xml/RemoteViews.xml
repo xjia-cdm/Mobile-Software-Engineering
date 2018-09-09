@@ -1,0 +1,1498 @@
+<api>
+ <title>RemoteViews</title>
+ <api-signature>public class RemoteViews extends Object implements Parcelable, LayoutInflater.Filter</api-signature>
+ <inheritance>java.lang.Object ↳ android.widget.RemoteViews</inheritance>
+ <subclasses-direct-summary>
+ </subclasses-direct-summary>
+ <subclasses-indirect-summary>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ <class>
+ <name>android.os.Parcelable</name>
+ <constant>
+ <type>int</type>
+ <name>CONTENTS_FILE_DESCRIPTOR</name>
+ <description>Descriptor bit used with describeContents(): indicates that the Parcelable object&amp;apos;s flattened representation includes a file descriptor.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>PARCELABLE_WRITE_RETURN_VALUE</name>
+ <description>Flag for use with writeToParcel(Parcel, int): the object being written is a return value, that is the result of a function such as &amp;quot;Parcelable someFunction()&amp;quot;, &amp;quot;void someFunction(out Parcelable)&amp;quot;, or &amp;quot;void someFunction(inout Parcelable)&amp;quot;.</description>
+ </constant>
+ </class>
+ </inherited_constants>
+ <inherited_fields>
+ </inherited_fields>
+ <inherited_methods>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ <name>android.os.Parcelable</name>
+ <class>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>describeContents()</name>
+ <description>Describe the kinds of special objects contained in this Parcelable instance&amp;apos;s marshaled representation.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>writeToParcel(Parcel dest, int flags)</name>
+ <description>Flatten this object in to a Parcel.</description>
+ </method>
+ </class>
+ <name>android.view.LayoutInflater.Filter</name>
+ <class>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>onLoadClass(Class clazz)</name>
+ <description>Hook to allow clients of the LayoutInflater to restrict the set of Views that are allowed to be inflated.</description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ <method>
+ <name>RemoteViews(String packageName, int layoutId)</name>
+ <description>Create a new RemoteViews object that will display the views contained in the specified layout file.</description>
+ </method>
+ <method>
+ <name>RemoteViews(RemoteViews landscape, RemoteViews portrait)</name>
+ <description>Create a new RemoteViews object that will inflate as the specified landspace or portrait RemoteViews, depending on the current configuration.</description>
+ </method>
+ <method>
+ <name>RemoteViews(RemoteViews src)</name>
+ <description>Creates a copy of another RemoteViews.</description>
+ </method>
+ <method>
+ <name>RemoteViews(Parcel parcel)</name>
+ <description>Reads a RemoteViews object from a parcel.</description>
+ </method>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>void</return-value>
+ <name>addView(int viewId, RemoteViews nestedView)</name>
+ <description>Equivalent to calling ViewGroup.addView(View) after inflating the given RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>View</return-value>
+ <name>apply(Context context, ViewGroup parent)</name>
+ <description>Inflates the view hierarchy represented by this object and applies all of the actions.</description>
+ </method>
+ <method>
+ <return-value>RemoteViews</return-value>
+ <name>clone()</name>
+ <description>This method was deprecated in API level 28. use RemoteViews(RemoteViews) instead.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>describeContents()</name>
+ <description>Describe the kinds of special objects contained in this Parcelable instance&amp;apos;s marshaled representation.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getLayoutId()</name>
+ <description>Returns the layout id of the root layout associated with this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>getPackage()</name>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>onLoadClass(Class clazz)</name>
+ <description>Hook to allow clients of the LayoutInflater to restrict the set of Views that are allowed to be inflated.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>reapply(Context context, View v)</name>
+ <description>Applies all of the actions to the provided view.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>removeAllViews(int viewId)</name>
+ <description>Equivalent to calling ViewGroup.removeAllViews().</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setAccessibilityTraversalAfter(int viewId, int nextId)</name>
+ <description>Equivalent to calling View.setAccessibilityTraversalAfter(int).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setAccessibilityTraversalBefore(int viewId, int nextId)</name>
+ <description>Equivalent to calling View.setAccessibilityTraversalBefore(int).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setBitmap(int viewId, String methodName, Bitmap value)</name>
+ <description>Call a method taking one Bitmap on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setBoolean(int viewId, String methodName, boolean value)</name>
+ <description>Call a method taking one boolean on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setBundle(int viewId, String methodName, Bundle value)</name>
+ <description>Call a method taking one Bundle on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setByte(int viewId, String methodName, byte value)</name>
+ <description>Call a method taking one byte on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setChar(int viewId, String methodName, char value)</name>
+ <description>Call a method taking one char on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setCharSequence(int viewId, String methodName, CharSequence value)</name>
+ <description>Call a method taking one CharSequence on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setChronometer(int viewId, long base, String format, boolean started)</name>
+ <description>Equivalent to calling Chronometer.setBase, Chronometer.setFormat, and Chronometer.start() or Chronometer.stop().</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setChronometerCountDown(int viewId, boolean isCountDown)</name>
+ <description>Equivalent to calling Chronometer.setCountDown on the chronometer with the given viewId.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setContentDescription(int viewId, CharSequence contentDescription)</name>
+ <description>Equivalent to calling View.setContentDescription(CharSequence).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setDisplayedChild(int viewId, int childIndex)</name>
+ <description>Equivalent to calling AdapterViewAnimator.setDisplayedChild(int)</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setDouble(int viewId, String methodName, double value)</name>
+ <description>Call a method taking one double on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setEmptyView(int viewId, int emptyViewId)</name>
+ <description>Equivalent to calling AdapterView.setEmptyView(View)</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setFloat(int viewId, String methodName, float value)</name>
+ <description>Call a method taking one float on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setIcon(int viewId, String methodName, Icon value)</name>
+ <description>Call a method taking one Icon on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setImageViewBitmap(int viewId, Bitmap bitmap)</name>
+ <description>Equivalent to calling ImageView.setImageBitmap(Bitmap)</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setImageViewIcon(int viewId, Icon icon)</name>
+ <description>Equivalent to calling ImageView.setImageIcon(Icon)</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setImageViewResource(int viewId, int srcId)</name>
+ <description>Equivalent to calling ImageView.setImageResource(int)</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setImageViewUri(int viewId, Uri uri)</name>
+ <description>Equivalent to calling ImageView.setImageURI(Uri)</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setInt(int viewId, String methodName, int value)</name>
+ <description>Call a method taking one int on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setIntent(int viewId, String methodName, Intent value)</name>
+ <description>Call a method taking one Intent on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setLabelFor(int viewId, int labeledId)</name>
+ <description>Equivalent to calling View.setLabelFor(int).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setLong(int viewId, String methodName, long value)</name>
+ <description>Call a method taking one long on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setOnClickFillInIntent(int viewId, Intent fillInIntent)</name>
+ <description>When using collections (eg.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setOnClickPendingIntent(int viewId, PendingIntent pendingIntent)</name>
+ <description>Equivalent to calling View.setOnClickListener(android.view.View.OnClickListener) to launch the provided PendingIntent.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setPendingIntentTemplate(int viewId, PendingIntent pendingIntentTemplate)</name>
+ <description>When using collections (eg.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setProgressBar(int viewId, int max, int progress, boolean indeterminate)</name>
+ <description>Equivalent to calling ProgressBar.setMax, ProgressBar.setProgress, and ProgressBar.setIndeterminate If indeterminate is true, then the values for max and progress are ignored.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setRelativeScrollPosition(int viewId, int offset)</name>
+ <description>Equivalent to calling ListView.smoothScrollByOffset(int).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setRemoteAdapter(int appWidgetId, int viewId, Intent intent)</name>
+ <description>This method was deprecated in API level 14. This method has been deprecated. See setRemoteAdapter(int, Intent)</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setRemoteAdapter(int viewId, Intent intent)</name>
+ <description>Equivalent to calling AbsListView.setRemoteViewsAdapter(Intent).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setScrollPosition(int viewId, int position)</name>
+ <description>Equivalent to calling ListView.smoothScrollToPosition(int).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setShort(int viewId, String methodName, short value)</name>
+ <description>Call a method taking one short on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setString(int viewId, String methodName, String value)</name>
+ <description>Call a method taking one String on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setTextColor(int viewId, int color)</name>
+ <description>Equivalent to calling TextView.setTextColor(int).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setTextViewCompoundDrawables(int viewId, int left, int top, int right, int bottom)</name>
+ <description>Equivalent to calling TextView.setCompoundDrawablesWithIntrinsicBounds(int, int, int, int).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setTextViewCompoundDrawablesRelative(int viewId, int start, int top, int end, int bottom)</name>
+ <description>Equivalent to calling TextView.setCompoundDrawablesRelativeWithIntrinsicBounds(int, int, int, int).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setTextViewText(int viewId, CharSequence text)</name>
+ <description>Equivalent to calling TextView.setText(CharSequence)</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setTextViewTextSize(int viewId, int units, float size)</name>
+ <description>Equivalent to calling TextView.setTextSize(int, float)</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setUri(int viewId, String methodName, Uri value)</name>
+ <description>Call a method taking one Uri on a view in the layout for this RemoteViews.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setViewPadding(int viewId, int left, int top, int right, int bottom)</name>
+ <description>Equivalent to calling View.setPadding(int, int, int, int).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setViewVisibility(int viewId, int visibility)</name>
+ <description>Equivalent to calling View.setVisibility(int)</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>showNext(int viewId)</name>
+ <description>Equivalent to calling AdapterViewAnimator.showNext()</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>showPrevious(int viewId)</name>
+ <description>Equivalent to calling AdapterViewAnimator.showPrevious()</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>writeToParcel(Parcel dest, int flags)</name>
+ <description>Flatten this object in to a Parcel.</description>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>CREATOR</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public static final Creator&amp;lt;RemoteViews&amp;gt; CREATOR</api_signature>
+ <description>Parcelable.Creator that instantiates RemoteViews objects</description>
+ </api>
+ <api>
+ <name>RemoteViews</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public RemoteViews (String packageName, 
+                int layoutId)</api_signature>
+ <description>Create a new RemoteViews object that will display the views contained in the specified layout file.</description>
+ <parameters>
+ <parameter>
+ <name>packageName</name>
+ <description>String: Name of the package that contains the layout resource</description>
+ </parameter>
+ <parameter>
+ <name>layoutId</name>
+ <description>int: The id of the layout resource</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>RemoteViews</name>
+ <api_level>API level 16</api_level>
+ <api_signature>public RemoteViews (RemoteViews landscape, 
+                RemoteViews portrait)</api_signature>
+ <description>Create a new RemoteViews object that will inflate as the specified landspace or portrait RemoteViews, depending on the current configuration.</description>
+ <parameters>
+ <parameter>
+ <name>landscape</name>
+ <description>RemoteViews: The RemoteViews to inflate in landscape configuration</description>
+ </parameter>
+ <parameter>
+ <name>portrait</name>
+ <description>RemoteViews: The RemoteViews to inflate in portrait configuration</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>RemoteViews</name>
+ <api_level>API level 28</api_level>
+ <api_signature>public RemoteViews (RemoteViews src)</api_signature>
+ <description>Creates a copy of another RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>src</name>
+ <description>RemoteViews</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>RemoteViews</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public RemoteViews (Parcel parcel)</api_signature>
+ <description>Reads a RemoteViews object from a parcel.</description>
+ </api>
+ <api>
+ <name>addView</name>
+ <api_level>API level 7</api_level>
+ <api_signature>public void addView (int viewId, 
+                RemoteViews nestedView)</api_signature>
+ <description>Equivalent to calling ViewGroup.addView(View) after inflating the given RemoteViews. This allows users to build &amp;quot;nested&amp;quot; RemoteViews. In cases where consumers of RemoteViews may recycle layouts, use removeAllViews(int) to clear any existing children.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the parent ViewGroup to add child into.</description>
+ </parameter>
+ <parameter>
+ <name>nestedView</name>
+ <description>RemoteViews: RemoteViews that describes the child.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>apply</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public View apply (Context context, 
+                ViewGroup parent)</api_signature>
+ <description>Inflates the view hierarchy represented by this object and applies all of the actions.</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context: Default context to use</description>
+ </parameter>
+ <parameter>
+ <name>parent</name>
+ <description>ViewGroup: Parent that the resulting view hierarchy will be attached to. This method does not attach the hierarchy. The caller should do so when appropriate.</description>
+ </parameter>
+ <parameter>
+ <name>View</name>
+ <description>The inflated view hierarchy</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>clone</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public RemoteViews clone ()</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>RemoteViews</name>
+ <description>a clone of this instance.</description>
+ </parameter>
+ <parameter>
+ <name>IllegalStateException</name>
+ <description>if this is not the root of a RemoteView hierarchy</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>describeContents</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public int describeContents ()</api_signature>
+ <description>Describe the kinds of special objects contained in this Parcelable instance&amp;apos;s marshaled representation. For example, if the object will include a file descriptor in the output of writeToParcel(Parcel, int), the return value of this method must include the CONTENTS_FILE_DESCRIPTOR bit.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>a bitmask indicating the set of special object types marshaled by this Parcelable object instance.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getLayoutId</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public int getLayoutId ()</api_signature>
+ <description>Returns the layout id of the root layout associated with this RemoteViews. In the case that the RemoteViews has both a landscape and portrait root, this will return the layout id associated with the portrait layout.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>the layout id.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getPackage</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public String getPackage ()</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>String</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>onLoadClass</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public boolean onLoadClass (Class clazz)</api_signature>
+ <description>Hook to allow clients of the LayoutInflater to restrict the set of Views that are allowed to be inflated.</description>
+ <parameters>
+ <parameter>
+ <name>clazz</name>
+ <description>Class: The class object for the View that is about to be inflated</description>
+ </parameter>
+ <parameter>
+ <name>boolean</name>
+ <description>True if this class is allowed to be inflated, or false otherwise</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>reapply</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void reapply (Context context, 
+                View v)</api_signature>
+ <description>Applies all of the actions to the provided view.</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context</description>
+ </parameter>
+ <parameter>
+ <name>v</name>
+ <description>View: The view to apply the actions to. This should be the result of the apply(Context, ViewGroup) call.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>removeAllViews</name>
+ <api_level>API level 7</api_level>
+ <api_signature>public void removeAllViews (int viewId)</api_signature>
+ <description>Equivalent to calling ViewGroup.removeAllViews().</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the parent ViewGroup to remove all children from.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setAccessibilityTraversalAfter</name>
+ <api_level>API level 22</api_level>
+ <api_signature>public void setAccessibilityTraversalAfter (int viewId, 
+                int nextId)</api_signature>
+ <description>Equivalent to calling View.setAccessibilityTraversalAfter(int).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose after view in accessibility traversal to set.</description>
+ </parameter>
+ <parameter>
+ <name>nextId</name>
+ <description>int: The id of the next in the accessibility traversal.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setAccessibilityTraversalBefore</name>
+ <api_level>API level 22</api_level>
+ <api_signature>public void setAccessibilityTraversalBefore (int viewId, 
+                int nextId)</api_signature>
+ <description>Equivalent to calling View.setAccessibilityTraversalBefore(int).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose before view in accessibility traversal to set.</description>
+ </parameter>
+ <parameter>
+ <name>nextId</name>
+ <description>int: The id of the next in the accessibility traversal.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setBitmap</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setBitmap (int viewId, 
+                String methodName, 
+                Bitmap value)</api_signature>
+ <description>Call a method taking one Bitmap on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>Bitmap: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setBoolean</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setBoolean (int viewId, 
+                String methodName, 
+                boolean value)</api_signature>
+ <description>Call a method taking one boolean on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>boolean: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setBundle</name>
+ <api_level>API level 8</api_level>
+ <api_signature>public void setBundle (int viewId, 
+                String methodName, 
+                Bundle value)</api_signature>
+ <description>Call a method taking one Bundle on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>Bundle: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setByte</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setByte (int viewId, 
+                String methodName, 
+                byte value)</api_signature>
+ <description>Call a method taking one byte on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>byte: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setChar</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setChar (int viewId, 
+                String methodName, 
+                char value)</api_signature>
+ <description>Call a method taking one char on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>char: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setCharSequence</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setCharSequence (int viewId, 
+                String methodName, 
+                CharSequence value)</api_signature>
+ <description>Call a method taking one CharSequence on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>CharSequence: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setChronometer</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setChronometer (int viewId, 
+                long base, 
+                String format, 
+                boolean started)</api_signature>
+ <description>Equivalent to calling Chronometer.setBase, Chronometer.setFormat, and Chronometer.start() or Chronometer.stop().</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the Chronometer to change</description>
+ </parameter>
+ <parameter>
+ <name>base</name>
+ <description>long: The time at which the timer would have read 0:00. This time should be based off of SystemClock.elapsedRealtime().</description>
+ </parameter>
+ <parameter>
+ <name>format</name>
+ <description>String: The Chronometer format string, or null to simply display the timer value.</description>
+ </parameter>
+ <parameter>
+ <name>started</name>
+ <description>boolean: True if you want the clock to be started, false if not.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setChronometerCountDown</name>
+ <api_level>API level 24</api_level>
+ <api_signature>public void setChronometerCountDown (int viewId, 
+                boolean isCountDown)</api_signature>
+ <description>Equivalent to calling Chronometer.setCountDown on the chronometer with the given viewId.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the Chronometer to change</description>
+ </parameter>
+ <parameter>
+ <name>isCountDown</name>
+ <description>boolean: True if you want the chronometer to count down to base instead of counting up.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setContentDescription</name>
+ <api_level>API level 15</api_level>
+ <api_signature>public void setContentDescription (int viewId, 
+                CharSequence contentDescription)</api_signature>
+ <description>Equivalent to calling View.setContentDescription(CharSequence).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose content description should change.</description>
+ </parameter>
+ <parameter>
+ <name>contentDescription</name>
+ <description>CharSequence: The new content description for the view.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setDisplayedChild</name>
+ <api_level>API level 12</api_level>
+ <api_signature>public void setDisplayedChild (int viewId, 
+                int childIndex)</api_signature>
+ <description>Equivalent to calling AdapterViewAnimator.setDisplayedChild(int)</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call AdapterViewAnimator.setDisplayedChild(int)</description>
+ </parameter>
+ <parameter>
+ <name>childIndex</name>
+ <description>int</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setDouble</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setDouble (int viewId, 
+                String methodName, 
+                double value)</api_signature>
+ <description>Call a method taking one double on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>double: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setEmptyView</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public void setEmptyView (int viewId, 
+                int emptyViewId)</api_signature>
+ <description>Equivalent to calling AdapterView.setEmptyView(View)</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to set the empty view</description>
+ </parameter>
+ <parameter>
+ <name>emptyViewId</name>
+ <description>int: The view id of the empty view</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setFloat</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setFloat (int viewId, 
+                String methodName, 
+                float value)</api_signature>
+ <description>Call a method taking one float on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>float: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setIcon</name>
+ <api_level>API level 23</api_level>
+ <api_signature>public void setIcon (int viewId, 
+                String methodName, 
+                Icon value)</api_signature>
+ <description>Call a method taking one Icon on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>Icon: The Icon to pass the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setImageViewBitmap</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setImageViewBitmap (int viewId, 
+                Bitmap bitmap)</api_signature>
+ <description>Equivalent to calling ImageView.setImageBitmap(Bitmap)</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose bitmap should change</description>
+ </parameter>
+ <parameter>
+ <name>bitmap</name>
+ <description>Bitmap: The new Bitmap for the drawable</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setImageViewIcon</name>
+ <api_level>API level 23</api_level>
+ <api_signature>public void setImageViewIcon (int viewId, 
+                Icon icon)</api_signature>
+ <description>Equivalent to calling ImageView.setImageIcon(Icon)</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose bitmap should change</description>
+ </parameter>
+ <parameter>
+ <name>icon</name>
+ <description>Icon: The new Icon for the ImageView</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setImageViewResource</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setImageViewResource (int viewId, 
+                int srcId)</api_signature>
+ <description>Equivalent to calling ImageView.setImageResource(int)</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose drawable should change</description>
+ </parameter>
+ <parameter>
+ <name>srcId</name>
+ <description>int: The new resource id for the drawable</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setImageViewUri</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setImageViewUri (int viewId, 
+                Uri uri)</api_signature>
+ <description>Equivalent to calling ImageView.setImageURI(Uri)</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose drawable should change</description>
+ </parameter>
+ <parameter>
+ <name>uri</name>
+ <description>Uri: The Uri for the image</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setInt</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setInt (int viewId, 
+                String methodName, 
+                int value)</api_signature>
+ <description>Call a method taking one int on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>int: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setIntent</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public void setIntent (int viewId, 
+                String methodName, 
+                Intent value)</api_signature>
+ <description>Call a method taking one Intent on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>Intent: The Intent to pass the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setLabelFor</name>
+ <api_level>API level 17</api_level>
+ <api_signature>public void setLabelFor (int viewId, 
+                int labeledId)</api_signature>
+ <description>Equivalent to calling View.setLabelFor(int).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose property to set.</description>
+ </parameter>
+ <parameter>
+ <name>labeledId</name>
+ <description>int: The id of a view for which this view serves as a label.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setLong</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setLong (int viewId, 
+                String methodName, 
+                long value)</api_signature>
+ <description>Call a method taking one long on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>long: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setOnClickFillInIntent</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public void setOnClickFillInIntent (int viewId, 
+                Intent fillInIntent)</api_signature>
+ <description>When using collections (eg. ListView, StackView etc.) in widgets, it is very costly to set PendingIntents on the individual items, and is hence not permitted. Instead a single PendingIntent template can be set on the collection, see setPendingIntentTemplate(int, PendingIntent), and the individual on-click action of a given item can be distinguished by setting a fillInIntent on that item. The fillInIntent is then combined with the PendingIntent template in order to determine the final intent which will be executed when the item is clicked. This works as follows: any fields which are left blank in the PendingIntent template, but are provided by the fillInIntent will be overwritten, and the resulting PendingIntent will be used. The rest of the PendingIntent template will then be filled in with the associated fields that are set in fillInIntent. See Intent.fillIn(Intent, int) for more details.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to set the fillInIntent</description>
+ </parameter>
+ <parameter>
+ <name>fillInIntent</name>
+ <description>Intent: The intent which will be combined with the parent&amp;apos;s PendingIntent in order to determine the on-click behavior of the view specified by viewId</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setOnClickPendingIntent</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setOnClickPendingIntent (int viewId, 
+                PendingIntent pendingIntent)</api_signature>
+ <description>Equivalent to calling View.setOnClickListener(android.view.View.OnClickListener) to launch the provided PendingIntent. The source bounds (Intent.getSourceBounds()) of the intent will be set to the bounds of the clicked view in screen space. Note that any activity options associated with the pendingIntent may get overridden before starting the intent. When setting the on-click action of items within collections (eg. ListView, StackView etc.), this method will not work. Instead, use setPendingIntentTemplate(int, PendingIntent) in conjunction with setOnClickFillInIntent(int, Intent).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view that will trigger the PendingIntent when clicked</description>
+ </parameter>
+ <parameter>
+ <name>pendingIntent</name>
+ <description>PendingIntent: The PendingIntent to send when user clicks</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setPendingIntentTemplate</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public void setPendingIntentTemplate (int viewId, 
+                PendingIntent pendingIntentTemplate)</api_signature>
+ <description>When using collections (eg. ListView, StackView etc.) in widgets, it is very costly to set PendingIntents on the individual items, and is hence not permitted. Instead this method should be used to set a single PendingIntent template on the collection, and individual items can differentiate their on-click behavior using setOnClickFillInIntent(int, Intent).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the collection who&amp;apos;s children will use this PendingIntent template when clicked</description>
+ </parameter>
+ <parameter>
+ <name>pendingIntentTemplate</name>
+ <description>PendingIntent: The PendingIntent to be combined with extras specified by a child of viewId and executed when that child is clicked</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setProgressBar</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setProgressBar (int viewId, 
+                int max, 
+                int progress, 
+                boolean indeterminate)</api_signature>
+ <description>Equivalent to calling ProgressBar.setMax, ProgressBar.setProgress, and ProgressBar.setIndeterminate If indeterminate is true, then the values for max and progress are ignored.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the ProgressBar to change</description>
+ </parameter>
+ <parameter>
+ <name>max</name>
+ <description>int: The 100% value for the progress bar</description>
+ </parameter>
+ <parameter>
+ <name>progress</name>
+ <description>int: The current value of the progress bar.</description>
+ </parameter>
+ <parameter>
+ <name>indeterminate</name>
+ <description>boolean: True if the progress bar is indeterminate, false if not.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setRelativeScrollPosition</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public void setRelativeScrollPosition (int viewId, 
+                int offset)</api_signature>
+ <description>Equivalent to calling ListView.smoothScrollByOffset(int).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view to change</description>
+ </parameter>
+ <parameter>
+ <name>offset</name>
+ <description>int: Scroll by this adapter position offset</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setRemoteAdapter</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public void setRemoteAdapter (int appWidgetId, 
+                int viewId, 
+                Intent intent)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>appWidgetId</name>
+ <description>int: The id of the app widget which contains the specified view. (This parameter is ignored in this deprecated method)</description>
+ </parameter>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the AdapterView</description>
+ </parameter>
+ <parameter>
+ <name>intent</name>
+ <description>Intent: The intent of the service which will be providing data to the RemoteViewsAdapter</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setRemoteAdapter</name>
+ <api_level>API level 14</api_level>
+ <api_signature>public void setRemoteAdapter (int viewId, 
+                Intent intent)</api_signature>
+ <description>Equivalent to calling AbsListView.setRemoteViewsAdapter(Intent). Can only be used for App Widgets.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the AdapterView</description>
+ </parameter>
+ <parameter>
+ <name>intent</name>
+ <description>Intent: The intent of the service which will be providing data to the RemoteViewsAdapter</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setScrollPosition</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public void setScrollPosition (int viewId, 
+                int position)</api_signature>
+ <description>Equivalent to calling ListView.smoothScrollToPosition(int).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view to change</description>
+ </parameter>
+ <parameter>
+ <name>position</name>
+ <description>int: Scroll to this adapter position</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setShort</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setShort (int viewId, 
+                String methodName, 
+                short value)</api_signature>
+ <description>Call a method taking one short on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>short: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setString</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setString (int viewId, 
+                String methodName, 
+                String value)</api_signature>
+ <description>Call a method taking one String on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>String: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setTextColor</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setTextColor (int viewId, 
+                int color)</api_signature>
+ <description>Equivalent to calling TextView.setTextColor(int).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose text color should change</description>
+ </parameter>
+ <parameter>
+ <name>color</name>
+ <description>int: Sets the text color for all the states (normal, selected, focused) to be this color.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setTextViewCompoundDrawables</name>
+ <api_level>API level 16</api_level>
+ <api_signature>public void setTextViewCompoundDrawables (int viewId, 
+                int left, 
+                int top, 
+                int right, 
+                int bottom)</api_signature>
+ <description>Equivalent to calling TextView.setCompoundDrawablesWithIntrinsicBounds(int, int, int, int).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose text should change</description>
+ </parameter>
+ <parameter>
+ <name>left</name>
+ <description>int: The id of a drawable to place to the left of the text, or 0</description>
+ </parameter>
+ <parameter>
+ <name>top</name>
+ <description>int: The id of a drawable to place above the text, or 0</description>
+ </parameter>
+ <parameter>
+ <name>right</name>
+ <description>int: The id of a drawable to place to the right of the text, or 0</description>
+ </parameter>
+ <parameter>
+ <name>bottom</name>
+ <description>int: The id of a drawable to place below the text, or 0</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setTextViewCompoundDrawablesRelative</name>
+ <api_level>API level 16</api_level>
+ <api_signature>public void setTextViewCompoundDrawablesRelative (int viewId, 
+                int start, 
+                int top, 
+                int end, 
+                int bottom)</api_signature>
+ <description>Equivalent to calling TextView.setCompoundDrawablesRelativeWithIntrinsicBounds(int, int, int, int).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose text should change</description>
+ </parameter>
+ <parameter>
+ <name>start</name>
+ <description>int: The id of a drawable to place before the text (relative to the layout direction), or 0</description>
+ </parameter>
+ <parameter>
+ <name>top</name>
+ <description>int: The id of a drawable to place above the text, or 0</description>
+ </parameter>
+ <parameter>
+ <name>end</name>
+ <description>int: The id of a drawable to place after the text, or 0</description>
+ </parameter>
+ <parameter>
+ <name>bottom</name>
+ <description>int: The id of a drawable to place below the text, or 0</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setTextViewText</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setTextViewText (int viewId, 
+                CharSequence text)</api_signature>
+ <description>Equivalent to calling TextView.setText(CharSequence)</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose text should change</description>
+ </parameter>
+ <parameter>
+ <name>text</name>
+ <description>CharSequence: The new text for the view</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setTextViewTextSize</name>
+ <api_level>API level 16</api_level>
+ <api_signature>public void setTextViewTextSize (int viewId, 
+                int units, 
+                float size)</api_signature>
+ <description>Equivalent to calling TextView.setTextSize(int, float)</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose text size should change</description>
+ </parameter>
+ <parameter>
+ <name>units</name>
+ <description>int: The units of size (e.g. COMPLEX_UNIT_SP)</description>
+ </parameter>
+ <parameter>
+ <name>size</name>
+ <description>float: The size of the text</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setUri</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public void setUri (int viewId, 
+                String methodName, 
+                Uri value)</api_signature>
+ <description>Call a method taking one Uri on a view in the layout for this RemoteViews.</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call the method.</description>
+ </parameter>
+ <parameter>
+ <name>methodName</name>
+ <description>String: The name of the method to call.</description>
+ </parameter>
+ <parameter>
+ <name>value</name>
+ <description>Uri: The value to pass to the method.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setViewPadding</name>
+ <api_level>API level 16</api_level>
+ <api_signature>public void setViewPadding (int viewId, 
+                int left, 
+                int top, 
+                int right, 
+                int bottom)</api_signature>
+ <description>Equivalent to calling View.setPadding(int, int, int, int).</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view to change</description>
+ </parameter>
+ <parameter>
+ <name>left</name>
+ <description>int: the left padding in pixels</description>
+ </parameter>
+ <parameter>
+ <name>top</name>
+ <description>int: the top padding in pixels</description>
+ </parameter>
+ <parameter>
+ <name>right</name>
+ <description>int: the right padding in pixels</description>
+ </parameter>
+ <parameter>
+ <name>bottom</name>
+ <description>int: the bottom padding in pixels</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setViewVisibility</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setViewVisibility (int viewId, 
+                int visibility)</api_signature>
+ <description>Equivalent to calling View.setVisibility(int)</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view whose visibility should change</description>
+ </parameter>
+ <parameter>
+ <name>visibility</name>
+ <description>int: The new visibility for the view</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>showNext</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public void showNext (int viewId)</api_signature>
+ <description>Equivalent to calling AdapterViewAnimator.showNext()</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call AdapterViewAnimator.showNext()</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>showPrevious</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public void showPrevious (int viewId)</api_signature>
+ <description>Equivalent to calling AdapterViewAnimator.showPrevious()</description>
+ <parameters>
+ <parameter>
+ <name>viewId</name>
+ <description>int: The id of the view on which to call AdapterViewAnimator.showPrevious()</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>writeToParcel</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void writeToParcel (Parcel dest, 
+                int flags)</api_signature>
+ <description>Flatten this object in to a Parcel.</description>
+ <parameters>
+ <parameter>
+ <name>dest</name>
+ <description>Parcel: The Parcel in which the object should be written.</description>
+ </parameter>
+ <parameter>
+ <name>flags</name>
+ <description>int: Additional flags about how the object should be written. May be 0 or Parcelable.PARCELABLE_WRITE_RETURN_VALUE.</description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>

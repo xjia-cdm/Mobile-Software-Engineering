@@ -1,0 +1,1895 @@
+<api>
+ <title>RemoteViewsService</title>
+ <api-signature>public abstract class RemoteViewsService extends Service</api-signature>
+ <inheritance>java.lang.Object ↳ android.content.Context ↳ android.content.ContextWrapper ↳ android.app.Service ↳ android.widget.RemoteViewsService</inheritance>
+ <subclasses-direct-summary>
+ </subclasses-direct-summary>
+ <subclasses-indirect-summary>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ <class>
+ <name>android.app.Service</name>
+ <constant>
+ <type>int</type>
+ <name>START_CONTINUATION_MASK</name>
+ <description>Bits returned by onStartCommand(Intent, int, int) describing how to continue the service if it is killed.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>START_FLAG_REDELIVERY</name>
+ <description>This flag is set in onStartCommand(Intent, int, int) if the Intent is a re-delivery of a previously delivered intent, because the service had previously returned START_REDELIVER_INTENT but had been killed before calling stopSelf(int) for that Intent.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>START_FLAG_RETRY</name>
+ <description>This flag is set in onStartCommand(Intent, int, int) if the Intent is a retry because the original attempt never got to or returned from onStartCommand(Intent, int, int).</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>START_NOT_STICKY</name>
+ <description>Constant to return from onStartCommand(Intent, int, int): if this service&amp;apos;s process is killed while it is started (after returning from onStartCommand(Intent, int, int)), and there are no new start intents to deliver to it, then take the service out of the started state and don&amp;apos;t recreate until a future explicit call to Context.startService(Intent).</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>START_REDELIVER_INTENT</name>
+ <description>Constant to return from onStartCommand(Intent, int, int): if this service&amp;apos;s process is killed while it is started (after returning from onStartCommand(Intent, int, int)), then it will be scheduled for a restart and the last delivered Intent re-delivered to it again via onStartCommand(Intent, int, int).</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>START_STICKY</name>
+ <description>Constant to return from onStartCommand(Intent, int, int): if this service&amp;apos;s process is killed while it is started (after returning from onStartCommand(Intent, int, int)), then leave it in the started state but don&amp;apos;t retain this delivered intent.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>START_STICKY_COMPATIBILITY</name>
+ <description>Constant to return from onStartCommand(Intent, int, int): compatibility version of START_STICKY that does not guarantee that onStartCommand(Intent, int, int) will be called again after being killed.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>STOP_FOREGROUND_DETACH</name>
+ <description>Flag for stopForeground(int): if set, the notification previously provided to startForeground(int, Notification) will be detached from the service.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>STOP_FOREGROUND_REMOVE</name>
+ <description>Flag for stopForeground(int): if set, the notification previously provided to startForeground(int, Notification) will be removed.</description>
+ </constant>
+ </class>
+ <class>
+ <name>android.content.Context</name>
+ <constant>
+ <type>String</type>
+ <name>ACCESSIBILITY_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a AccessibilityManager for giving the user feedback for UI events through the registered event listeners.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>ACCOUNT_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a AccountManager for receiving intents at a time of your choosing.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>ACTIVITY_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a ActivityManager for interacting with the global system state.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>ALARM_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a AlarmManager for receiving intents at a time of your choosing.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>APPWIDGET_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a AppWidgetManager for accessing AppWidgets.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>APP_OPS_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a AppOpsManager for tracking application operations on the device.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>AUDIO_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a AudioManager for handling management of volume, ringer modes and audio routing.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>BATTERY_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a BatteryManager for managing battery state.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>BIND_ABOVE_CLIENT</name>
+ <description>Flag for bindService(Intent, ServiceConnection, int): indicates that the client application binding to this service considers the service to be more important than the app itself.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>BIND_ADJUST_WITH_ACTIVITY</name>
+ <description>Flag for bindService(Intent, ServiceConnection, int): If binding from an activity, allow the target service&amp;apos;s process importance to be raised based on whether the activity is visible to the user, regardless whether another flag is used to reduce the amount that the client process&amp;apos;s overall importance is used to impact it.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>BIND_ALLOW_OOM_MANAGEMENT</name>
+ <description>Flag for bindService(Intent, ServiceConnection, int): allow the process hosting the bound service to go through its normal memory management.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>BIND_AUTO_CREATE</name>
+ <description>Flag for bindService(Intent, ServiceConnection, int): automatically create the service as long as the binding exists.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>BIND_DEBUG_UNBIND</name>
+ <description>Flag for bindService(Intent, ServiceConnection, int): include debugging help for mismatched calls to unbind.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>BIND_EXTERNAL_SERVICE</name>
+ <description>Flag for bindService(Intent, ServiceConnection, int): The service being bound is an isolated, external service.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>BIND_IMPORTANT</name>
+ <description>Flag for bindService(Intent, ServiceConnection, int): this service is very important to the client, so should be brought to the foreground process level when the client is.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>BIND_NOT_FOREGROUND</name>
+ <description>Flag for bindService(Intent, ServiceConnection, int): don&amp;apos;t allow this binding to raise the target service&amp;apos;s process to the foreground scheduling priority.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>BIND_WAIVE_PRIORITY</name>
+ <description>Flag for bindService(Intent, ServiceConnection, int): don&amp;apos;t impact the scheduling or memory management priority of the target service&amp;apos;s hosting process.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>BLUETOOTH_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a BluetoothManager for using Bluetooth.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>CAMERA_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a CameraManager for interacting with camera devices.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>CAPTIONING_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a CaptioningManager for obtaining captioning properties and listening for changes in captioning preferences.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>CARRIER_CONFIG_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a CarrierConfigManager for reading carrier configuration values.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>CLIPBOARD_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a ClipboardManager for accessing and modifying the contents of the global clipboard.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>COMPANION_DEVICE_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a CompanionDeviceManager for managing companion devices</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>CONNECTIVITY_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a ConnectivityManager for handling management of network connections.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>CONSUMER_IR_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a ConsumerIrManager for transmitting infrared signals from the device.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>CONTEXT_IGNORE_SECURITY</name>
+ <description>Flag for use with createPackageContext(String, int): ignore any security restrictions on the Context being requested, allowing it to always be loaded.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>CONTEXT_INCLUDE_CODE</name>
+ <description>Flag for use with createPackageContext(String, int): include the application code with the context.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>CONTEXT_RESTRICTED</name>
+ <description>Flag for use with createPackageContext(String, int): a restricted context may disable specific features.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>CROSS_PROFILE_APPS_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a CrossProfileApps for cross profile operations.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>DEVICE_POLICY_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a DevicePolicyManager for working with global device policy management.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>DISPLAY_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a DisplayManager for interacting with display devices.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>DOWNLOAD_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a DownloadManager for requesting HTTP downloads.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>DROPBOX_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a DropBoxManager instance for recording diagnostic logs.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>EUICC_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a EuiccManager to manage the device eUICC (embedded SIM).</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>FINGERPRINT_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a FingerprintManager for handling management of fingerprints.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>HARDWARE_PROPERTIES_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a HardwarePropertiesManager for accessing the hardware properties service.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>INPUT_METHOD_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a InputMethodManager for accessing input methods.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>INPUT_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a InputManager for interacting with input devices.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>IPSEC_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a IpSecManager for encrypting Sockets or Networks with IPSec.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>JOB_SCHEDULER_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a JobScheduler instance for managing occasional background tasks.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>KEYGUARD_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a NotificationManager for controlling keyguard.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>LAUNCHER_APPS_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a LauncherApps for querying and monitoring launchable apps across profiles of a user.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>LAYOUT_INFLATER_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a LayoutInflater for inflating layout resources in this context.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>LOCATION_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a LocationManager for controlling location updates.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>MEDIA_PROJECTION_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a MediaProjectionManager instance for managing media projection sessions.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>MEDIA_ROUTER_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a MediaRouter for controlling and managing routing of media.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>MEDIA_SESSION_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a MediaSessionManager for managing media Sessions.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>MIDI_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a MidiManager for accessing the MIDI service.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>MODE_APPEND</name>
+ <description>File creation mode: for use with openFileOutput(String, int), if the file already exists then write data to the end of the existing file instead of erasing it.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>MODE_ENABLE_WRITE_AHEAD_LOGGING</name>
+ <description>Database open flag: when set, the database is opened with write-ahead logging enabled by default.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>MODE_MULTI_PROCESS</name>
+ <description>This constant was deprecated in API level 23. MODE_MULTI_PROCESS does not work reliably in some versions of Android, and furthermore does not provide any mechanism for reconciling concurrent modifications across processes. Applications should not attempt to use it. Instead, they should use an explicit cross-process data management approach such as ContentProvider.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>MODE_NO_LOCALIZED_COLLATORS</name>
+ <description>Database open flag: when set, the database is opened without support for localized collators.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>MODE_PRIVATE</name>
+ <description>File creation mode: the default mode, where the created file can only be accessed by the calling application (or all applications sharing the same user ID).</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>MODE_WORLD_READABLE</name>
+ <description>This constant was deprecated in API level 17. Creating world-readable files is very dangerous, and likely to cause security holes in applications. It is strongly discouraged; instead, applications should use more formal mechanism for interactions such as ContentProvider, BroadcastReceiver, and Service. There are no guarantees that this access mode will remain on a file, such as when it goes through a backup and restore.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>MODE_WORLD_WRITEABLE</name>
+ <description>This constant was deprecated in API level 17. Creating world-writable files is very dangerous, and likely to cause security holes in applications. It is strongly discouraged; instead, applications should use more formal mechanism for interactions such as ContentProvider, BroadcastReceiver, and Service. There are no guarantees that this access mode will remain on a file, such as when it goes through a backup and restore.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>NETWORK_STATS_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a NetworkStatsManager for querying network usage stats.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>NFC_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a NfcManager for using NFC.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>NOTIFICATION_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a NotificationManager for informing the user of background events.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>NSD_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a NsdManager for handling management of network service discovery</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>POWER_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a PowerManager for controlling power management, including &amp;quot;wake locks,&amp;quot; which let you keep the device on while you&amp;apos;re running long tasks.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>PRINT_SERVICE</name>
+ <description>PrintManager for printing and managing printers and print tasks.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>RECEIVER_VISIBLE_TO_INSTANT_APPS</name>
+ <description>Flag for registerReceiver(BroadcastReceiver, IntentFilter): The receiver can receive broadcasts from Instant Apps.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>RESTRICTIONS_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a RestrictionsManager for retrieving application restrictions and requesting permissions for restricted operations.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>SEARCH_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a SearchManager for handling searches.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>SENSOR_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a SensorManager for accessing sensors.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>SHORTCUT_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a ShortcutManager for accessing the launcher shortcut service.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>STORAGE_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a StorageManager for accessing system storage functions.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>STORAGE_STATS_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a StorageStatsManager for accessing system storage statistics.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>SYSTEM_HEALTH_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a SystemHealthManager for accessing system health (battery, power, memory, etc) metrics.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>TELECOM_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a TelecomManager to manage telecom-related features of the device.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>TELEPHONY_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a TelephonyManager for handling management the telephony features of the device.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>TELEPHONY_SUBSCRIPTION_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a SubscriptionManager for handling management the telephony subscriptions of the device.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>TEXT_CLASSIFICATION_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a TextClassificationManager for text classification services.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>TEXT_SERVICES_MANAGER_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a TextServicesManager for accessing text services.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>TV_INPUT_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a TvInputManager for interacting with TV inputs on the device.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>UI_MODE_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a UiModeManager for controlling UI modes.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>USAGE_STATS_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a UsageStatsManager for querying device usage stats.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>USB_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a UsbManager for access to USB devices (as a USB host) and for controlling this device&amp;apos;s behavior as a USB device.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>USER_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a UserManager for managing users on devices that support multiple users.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>VIBRATOR_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a Vibrator for interacting with the vibration hardware.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>WALLPAPER_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a com.android.server.WallpaperService for accessing wallpapers.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>WIFI_AWARE_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a WifiAwareManager for handling management of Wi-Fi Aware.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>WIFI_P2P_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a WifiP2pManager for handling management of Wi-Fi peer-to-peer connections.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>WIFI_RTT_RANGING_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a WifiRttManager for ranging devices with wifi Note: this is a replacement for WIFI_RTT_SERVICE above.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>WIFI_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a WifiManager for handling management of Wi-Fi access.</description>
+ </constant>
+ <constant>
+ <type>String</type>
+ <name>WINDOW_SERVICE</name>
+ <description>Use with getSystemService(String) to retrieve a WindowManager for accessing the system&amp;apos;s window manager.</description>
+ </constant>
+ </class>
+ <class>
+ <name>android.content.ComponentCallbacks2</name>
+ <constant>
+ <type>int</type>
+ <name>TRIM_MEMORY_BACKGROUND</name>
+ <description>Level for onTrimMemory(int): the process has gone on to the LRU list.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>TRIM_MEMORY_COMPLETE</name>
+ <description>Level for onTrimMemory(int): the process is nearing the end of the background LRU list, and if more memory isn&amp;apos;t found soon it will be killed.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>TRIM_MEMORY_MODERATE</name>
+ <description>Level for onTrimMemory(int): the process is around the middle of the background LRU list; freeing memory can help the system keep other processes running later in the list for better overall performance.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>TRIM_MEMORY_RUNNING_CRITICAL</name>
+ <description>Level for onTrimMemory(int): the process is not an expendable background process, but the device is running extremely low on memory and is about to not be able to keep any background processes running.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>TRIM_MEMORY_RUNNING_LOW</name>
+ <description>Level for onTrimMemory(int): the process is not an expendable background process, but the device is running low on memory.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>TRIM_MEMORY_RUNNING_MODERATE</name>
+ <description>Level for onTrimMemory(int): the process is not an expendable background process, but the device is running moderately low on memory.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>TRIM_MEMORY_UI_HIDDEN</name>
+ <description>Level for onTrimMemory(int): the process had been showing a user interface, and is no longer doing so.</description>
+ </constant>
+ </class>
+ </inherited_constants>
+ <inherited_fields>
+ </inherited_fields>
+ <inherited_methods>
+ <name>android.app.Service</name>
+ <class>
+ <method>
+ <return-value>void</return-value>
+ <name>dump(FileDescriptor fd, PrintWriter writer, String[] args)</name>
+ <description>Print the Service&amp;apos;s state into the given stream.</description>
+ </method>
+ <method>
+ <return-value>final Application</return-value>
+ <name>getApplication()</name>
+ <description>Return the application that owns this service.</description>
+ </method>
+ <method>
+ <return-value>abstract IBinder</return-value>
+ <name>onBind(Intent intent)</name>
+ <description>Return the communication channel to the service.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onConfigurationChanged(Configuration newConfig)</name>
+ <description>Called by the system when the device configuration changes while your component is running.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onCreate()</name>
+ <description>Called by the system when the service is first created.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onDestroy()</name>
+ <description>Called by the system to notify a Service that it is no longer used and is being removed.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onLowMemory()</name>
+ <description>This is called when the overall system is running low on memory, and actively running processes should trim their memory usage.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onRebind(Intent intent)</name>
+ <description>Called when new clients have connected to the service, after it had previously been notified that all had disconnected in its onUnbind(Intent).</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onStart(Intent intent, int startId)</name>
+ <description>This method was deprecated in API level 5. Implement onStartCommand(Intent, int, int) instead.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>onStartCommand(Intent intent, int flags, int startId)</name>
+ <description>Called by the system every time a client explicitly starts the service by calling Context.startService(Intent), providing the arguments it supplied and a unique integer token representing the start request.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onTaskRemoved(Intent rootIntent)</name>
+ <description>This is called if the service is currently running and the user has removed a task that comes from the service&amp;apos;s application.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>onTrimMemory(int level)</name>
+ <description>Called when the operating system has determined that it is a good time for a process to trim unneeded memory from its process.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>onUnbind(Intent intent)</name>
+ <description>Called when all clients have disconnected from a particular interface published by the service.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>startForeground(int id, Notification notification)</name>
+ <description>If your service is started (running through Context.startService(Intent)), then also make this service run in the foreground, supplying the ongoing notification to be shown to the user while in this state.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>stopForeground(int flags)</name>
+ <description>Remove this service from foreground state, allowing it to be killed if more memory is needed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>stopForeground(boolean removeNotification)</name>
+ <description>Synonym for stopForeground(int).</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>stopSelf()</name>
+ <description>Stop the service, if it was previously started.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>stopSelf(int startId)</name>
+ <description>Old version of stopSelfResult(int) that doesn&amp;apos;t return a result.</description>
+ </method>
+ <method>
+ <return-value>final boolean</return-value>
+ <name>stopSelfResult(int startId)</name>
+ <description>Stop the service if the most recent time it was started was startId.</description>
+ </method>
+ </class>
+ <name>android.content.ContextWrapper</name>
+ <class>
+ <method>
+ <return-value>void</return-value>
+ <name>attachBaseContext(Context base)</name>
+ <description>Set the base context for this ContextWrapper.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>bindService(Intent service, ServiceConnection conn, int flags)</name>
+ <description>Connect to an application service, creating it if needed.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>checkCallingOrSelfPermission(String permission)</name>
+ <description>Determine whether the calling process of an IPC or you have been granted a particular permission.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>checkCallingOrSelfUriPermission(Uri uri, int modeFlags)</name>
+ <description>Determine whether the calling process of an IPC or you has been granted permission to access a specific URI.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>checkCallingPermission(String permission)</name>
+ <description>Determine whether the calling process of an IPC you are handling has been granted a particular permission.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>checkCallingUriPermission(Uri uri, int modeFlags)</name>
+ <description>Determine whether the calling process and user ID has been granted permission to access a specific URI.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>checkPermission(String permission, int pid, int uid)</name>
+ <description>Determine whether the given permission is allowed for a particular process and user ID running in the system.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>checkSelfPermission(String permission)</name>
+ <description>Determine whether you have been granted a particular permission.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>checkUriPermission(Uri uri, String readPermission, String writePermission, int pid, int uid, int modeFlags)</name>
+ <description>Check both a Uri and normal permission.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>checkUriPermission(Uri uri, int pid, int uid, int modeFlags)</name>
+ <description>Determine whether a particular process and user ID has been granted permission to access a specific URI.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>clearWallpaper()</name>
+ <description>This method was deprecated in API level 23. Use WallpaperManager.clear() instead.</description>
+ </method>
+ <method>
+ <return-value>Context</return-value>
+ <name>createConfigurationContext(Configuration overrideConfiguration)</name>
+ <description>Return a new Context object for the current Context but whose resources are adjusted to match the given Configuration.</description>
+ </method>
+ <method>
+ <return-value>Context</return-value>
+ <name>createDeviceProtectedStorageContext()</name>
+ <description>Return a new Context object for the current Context but whose storage APIs are backed by device-protected storage.</description>
+ </method>
+ <method>
+ <return-value>Context</return-value>
+ <name>createDisplayContext(Display display)</name>
+ <description>Return a new Context object for the current Context but whose resources are adjusted to match the metrics of the given Display.</description>
+ </method>
+ <method>
+ <return-value>Context</return-value>
+ <name>createPackageContext(String packageName, int flags)</name>
+ <description>Return a new Context object for the given application name.</description>
+ </method>
+ <method>
+ <return-value>String[]</return-value>
+ <name>databaseList()</name>
+ <description>Returns an array of strings naming the private databases associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>deleteDatabase(String name)</name>
+ <description>Delete an existing private SQLiteDatabase associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>deleteFile(String name)</name>
+ <description>Delete the given private file associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>deleteSharedPreferences(String name)</name>
+ <description>Delete an existing shared preferences file.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>enforceCallingOrSelfPermission(String permission, String message)</name>
+ <description>If neither you nor the calling process of an IPC you are handling has been granted a particular permission, throw a SecurityException.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>enforceCallingOrSelfUriPermission(Uri uri, int modeFlags, String message)</name>
+ <description>If the calling process of an IPC or you has not been granted permission to access a specific URI, throw SecurityException.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>enforceCallingPermission(String permission, String message)</name>
+ <description>If the calling process of an IPC you are handling has not been granted a particular permission, throw a SecurityException.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>enforceCallingUriPermission(Uri uri, int modeFlags, String message)</name>
+ <description>If the calling process and user ID has not been granted permission to access a specific URI, throw SecurityException.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>enforcePermission(String permission, int pid, int uid, String message)</name>
+ <description>If the given permission is not allowed for a particular process and user ID running in the system, throw a SecurityException.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>enforceUriPermission(Uri uri, String readPermission, String writePermission, int pid, int uid, int modeFlags, String message)</name>
+ <description>Enforce both a Uri and normal permission.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>enforceUriPermission(Uri uri, int pid, int uid, int modeFlags, String message)</name>
+ <description>If a particular process and user ID has not been granted permission to access a specific URI, throw SecurityException.</description>
+ </method>
+ <method>
+ <return-value>String[]</return-value>
+ <name>fileList()</name>
+ <description>Returns an array of strings naming the private files associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>Context</return-value>
+ <name>getApplicationContext()</name>
+ <description>Return the context of the single, global Application object of the current process.</description>
+ </method>
+ <method>
+ <return-value>ApplicationInfo</return-value>
+ <name>getApplicationInfo()</name>
+ <description>Return the full application info for this context&amp;apos;s package.</description>
+ </method>
+ <method>
+ <return-value>AssetManager</return-value>
+ <name>getAssets()</name>
+ <description>Returns an AssetManager instance for the application&amp;apos;s package.</description>
+ </method>
+ <method>
+ <return-value>Context</return-value>
+ <name>getBaseContext()</name>
+ </method>
+ <method>
+ <return-value>File</return-value>
+ <name>getCacheDir()</name>
+ <description>Returns the absolute path to the application specific cache directory on the filesystem.</description>
+ </method>
+ <method>
+ <return-value>ClassLoader</return-value>
+ <name>getClassLoader()</name>
+ <description>Return a class loader you can use to retrieve classes in this package.</description>
+ </method>
+ <method>
+ <return-value>File</return-value>
+ <name>getCodeCacheDir()</name>
+ <description>Returns the absolute path to the application specific cache directory on the filesystem designed for storing cached code.</description>
+ </method>
+ <method>
+ <return-value>ContentResolver</return-value>
+ <name>getContentResolver()</name>
+ <description>Return a ContentResolver instance for your application&amp;apos;s package.</description>
+ </method>
+ <method>
+ <return-value>File</return-value>
+ <name>getDataDir()</name>
+ <description>Returns the absolute path to the directory on the filesystem where all private files belonging to this app are stored.</description>
+ </method>
+ <method>
+ <return-value>File</return-value>
+ <name>getDatabasePath(String name)</name>
+ <description>Returns the absolute path on the filesystem where a database created with openOrCreateDatabase(String, int, SQLiteDatabase.CursorFactory) is stored.</description>
+ </method>
+ <method>
+ <return-value>File</return-value>
+ <name>getDir(String name, int mode)</name>
+ <description>Retrieve, creating if needed, a new directory in which the application can place its own custom data files.</description>
+ </method>
+ <method>
+ <return-value>File</return-value>
+ <name>getExternalCacheDir()</name>
+ <description>Returns absolute path to application-specific directory on the primary shared/external storage device where the application can place cache files it owns.</description>
+ </method>
+ <method>
+ <return-value>File[]</return-value>
+ <name>getExternalCacheDirs()</name>
+ <description>Returns absolute paths to application-specific directories on all shared/external storage devices where the application can place cache files it owns.</description>
+ </method>
+ <method>
+ <return-value>File</return-value>
+ <name>getExternalFilesDir(String type)</name>
+ <description>Returns the absolute path to the directory on the primary shared/external storage device where the application can place persistent files it owns.</description>
+ </method>
+ <method>
+ <return-value>File[]</return-value>
+ <name>getExternalFilesDirs(String type)</name>
+ <description>Returns absolute paths to application-specific directories on all shared/external storage devices where the application can place persistent files it owns.</description>
+ </method>
+ <method>
+ <return-value>File[]</return-value>
+ <name>getExternalMediaDirs()</name>
+ <description>Returns absolute paths to application-specific directories on all shared/external storage devices where the application can place media files.</description>
+ </method>
+ <method>
+ <return-value>File</return-value>
+ <name>getFileStreamPath(String name)</name>
+ <description>Returns the absolute path on the filesystem where a file created with openFileOutput(String, int) is stored.</description>
+ </method>
+ <method>
+ <return-value>File</return-value>
+ <name>getFilesDir()</name>
+ <description>Returns the absolute path to the directory on the filesystem where files created with openFileOutput(String, int) are stored.</description>
+ </method>
+ <method>
+ <return-value>Executor</return-value>
+ <name>getMainExecutor()</name>
+ <description>Return an Executor that will run enqueued tasks on the main thread associated with this context.</description>
+ </method>
+ <method>
+ <return-value>Looper</return-value>
+ <name>getMainLooper()</name>
+ <description>Return the Looper for the main thread of the current process.</description>
+ </method>
+ <method>
+ <return-value>File</return-value>
+ <name>getNoBackupFilesDir()</name>
+ <description>Returns the absolute path to the directory on the filesystem similar to getFilesDir().</description>
+ </method>
+ <method>
+ <return-value>File</return-value>
+ <name>getObbDir()</name>
+ <description>Return the primary shared/external storage directory where this application&amp;apos;s OBB files (if there are any) can be found.</description>
+ </method>
+ <method>
+ <return-value>File[]</return-value>
+ <name>getObbDirs()</name>
+ <description>Returns absolute paths to application-specific directories on all shared/external storage devices where the application&amp;apos;s OBB files (if there are any) can be found.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>getPackageCodePath()</name>
+ <description>Return the full path to this context&amp;apos;s primary Android package.</description>
+ </method>
+ <method>
+ <return-value>PackageManager</return-value>
+ <name>getPackageManager()</name>
+ <description>Return PackageManager instance to find global package information.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>getPackageName()</name>
+ <description>Return the name of this application&amp;apos;s package.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>getPackageResourcePath()</name>
+ <description>Return the full path to this context&amp;apos;s primary Android package.</description>
+ </method>
+ <method>
+ <return-value>Resources</return-value>
+ <name>getResources()</name>
+ <description>Returns a Resources instance for the application&amp;apos;s package.</description>
+ </method>
+ <method>
+ <return-value>SharedPreferences</return-value>
+ <name>getSharedPreferences(String name, int mode)</name>
+ <description>Retrieve and hold the contents of the preferences file &amp;apos;name&amp;apos;, returning a SharedPreferences through which you can retrieve and modify its values.</description>
+ </method>
+ <method>
+ <return-value>Object</return-value>
+ <name>getSystemService(String name)</name>
+ <description>Return the handle to a system-level service by name.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>getSystemServiceName(Class&amp;lt;?&amp;gt; serviceClass)</name>
+ <description>Gets the name of the system-level service that is represented by the specified class.</description>
+ </method>
+ <method>
+ <return-value>Resources.Theme</return-value>
+ <name>getTheme()</name>
+ <description>Return the Theme object associated with this Context.</description>
+ </method>
+ <method>
+ <return-value>Drawable</return-value>
+ <name>getWallpaper()</name>
+ <description>This method was deprecated in API level 23. Use WallpaperManager.get() instead.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getWallpaperDesiredMinimumHeight()</name>
+ <description>This method was deprecated in API level 23. Use WallpaperManager.getDesiredMinimumHeight() instead.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getWallpaperDesiredMinimumWidth()</name>
+ <description>This method was deprecated in API level 23. Use WallpaperManager.getDesiredMinimumWidth() instead.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>grantUriPermission(String toPackage, Uri uri, int modeFlags)</name>
+ <description>Grant permission to access a specific Uri to another package, regardless of whether that package has general permission to access the Uri&amp;apos;s content provider.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isDeviceProtectedStorage()</name>
+ <description>Indicates if the storage APIs of this Context are backed by device-protected storage.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isRestricted()</name>
+ <description>Indicates whether this Context is restricted.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>moveDatabaseFrom(Context sourceContext, String name)</name>
+ <description>Move an existing database file from the given source storage context to this context.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>moveSharedPreferencesFrom(Context sourceContext, String name)</name>
+ <description>Move an existing shared preferences file from the given source storage context to this context.</description>
+ </method>
+ <method>
+ <return-value>FileInputStream</return-value>
+ <name>openFileInput(String name)</name>
+ <description>Open a private file associated with this Context&amp;apos;s application package for reading.</description>
+ </method>
+ <method>
+ <return-value>FileOutputStream</return-value>
+ <name>openFileOutput(String name, int mode)</name>
+ <description>Open a private file associated with this Context&amp;apos;s application package for writing.</description>
+ </method>
+ <method>
+ <return-value>SQLiteDatabase</return-value>
+ <name>openOrCreateDatabase(String name, int mode, SQLiteDatabase.CursorFactory factory, DatabaseErrorHandler errorHandler)</name>
+ <description>Open a new private SQLiteDatabase associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>SQLiteDatabase</return-value>
+ <name>openOrCreateDatabase(String name, int mode, SQLiteDatabase.CursorFactory factory)</name>
+ <description>Open a new private SQLiteDatabase associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>Drawable</return-value>
+ <name>peekWallpaper()</name>
+ <description>This method was deprecated in API level 23. Use WallpaperManager.peek() instead.</description>
+ </method>
+ <method>
+ <return-value>Intent</return-value>
+ <name>registerReceiver(BroadcastReceiver receiver, IntentFilter filter)</name>
+ <description>Register a BroadcastReceiver to be run in the main activity thread.</description>
+ </method>
+ <method>
+ <return-value>Intent</return-value>
+ <name>registerReceiver(BroadcastReceiver receiver, IntentFilter filter, int flags)</name>
+ <description>Register to receive intent broadcasts, with the receiver optionally being exposed to Instant Apps.</description>
+ </method>
+ <method>
+ <return-value>Intent</return-value>
+ <name>registerReceiver(BroadcastReceiver receiver, IntentFilter filter, String broadcastPermission, Handler scheduler, int flags)</name>
+ <description>Register to receive intent broadcasts, to run in the context of scheduler.</description>
+ </method>
+ <method>
+ <return-value>Intent</return-value>
+ <name>registerReceiver(BroadcastReceiver receiver, IntentFilter filter, String broadcastPermission, Handler scheduler)</name>
+ <description>Register to receive intent broadcasts, to run in the context of scheduler.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>removeStickyBroadcast(Intent intent)</name>
+ <description>This method was deprecated in API level 23. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>removeStickyBroadcastAsUser(Intent intent, UserHandle user)</name>
+ <description>This method was deprecated in API level 23. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>revokeUriPermission(Uri uri, int modeFlags)</name>
+ <description>Remove all permissions to access a particular content provider Uri that were previously added with grantUriPermission(String, Uri, int) or any other mechanism.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>revokeUriPermission(String targetPackage, Uri uri, int modeFlags)</name>
+ <description>Remove permissions to access a particular content provider Uri that were previously added with grantUriPermission(String, Uri, int) for a specific target package.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>sendBroadcast(Intent intent, String receiverPermission)</name>
+ <description>Broadcast the given intent to all interested BroadcastReceivers, allowing an optional required permission to be enforced.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>sendBroadcast(Intent intent)</name>
+ <description>Broadcast the given intent to all interested BroadcastReceivers.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>sendBroadcastAsUser(Intent intent, UserHandle user)</name>
+ <description>Version of sendBroadcast(Intent) that allows you to specify the user the broadcast will be sent to.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>sendBroadcastAsUser(Intent intent, UserHandle user, String receiverPermission)</name>
+ <description>Version of sendBroadcast(Intent, String) that allows you to specify the user the broadcast will be sent to.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>sendOrderedBroadcast(Intent intent, String receiverPermission, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras)</name>
+ <description>Version of sendBroadcast(Intent) that allows you to receive data back from the broadcast.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>sendOrderedBroadcast(Intent intent, String receiverPermission)</name>
+ <description>Broadcast the given intent to all interested BroadcastReceivers, delivering them one at a time to allow more preferred receivers to consume the broadcast before it is delivered to less preferred receivers.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>sendOrderedBroadcastAsUser(Intent intent, UserHandle user, String receiverPermission, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras)</name>
+ <description>Version of sendOrderedBroadcast(Intent, String, BroadcastReceiver, Handler, int, String, Bundle) that allows you to specify the user the broadcast will be sent to.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>sendStickyBroadcast(Intent intent)</name>
+ <description>This method was deprecated in API level 23. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>sendStickyBroadcastAsUser(Intent intent, UserHandle user)</name>
+ <description>This method was deprecated in API level 23. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>sendStickyOrderedBroadcast(Intent intent, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras)</name>
+ <description>This method was deprecated in API level 23. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>sendStickyOrderedBroadcastAsUser(Intent intent, UserHandle user, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras)</name>
+ <description>This method was deprecated in API level 23. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setTheme(int resid)</name>
+ <description>Set the base theme for this context.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setWallpaper(Bitmap bitmap)</name>
+ <description>This method was deprecated in API level 23. Use WallpaperManager.set() instead.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setWallpaper(InputStream data)</name>
+ <description>This method was deprecated in API level 23. Use WallpaperManager.set() instead.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>startActivities(Intent[] intents, Bundle options)</name>
+ <description>Launch multiple new activities.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>startActivities(Intent[] intents)</name>
+ <description>Same as startActivities(Intent[], Bundle) with no options specified.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>startActivity(Intent intent)</name>
+ <description>Same as startActivity(Intent, Bundle) with no options specified.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>startActivity(Intent intent, Bundle options)</name>
+ <description>Launch a new activity.</description>
+ </method>
+ <method>
+ <return-value>ComponentName</return-value>
+ <name>startForegroundService(Intent service)</name>
+ <description>Similar to startService(Intent), but with an implicit promise that the Service will call startForeground(int, android.app.Notification) once it begins running.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>startInstrumentation(ComponentName className, String profileFile, Bundle arguments)</name>
+ <description>Start executing an Instrumentation class.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>startIntentSender(IntentSender intent, Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags)</name>
+ <description>Same as startIntentSender(IntentSender, Intent, int, int, int, Bundle) with no options specified.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>startIntentSender(IntentSender intent, Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags, Bundle options)</name>
+ <description>Like startActivity(Intent, Bundle), but taking a IntentSender to start.</description>
+ </method>
+ <method>
+ <return-value>ComponentName</return-value>
+ <name>startService(Intent service)</name>
+ <description>Request that a given application service be started.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>stopService(Intent name)</name>
+ <description>Request that a given application service be stopped.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>unbindService(ServiceConnection conn)</name>
+ <description>Disconnect from an application service.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>unregisterReceiver(BroadcastReceiver receiver)</name>
+ <description>Unregister a previously registered BroadcastReceiver.</description>
+ </method>
+ </class>
+ <name>android.content.Context</name>
+ <class>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>bindService(Intent service, ServiceConnection conn, int flags)</name>
+ <description>Connect to an application service, creating it if needed.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>checkCallingOrSelfPermission(String permission)</name>
+ <description>Determine whether the calling process of an IPC or you have been granted a particular permission.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>checkCallingOrSelfUriPermission(Uri uri, int modeFlags)</name>
+ <description>Determine whether the calling process of an IPC or you has been granted permission to access a specific URI.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>checkCallingPermission(String permission)</name>
+ <description>Determine whether the calling process of an IPC you are handling has been granted a particular permission.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>checkCallingUriPermission(Uri uri, int modeFlags)</name>
+ <description>Determine whether the calling process and user ID has been granted permission to access a specific URI.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>checkPermission(String permission, int pid, int uid)</name>
+ <description>Determine whether the given permission is allowed for a particular process and user ID running in the system.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>checkSelfPermission(String permission)</name>
+ <description>Determine whether you have been granted a particular permission.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>checkUriPermission(Uri uri, String readPermission, String writePermission, int pid, int uid, int modeFlags)</name>
+ <description>Check both a Uri and normal permission.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>checkUriPermission(Uri uri, int pid, int uid, int modeFlags)</name>
+ <description>Determine whether a particular process and user ID has been granted permission to access a specific URI.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>clearWallpaper()</name>
+ <description>This method was deprecated in API level 5. Use WallpaperManager.clear() instead.</description>
+ </method>
+ <method>
+ <return-value>abstract Context</return-value>
+ <name>createConfigurationContext(Configuration overrideConfiguration)</name>
+ <description>Return a new Context object for the current Context but whose resources are adjusted to match the given Configuration.</description>
+ </method>
+ <method>
+ <return-value>abstract Context</return-value>
+ <name>createContextForSplit(String splitName)</name>
+ <description>Return a new Context object for the given split name.</description>
+ </method>
+ <method>
+ <return-value>abstract Context</return-value>
+ <name>createDeviceProtectedStorageContext()</name>
+ <description>Return a new Context object for the current Context but whose storage APIs are backed by device-protected storage.</description>
+ </method>
+ <method>
+ <return-value>abstract Context</return-value>
+ <name>createDisplayContext(Display display)</name>
+ <description>Return a new Context object for the current Context but whose resources are adjusted to match the metrics of the given Display.</description>
+ </method>
+ <method>
+ <return-value>abstract Context</return-value>
+ <name>createPackageContext(String packageName, int flags)</name>
+ <description>Return a new Context object for the given application name.</description>
+ </method>
+ <method>
+ <return-value>abstract String[]</return-value>
+ <name>databaseList()</name>
+ <description>Returns an array of strings naming the private databases associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>deleteDatabase(String name)</name>
+ <description>Delete an existing private SQLiteDatabase associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>deleteFile(String name)</name>
+ <description>Delete the given private file associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>deleteSharedPreferences(String name)</name>
+ <description>Delete an existing shared preferences file.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>enforceCallingOrSelfPermission(String permission, String message)</name>
+ <description>If neither you nor the calling process of an IPC you are handling has been granted a particular permission, throw a SecurityException.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>enforceCallingOrSelfUriPermission(Uri uri, int modeFlags, String message)</name>
+ <description>If the calling process of an IPC or you has not been granted permission to access a specific URI, throw SecurityException.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>enforceCallingPermission(String permission, String message)</name>
+ <description>If the calling process of an IPC you are handling has not been granted a particular permission, throw a SecurityException.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>enforceCallingUriPermission(Uri uri, int modeFlags, String message)</name>
+ <description>If the calling process and user ID has not been granted permission to access a specific URI, throw SecurityException.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>enforcePermission(String permission, int pid, int uid, String message)</name>
+ <description>If the given permission is not allowed for a particular process and user ID running in the system, throw a SecurityException.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>enforceUriPermission(Uri uri, String readPermission, String writePermission, int pid, int uid, int modeFlags, String message)</name>
+ <description>Enforce both a Uri and normal permission.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>enforceUriPermission(Uri uri, int pid, int uid, int modeFlags, String message)</name>
+ <description>If a particular process and user ID has not been granted permission to access a specific URI, throw SecurityException.</description>
+ </method>
+ <method>
+ <return-value>abstract String[]</return-value>
+ <name>fileList()</name>
+ <description>Returns an array of strings naming the private files associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>abstract Context</return-value>
+ <name>getApplicationContext()</name>
+ <description>Return the context of the single, global Application object of the current process.</description>
+ </method>
+ <method>
+ <return-value>abstract ApplicationInfo</return-value>
+ <name>getApplicationInfo()</name>
+ <description>Return the full application info for this context&amp;apos;s package.</description>
+ </method>
+ <method>
+ <return-value>abstract AssetManager</return-value>
+ <name>getAssets()</name>
+ <description>Returns an AssetManager instance for the application&amp;apos;s package.</description>
+ </method>
+ <method>
+ <return-value>abstract File</return-value>
+ <name>getCacheDir()</name>
+ <description>Returns the absolute path to the application specific cache directory on the filesystem.</description>
+ </method>
+ <method>
+ <return-value>abstract ClassLoader</return-value>
+ <name>getClassLoader()</name>
+ <description>Return a class loader you can use to retrieve classes in this package.</description>
+ </method>
+ <method>
+ <return-value>abstract File</return-value>
+ <name>getCodeCacheDir()</name>
+ <description>Returns the absolute path to the application specific cache directory on the filesystem designed for storing cached code.</description>
+ </method>
+ <method>
+ <return-value>final int</return-value>
+ <name>getColor(int id)</name>
+ <description>Returns a color associated with a particular resource ID and styled for the current theme.</description>
+ </method>
+ <method>
+ <return-value>final ColorStateList</return-value>
+ <name>getColorStateList(int id)</name>
+ <description>Returns a color state list associated with a particular resource ID and styled for the current theme.</description>
+ </method>
+ <method>
+ <return-value>abstract ContentResolver</return-value>
+ <name>getContentResolver()</name>
+ <description>Return a ContentResolver instance for your application&amp;apos;s package.</description>
+ </method>
+ <method>
+ <return-value>abstract File</return-value>
+ <name>getDataDir()</name>
+ <description>Returns the absolute path to the directory on the filesystem where all private files belonging to this app are stored.</description>
+ </method>
+ <method>
+ <return-value>abstract File</return-value>
+ <name>getDatabasePath(String name)</name>
+ <description>Returns the absolute path on the filesystem where a database created with openOrCreateDatabase(String, int, SQLiteDatabase.CursorFactory) is stored.</description>
+ </method>
+ <method>
+ <return-value>abstract File</return-value>
+ <name>getDir(String name, int mode)</name>
+ <description>Retrieve, creating if needed, a new directory in which the application can place its own custom data files.</description>
+ </method>
+ <method>
+ <return-value>final Drawable</return-value>
+ <name>getDrawable(int id)</name>
+ <description>Returns a drawable object associated with a particular resource ID and styled for the current theme.</description>
+ </method>
+ <method>
+ <return-value>abstract File</return-value>
+ <name>getExternalCacheDir()</name>
+ <description>Returns absolute path to application-specific directory on the primary shared/external storage device where the application can place cache files it owns.</description>
+ </method>
+ <method>
+ <return-value>abstract File[]</return-value>
+ <name>getExternalCacheDirs()</name>
+ <description>Returns absolute paths to application-specific directories on all shared/external storage devices where the application can place cache files it owns.</description>
+ </method>
+ <method>
+ <return-value>abstract File</return-value>
+ <name>getExternalFilesDir(String type)</name>
+ <description>Returns the absolute path to the directory on the primary shared/external storage device where the application can place persistent files it owns.</description>
+ </method>
+ <method>
+ <return-value>abstract File[]</return-value>
+ <name>getExternalFilesDirs(String type)</name>
+ <description>Returns absolute paths to application-specific directories on all shared/external storage devices where the application can place persistent files it owns.</description>
+ </method>
+ <method>
+ <return-value>abstract File[]</return-value>
+ <name>getExternalMediaDirs()</name>
+ <description>Returns absolute paths to application-specific directories on all shared/external storage devices where the application can place media files.</description>
+ </method>
+ <method>
+ <return-value>abstract File</return-value>
+ <name>getFileStreamPath(String name)</name>
+ <description>Returns the absolute path on the filesystem where a file created with openFileOutput(String, int) is stored.</description>
+ </method>
+ <method>
+ <return-value>abstract File</return-value>
+ <name>getFilesDir()</name>
+ <description>Returns the absolute path to the directory on the filesystem where files created with openFileOutput(String, int) are stored.</description>
+ </method>
+ <method>
+ <return-value>Executor</return-value>
+ <name>getMainExecutor()</name>
+ <description>Return an Executor that will run enqueued tasks on the main thread associated with this context.</description>
+ </method>
+ <method>
+ <return-value>abstract Looper</return-value>
+ <name>getMainLooper()</name>
+ <description>Return the Looper for the main thread of the current process.</description>
+ </method>
+ <method>
+ <return-value>abstract File</return-value>
+ <name>getNoBackupFilesDir()</name>
+ <description>Returns the absolute path to the directory on the filesystem similar to getFilesDir().</description>
+ </method>
+ <method>
+ <return-value>abstract File</return-value>
+ <name>getObbDir()</name>
+ <description>Return the primary shared/external storage directory where this application&amp;apos;s OBB files (if there are any) can be found.</description>
+ </method>
+ <method>
+ <return-value>abstract File[]</return-value>
+ <name>getObbDirs()</name>
+ <description>Returns absolute paths to application-specific directories on all shared/external storage devices where the application&amp;apos;s OBB files (if there are any) can be found.</description>
+ </method>
+ <method>
+ <return-value>abstract String</return-value>
+ <name>getPackageCodePath()</name>
+ <description>Return the full path to this context&amp;apos;s primary Android package.</description>
+ </method>
+ <method>
+ <return-value>abstract PackageManager</return-value>
+ <name>getPackageManager()</name>
+ <description>Return PackageManager instance to find global package information.</description>
+ </method>
+ <method>
+ <return-value>abstract String</return-value>
+ <name>getPackageName()</name>
+ <description>Return the name of this application&amp;apos;s package.</description>
+ </method>
+ <method>
+ <return-value>abstract String</return-value>
+ <name>getPackageResourcePath()</name>
+ <description>Return the full path to this context&amp;apos;s primary Android package.</description>
+ </method>
+ <method>
+ <return-value>abstract Resources</return-value>
+ <name>getResources()</name>
+ <description>Returns a Resources instance for the application&amp;apos;s package.</description>
+ </method>
+ <method>
+ <return-value>abstract SharedPreferences</return-value>
+ <name>getSharedPreferences(String name, int mode)</name>
+ <description>Retrieve and hold the contents of the preferences file &amp;apos;name&amp;apos;, returning a SharedPreferences through which you can retrieve and modify its values.</description>
+ </method>
+ <method>
+ <return-value>final String</return-value>
+ <name>getString(int resId, Object... formatArgs)</name>
+ <description>Returns a localized formatted string from the application&amp;apos;s package&amp;apos;s default string table, substituting the format arguments as defined in Formatter and String.format(String, Object...).</description>
+ </method>
+ <method>
+ <return-value>final String</return-value>
+ <name>getString(int resId)</name>
+ <description>Returns a localized string from the application&amp;apos;s package&amp;apos;s default string table.</description>
+ </method>
+ <method>
+ <return-value>final &amp;lt;T&amp;gt; T</return-value>
+ <name>getSystemService(Class&amp;lt;T&amp;gt; serviceClass)</name>
+ <description>Return the handle to a system-level service by class.</description>
+ </method>
+ <method>
+ <return-value>abstract Object</return-value>
+ <name>getSystemService(String name)</name>
+ <description>Return the handle to a system-level service by name.</description>
+ </method>
+ <method>
+ <return-value>abstract String</return-value>
+ <name>getSystemServiceName(Class&amp;lt;?&amp;gt; serviceClass)</name>
+ <description>Gets the name of the system-level service that is represented by the specified class.</description>
+ </method>
+ <method>
+ <return-value>final CharSequence</return-value>
+ <name>getText(int resId)</name>
+ <description>Return a localized, styled CharSequence from the application&amp;apos;s package&amp;apos;s default string table.</description>
+ </method>
+ <method>
+ <return-value>abstract Resources.Theme</return-value>
+ <name>getTheme()</name>
+ <description>Return the Theme object associated with this Context.</description>
+ </method>
+ <method>
+ <return-value>abstract Drawable</return-value>
+ <name>getWallpaper()</name>
+ <description>This method was deprecated in API level 5. Use WallpaperManager.get() instead.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getWallpaperDesiredMinimumHeight()</name>
+ <description>This method was deprecated in API level 5. Use WallpaperManager.getDesiredMinimumHeight() instead.</description>
+ </method>
+ <method>
+ <return-value>abstract int</return-value>
+ <name>getWallpaperDesiredMinimumWidth()</name>
+ <description>This method was deprecated in API level 5. Use WallpaperManager.getDesiredMinimumWidth() instead.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>grantUriPermission(String toPackage, Uri uri, int modeFlags)</name>
+ <description>Grant permission to access a specific Uri to another package, regardless of whether that package has general permission to access the Uri&amp;apos;s content provider.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>isDeviceProtectedStorage()</name>
+ <description>Indicates if the storage APIs of this Context are backed by device-protected storage.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isRestricted()</name>
+ <description>Indicates whether this Context is restricted.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>moveDatabaseFrom(Context sourceContext, String name)</name>
+ <description>Move an existing database file from the given source storage context to this context.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>moveSharedPreferencesFrom(Context sourceContext, String name)</name>
+ <description>Move an existing shared preferences file from the given source storage context to this context.</description>
+ </method>
+ <method>
+ <return-value>final TypedArray</return-value>
+ <name>obtainStyledAttributes(AttributeSet set, int[] attrs)</name>
+ <description>Retrieve styled attribute information in this Context&amp;apos;s theme.</description>
+ </method>
+ <method>
+ <return-value>final TypedArray</return-value>
+ <name>obtainStyledAttributes(AttributeSet set, int[] attrs, int defStyleAttr, int defStyleRes)</name>
+ <description>Retrieve styled attribute information in this Context&amp;apos;s theme.</description>
+ </method>
+ <method>
+ <return-value>final TypedArray</return-value>
+ <name>obtainStyledAttributes(int resid, int[] attrs)</name>
+ <description>Retrieve styled attribute information in this Context&amp;apos;s theme.</description>
+ </method>
+ <method>
+ <return-value>final TypedArray</return-value>
+ <name>obtainStyledAttributes(int[] attrs)</name>
+ <description>Retrieve styled attribute information in this Context&amp;apos;s theme.</description>
+ </method>
+ <method>
+ <return-value>abstract FileInputStream</return-value>
+ <name>openFileInput(String name)</name>
+ <description>Open a private file associated with this Context&amp;apos;s application package for reading.</description>
+ </method>
+ <method>
+ <return-value>abstract FileOutputStream</return-value>
+ <name>openFileOutput(String name, int mode)</name>
+ <description>Open a private file associated with this Context&amp;apos;s application package for writing.</description>
+ </method>
+ <method>
+ <return-value>abstract SQLiteDatabase</return-value>
+ <name>openOrCreateDatabase(String name, int mode, SQLiteDatabase.CursorFactory factory, DatabaseErrorHandler errorHandler)</name>
+ <description>Open a new private SQLiteDatabase associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>abstract SQLiteDatabase</return-value>
+ <name>openOrCreateDatabase(String name, int mode, SQLiteDatabase.CursorFactory factory)</name>
+ <description>Open a new private SQLiteDatabase associated with this Context&amp;apos;s application package.</description>
+ </method>
+ <method>
+ <return-value>abstract Drawable</return-value>
+ <name>peekWallpaper()</name>
+ <description>This method was deprecated in API level 5. Use WallpaperManager.peek() instead.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>registerComponentCallbacks(ComponentCallbacks callback)</name>
+ <description>Add a new ComponentCallbacks to the base application of the Context, which will be called at the same times as the ComponentCallbacks methods of activities and other components are called.</description>
+ </method>
+ <method>
+ <return-value>abstract Intent</return-value>
+ <name>registerReceiver(BroadcastReceiver receiver, IntentFilter filter)</name>
+ <description>Register a BroadcastReceiver to be run in the main activity thread.</description>
+ </method>
+ <method>
+ <return-value>abstract Intent</return-value>
+ <name>registerReceiver(BroadcastReceiver receiver, IntentFilter filter, int flags)</name>
+ <description>Register to receive intent broadcasts, with the receiver optionally being exposed to Instant Apps.</description>
+ </method>
+ <method>
+ <return-value>abstract Intent</return-value>
+ <name>registerReceiver(BroadcastReceiver receiver, IntentFilter filter, String broadcastPermission, Handler scheduler, int flags)</name>
+ <description>Register to receive intent broadcasts, to run in the context of scheduler.</description>
+ </method>
+ <method>
+ <return-value>abstract Intent</return-value>
+ <name>registerReceiver(BroadcastReceiver receiver, IntentFilter filter, String broadcastPermission, Handler scheduler)</name>
+ <description>Register to receive intent broadcasts, to run in the context of scheduler.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>removeStickyBroadcast(Intent intent)</name>
+ <description>This method was deprecated in API level 21. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>removeStickyBroadcastAsUser(Intent intent, UserHandle user)</name>
+ <description>This method was deprecated in API level 21. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>revokeUriPermission(Uri uri, int modeFlags)</name>
+ <description>Remove all permissions to access a particular content provider Uri that were previously added with grantUriPermission(String, Uri, int) or any other mechanism.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>revokeUriPermission(String toPackage, Uri uri, int modeFlags)</name>
+ <description>Remove permissions to access a particular content provider Uri that were previously added with grantUriPermission(String, Uri, int) for a specific target package.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>sendBroadcast(Intent intent, String receiverPermission)</name>
+ <description>Broadcast the given intent to all interested BroadcastReceivers, allowing an optional required permission to be enforced.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>sendBroadcast(Intent intent)</name>
+ <description>Broadcast the given intent to all interested BroadcastReceivers.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>sendBroadcastAsUser(Intent intent, UserHandle user)</name>
+ <description>Version of sendBroadcast(Intent) that allows you to specify the user the broadcast will be sent to.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>sendBroadcastAsUser(Intent intent, UserHandle user, String receiverPermission)</name>
+ <description>Version of sendBroadcast(Intent, String) that allows you to specify the user the broadcast will be sent to.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>sendOrderedBroadcast(Intent intent, String receiverPermission, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras)</name>
+ <description>Version of sendBroadcast(Intent) that allows you to receive data back from the broadcast.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>sendOrderedBroadcast(Intent intent, String receiverPermission)</name>
+ <description>Broadcast the given intent to all interested BroadcastReceivers, delivering them one at a time to allow more preferred receivers to consume the broadcast before it is delivered to less preferred receivers.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>sendOrderedBroadcastAsUser(Intent intent, UserHandle user, String receiverPermission, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras)</name>
+ <description>Version of sendOrderedBroadcast(Intent, String, BroadcastReceiver, Handler, int, String, Bundle) that allows you to specify the user the broadcast will be sent to.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>sendStickyBroadcast(Intent intent)</name>
+ <description>This method was deprecated in API level 21. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>sendStickyBroadcastAsUser(Intent intent, UserHandle user)</name>
+ <description>This method was deprecated in API level 21. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>sendStickyOrderedBroadcast(Intent intent, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras)</name>
+ <description>This method was deprecated in API level 21. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>sendStickyOrderedBroadcastAsUser(Intent intent, UserHandle user, BroadcastReceiver resultReceiver, Handler scheduler, int initialCode, String initialData, Bundle initialExtras)</name>
+ <description>This method was deprecated in API level 21. Sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>setTheme(int resid)</name>
+ <description>Set the base theme for this context.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>setWallpaper(Bitmap bitmap)</name>
+ <description>This method was deprecated in API level 5. Use WallpaperManager.set() instead.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>setWallpaper(InputStream data)</name>
+ <description>This method was deprecated in API level 5. Use WallpaperManager.set() instead.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>startActivities(Intent[] intents, Bundle options)</name>
+ <description>Launch multiple new activities.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>startActivities(Intent[] intents)</name>
+ <description>Same as startActivities(Intent[], Bundle) with no options specified.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>startActivity(Intent intent)</name>
+ <description>Same as startActivity(Intent, Bundle) with no options specified.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>startActivity(Intent intent, Bundle options)</name>
+ <description>Launch a new activity.</description>
+ </method>
+ <method>
+ <return-value>abstract ComponentName</return-value>
+ <name>startForegroundService(Intent service)</name>
+ <description>Similar to startService(Intent), but with an implicit promise that the Service will call startForeground(int, android.app.Notification) once it begins running.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>startInstrumentation(ComponentName className, String profileFile, Bundle arguments)</name>
+ <description>Start executing an Instrumentation class.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>startIntentSender(IntentSender intent, Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags)</name>
+ <description>Same as startIntentSender(IntentSender, Intent, int, int, int, Bundle) with no options specified.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>startIntentSender(IntentSender intent, Intent fillInIntent, int flagsMask, int flagsValues, int extraFlags, Bundle options)</name>
+ <description>Like startActivity(Intent, Bundle), but taking a IntentSender to start.</description>
+ </method>
+ <method>
+ <return-value>abstract ComponentName</return-value>
+ <name>startService(Intent service)</name>
+ <description>Request that a given application service be started.</description>
+ </method>
+ <method>
+ <return-value>abstract boolean</return-value>
+ <name>stopService(Intent service)</name>
+ <description>Request that a given application service be stopped.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>unbindService(ServiceConnection conn)</name>
+ <description>Disconnect from an application service.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>unregisterComponentCallbacks(ComponentCallbacks callback)</name>
+ <description>Remove a ComponentCallbacks object that was previously registered with registerComponentCallbacks(ComponentCallbacks).</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>unregisterReceiver(BroadcastReceiver receiver)</name>
+ <description>Unregister a previously registered BroadcastReceiver.</description>
+ </method>
+ </class>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ <name>android.content.ComponentCallbacks2</name>
+ <class>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>onTrimMemory(int level)</name>
+ <description>Called when the operating system has determined that it is a good time for a process to trim unneeded memory from its process.</description>
+ </method>
+ </class>
+ <name>android.content.ComponentCallbacks</name>
+ <class>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>onConfigurationChanged(Configuration newConfig)</name>
+ <description>Called by the system when the device configuration changes while your component is running.</description>
+ </method>
+ <method>
+ <return-value>abstract void</return-value>
+ <name>onLowMemory()</name>
+ <description>This is called when the overall system is running low on memory, and actively running processes should trim their memory usage.</description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ <method>
+ <name>RemoteViewsService()</name>
+ </method>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>IBinder</return-value>
+ <name>onBind(Intent intent)</name>
+ <description>Return the communication channel to the service.</description>
+ </method>
+ <method>
+ <return-value>abstract RemoteViewsService.RemoteViewsFactory</return-value>
+ <name>onGetViewFactory(Intent intent)</name>
+ <description>To be implemented by the derived service to generate appropriate factories for the data.</description>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>RemoteViewsService</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public RemoteViewsService ()</api_signature>
+ <description></description>
+ </api>
+ <api>
+ <name>onBind</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public IBinder onBind (Intent intent)</api_signature>
+ <description>Return the communication channel to the service. May return null if clients can not bind to the service. The returned IBinder is usually for a complex interface that has been described using aidl.</description>
+ <parameters>
+ <parameter>
+ <name>intent</name>
+ <description>Intent: The Intent that was used to bind to this service, as given to Context.bindService. Note that any extras that were included with the Intent at that point will not be seen here.</description>
+ </parameter>
+ <parameter>
+ <name>IBinder</name>
+ <description>Return an IBinder through which clients can call on to the service.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>onGetViewFactory</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public abstract RemoteViewsService.RemoteViewsFactory onGetViewFactory (Intent intent)</api_signature>
+ <description>To be implemented by the derived service to generate appropriate factories for the data.</description>
+ <parameters>
+ <parameter>
+ <name>intent</name>
+ <description>Intent</description>
+ </parameter>
+ <parameter>
+ <name>RemoteViewsService.RemoteViewsFactory</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>

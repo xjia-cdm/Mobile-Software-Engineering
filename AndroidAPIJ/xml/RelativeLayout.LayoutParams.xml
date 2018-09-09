@@ -1,0 +1,466 @@
+<api>
+ <title>RelativeLayout.LayoutParams</title>
+ <api-signature>public static class RelativeLayout.LayoutParams extends ViewGroup.MarginLayoutParams</api-signature>
+ <inheritance>java.lang.Object ↳ android.view.ViewGroup.LayoutParams ↳ android.view.ViewGroup.MarginLayoutParams ↳ android.widget.RelativeLayout.LayoutParams</inheritance>
+ <subclasses-direct-summary>
+ </subclasses-direct-summary>
+ <subclasses-indirect-summary>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ <class>
+ <name>android.view.ViewGroup.MarginLayoutParams</name>
+ <attirbute>
+ <name>android:layout_margin</name>
+ </attirbute>
+ <attirbute>
+ <name>android:layout_marginBottom</name>
+ </attirbute>
+ <attirbute>
+ <name>android:layout_marginEnd</name>
+ </attirbute>
+ <attirbute>
+ <name>android:layout_marginHorizontal</name>
+ </attirbute>
+ <attirbute>
+ <name>android:layout_marginLeft</name>
+ </attirbute>
+ <attirbute>
+ <name>android:layout_marginRight</name>
+ </attirbute>
+ <attirbute>
+ <name>android:layout_marginStart</name>
+ </attirbute>
+ <attirbute>
+ <name>android:layout_marginTop</name>
+ </attirbute>
+ <attirbute>
+ <name>android:layout_marginVertical</name>
+ </attirbute>
+ </class>
+ <class>
+ <name>android.view.ViewGroup.LayoutParams</name>
+ <attirbute>
+ <name>android:layout_height</name>
+ </attirbute>
+ <attirbute>
+ <name>android:layout_width</name>
+ </attirbute>
+ </class>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ <class>
+ <name>android.view.ViewGroup.LayoutParams</name>
+ <constant>
+ <type>int</type>
+ <name>FILL_PARENT</name>
+ <description>Special value for the height or width requested by a View.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>MATCH_PARENT</name>
+ <description>Special value for the height or width requested by a View.</description>
+ </constant>
+ <constant>
+ <type>int</type>
+ <name>WRAP_CONTENT</name>
+ <description>Special value for the height or width requested by a View.</description>
+ </constant>
+ </class>
+ </inherited_constants>
+ <inherited_fields>
+ <class>
+ <name>android.view.ViewGroup.MarginLayoutParams</name>
+ <field>
+ <type>public int</type>
+ <name>bottomMargin</name>
+ <description>The bottom margin in pixels of the child.</description>
+ </field>
+ <field>
+ <type>public int</type>
+ <name>leftMargin</name>
+ <description>The left margin in pixels of the child.</description>
+ </field>
+ <field>
+ <type>public int</type>
+ <name>rightMargin</name>
+ <description>The right margin in pixels of the child.</description>
+ </field>
+ <field>
+ <type>public int</type>
+ <name>topMargin</name>
+ <description>The top margin in pixels of the child.</description>
+ </field>
+ </class>
+ <class>
+ <name>android.view.ViewGroup.LayoutParams</name>
+ <field>
+ <type>public int</type>
+ <name>height</name>
+ <description>Information about how tall the view wants to be.</description>
+ </field>
+ <field>
+ <type>public LayoutAnimationController.AnimationParameters</type>
+ <name>layoutAnimationParameters</name>
+ <description>Used to animate layouts.</description>
+ </field>
+ <field>
+ <type>public int</type>
+ <name>width</name>
+ <description>Information about how wide the view wants to be.</description>
+ </field>
+ </class>
+ </inherited_fields>
+ <inherited_methods>
+ <name>android.view.ViewGroup.MarginLayoutParams</name>
+ <class>
+ <method>
+ <return-value>int</return-value>
+ <name>getLayoutDirection()</name>
+ <description>Retuns the layout direction.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getMarginEnd()</name>
+ <description>Returns the end margin in pixels.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getMarginStart()</name>
+ <description>Returns the start margin in pixels.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>isMarginRelative()</name>
+ <description>Check if margins are relative.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>resolveLayoutDirection(int layoutDirection)</name>
+ <description>This will be called by View.requestLayout().</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setLayoutDirection(int layoutDirection)</name>
+ <description>Set the layout direction</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setMarginEnd(int end)</name>
+ <description>Sets the relative end margin.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setMarginStart(int start)</name>
+ <description>Sets the relative start margin.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setMargins(int left, int top, int right, int bottom)</name>
+ <description>Sets the margins, in pixels.</description>
+ </method>
+ </class>
+ <name>android.view.ViewGroup.LayoutParams</name>
+ <class>
+ <method>
+ <return-value>void</return-value>
+ <name>resolveLayoutDirection(int layoutDirection)</name>
+ <description>Resolve layout parameters depending on the layout direction.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setBaseAttributes(TypedArray a, int widthAttr, int heightAttr)</name>
+ <description>Extracts the layout parameters from the supplied attributes.</description>
+ </method>
+ </class>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ <method>
+ <name>RelativeLayout.LayoutParams(Context c, AttributeSet attrs)</name>
+ </method>
+ <method>
+ <name>RelativeLayout.LayoutParams(int w, int h)</name>
+ </method>
+ <method>
+ <name>RelativeLayout.LayoutParams(ViewGroup.LayoutParams source)</name>
+ <description></description>
+ </method>
+ <method>
+ <name>RelativeLayout.LayoutParams(ViewGroup.MarginLayoutParams source)</name>
+ <description></description>
+ </method>
+ <method>
+ <name>RelativeLayout.LayoutParams(RelativeLayout.LayoutParams source)</name>
+ <description>Copy constructor.</description>
+ </method>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>void</return-value>
+ <name>addRule(int verb, int subject)</name>
+ <description>Adds a layout rule to be interpreted by the RelativeLayout.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>addRule(int verb)</name>
+ <description>Adds a layout rule to be interpreted by the RelativeLayout.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>debug(String output)</name>
+ <description>Returns a String representation of this set of layout parameters.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>getRule(int verb)</name>
+ <description>Returns the layout rule associated with a specific verb.</description>
+ </method>
+ <method>
+ <return-value>int[]</return-value>
+ <name>getRules()</name>
+ <description>Retrieves a complete list of all supported rules, where the index is the rule verb, and the element value is the value specified, or &amp;quot;false&amp;quot; if it was never set.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>removeRule(int verb)</name>
+ <description>Removes a layout rule to be interpreted by the RelativeLayout.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>resolveLayoutDirection(int layoutDirection)</name>
+ <description>This will be called by View.requestLayout() to resolve layout parameters that are relative to the layout direction.</description>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>alignWithParent</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public boolean alignWithParent</api_signature>
+ <description>When true, uses the parent as the anchor if the anchor doesn&amp;apos;t exist or if the anchor&amp;apos;s visibility is GONE.</description>
+ </api>
+ <api>
+ <name>RelativeLayout.LayoutParams</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public RelativeLayout.LayoutParams (Context c, 
+                AttributeSet attrs)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>c</name>
+ <description>Context</description>
+ </parameter>
+ <parameter>
+ <name>attrs</name>
+ <description>AttributeSet</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>RelativeLayout.LayoutParams</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public RelativeLayout.LayoutParams (int w, 
+                int h)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>w</name>
+ <description>int</description>
+ </parameter>
+ <parameter>
+ <name>h</name>
+ <description>int</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>RelativeLayout.LayoutParams</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public RelativeLayout.LayoutParams (ViewGroup.LayoutParams source)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>source</name>
+ <description>ViewGroup.LayoutParams</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>RelativeLayout.LayoutParams</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public RelativeLayout.LayoutParams (ViewGroup.MarginLayoutParams source)</api_signature>
+ <description></description>
+ <parameters>
+ <parameter>
+ <name>source</name>
+ <description>ViewGroup.MarginLayoutParams</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>RelativeLayout.LayoutParams</name>
+ <api_level>API level 19</api_level>
+ <api_signature>public RelativeLayout.LayoutParams (RelativeLayout.LayoutParams source)</api_signature>
+ <description>Copy constructor. Clones the width, height, margin values, and rules of the source.</description>
+ <parameters>
+ <parameter>
+ <name>source</name>
+ <description>RelativeLayout.LayoutParams: The layout params to copy from.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>addRule</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void addRule (int verb, 
+                int subject)</api_signature>
+ <description>Adds a layout rule to be interpreted by the RelativeLayout.</description>
+ <parameters>
+ <parameter>
+ <name>verb</name>
+ <description>int: a layout verb, such as RelativeLayout.ALIGN_RIGHT</description>
+ </parameter>
+ <parameter>
+ <name>subject</name>
+ <description>int: the ID of another view to use as an anchor, or a boolean value (represented as RelativeLayout.TRUE for true or 0 for false)</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>addRule</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void addRule (int verb)</api_signature>
+ <description>Adds a layout rule to be interpreted by the RelativeLayout.</description>
+ <parameters>
+ <parameter>
+ <name>verb</name>
+ <description>int: a layout verb, such as RelativeLayout.ALIGN_PARENT_LEFT</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>debug</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public String debug (String output)</api_signature>
+ <description>Returns a String representation of this set of layout parameters.</description>
+ <parameters>
+ <parameter>
+ <name>output</name>
+ <description>String: the String to prepend to the internal representation</description>
+ </parameter>
+ <parameter>
+ <name>String</name>
+ <description>a String with the following format: output + &amp;quot;ViewGroup.LayoutParams={ width=WIDTH, height=HEIGHT }&amp;quot;</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getRule</name>
+ <api_level>API level 23</api_level>
+ <api_signature>public int getRule (int verb)</api_signature>
+ <description>Returns the layout rule associated with a specific verb.</description>
+ <parameters>
+ <parameter>
+ <name>verb</name>
+ <description>int: one of the verbs defined by RelativeLayout, such as ALIGN_WITH_PARENT_LEFT</description>
+ </parameter>
+ <parameter>
+ <name>int</name>
+ <description>the id of another view to use as an anchor, a boolean value (represented as RelativeLayout.TRUE for true or 0 for false), or -1 for verbs that don&amp;apos;t refer to another sibling (for example, ALIGN_WITH_PARENT_BOTTOM)</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getRules</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public int[] getRules ()</api_signature>
+ <description>Retrieves a complete list of all supported rules, where the index is the rule verb, and the element value is the value specified, or &amp;quot;false&amp;quot; if it was never set. There will be no resolution of relative rules done.</description>
+ <parameters>
+ <parameter>
+ <name>int[]</name>
+ <description>the supported rules</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>removeRule</name>
+ <api_level>API level 17</api_level>
+ <api_signature>public void removeRule (int verb)</api_signature>
+ <description>Removes a layout rule to be interpreted by the RelativeLayout.</description>
+ <parameters>
+ <parameter>
+ <name>verb</name>
+ <description>int: One of the verbs defined by RelativeLayout, such as ALIGN_WITH_PARENT_LEFT.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>resolveLayoutDirection</name>
+ <api_level>API level 17</api_level>
+ <api_signature>public void resolveLayoutDirection (int layoutDirection)</api_signature>
+ <description>This will be called by View.requestLayout() to resolve layout parameters that are relative to the layout direction.</description>
+ <parameters>
+ <parameter>
+ <name>layoutDirection</name>
+ <description>int: the direction of the layout View.LAYOUT_DIRECTION_LTR View.LAYOUT_DIRECTION_RTL</description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>

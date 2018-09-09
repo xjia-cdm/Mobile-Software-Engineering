@@ -1,0 +1,548 @@
+<api>
+ <title>Scroller</title>
+ <api-signature>public class Scroller extends Object</api-signature>
+ <inheritance>java.lang.Object ↳ android.widget.Scroller</inheritance>
+ <subclasses-direct-summary>
+ </subclasses-direct-summary>
+ <subclasses-indirect-summary>
+ </subclasses-indirect-summary>
+ <inherited_xml_attributes>
+ </inherited_xml_attributes>
+ <inherited_constants>
+ </inherited_constants>
+ <inherited_fields>
+ </inherited_fields>
+ <inherited_methods>
+ <name>java.lang.Object</name>
+ <class>
+ <method>
+ <return-value>Object</return-value>
+ <name>clone()</name>
+ <description>Creates and returns a copy of this object.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>equals(Object obj)</name>
+ <description>Indicates whether some other object is &amp;quot;equal to&amp;quot; this one.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>finalize()</name>
+ <description>Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.</description>
+ </method>
+ <method>
+ <return-value>final Class&amp;lt;?&amp;gt;</return-value>
+ <name>getClass()</name>
+ <description>Returns the runtime class of this Object.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>hashCode()</name>
+ <description>Returns a hash code value for the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notify()</name>
+ <description>Wakes up a single thread that is waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>notifyAll()</name>
+ <description>Wakes up all threads that are waiting on this object&amp;apos;s monitor.</description>
+ </method>
+ <method>
+ <return-value>String</return-value>
+ <name>toString()</name>
+ <description>Returns a string representation of the object.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis, int nanos)</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait(long millis)</name>
+ <description>Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>wait()</name>
+ <description>Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.</description>
+ </method>
+ </class>
+ </inherited_methods>
+ <public_constructors>
+ <method>
+ <name>Scroller(Context context)</name>
+ <description>Create a Scroller with the default duration and interpolator.</description>
+ </method>
+ <method>
+ <name>Scroller(Context context, Interpolator interpolator)</name>
+ <description>Create a Scroller with the specified interpolator.</description>
+ </method>
+ <method>
+ <name>Scroller(Context context, Interpolator interpolator, boolean flywheel)</name>
+ <description>Create a Scroller with the specified interpolator.</description>
+ </method>
+ </public_constructors>
+ <public_methods>
+ <method>
+ <return-value>void</return-value>
+ <name>abortAnimation()</name>
+ <description>Stops the animation.</description>
+ </method>
+ <method>
+ <return-value>boolean</return-value>
+ <name>computeScrollOffset()</name>
+ <description>Call this when you want to know the new location.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>extendDuration(int extend)</name>
+ <description>Extend the scroll animation.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>fling(int startX, int startY, int velocityX, int velocityY, int minX, int maxX, int minY, int maxY)</name>
+ <description>Start scrolling based on a fling gesture.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>forceFinished(boolean finished)</name>
+ <description>Force the finished field to a particular value.</description>
+ </method>
+ <method>
+ <return-value>float</return-value>
+ <name>getCurrVelocity()</name>
+ <description>Returns the current velocity.</description>
+ </method>
+ <method>
+ <return-value>final int</return-value>
+ <name>getCurrX()</name>
+ <description>Returns the current X offset in the scroll.</description>
+ </method>
+ <method>
+ <return-value>final int</return-value>
+ <name>getCurrY()</name>
+ <description>Returns the current Y offset in the scroll.</description>
+ </method>
+ <method>
+ <return-value>final int</return-value>
+ <name>getDuration()</name>
+ <description>Returns how long the scroll event will take, in milliseconds.</description>
+ </method>
+ <method>
+ <return-value>final int</return-value>
+ <name>getFinalX()</name>
+ <description>Returns where the scroll will end.</description>
+ </method>
+ <method>
+ <return-value>final int</return-value>
+ <name>getFinalY()</name>
+ <description>Returns where the scroll will end.</description>
+ </method>
+ <method>
+ <return-value>final int</return-value>
+ <name>getStartX()</name>
+ <description>Returns the start X offset in the scroll.</description>
+ </method>
+ <method>
+ <return-value>final int</return-value>
+ <name>getStartY()</name>
+ <description>Returns the start Y offset in the scroll.</description>
+ </method>
+ <method>
+ <return-value>final boolean</return-value>
+ <name>isFinished()</name>
+ <description>Returns whether the scroller has finished scrolling.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setFinalX(int newX)</name>
+ <description>Sets the final position (X) for this scroller.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>setFinalY(int newY)</name>
+ <description>Sets the final position (Y) for this scroller.</description>
+ </method>
+ <method>
+ <return-value>final void</return-value>
+ <name>setFriction(float friction)</name>
+ <description>The amount of friction applied to flings.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>startScroll(int startX, int startY, int dx, int dy, int duration)</name>
+ <description>Start scrolling by providing a starting point, the distance to travel, and the duration of the scroll.</description>
+ </method>
+ <method>
+ <return-value>void</return-value>
+ <name>startScroll(int startX, int startY, int dx, int dy)</name>
+ <description>Start scrolling by providing a starting point and the distance to travel.</description>
+ </method>
+ <method>
+ <return-value>int</return-value>
+ <name>timePassed()</name>
+ <description>Returns the time elapsed since the beginning of the scrolling.</description>
+ </method>
+ </public_methods>
+ <api-section>
+ <api>
+ <name>Scroller</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public Scroller (Context context)</api_signature>
+ <description>Create a Scroller with the default duration and interpolator.</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>Scroller</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public Scroller (Context context, 
+                Interpolator interpolator)</api_signature>
+ <description>Create a Scroller with the specified interpolator. If the interpolator is null, the default (viscous) interpolator will be used. &amp;quot;Flywheel&amp;quot; behavior will be in effect for apps targeting Honeycomb or newer.</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context</description>
+ </parameter>
+ <parameter>
+ <name>interpolator</name>
+ <description>Interpolator</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>Scroller</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public Scroller (Context context, 
+                Interpolator interpolator, 
+                boolean flywheel)</api_signature>
+ <description>Create a Scroller with the specified interpolator. If the interpolator is null, the default (viscous) interpolator will be used. Specify whether or not to support progressive &amp;quot;flywheel&amp;quot; behavior in flinging.</description>
+ <parameters>
+ <parameter>
+ <name>context</name>
+ <description>Context</description>
+ </parameter>
+ <parameter>
+ <name>interpolator</name>
+ <description>Interpolator</description>
+ </parameter>
+ <parameter>
+ <name>flywheel</name>
+ <description>boolean</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>abortAnimation</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void abortAnimation ()</api_signature>
+ <description>Stops the animation. Contrary to forceFinished(boolean), aborting the animating cause the scroller to move to the final x and y position</description>
+ </api>
+ <api>
+ <name>computeScrollOffset</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public boolean computeScrollOffset ()</api_signature>
+ <description>Call this when you want to know the new location. If it returns true, the animation is not yet finished.</description>
+ <parameters>
+ <parameter>
+ <name>boolean</name>
+ <description></description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>extendDuration</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void extendDuration (int extend)</api_signature>
+ <description>Extend the scroll animation. This allows a running animation to scroll further and longer, when used with setFinalX(int) or setFinalY(int).</description>
+ <parameters>
+ <parameter>
+ <name>extend</name>
+ <description>int: Additional time to scroll in milliseconds.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>fling</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void fling (int startX, 
+                int startY, 
+                int velocityX, 
+                int velocityY, 
+                int minX, 
+                int maxX, 
+                int minY, 
+                int maxY)</api_signature>
+ <description>Start scrolling based on a fling gesture. The distance travelled will depend on the initial velocity of the fling.</description>
+ <parameters>
+ <parameter>
+ <name>startX</name>
+ <description>int: Starting point of the scroll (X)</description>
+ </parameter>
+ <parameter>
+ <name>startY</name>
+ <description>int: Starting point of the scroll (Y)</description>
+ </parameter>
+ <parameter>
+ <name>velocityX</name>
+ <description>int: Initial velocity of the fling (X) measured in pixels per second.</description>
+ </parameter>
+ <parameter>
+ <name>velocityY</name>
+ <description>int: Initial velocity of the fling (Y) measured in pixels per second</description>
+ </parameter>
+ <parameter>
+ <name>minX</name>
+ <description>int: Minimum X value. The scroller will not scroll past this point.</description>
+ </parameter>
+ <parameter>
+ <name>maxX</name>
+ <description>int: Maximum X value. The scroller will not scroll past this point.</description>
+ </parameter>
+ <parameter>
+ <name>minY</name>
+ <description>int: Minimum Y value. The scroller will not scroll past this point.</description>
+ </parameter>
+ <parameter>
+ <name>maxY</name>
+ <description>int: Maximum Y value. The scroller will not scroll past this point.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>forceFinished</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public final void forceFinished (boolean finished)</api_signature>
+ <description>Force the finished field to a particular value.</description>
+ <parameters>
+ <parameter>
+ <name>finished</name>
+ <description>boolean: The new finished value.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getCurrVelocity</name>
+ <api_level>API level 14</api_level>
+ <api_signature>public float getCurrVelocity ()</api_signature>
+ <description>Returns the current velocity.</description>
+ <parameters>
+ <parameter>
+ <name>float</name>
+ <description>The original velocity less the deceleration. Result may be negative.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getCurrX</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public final int getCurrX ()</api_signature>
+ <description>Returns the current X offset in the scroll.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>The new X offset as an absolute distance from the origin.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getCurrY</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public final int getCurrY ()</api_signature>
+ <description>Returns the current Y offset in the scroll.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>The new Y offset as an absolute distance from the origin.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getDuration</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public final int getDuration ()</api_signature>
+ <description>Returns how long the scroll event will take, in milliseconds.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>The duration of the scroll in milliseconds.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getFinalX</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public final int getFinalX ()</api_signature>
+ <description>Returns where the scroll will end. Valid only for &amp;quot;fling&amp;quot; scrolls.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>The final X offset as an absolute distance from the origin.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getFinalY</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public final int getFinalY ()</api_signature>
+ <description>Returns where the scroll will end. Valid only for &amp;quot;fling&amp;quot; scrolls.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>The final Y offset as an absolute distance from the origin.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getStartX</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public final int getStartX ()</api_signature>
+ <description>Returns the start X offset in the scroll.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>The start X offset as an absolute distance from the origin.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>getStartY</name>
+ <api_level>API level 3</api_level>
+ <api_signature>public final int getStartY ()</api_signature>
+ <description>Returns the start Y offset in the scroll.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>The start Y offset as an absolute distance from the origin.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>isFinished</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public final boolean isFinished ()</api_signature>
+ <description>Returns whether the scroller has finished scrolling.</description>
+ <parameters>
+ <parameter>
+ <name>boolean</name>
+ <description>True if the scroller has finished scrolling, false otherwise.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setFinalX</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setFinalX (int newX)</api_signature>
+ <description>Sets the final position (X) for this scroller.</description>
+ <parameters>
+ <parameter>
+ <name>newX</name>
+ <description>int: The new X offset as an absolute distance from the origin.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setFinalY</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void setFinalY (int newY)</api_signature>
+ <description>Sets the final position (Y) for this scroller.</description>
+ <parameters>
+ <parameter>
+ <name>newY</name>
+ <description>int: The new Y offset as an absolute distance from the origin.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>setFriction</name>
+ <api_level>API level 11</api_level>
+ <api_signature>public final void setFriction (float friction)</api_signature>
+ <description>The amount of friction applied to flings. The default value is ViewConfiguration.getScrollFriction().</description>
+ <parameters>
+ <parameter>
+ <name>friction</name>
+ <description>float: A scalar dimension-less value representing the coefficient of friction.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>startScroll</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void startScroll (int startX, 
+                int startY, 
+                int dx, 
+                int dy, 
+                int duration)</api_signature>
+ <description>Start scrolling by providing a starting point, the distance to travel, and the duration of the scroll.</description>
+ <parameters>
+ <parameter>
+ <name>startX</name>
+ <description>int: Starting horizontal scroll offset in pixels. Positive numbers will scroll the content to the left.</description>
+ </parameter>
+ <parameter>
+ <name>startY</name>
+ <description>int: Starting vertical scroll offset in pixels. Positive numbers will scroll the content up.</description>
+ </parameter>
+ <parameter>
+ <name>dx</name>
+ <description>int: Horizontal distance to travel. Positive numbers will scroll the content to the left.</description>
+ </parameter>
+ <parameter>
+ <name>dy</name>
+ <description>int: Vertical distance to travel. Positive numbers will scroll the content up.</description>
+ </parameter>
+ <parameter>
+ <name>duration</name>
+ <description>int: Duration of the scroll in milliseconds.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>startScroll</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public void startScroll (int startX, 
+                int startY, 
+                int dx, 
+                int dy)</api_signature>
+ <description>Start scrolling by providing a starting point and the distance to travel. The scroll will use the default value of 250 milliseconds for the duration.</description>
+ <parameters>
+ <parameter>
+ <name>startX</name>
+ <description>int: Starting horizontal scroll offset in pixels. Positive numbers will scroll the content to the left.</description>
+ </parameter>
+ <parameter>
+ <name>startY</name>
+ <description>int: Starting vertical scroll offset in pixels. Positive numbers will scroll the content up.</description>
+ </parameter>
+ <parameter>
+ <name>dx</name>
+ <description>int: Horizontal distance to travel. Positive numbers will scroll the content to the left.</description>
+ </parameter>
+ <parameter>
+ <name>dy</name>
+ <description>int: Vertical distance to travel. Positive numbers will scroll the content up.</description>
+ </parameter>
+ </parameters>
+ </api>
+ <api>
+ <name>timePassed</name>
+ <api_level>API level 1</api_level>
+ <api_signature>public int timePassed ()</api_signature>
+ <description>Returns the time elapsed since the beginning of the scrolling.</description>
+ <parameters>
+ <parameter>
+ <name>int</name>
+ <description>The elapsed time in milliseconds.</description>
+ </parameter>
+ </parameters>
+ </api>
+ </api-section>
+ </api>
