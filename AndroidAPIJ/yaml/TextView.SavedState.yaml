@@ -1,0 +1,156 @@
+api:
+ title: TextView.SavedState
+ api-signature: public static class TextView.SavedState extends View.BaseSavedState
+ inheritance: java.lang.Object ↳ android.view.AbsSavedState ↳ android.view.View.BaseSavedState ↳ android.widget.TextView.SavedState
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+  class: 
+    name: android.os.Parcelable
+     conctant: 
+      - 
+       type: int
+       name: CONTENTS_FILE_DESCRIPTOR
+       description:Descriptor bit used with describeContents(): indicates that the Parcelable object's flattened representation includes a file descriptor.
+      - 
+       type: int
+       name: PARCELABLE_WRITE_RETURN_VALUE
+       description:Flag for use with writeToParcel(Parcel, int): the object being written is a return value, that is the result of a function such as "Parcelable someFunction()", "void someFunction(out Parcelable)", or "void someFunction(inout Parcelable)".
+ inherited_fields: 
+  class: 
+   - 
+    name: android.view.View.BaseSavedState
+     field: 
+       type: public static final Creator<View.BaseSavedState>
+       name: CREATOR
+       description: 
+   - 
+    name: android.view.AbsSavedState
+     field: 
+      - 
+       type: public static final Creator<AbsSavedState>
+       name: CREATOR
+       description: 
+      - 
+       type: public static final AbsSavedState
+       name: EMPTY_STATE
+       description: 
+ inherited_methods: 
+  name: android.view.View.BaseSavedState
+   class: 
+     method: 
+       return-value: void
+       name: writeToParcel(Parcel out, int flags)
+       description: Flatten this object in to a Parcel.
+  name: android.view.AbsSavedState
+     method: 
+      - 
+       return-value: int
+       name: describeContents()
+       description: Describe the kinds of special objects contained in this Parcelable instance's marshaled representation.
+      - 
+       return-value: final Parcelable
+       name: getSuperState()
+      - 
+       return-value: void
+       name: writeToParcel(Parcel dest, int flags)
+       description: Flatten this object in to a Parcel.
+  name: java.lang.Object
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+  name: android.os.Parcelable
+     method: 
+      - 
+       return-value: abstract int
+       name: describeContents()
+       description: Describe the kinds of special objects contained in this Parcelable instance's marshaled representation.
+      - 
+       return-value: abstract void
+       name: writeToParcel(Parcel dest, int flags)
+       description: Flatten this object in to a Parcel.
+ public_constructors: 
+ public_methods: 
+  method: 
+   - 
+    return-value: String
+    name: toString()
+    description: Returns a string representation of the object.
+   - 
+    return-value: void
+    name: writeToParcel(Parcel out, int flags)
+    description: Flatten this object in to a Parcel.
+ api-section: 
+  api: 
+   - 
+    name: CREATOR
+    api_level: API level 1
+    api_signature: public static final Creator<TextView.SavedState> CREATOR
+    description: 
+   - 
+    name: toString
+    api_level: API level 1
+    api_signature: public String toString ()
+    description: Returns a string representation of the object. In general, the toString method returns a string that "textually represents" this object. The result should be a concise but informative representation that is easy for a person to read. It is recommended that all subclasses override this method.
+     parameters: 
+      parameter: 
+       - 
+        name: String
+        description: a string representation of the object.
+   - 
+    name: writeToParcel
+    api_level: API level 1
+    api_signature: public void writeToParcel (Parcel out, 
+                int flags)
+    description: Flatten this object in to a Parcel.
+     parameters: 
+      parameter: 
+       - 
+        name: out
+        description: Parcel: The Parcel in which the object should be written.
+       - 
+        name: flags
+        description: int: Additional flags about how the object should be written. May be 0 or Parcelable.PARCELABLE_WRITE_RETURN_VALUE.

@@ -1,0 +1,182 @@
+api:
+ title: TabHost.TabSpec
+ api-signature: public class TabHost.TabSpec extends Object
+ inheritance: java.lang.Object ↳ android.widget.TabHost.TabSpec
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+ public_constructors: 
+ public_methods: 
+  method: 
+   - 
+    return-value: String
+    name: getTag()
+    description: Returns the tag for this tab specification.
+   - 
+    return-value: TabHost.TabSpec
+    name: setContent(Intent intent)
+    description: Specify an intent to use to launch an activity as the tab content.
+   - 
+    return-value: TabHost.TabSpec
+    name: setContent(TabHost.TabContentFactory contentFactory)
+    description: Specify a TabHost.TabContentFactory to use to create the content of the tab.
+   - 
+    return-value: TabHost.TabSpec
+    name: setContent(int viewId)
+    description: Specify the id of the view that should be used as the content of the tab.
+   - 
+    return-value: TabHost.TabSpec
+    name: setIndicator(View view)
+    description: Specify a view as the tab indicator.
+   - 
+    return-value: TabHost.TabSpec
+    name: setIndicator(CharSequence label)
+    description: Specify a label as the tab indicator.
+   - 
+    return-value: TabHost.TabSpec
+    name: setIndicator(CharSequence label, Drawable icon)
+    description: Specify a label and icon as the tab indicator.
+ api-section: 
+  api: 
+   - 
+    name: getTag
+    api_level: API level 4
+    api_signature: public String getTag ()
+    description: Returns the tag for this tab specification.
+     parameters: 
+      parameter: 
+       - 
+        name: String
+        description: the tag for this tab specification This value will never be null.
+   - 
+    name: setContent
+    api_level: API level 1
+    api_signature: public TabHost.TabSpec setContent (Intent intent)
+    description: Specify an intent to use to launch an activity as the tab content.
+     parameters: 
+      parameter: 
+       - 
+        name: intent
+        description: Intent
+       - 
+        name: TabHost.TabSpec
+        description: 
+   - 
+    name: setContent
+    api_level: API level 1
+    api_signature: public TabHost.TabSpec setContent (TabHost.TabContentFactory contentFactory)
+    description: Specify a TabHost.TabContentFactory to use to create the content of the tab.
+     parameters: 
+      parameter: 
+       - 
+        name: contentFactory
+        description: TabHost.TabContentFactory
+       - 
+        name: TabHost.TabSpec
+        description: 
+   - 
+    name: setContent
+    api_level: API level 1
+    api_signature: public TabHost.TabSpec setContent (int viewId)
+    description: Specify the id of the view that should be used as the content of the tab.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int
+       - 
+        name: TabHost.TabSpec
+        description: 
+   - 
+    name: setIndicator
+    api_level: API level 4
+    api_signature: public TabHost.TabSpec setIndicator (View view)
+    description: Specify a view as the tab indicator.
+     parameters: 
+      parameter: 
+       - 
+        name: view
+        description: View
+       - 
+        name: TabHost.TabSpec
+        description: 
+   - 
+    name: setIndicator
+    api_level: API level 1
+    api_signature: public TabHost.TabSpec setIndicator (CharSequence label)
+    description: Specify a label as the tab indicator.
+     parameters: 
+      parameter: 
+       - 
+        name: label
+        description: CharSequence
+       - 
+        name: TabHost.TabSpec
+        description: 
+   - 
+    name: setIndicator
+    api_level: API level 1
+    api_signature: public TabHost.TabSpec setIndicator (CharSequence label, 
+                Drawable icon)
+    description: Specify a label and icon as the tab indicator.
+     parameters: 
+      parameter: 
+       - 
+        name: label
+        description: CharSequence
+       - 
+        name: icon
+        description: Drawable
+       - 
+        name: TabHost.TabSpec
+        description: 

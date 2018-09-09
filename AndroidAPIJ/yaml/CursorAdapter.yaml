@@ -1,0 +1,635 @@
+api:
+ title: CursorAdapter
+ api-signature: public abstract class CursorAdapter extends BaseAdapter implements Filterable, ThemedSpinnerAdapter
+ inheritance: java.lang.Object ↳ android.widget.BaseAdapter ↳ android.widget.CursorAdapter
+ subclasses-direct: ResourceCursorAdapter
+ subclasses-direct-summary: 
+  class: 
+    name: ResourceCursorAdapter
+    description: An easy adapter that creates views defined in an XML file.
+ subclasses-indirect: SimpleCursorAdapter
+ subclasses-indirect-summary: 
+  class: 
+    name: SimpleCursorAdapter
+    description: An easy adapter to map columns from a cursor to TextViews or ImageViews defined in an XML file.
+ inherited_xml_attributes: 
+ inherited_constants: 
+  class: 
+    name: android.widget.Adapter
+     conctant: 
+      - 
+       type: int
+       name: IGNORE_ITEM_VIEW_TYPE
+       description:An item view type that causes the AdapterView to ignore the item view.
+      - 
+       type: int
+       name: NO_SELECTION
+       description:
+ inherited_fields: 
+ inherited_methods: 
+  name: android.widget.BaseAdapter
+   class: 
+     method: 
+      - 
+       return-value: boolean
+       name: areAllItemsEnabled()
+       description: Indicates whether all the items in this adapter are enabled.
+      - 
+       return-value: CharSequence[]
+       name: getAutofillOptions()
+       description: Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.
+      - 
+       return-value: View
+       name: getDropDownView(int position, View convertView, ViewGroup parent)
+       description: Gets a View that displays in the drop down popup the data at the specified position in the data set.
+      - 
+       return-value: int
+       name: getItemViewType(int position)
+       description: Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
+      - 
+       return-value: int
+       name: getViewTypeCount()
+       description: 
+      - 
+       return-value: boolean
+       name: hasStableIds()
+       description: Indicates whether the item ids are stable across changes to the underlying data.
+      - 
+       return-value: boolean
+       name: isEmpty()
+      - 
+       return-value: boolean
+       name: isEnabled(int position)
+       description: Returns true if the item at the specified position is not a separator.
+      - 
+       return-value: void
+       name: notifyDataSetChanged()
+       description: Notifies the attached observers that the underlying data has been changed and any View reflecting the data set should refresh itself.
+      - 
+       return-value: void
+       name: notifyDataSetInvalidated()
+       description: Notifies the attached observers that the underlying data is no longer valid or available.
+      - 
+       return-value: void
+       name: registerDataSetObserver(DataSetObserver observer)
+       description: Register an observer that is called when changes happen to the data used by this adapter.
+      - 
+       return-value: void
+       name: setAutofillOptions(CharSequence... options)
+       description: Sets the value returned by getAutofillOptions()
+      - 
+       return-value: void
+       name: unregisterDataSetObserver(DataSetObserver observer)
+       description: Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).
+  name: java.lang.Object
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+  name: android.widget.ListAdapter
+     method: 
+      - 
+       return-value: abstract boolean
+       name: areAllItemsEnabled()
+       description: Indicates whether all the items in this adapter are enabled.
+      - 
+       return-value: abstract boolean
+       name: isEnabled(int position)
+       description: Returns true if the item at the specified position is not a separator.
+  name: android.widget.SpinnerAdapter
+     method: 
+       return-value: abstract View
+       name: getDropDownView(int position, View convertView, ViewGroup parent)
+       description: Gets a View that displays in the drop down popup the data at the specified position in the data set.
+  name: android.widget.Filterable
+     method: 
+       return-value: abstract Filter
+       name: getFilter()
+       description: 
+  name: android.widget.ThemedSpinnerAdapter
+     method: 
+      - 
+       return-value: abstract Resources.Theme
+       name: getDropDownViewTheme()
+       description: Returns the value previously set by a call to setDropDownViewTheme(Theme).
+      - 
+       return-value: abstract void
+       name: setDropDownViewTheme(Resources.Theme theme)
+       description: Sets the Resources.Theme against which drop-down views are inflated.
+  name: android.widget.Adapter
+     method: 
+      - 
+       return-value: default CharSequence[]
+       name: getAutofillOptions()
+       description: Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.
+      - 
+       return-value: abstract int
+       name: getCount()
+       description: How many items are in the data set represented by this Adapter.
+      - 
+       return-value: abstract Object
+       name: getItem(int position)
+       description: Get the data item associated with the specified position in the data set.
+      - 
+       return-value: abstract long
+       name: getItemId(int position)
+       description: Get the row id associated with the specified position in the list.
+      - 
+       return-value: abstract int
+       name: getItemViewType(int position)
+       description: Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
+      - 
+       return-value: abstract View
+       name: getView(int position, View convertView, ViewGroup parent)
+       description: Get a View that displays the data at the specified position in the data set.
+      - 
+       return-value: abstract int
+       name: getViewTypeCount()
+       description: 
+      - 
+       return-value: abstract boolean
+       name: hasStableIds()
+       description: Indicates whether the item ids are stable across changes to the underlying data.
+      - 
+       return-value: abstract boolean
+       name: isEmpty()
+      - 
+       return-value: abstract void
+       name: registerDataSetObserver(DataSetObserver observer)
+       description: Register an observer that is called when changes happen to the data used by this adapter.
+      - 
+       return-value: abstract void
+       name: unregisterDataSetObserver(DataSetObserver observer)
+       description: Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).
+ public_constructors: 
+  method: 
+   - 
+    name: CursorAdapter(Context context, Cursor c)
+    description: This constructor was deprecated in API level 11. This option is discouraged, as it results in Cursor queries being performed on the application&amp;apos;s UI thread and thus can cause poor responsiveness or even Application Not Responding errors. As an alternative, use LoaderManager with a CursorLoader.
+   - 
+    name: CursorAdapter(Context context, Cursor c, boolean autoRequery)
+    description: Constructor that allows control over auto-requery.
+   - 
+    name: CursorAdapter(Context context, Cursor c, int flags)
+    description: Recommended constructor.
+ public_methods: 
+  method: 
+   - 
+    return-value: abstract void
+    name: bindView(View view, Context context, Cursor cursor)
+    description: Bind an existing view to the data pointed to by cursor
+   - 
+    return-value: void
+    name: changeCursor(Cursor cursor)
+    description: Change the underlying cursor to a new cursor.
+   - 
+    return-value: CharSequence
+    name: convertToString(Cursor cursor)
+    description: 
+   - 
+    return-value: int
+    name: getCount()
+    description: How many items are in the data set represented by this Adapter.
+   - 
+    return-value: Cursor
+    name: getCursor()
+    description: Returns the cursor.
+   - 
+    return-value: View
+    name: getDropDownView(int position, View convertView, ViewGroup parent)
+    description: Gets a View that displays in the drop down popup the data at the specified position in the data set.
+   - 
+    return-value: Resources.Theme
+    name: getDropDownViewTheme()
+    description: Returns the value previously set by a call to setDropDownViewTheme(Theme).
+   - 
+    return-value: Filter
+    name: getFilter()
+    description: 
+   - 
+    return-value: FilterQueryProvider
+    name: getFilterQueryProvider()
+    description: Returns the query filter provider used for filtering.
+   - 
+    return-value: Object
+    name: getItem(int position)
+    description: Get the data item associated with the specified position in the data set.
+   - 
+    return-value: long
+    name: getItemId(int position)
+    description: Get the row id associated with the specified position in the list.
+   - 
+    return-value: View
+    name: getView(int position, View convertView, ViewGroup parent)
+    description: Get a View that displays the data at the specified position in the data set.
+   - 
+    return-value: boolean
+    name: hasStableIds()
+    description: Indicates whether the item ids are stable across changes to the underlying data.
+   - 
+    return-value: View
+    name: newDropDownView(Context context, Cursor cursor, ViewGroup parent)
+    description: Makes a new drop down view to hold the data pointed to by cursor.
+   - 
+    return-value: abstract View
+    name: newView(Context context, Cursor cursor, ViewGroup parent)
+    description: Makes a new view to hold the data pointed to by cursor.
+   - 
+    return-value: Cursor
+    name: runQueryOnBackgroundThread(CharSequence constraint)
+    description: Runs a query with the specified constraint.
+   - 
+    return-value: void
+    name: setDropDownViewTheme(Resources.Theme theme)
+    description: Sets the Resources.Theme against which drop-down views are inflated.
+   - 
+    return-value: void
+    name: setFilterQueryProvider(FilterQueryProvider filterQueryProvider)
+    description: Sets the query filter provider used to filter the current Cursor.
+   - 
+    return-value: Cursor
+    name: swapCursor(Cursor newCursor)
+    description: Swap in a new Cursor, returning the old Cursor.
+ api-section: 
+  api: 
+   - 
+    name: FLAG_AUTO_REQUERY
+    api_level: API level 11
+    api_signature: public static final int FLAG_AUTO_REQUERY
+    description: 
+   - 
+    name: FLAG_REGISTER_CONTENT_OBSERVER
+    api_level: API level 11
+    api_signature: public static final int FLAG_REGISTER_CONTENT_OBSERVER
+    description: If set the adapter will register a content observer on the cursor and will call onContentChanged() when a notification comes in. Be careful when using this flag: you will need to unset the current Cursor from the adapter to avoid leaks due to its registered observers. This flag is not needed when using a CursorAdapter with a CursorLoader.
+   - 
+    name: CursorAdapter
+    api_level: API level 1
+    api_signature: public CursorAdapter (Context context, 
+                Cursor c)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The context
+       - 
+        name: c
+        description: Cursor: The cursor from which to get the data.
+   - 
+    name: CursorAdapter
+    api_level: API level 1
+    api_signature: public CursorAdapter (Context context, 
+                Cursor c, 
+                boolean autoRequery)
+    description: Constructor that allows control over auto-requery. It is recommended you not use this, but instead CursorAdapter(Context, Cursor, int). When using this constructor, FLAG_REGISTER_CONTENT_OBSERVER will always be set.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The context
+       - 
+        name: c
+        description: Cursor: The cursor from which to get the data.
+       - 
+        name: autoRequery
+        description: boolean: If true the adapter will call requery() on the cursor whenever it changes so the most recent data is always displayed. Using true here is discouraged.
+   - 
+    name: CursorAdapter
+    api_level: API level 11
+    api_signature: public CursorAdapter (Context context, 
+                Cursor c, 
+                int flags)
+    description: Recommended constructor.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The context
+       - 
+        name: c
+        description: Cursor: The cursor from which to get the data.
+       - 
+        name: flags
+        description: int: Flags used to determine the behavior of the adapter; may be any combination of FLAG_AUTO_REQUERY and FLAG_REGISTER_CONTENT_OBSERVER.
+   - 
+    name: bindView
+    api_level: API level 1
+    api_signature: public abstract void bindView (View view, 
+                Context context, 
+                Cursor cursor)
+    description: Bind an existing view to the data pointed to by cursor
+     parameters: 
+      parameter: 
+       - 
+        name: view
+        description: View: Existing view, returned earlier by newView
+       - 
+        name: context
+        description: Context: Interface to application's global information
+       - 
+        name: cursor
+        description: Cursor: The cursor from which to get the data. The cursor is already moved to the correct position.
+   - 
+    name: changeCursor
+    api_level: API level 1
+    api_signature: public void changeCursor (Cursor cursor)
+    description: Change the underlying cursor to a new cursor. If there is an existing cursor it will be closed.
+     parameters: 
+      parameter: 
+       - 
+        name: cursor
+        description: Cursor: The new cursor to be used
+   - 
+    name: convertToString
+    api_level: API level 1
+    api_signature: public CharSequence convertToString (Cursor cursor)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: cursor
+        description: Cursor: the cursor to convert to a CharSequence
+       - 
+        name: CharSequence
+        description: a CharSequence representing the value
+   - 
+    name: getCount
+    api_level: API level 1
+    api_signature: public int getCount ()
+    description: How many items are in the data set represented by this Adapter.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: Count of items.
+   - 
+    name: getCursor
+    api_level: API level 1
+    api_signature: public Cursor getCursor ()
+    description: Returns the cursor.
+     parameters: 
+      parameter: 
+       - 
+        name: Cursor
+        description: the cursor.
+   - 
+    name: getDropDownView
+    api_level: API level 1
+    api_signature: public View getDropDownView (int position, 
+                View convertView, 
+                ViewGroup parent)
+    description: Gets a View that displays in the drop down popup the data at the specified position in the data set.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: index of the item whose view we want.
+       - 
+        name: convertView
+        description: View: the old view to reuse, if possible. Note: You should check that this view is non-null and of an appropriate type before using. If it is not possible to convert this view to display the correct data, this method can create a new view.
+       - 
+        name: parent
+        description: ViewGroup: the parent that this view will eventually be attached to
+       - 
+        name: View
+        description: a View corresponding to the data at the specified position.
+   - 
+    name: getDropDownViewTheme
+    api_level: API level 23
+    api_signature: public Resources.Theme getDropDownViewTheme ()
+    description: Returns the value previously set by a call to setDropDownViewTheme(Theme).
+     parameters: 
+      parameter: 
+       - 
+        name: Resources.Theme
+        description: the Resources.Theme against which drop-down views are inflated, or null if one has not been explicitly set
+   - 
+    name: getFilter
+    api_level: API level 1
+    api_signature: public Filter getFilter ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: Filter
+        description: a filter used to constrain data
+   - 
+    name: getFilterQueryProvider
+    api_level: API level 1
+    api_signature: public FilterQueryProvider getFilterQueryProvider ()
+    description: Returns the query filter provider used for filtering. When the provider is null, no filtering occurs.
+     parameters: 
+      parameter: 
+       - 
+        name: FilterQueryProvider
+        description: the current filter query provider or null if it does not exist
+   - 
+    name: getItem
+    api_level: API level 1
+    api_signature: public Object getItem (int position)
+    description: Get the data item associated with the specified position in the data set.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: Position of the item whose data we want within the adapter's data set.
+       - 
+        name: Object
+        description: The data at the specified position.
+   - 
+    name: getItemId
+    api_level: API level 1
+    api_signature: public long getItemId (int position)
+    description: Get the row id associated with the specified position in the list.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: The position of the item within the adapter's data set whose row id we want.
+       - 
+        name: long
+        description: The id of the item at the specified position.
+   - 
+    name: getView
+    api_level: API level 1
+    api_signature: public View getView (int position, 
+                View convertView, 
+                ViewGroup parent)
+    description: Get a View that displays the data at the specified position in the data set. You can either create a View manually or inflate it from an XML layout file. When the View is inflated, the parent View (GridView, ListView...) will apply default layout parameters unless you use LayoutInflater.inflate(int, android.view.ViewGroup, boolean) to specify a root view and to prevent attachment to the root.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: The position of the item within the adapter's data set of the item whose view we want.
+       - 
+        name: convertView
+        description: View: The old view to reuse, if possible. Note: You should check that this view is non-null and of an appropriate type before using. If it is not possible to convert this view to display the correct data, this method can create a new view. Heterogeneous lists can specify their number of view types, so that this View is always of the right type (see BaseAdapter.getViewTypeCount() and BaseAdapter.getItemViewType(int)).
+       - 
+        name: parent
+        description: ViewGroup: The parent that this view will eventually be attached to
+       - 
+        name: View
+        description: A View corresponding to the data at the specified position.
+   - 
+    name: hasStableIds
+    api_level: API level 1
+    api_signature: public boolean hasStableIds ()
+    description: Indicates whether the item ids are stable across changes to the underlying data.
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: True if the same id always refers to the same object.
+   - 
+    name: newDropDownView
+    api_level: API level 1
+    api_signature: public View newDropDownView (Context context, 
+                Cursor cursor, 
+                ViewGroup parent)
+    description: Makes a new drop down view to hold the data pointed to by cursor.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Interface to application's global information
+       - 
+        name: cursor
+        description: Cursor: The cursor from which to get the data. The cursor is already moved to the correct position.
+       - 
+        name: parent
+        description: ViewGroup: The parent to which the new view is attached to
+       - 
+        name: View
+        description: the newly created view.
+   - 
+    name: newView
+    api_level: API level 1
+    api_signature: public abstract View newView (Context context, 
+                Cursor cursor, 
+                ViewGroup parent)
+    description: Makes a new view to hold the data pointed to by cursor.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Interface to application's global information
+       - 
+        name: cursor
+        description: Cursor: The cursor from which to get the data. The cursor is already moved to the correct position.
+       - 
+        name: parent
+        description: ViewGroup: The parent to which the new view is attached to
+       - 
+        name: View
+        description: the newly created view.
+   - 
+    name: runQueryOnBackgroundThread
+    api_level: API level 1
+    api_signature: public Cursor runQueryOnBackgroundThread (CharSequence constraint)
+    description: Runs a query with the specified constraint. This query is requested by the filter attached to this adapter. The query is provided by a FilterQueryProvider. If no provider is specified, the current cursor is not filtered and returned. After this method returns the resulting cursor is passed to changeCursor(Cursor) and the previous cursor is closed. This method is always executed on a background thread, not on the application's main thread (or UI thread.) Contract: when constraint is null or empty, the original results, prior to any filtering, must be returned.
+     parameters: 
+      parameter: 
+       - 
+        name: constraint
+        description: CharSequence: the constraint with which the query must be filtered
+       - 
+        name: Cursor
+        description: a Cursor representing the results of the new query
+   - 
+    name: setDropDownViewTheme
+    api_level: API level 23
+    api_signature: public void setDropDownViewTheme (Resources.Theme theme)
+    description: Sets the Resources.Theme against which drop-down views are inflated.
+     parameters: 
+      parameter: 
+       - 
+        name: theme
+        description: Resources.Theme: the theme against which to inflate drop-down views or null to use the theme from the adapter's context
+   - 
+    name: setFilterQueryProvider
+    api_level: API level 1
+    api_signature: public void setFilterQueryProvider (FilterQueryProvider filterQueryProvider)
+    description: Sets the query filter provider used to filter the current Cursor. The provider's FilterQueryProvider.runQuery(CharSequence) method is invoked when filtering is requested by a client of this adapter.
+     parameters: 
+      parameter: 
+       - 
+        name: filterQueryProvider
+        description: FilterQueryProvider: the filter query provider or null to remove it
+   - 
+    name: swapCursor
+    api_level: API level 11
+    api_signature: public Cursor swapCursor (Cursor newCursor)
+    description: Swap in a new Cursor, returning the old Cursor. Unlike changeCursor(Cursor), the returned old Cursor is not closed.
+     parameters: 
+      parameter: 
+       - 
+        name: newCursor
+        description: Cursor: The new cursor to be used.
+       - 
+        name: Cursor
+        description: Returns the previously set Cursor, or null if there wasa not one. If the given new Cursor is the same instance is the previously set Cursor, null is also returned.
+   - 
+    name: init
+    api_level: API level 1
+    api_signature: protected void init (Context context, 
+                Cursor c, 
+                boolean autoRequery)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context
+       - 
+        name: c
+        description: Cursor
+       - 
+        name: autoRequery
+        description: boolean
+   - 
+    name: onContentChanged
+    api_level: API level 3
+    api_signature: protected void onContentChanged ()
+    description: Called when the ContentObserver on the cursor receives a change notification. The default implementation provides the auto-requery logic, but may be overridden by sub classes.

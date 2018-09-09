@@ -1,0 +1,96 @@
+api:
+ title: ExpandableListView.ExpandableListContextMenuInfo
+ api-signature: public static class ExpandableListView.ExpandableListContextMenuInfo extends Object implements ContextMenu.ContextMenuInfo
+ inheritance: java.lang.Object ↳ android.widget.ExpandableListView.ExpandableListContextMenuInfo
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+ public_constructors: 
+  method: 
+    name: ExpandableListView.ExpandableListContextMenuInfo(View targetView, long packedPosition, long id)
+ public_methods: 
+ api-section: 
+  api: 
+   - 
+    name: id
+    api_level: API level 1
+    api_signature: public long id
+    description: The ID of the item (group or child) for which the context menu is being displayed.
+   - 
+    name: packedPosition
+    api_level: API level 1
+    api_signature: public long packedPosition
+    description: The packed position in the list represented by the adapter for which the context menu is being displayed. Use the methods ExpandableListView.getPackedPositionType(long), ExpandableListView.getPackedPositionChild(long), and ExpandableListView.getPackedPositionGroup(long) to unpack this.
+   - 
+    name: targetView
+    api_level: API level 1
+    api_signature: public View targetView
+    description: The view for which the context menu is being displayed. This will be one of the children Views of this ExpandableListView.
+   - 
+    name: ExpandableListView.ExpandableListContextMenuInfo
+    api_level: API level 1
+    api_signature: public ExpandableListView.ExpandableListContextMenuInfo (View targetView, 
+                long packedPosition, 
+                long id)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: targetView
+        description: View
+       - 
+        name: packedPosition
+        description: long
+       - 
+        name: id
+        description: long

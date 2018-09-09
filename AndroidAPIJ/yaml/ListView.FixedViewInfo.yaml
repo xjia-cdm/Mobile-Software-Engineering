@@ -1,0 +1,83 @@
+api:
+ title: ListView.FixedViewInfo
+ api-signature: public class ListView.FixedViewInfo extends Object
+ inheritance: java.lang.Object ↳ android.widget.ListView.FixedViewInfo
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+ public_constructors: 
+  method: 
+    name: ListView.FixedViewInfo()
+ public_methods: 
+ api-section: 
+  api: 
+   - 
+    name: data
+    api_level: API level 1
+    api_signature: public Object data
+    description: The data backing the view. This is returned from Adapter.getItem(int).
+   - 
+    name: isSelectable
+    api_level: API level 1
+    api_signature: public boolean isSelectable
+    description: true if the fixed view should be selectable in the list
+   - 
+    name: view
+    api_level: API level 1
+    api_signature: public View view
+    description: The view to add to the list
+   - 
+    name: ListView.FixedViewInfo
+    api_level: API level 1
+    api_signature: public ListView.FixedViewInfo ()
+    description: 

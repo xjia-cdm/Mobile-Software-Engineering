@@ -1,0 +1,434 @@
+api:
+ title: HeaderViewListAdapter
+ api-signature: public class HeaderViewListAdapter extends Object implements WrapperListAdapter, Filterable
+ inheritance: java.lang.Object ↳ android.widget.HeaderViewListAdapter
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+  class: 
+    name: android.widget.Adapter
+     conctant: 
+      - 
+       type: int
+       name: IGNORE_ITEM_VIEW_TYPE
+       description:An item view type that causes the AdapterView to ignore the item view.
+      - 
+       type: int
+       name: NO_SELECTION
+       description:
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+  name: android.widget.WrapperListAdapter
+     method: 
+       return-value: abstract ListAdapter
+       name: getWrappedAdapter()
+       description: Returns the adapter wrapped by this list adapter.
+  name: android.widget.Filterable
+     method: 
+       return-value: abstract Filter
+       name: getFilter()
+       description: 
+  name: android.widget.ListAdapter
+     method: 
+      - 
+       return-value: abstract boolean
+       name: areAllItemsEnabled()
+       description: Indicates whether all the items in this adapter are enabled.
+      - 
+       return-value: abstract boolean
+       name: isEnabled(int position)
+       description: Returns true if the item at the specified position is not a separator.
+  name: android.widget.Adapter
+     method: 
+      - 
+       return-value: default CharSequence[]
+       name: getAutofillOptions()
+       description: Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.
+      - 
+       return-value: abstract int
+       name: getCount()
+       description: How many items are in the data set represented by this Adapter.
+      - 
+       return-value: abstract Object
+       name: getItem(int position)
+       description: Get the data item associated with the specified position in the data set.
+      - 
+       return-value: abstract long
+       name: getItemId(int position)
+       description: Get the row id associated with the specified position in the list.
+      - 
+       return-value: abstract int
+       name: getItemViewType(int position)
+       description: Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
+      - 
+       return-value: abstract View
+       name: getView(int position, View convertView, ViewGroup parent)
+       description: Get a View that displays the data at the specified position in the data set.
+      - 
+       return-value: abstract int
+       name: getViewTypeCount()
+       description: 
+      - 
+       return-value: abstract boolean
+       name: hasStableIds()
+       description: Indicates whether the item ids are stable across changes to the underlying data.
+      - 
+       return-value: abstract boolean
+       name: isEmpty()
+      - 
+       return-value: abstract void
+       name: registerDataSetObserver(DataSetObserver observer)
+       description: Register an observer that is called when changes happen to the data used by this adapter.
+      - 
+       return-value: abstract void
+       name: unregisterDataSetObserver(DataSetObserver observer)
+       description: Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).
+ public_constructors: 
+  method: 
+    name: HeaderViewListAdapter(ArrayList<ListView.FixedViewInfo> headerViewInfos, ArrayList<ListView.FixedViewInfo> footerViewInfos, ListAdapter adapter)
+ public_methods: 
+  method: 
+   - 
+    return-value: boolean
+    name: areAllItemsEnabled()
+    description: Indicates whether all the items in this adapter are enabled.
+   - 
+    return-value: int
+    name: getCount()
+    description: How many items are in the data set represented by this Adapter.
+   - 
+    return-value: Filter
+    name: getFilter()
+    description: 
+   - 
+    return-value: int
+    name: getFootersCount()
+   - 
+    return-value: int
+    name: getHeadersCount()
+   - 
+    return-value: Object
+    name: getItem(int position)
+    description: Get the data item associated with the specified position in the data set.
+   - 
+    return-value: long
+    name: getItemId(int position)
+    description: Get the row id associated with the specified position in the list.
+   - 
+    return-value: int
+    name: getItemViewType(int position)
+    description: Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
+   - 
+    return-value: View
+    name: getView(int position, View convertView, ViewGroup parent)
+    description: Get a View that displays the data at the specified position in the data set.
+   - 
+    return-value: int
+    name: getViewTypeCount()
+    description: 
+   - 
+    return-value: ListAdapter
+    name: getWrappedAdapter()
+    description: Returns the adapter wrapped by this list adapter.
+   - 
+    return-value: boolean
+    name: hasStableIds()
+    description: Indicates whether the item ids are stable across changes to the underlying data.
+   - 
+    return-value: boolean
+    name: isEmpty()
+   - 
+    return-value: boolean
+    name: isEnabled(int position)
+    description: Returns true if the item at the specified position is not a separator.
+   - 
+    return-value: void
+    name: registerDataSetObserver(DataSetObserver observer)
+    description: Register an observer that is called when changes happen to the data used by this adapter.
+   - 
+    return-value: boolean
+    name: removeFooter(View v)
+   - 
+    return-value: boolean
+    name: removeHeader(View v)
+   - 
+    return-value: void
+    name: unregisterDataSetObserver(DataSetObserver observer)
+    description: Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).
+ api-section: 
+  api: 
+   - 
+    name: HeaderViewListAdapter
+    api_level: API level 1
+    api_signature: public HeaderViewListAdapter (ArrayList<ListView.FixedViewInfo> headerViewInfos, 
+                ArrayList<ListView.FixedViewInfo> footerViewInfos, 
+                ListAdapter adapter)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: headerViewInfos
+        description: ArrayList
+       - 
+        name: footerViewInfos
+        description: ArrayList
+       - 
+        name: adapter
+        description: ListAdapter
+   - 
+    name: areAllItemsEnabled
+    api_level: API level 1
+    api_signature: public boolean areAllItemsEnabled ()
+    description: Indicates whether all the items in this adapter are enabled. If the value returned by this method changes over time, there is no guarantee it will take effect. If true, it means all items are selectable and clickable (there is no separator.)
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: True if all items are enabled, false otherwise.
+   - 
+    name: getCount
+    api_level: API level 1
+    api_signature: public int getCount ()
+    description: How many items are in the data set represented by this Adapter.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: Count of items.
+   - 
+    name: getFilter
+    api_level: API level 1
+    api_signature: public Filter getFilter ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: Filter
+        description: a filter used to constrain data
+   - 
+    name: getFootersCount
+    api_level: API level 1
+    api_signature: public int getFootersCount ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: 
+   - 
+    name: getHeadersCount
+    api_level: API level 1
+    api_signature: public int getHeadersCount ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: 
+   - 
+    name: getItem
+    api_level: API level 1
+    api_signature: public Object getItem (int position)
+    description: Get the data item associated with the specified position in the data set.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: Position of the item whose data we want within the adapter's data set.
+       - 
+        name: Object
+        description: The data at the specified position.
+   - 
+    name: getItemId
+    api_level: API level 1
+    api_signature: public long getItemId (int position)
+    description: Get the row id associated with the specified position in the list.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: The position of the item within the adapter's data set whose row id we want.
+       - 
+        name: long
+        description: The id of the item at the specified position.
+   - 
+    name: getItemViewType
+    api_level: API level 1
+    api_signature: public int getItemViewType (int position)
+    description: Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: The position of the item within the adapter's data set whose view type we want.
+       - 
+        name: int
+        description: An integer representing the type of View. Two views should share the same type if one can be converted to the other in getView(int, View, ViewGroup). Note: Integers must be in the range 0 to getViewTypeCount() - 1. IGNORE_ITEM_VIEW_TYPE can also be returned.
+   - 
+    name: getView
+    api_level: API level 1
+    api_signature: public View getView (int position, 
+                View convertView, 
+                ViewGroup parent)
+    description: Get a View that displays the data at the specified position in the data set. You can either create a View manually or inflate it from an XML layout file. When the View is inflated, the parent View (GridView, ListView...) will apply default layout parameters unless you use LayoutInflater.inflate(int, android.view.ViewGroup, boolean) to specify a root view and to prevent attachment to the root.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: The position of the item within the adapter's data set of the item whose view we want.
+       - 
+        name: convertView
+        description: View: The old view to reuse, if possible. Note: You should check that this view is non-null and of an appropriate type before using. If it is not possible to convert this view to display the correct data, this method can create a new view. Heterogeneous lists can specify their number of view types, so that this View is always of the right type (see getViewTypeCount() and getItemViewType(int)).
+       - 
+        name: parent
+        description: ViewGroup: The parent that this view will eventually be attached to
+       - 
+        name: View
+        description: A View corresponding to the data at the specified position.
+   - 
+    name: getViewTypeCount
+    api_level: API level 1
+    api_signature: public int getViewTypeCount ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The number of types of Views that will be created by this adapter
+   - 
+    name: getWrappedAdapter
+    api_level: API level 1
+    api_signature: public ListAdapter getWrappedAdapter ()
+    description: Returns the adapter wrapped by this list adapter.
+     parameters: 
+      parameter: 
+       - 
+        name: ListAdapter
+        description: The ListAdapter wrapped by this adapter.
+   - 
+    name: hasStableIds
+    api_level: API level 1
+    api_signature: public boolean hasStableIds ()
+    description: Indicates whether the item ids are stable across changes to the underlying data.
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: True if the same id always refers to the same object.
+   - 
+    name: isEmpty
+    api_level: API level 1
+    api_signature: public boolean isEmpty ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: 
+   - 
+    name: isEnabled
+    api_level: API level 1
+    api_signature: public boolean isEnabled (int position)
+    description: Returns true if the item at the specified position is not a separator. (A separator is a non-selectable, non-clickable item). The result is unspecified if position is invalid. An ArrayIndexOutOfBoundsException should be thrown in that case for fast failure.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: Index of the item
+       - 
+        name: boolean
+        description: True if the item is not a separator
+   - 
+    name: registerDataSetObserver
+    api_level: API level 1
+    api_signature: public void registerDataSetObserver (DataSetObserver observer)
+    description: Register an observer that is called when changes happen to the data used by this adapter.
+     parameters: 
+      parameter: 
+       - 
+        name: observer
+        description: DataSetObserver: the object that gets notified when the data set changes.
+   - 
+    name: removeFooter
+    api_level: API level 1
+    api_signature: public boolean removeFooter (View v)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: v
+        description: View
+       - 
+        name: boolean
+        description: 
+   - 
+    name: removeHeader
+    api_level: API level 1
+    api_signature: public boolean removeHeader (View v)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: v
+        description: View
+       - 
+        name: boolean
+        description: 
+   - 
+    name: unregisterDataSetObserver
+    api_level: API level 1
+    api_signature: public void unregisterDataSetObserver (DataSetObserver observer)
+    description: Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).
+     parameters: 
+      parameter: 
+       - 
+        name: observer
+        description: DataSetObserver: the object to unregister.

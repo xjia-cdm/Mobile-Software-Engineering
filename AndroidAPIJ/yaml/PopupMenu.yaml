@@ -1,0 +1,258 @@
+api:
+ title: PopupMenu
+ api-signature: public class PopupMenu extends Object
+ inheritance: java.lang.Object ↳ android.widget.PopupMenu
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+ public_constructors: 
+  method: 
+   - 
+    name: PopupMenu(Context context, View anchor)
+    description: Constructor to create a new popup menu with an anchor view.
+   - 
+    name: PopupMenu(Context context, View anchor, int gravity)
+    description: Constructor to create a new popup menu with an anchor view and alignment gravity.
+   - 
+    name: PopupMenu(Context context, View anchor, int gravity, int popupStyleAttr, int popupStyleRes)
+    description: Constructor a create a new popup menu with a specific style.
+ public_methods: 
+  method: 
+   - 
+    return-value: void
+    name: dismiss()
+    description: Dismiss the menu popup.
+   - 
+    return-value: View.OnTouchListener
+    name: getDragToOpenListener()
+    description: Returns an View.OnTouchListener that can be added to the anchor view to implement drag-to-open behavior.
+   - 
+    return-value: int
+    name: getGravity()
+   - 
+    return-value: Menu
+    name: getMenu()
+    description: Returns the Menu associated with this popup.
+   - 
+    return-value: MenuInflater
+    name: getMenuInflater()
+   - 
+    return-value: void
+    name: inflate(int menuRes)
+    description: Inflate a menu resource into this PopupMenu.
+   - 
+    return-value: void
+    name: setGravity(int gravity)
+    description: Sets the gravity used to align the popup window to its anchor view.
+   - 
+    return-value: void
+    name: setOnDismissListener(PopupMenu.OnDismissListener listener)
+    description: Sets a listener that will be notified when this menu is dismissed.
+   - 
+    return-value: void
+    name: setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener listener)
+    description: Sets a listener that will be notified when the user selects an item from the menu.
+   - 
+    return-value: void
+    name: show()
+    description: Show the menu popup anchored to the view specified during construction.
+ api-section: 
+  api: 
+   - 
+    name: PopupMenu
+    api_level: API level 11
+    api_signature: public PopupMenu (Context context, 
+                View anchor)
+    description: Constructor to create a new popup menu with an anchor view.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Context the popup menu is running in, through which it can access the current theme, resources, etc.
+       - 
+        name: anchor
+        description: View: Anchor view for this popup. The popup will appear below the anchor if there is room, or above it if there is not.
+   - 
+    name: PopupMenu
+    api_level: API level 19
+    api_signature: public PopupMenu (Context context, 
+                View anchor, 
+                int gravity)
+    description: Constructor to create a new popup menu with an anchor view and alignment gravity.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Context the popup menu is running in, through which it can access the current theme, resources, etc.
+       - 
+        name: anchor
+        description: View: Anchor view for this popup. The popup will appear below the anchor if there is room, or above it if there is not.
+       - 
+        name: gravity
+        description: int: The Gravity value for aligning the popup with its anchor.
+   - 
+    name: PopupMenu
+    api_level: API level 22
+    api_signature: public PopupMenu (Context context, 
+                View anchor, 
+                int gravity, 
+                int popupStyleAttr, 
+                int popupStyleRes)
+    description: Constructor a create a new popup menu with a specific style.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Context the popup menu is running in, through which it can access the current theme, resources, etc.
+       - 
+        name: anchor
+        description: View: Anchor view for this popup. The popup will appear below the anchor if there is room, or above it if there is not.
+       - 
+        name: gravity
+        description: int: The Gravity value for aligning the popup with its anchor.
+       - 
+        name: popupStyleAttr
+        description: int: An attribute in the current theme that contains a reference to a style resource that supplies default values for the popup window. Can be 0 to not look for defaults.
+       - 
+        name: popupStyleRes
+        description: int: A resource identifier of a style resource that supplies default values for the popup window, used only if popupStyleAttr is 0 or can not be found in the theme. Can be 0 to not look for defaults.
+   - 
+    name: dismiss
+    api_level: API level 11
+    api_signature: public void dismiss ()
+    description: Dismiss the menu popup.
+   - 
+    name: getDragToOpenListener
+    api_level: API level 19
+    api_signature: public View.OnTouchListener getDragToOpenListener ()
+    description: Returns an View.OnTouchListener that can be added to the anchor view to implement drag-to-open behavior.
+     parameters: 
+      parameter: 
+       - 
+        name: View.OnTouchListener
+        description: a touch listener that controls drag-to-open behavior
+   - 
+    name: getGravity
+    api_level: API level 23
+    api_signature: public int getGravity ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: the gravity used to align the popup window to its anchor view
+   - 
+    name: getMenu
+    api_level: API level 11
+    api_signature: public Menu getMenu ()
+    description: Returns the Menu associated with this popup. Populate the returned Menu with items before calling show().
+     parameters: 
+      parameter: 
+       - 
+        name: Menu
+        description: the Menu associated with this popup
+   - 
+    name: getMenuInflater
+    api_level: API level 11
+    api_signature: public MenuInflater getMenuInflater ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: MenuInflater
+        description: a MenuInflater that can be used to inflate menu items from XML into the menu returned by getMenu()
+   - 
+    name: inflate
+    api_level: API level 14
+    api_signature: public void inflate (int menuRes)
+    description: Inflate a menu resource into this PopupMenu. This is equivalent to calling popupMenu.getMenuInflater().inflate(menuRes, popupMenu.getMenu()).
+     parameters: 
+      parameter: 
+       - 
+        name: menuRes
+        description: int: Menu resource to inflate
+   - 
+    name: setGravity
+    api_level: API level 23
+    api_signature: public void setGravity (int gravity)
+    description: Sets the gravity used to align the popup window to its anchor view.
+     parameters: 
+      parameter: 
+       - 
+        name: gravity
+        description: int: the gravity used to align the popup window
+   - 
+    name: setOnDismissListener
+    api_level: API level 14
+    api_signature: public void setOnDismissListener (PopupMenu.OnDismissListener listener)
+    description: Sets a listener that will be notified when this menu is dismissed.
+     parameters: 
+      parameter: 
+       - 
+        name: listener
+        description: PopupMenu.OnDismissListener: the listener to notify
+   - 
+    name: setOnMenuItemClickListener
+    api_level: API level 11
+    api_signature: public void setOnMenuItemClickListener (PopupMenu.OnMenuItemClickListener listener)
+    description: Sets a listener that will be notified when the user selects an item from the menu.
+     parameters: 
+      parameter: 
+       - 
+        name: listener
+        description: PopupMenu.OnMenuItemClickListener: the listener to notify
+   - 
+    name: show
+    api_level: API level 11
+    api_signature: public void show ()
+    description: Show the menu popup anchored to the view specified during construction.

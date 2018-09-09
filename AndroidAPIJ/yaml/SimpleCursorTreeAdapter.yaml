@@ -1,0 +1,554 @@
+api:
+ title: SimpleCursorTreeAdapter
+ api-signature: public abstract class SimpleCursorTreeAdapter extends ResourceCursorTreeAdapter
+ inheritance: java.lang.Object ↳ android.widget.BaseExpandableListAdapter ↳ android.widget.CursorTreeAdapter ↳ android.widget.ResourceCursorTreeAdapter ↳ android.widget.SimpleCursorTreeAdapter
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: android.widget.ResourceCursorTreeAdapter
+   class: 
+     method: 
+      - 
+       return-value: View
+       name: newChildView(Context context, Cursor cursor, boolean isLastChild, ViewGroup parent)
+       description: Makes a new child view to hold the data pointed to by cursor.
+      - 
+       return-value: View
+       name: newGroupView(Context context, Cursor cursor, boolean isExpanded, ViewGroup parent)
+       description: Makes a new group view to hold the group data pointed to by cursor.
+  name: android.widget.CursorTreeAdapter
+     method: 
+      - 
+       return-value: abstract void
+       name: bindChildView(View view, Context context, Cursor cursor, boolean isLastChild)
+       description: Bind an existing view to the child data pointed to by cursor
+      - 
+       return-value: abstract void
+       name: bindGroupView(View view, Context context, Cursor cursor, boolean isExpanded)
+       description: Bind an existing view to the group data pointed to by cursor.
+      - 
+       return-value: void
+       name: changeCursor(Cursor cursor)
+      - 
+       return-value: String
+       name: convertToString(Cursor cursor)
+      - 
+       return-value: Cursor
+       name: getChild(int groupPosition, int childPosition)
+      - 
+       return-value: long
+       name: getChildId(int groupPosition, int childPosition)
+      - 
+       return-value: View
+       name: getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent)
+      - 
+       return-value: int
+       name: getChildrenCount(int groupPosition)
+      - 
+       return-value: abstract Cursor
+       name: getChildrenCursor(Cursor groupCursor)
+       description: Gets the Cursor for the children at the given group.
+      - 
+       return-value: Cursor
+       name: getCursor()
+      - 
+       return-value: Filter
+       name: getFilter()
+       description: 
+      - 
+       return-value: FilterQueryProvider
+       name: getFilterQueryProvider()
+      - 
+       return-value: Cursor
+       name: getGroup(int groupPosition)
+      - 
+       return-value: int
+       name: getGroupCount()
+      - 
+       return-value: long
+       name: getGroupId(int groupPosition)
+      - 
+       return-value: View
+       name: getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent)
+      - 
+       return-value: boolean
+       name: hasStableIds()
+      - 
+       return-value: boolean
+       name: isChildSelectable(int groupPosition, int childPosition)
+      - 
+       return-value: abstract View
+       name: newChildView(Context context, Cursor cursor, boolean isLastChild, ViewGroup parent)
+       description: Makes a new child view to hold the data pointed to by cursor.
+      - 
+       return-value: abstract View
+       name: newGroupView(Context context, Cursor cursor, boolean isExpanded, ViewGroup parent)
+       description: Makes a new group view to hold the group data pointed to by cursor.
+      - 
+       return-value: void
+       name: notifyDataSetChanged()
+      - 
+       return-value: void
+       name: notifyDataSetChanged(boolean releaseCursors)
+       description: Notifies a data set change, but with the option of not releasing any cached cursors.
+      - 
+       return-value: void
+       name: notifyDataSetInvalidated()
+      - 
+       return-value: void
+       name: onGroupCollapsed(int groupPosition)
+       description: Called when a group is collapsed.
+      - 
+       return-value: Cursor
+       name: runQueryOnBackgroundThread(CharSequence constraint)
+      - 
+       return-value: void
+       name: setChildrenCursor(int groupPosition, Cursor childrenCursor)
+       description: Sets the children Cursor for a particular group.
+      - 
+       return-value: void
+       name: setFilterQueryProvider(FilterQueryProvider filterQueryProvider)
+      - 
+       return-value: void
+       name: setGroupCursor(Cursor cursor)
+       description: Sets the group Cursor.
+  name: android.widget.BaseExpandableListAdapter
+     method: 
+      - 
+       return-value: boolean
+       name: areAllItemsEnabled()
+      - 
+       return-value: int
+       name: getChildType(int groupPosition, int childPosition)
+       description: Get the type of child View that will be created by ExpandableListAdapter.getChildView(int, int, boolean, View, ViewGroup) for the specified child item.
+      - 
+       return-value: int
+       name: getChildTypeCount()
+       description: 
+      - 
+       return-value: long
+       name: getCombinedChildId(long groupId, long childId)
+       description: Override this method if you foresee a clash in IDs based on this scheme:
+      - 
+       return-value: long
+       name: getCombinedGroupId(long groupId)
+       description: Override this method if you foresee a clash in IDs based on this scheme:
+      - 
+       return-value: int
+       name: getGroupType(int groupPosition)
+       description: Get the type of group View that will be created by ExpandableListAdapter.getGroupView(int, boolean, View, ViewGroup) .
+      - 
+       return-value: int
+       name: getGroupTypeCount()
+       description: 
+      - 
+       return-value: boolean
+       name: isEmpty()
+       description: 
+      - 
+       return-value: void
+       name: notifyDataSetChanged()
+      - 
+       return-value: void
+       name: notifyDataSetInvalidated()
+      - 
+       return-value: void
+       name: onGroupCollapsed(int groupPosition)
+       description: Called when a group is collapsed.
+      - 
+       return-value: void
+       name: onGroupExpanded(int groupPosition)
+       description: Called when a group is expanded.
+      - 
+       return-value: void
+       name: registerDataSetObserver(DataSetObserver observer)
+      - 
+       return-value: void
+       name: unregisterDataSetObserver(DataSetObserver observer)
+  name: java.lang.Object
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+  name: android.widget.Filterable
+     method: 
+       return-value: abstract Filter
+       name: getFilter()
+       description: 
+  name: android.widget.ExpandableListAdapter
+     method: 
+      - 
+       return-value: abstract boolean
+       name: areAllItemsEnabled()
+      - 
+       return-value: abstract Object
+       name: getChild(int groupPosition, int childPosition)
+       description: Gets the data associated with the given child within the given group.
+      - 
+       return-value: abstract long
+       name: getChildId(int groupPosition, int childPosition)
+       description: Gets the ID for the given child within the given group.
+      - 
+       return-value: abstract View
+       name: getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent)
+       description: Gets a View that displays the data for the given child within the given group.
+      - 
+       return-value: abstract int
+       name: getChildrenCount(int groupPosition)
+       description: Gets the number of children in a specified group.
+      - 
+       return-value: abstract long
+       name: getCombinedChildId(long groupId, long childId)
+       description: Gets an ID for a child that is unique across any item (either group or child) that is in this list.
+      - 
+       return-value: abstract long
+       name: getCombinedGroupId(long groupId)
+       description: Gets an ID for a group that is unique across any item (either group or child) that is in this list.
+      - 
+       return-value: abstract Object
+       name: getGroup(int groupPosition)
+       description: Gets the data associated with the given group.
+      - 
+       return-value: abstract int
+       name: getGroupCount()
+       description: Gets the number of groups.
+      - 
+       return-value: abstract long
+       name: getGroupId(int groupPosition)
+       description: Gets the ID for the group at the given position.
+      - 
+       return-value: abstract View
+       name: getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent)
+       description: Gets a View that displays the given group.
+      - 
+       return-value: abstract boolean
+       name: hasStableIds()
+       description: Indicates whether the child and group IDs are stable across changes to the underlying data.
+      - 
+       return-value: abstract boolean
+       name: isChildSelectable(int groupPosition, int childPosition)
+       description: Whether the child at the specified position is selectable.
+      - 
+       return-value: abstract boolean
+       name: isEmpty()
+      - 
+       return-value: abstract void
+       name: onGroupCollapsed(int groupPosition)
+       description: Called when a group is collapsed.
+      - 
+       return-value: abstract void
+       name: onGroupExpanded(int groupPosition)
+       description: Called when a group is expanded.
+      - 
+       return-value: abstract void
+       name: registerDataSetObserver(DataSetObserver observer)
+      - 
+       return-value: abstract void
+       name: unregisterDataSetObserver(DataSetObserver observer)
+  name: android.widget.HeterogeneousExpandableList
+     method: 
+      - 
+       return-value: abstract int
+       name: getChildType(int groupPosition, int childPosition)
+       description: Get the type of child View that will be created by ExpandableListAdapter.getChildView(int, int, boolean, View, ViewGroup) for the specified child item.
+      - 
+       return-value: abstract int
+       name: getChildTypeCount()
+       description: 
+      - 
+       return-value: abstract int
+       name: getGroupType(int groupPosition)
+       description: Get the type of group View that will be created by ExpandableListAdapter.getGroupView(int, boolean, View, ViewGroup) .
+      - 
+       return-value: abstract int
+       name: getGroupTypeCount()
+       description: 
+ public_constructors: 
+  method: 
+   - 
+    name: SimpleCursorTreeAdapter(Context context, Cursor cursor, int collapsedGroupLayout, int expandedGroupLayout, String[] groupFrom, int[] groupTo, int childLayout, int lastChildLayout, String[] childFrom, int[] childTo)
+    description: Constructor.
+   - 
+    name: SimpleCursorTreeAdapter(Context context, Cursor cursor, int collapsedGroupLayout, int expandedGroupLayout, String[] groupFrom, int[] groupTo, int childLayout, String[] childFrom, int[] childTo)
+    description: Constructor.
+   - 
+    name: SimpleCursorTreeAdapter(Context context, Cursor cursor, int groupLayout, String[] groupFrom, int[] groupTo, int childLayout, String[] childFrom, int[] childTo)
+    description: Constructor.
+ public_methods: 
+  method: 
+   - 
+    return-value: SimpleCursorTreeAdapter.ViewBinder
+    name: getViewBinder()
+    description: Returns the SimpleCursorTreeAdapter.ViewBinder used to bind data to views.
+   - 
+    return-value: void
+    name: setViewBinder(SimpleCursorTreeAdapter.ViewBinder viewBinder)
+    description: Sets the binder used to bind data to views.
+   - 
+    return-value: void
+    name: setViewText(TextView v, String text)
+    description: Called by bindView() to set the text for a TextView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to a TextView.
+ api-section: 
+  api: 
+   - 
+    name: SimpleCursorTreeAdapter
+    api_level: API level 1
+    api_signature: public SimpleCursorTreeAdapter (Context context, 
+                Cursor cursor, 
+                int collapsedGroupLayout, 
+                int expandedGroupLayout, 
+                String[] groupFrom, 
+                int[] groupTo, 
+                int childLayout, 
+                int lastChildLayout, 
+                String[] childFrom, 
+                int[] childTo)
+    description: Constructor.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The context where the ExpandableListView associated with this SimpleCursorTreeAdapter is running
+       - 
+        name: cursor
+        description: Cursor: The database cursor
+       - 
+        name: collapsedGroupLayout
+        description: int: The resource identifier of a layout file that defines the views for a collapsed group. The layout file should include at least those named views defined in groupTo.
+       - 
+        name: expandedGroupLayout
+        description: int: The resource identifier of a layout file that defines the views for an expanded group. The layout file should include at least those named views defined in groupTo.
+       - 
+        name: groupFrom
+        description: String: A list of column names that will be used to display the data for a group.
+       - 
+        name: groupTo
+        description: int: The group views (from the group layouts) that should display column in the "from" parameter. These should all be TextViews or ImageViews. The first N views in this list are given the values of the first N columns in the from parameter.
+       - 
+        name: childLayout
+        description: int: The resource identifier of a layout file that defines the views for a child (except the last). The layout file should include at least those named views defined in childTo.
+       - 
+        name: lastChildLayout
+        description: int: The resource identifier of a layout file that defines the views for the last child within a group. The layout file should include at least those named views defined in childTo.
+       - 
+        name: childFrom
+        description: String: A list of column names that will be used to display the data for a child.
+       - 
+        name: childTo
+        description: int: The child views (from the child layouts) that should display column in the "from" parameter. These should all be TextViews or ImageViews. The first N views in this list are given the values of the first N columns in the from parameter.
+   - 
+    name: SimpleCursorTreeAdapter
+    api_level: API level 1
+    api_signature: public SimpleCursorTreeAdapter (Context context, 
+                Cursor cursor, 
+                int collapsedGroupLayout, 
+                int expandedGroupLayout, 
+                String[] groupFrom, 
+                int[] groupTo, 
+                int childLayout, 
+                String[] childFrom, 
+                int[] childTo)
+    description: Constructor.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The context where the ExpandableListView associated with this SimpleCursorTreeAdapter is running
+       - 
+        name: cursor
+        description: Cursor: The database cursor
+       - 
+        name: collapsedGroupLayout
+        description: int: The resource identifier of a layout file that defines the views for a collapsed group. The layout file should include at least those named views defined in groupTo.
+       - 
+        name: expandedGroupLayout
+        description: int: The resource identifier of a layout file that defines the views for an expanded group. The layout file should include at least those named views defined in groupTo.
+       - 
+        name: groupFrom
+        description: String: A list of column names that will be used to display the data for a group.
+       - 
+        name: groupTo
+        description: int: The group views (from the group layouts) that should display column in the "from" parameter. These should all be TextViews or ImageViews. The first N views in this list are given the values of the first N columns in the from parameter.
+       - 
+        name: childLayout
+        description: int: The resource identifier of a layout file that defines the views for a child. The layout file should include at least those named views defined in childTo.
+       - 
+        name: childFrom
+        description: String: A list of column names that will be used to display the data for a child.
+       - 
+        name: childTo
+        description: int: The child views (from the child layouts) that should display column in the "from" parameter. These should all be TextViews or ImageViews. The first N views in this list are given the values of the first N columns in the from parameter.
+   - 
+    name: SimpleCursorTreeAdapter
+    api_level: API level 1
+    api_signature: public SimpleCursorTreeAdapter (Context context, 
+                Cursor cursor, 
+                int groupLayout, 
+                String[] groupFrom, 
+                int[] groupTo, 
+                int childLayout, 
+                String[] childFrom, 
+                int[] childTo)
+    description: Constructor.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The context where the ExpandableListView associated with this SimpleCursorTreeAdapter is running
+       - 
+        name: cursor
+        description: Cursor: The database cursor
+       - 
+        name: groupLayout
+        description: int: The resource identifier of a layout file that defines the views for a group. The layout file should include at least those named views defined in groupTo.
+       - 
+        name: groupFrom
+        description: String: A list of column names that will be used to display the data for a group.
+       - 
+        name: groupTo
+        description: int: The group views (from the group layouts) that should display column in the "from" parameter. These should all be TextViews or ImageViews. The first N views in this list are given the values of the first N columns in the from parameter.
+       - 
+        name: childLayout
+        description: int: The resource identifier of a layout file that defines the views for a child. The layout file should include at least those named views defined in childTo.
+       - 
+        name: childFrom
+        description: String: A list of column names that will be used to display the data for a child.
+       - 
+        name: childTo
+        description: int: The child views (from the child layouts) that should display column in the "from" parameter. These should all be TextViews or ImageViews. The first N views in this list are given the values of the first N columns in the from parameter.
+   - 
+    name: getViewBinder
+    api_level: API level 5
+    api_signature: public SimpleCursorTreeAdapter.ViewBinder getViewBinder ()
+    description: Returns the SimpleCursorTreeAdapter.ViewBinder used to bind data to views.
+     parameters: 
+      parameter: 
+       - 
+        name: SimpleCursorTreeAdapter.ViewBinder
+        description: a ViewBinder or null if the binder does not exist
+   - 
+    name: setViewBinder
+    api_level: API level 5
+    api_signature: public void setViewBinder (SimpleCursorTreeAdapter.ViewBinder viewBinder)
+    description: Sets the binder used to bind data to views.
+     parameters: 
+      parameter: 
+       - 
+        name: viewBinder
+        description: SimpleCursorTreeAdapter.ViewBinder: the binder used to bind data to views, can be null to remove the existing binder
+   - 
+    name: setViewText
+    api_level: API level 5
+    api_signature: public void setViewText (TextView v, 
+                String text)
+    description: Called by bindView() to set the text for a TextView but only if there is no existing ViewBinder or if the existing ViewBinder cannot handle binding to a TextView. Intended to be overridden by Adapters that need to filter strings retrieved from the database.
+     parameters: 
+      parameter: 
+       - 
+        name: v
+        description: TextView: TextView to receive text
+       - 
+        name: text
+        description: String: the text to be set for the TextView
+   - 
+    name: bindChildView
+    api_level: API level 1
+    api_signature: protected void bindChildView (View view, 
+                Context context, 
+                Cursor cursor, 
+                boolean isLastChild)
+    description: Bind an existing view to the child data pointed to by cursor
+     parameters: 
+      parameter: 
+       - 
+        name: view
+        description: View: Existing view, returned earlier by newChildView
+       - 
+        name: context
+        description: Context: Interface to application's global information
+       - 
+        name: cursor
+        description: Cursor: The cursor from which to get the data. The cursor is already moved to the correct position.
+       - 
+        name: isLastChild
+        description: boolean: Whether the child is the last child within its group.
+   - 
+    name: bindGroupView
+    api_level: API level 1
+    api_signature: protected void bindGroupView (View view, 
+                Context context, 
+                Cursor cursor, 
+                boolean isExpanded)
+    description: Bind an existing view to the group data pointed to by cursor.
+     parameters: 
+      parameter: 
+       - 
+        name: view
+        description: View: Existing view, returned earlier by newGroupView.
+       - 
+        name: context
+        description: Context: Interface to application's global information
+       - 
+        name: cursor
+        description: Cursor: The cursor from which to get the data. The cursor is already moved to the correct position.
+       - 
+        name: isExpanded
+        description: boolean: Whether the group is expanded.
+   - 
+    name: setViewImage
+    api_level: API level 1
+    api_signature: protected void setViewImage (ImageView v, 
+                String value)
+    description: Called by bindView() to set the image for an ImageView. By default, the value will be treated as a Uri. Intended to be overridden by Adapters that need to filter strings retrieved from the database.
+     parameters: 
+      parameter: 
+       - 
+        name: v
+        description: ImageView: ImageView to receive an image
+       - 
+        name: value
+        description: String: the value retrieved from the cursor

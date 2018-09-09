@@ -1,0 +1,1217 @@
+api:
+ title: RemoteViews
+ api-signature: public class RemoteViews extends Object implements Parcelable, LayoutInflater.Filter
+ inheritance: java.lang.Object ↳ android.widget.RemoteViews
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+  class: 
+    name: android.os.Parcelable
+     conctant: 
+      - 
+       type: int
+       name: CONTENTS_FILE_DESCRIPTOR
+       description:Descriptor bit used with describeContents(): indicates that the Parcelable object's flattened representation includes a file descriptor.
+      - 
+       type: int
+       name: PARCELABLE_WRITE_RETURN_VALUE
+       description:Flag for use with writeToParcel(Parcel, int): the object being written is a return value, that is the result of a function such as "Parcelable someFunction()", "void someFunction(out Parcelable)", or "void someFunction(inout Parcelable)".
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+  name: android.os.Parcelable
+     method: 
+      - 
+       return-value: abstract int
+       name: describeContents()
+       description: Describe the kinds of special objects contained in this Parcelable instance's marshaled representation.
+      - 
+       return-value: abstract void
+       name: writeToParcel(Parcel dest, int flags)
+       description: Flatten this object in to a Parcel.
+  name: android.view.LayoutInflater.Filter
+     method: 
+       return-value: abstract boolean
+       name: onLoadClass(Class clazz)
+       description: Hook to allow clients of the LayoutInflater to restrict the set of Views that are allowed to be inflated.
+ public_constructors: 
+  method: 
+   - 
+    name: RemoteViews(String packageName, int layoutId)
+    description: Create a new RemoteViews object that will display the views contained in the specified layout file.
+   - 
+    name: RemoteViews(RemoteViews landscape, RemoteViews portrait)
+    description: Create a new RemoteViews object that will inflate as the specified landspace or portrait RemoteViews, depending on the current configuration.
+   - 
+    name: RemoteViews(RemoteViews src)
+    description: Creates a copy of another RemoteViews.
+   - 
+    name: RemoteViews(Parcel parcel)
+    description: Reads a RemoteViews object from a parcel.
+ public_methods: 
+  method: 
+   - 
+    return-value: void
+    name: addView(int viewId, RemoteViews nestedView)
+    description: Equivalent to calling ViewGroup.addView(View) after inflating the given RemoteViews.
+   - 
+    return-value: View
+    name: apply(Context context, ViewGroup parent)
+    description: Inflates the view hierarchy represented by this object and applies all of the actions.
+   - 
+    return-value: RemoteViews
+    name: clone()
+    description: This method was deprecated in API level 28. use RemoteViews(RemoteViews) instead.
+   - 
+    return-value: int
+    name: describeContents()
+    description: Describe the kinds of special objects contained in this Parcelable instance's marshaled representation.
+   - 
+    return-value: int
+    name: getLayoutId()
+    description: Returns the layout id of the root layout associated with this RemoteViews.
+   - 
+    return-value: String
+    name: getPackage()
+   - 
+    return-value: boolean
+    name: onLoadClass(Class clazz)
+    description: Hook to allow clients of the LayoutInflater to restrict the set of Views that are allowed to be inflated.
+   - 
+    return-value: void
+    name: reapply(Context context, View v)
+    description: Applies all of the actions to the provided view.
+   - 
+    return-value: void
+    name: removeAllViews(int viewId)
+    description: Equivalent to calling ViewGroup.removeAllViews().
+   - 
+    return-value: void
+    name: setAccessibilityTraversalAfter(int viewId, int nextId)
+    description: Equivalent to calling View.setAccessibilityTraversalAfter(int).
+   - 
+    return-value: void
+    name: setAccessibilityTraversalBefore(int viewId, int nextId)
+    description: Equivalent to calling View.setAccessibilityTraversalBefore(int).
+   - 
+    return-value: void
+    name: setBitmap(int viewId, String methodName, Bitmap value)
+    description: Call a method taking one Bitmap on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setBoolean(int viewId, String methodName, boolean value)
+    description: Call a method taking one boolean on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setBundle(int viewId, String methodName, Bundle value)
+    description: Call a method taking one Bundle on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setByte(int viewId, String methodName, byte value)
+    description: Call a method taking one byte on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setChar(int viewId, String methodName, char value)
+    description: Call a method taking one char on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setCharSequence(int viewId, String methodName, CharSequence value)
+    description: Call a method taking one CharSequence on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setChronometer(int viewId, long base, String format, boolean started)
+    description: Equivalent to calling Chronometer.setBase, Chronometer.setFormat, and Chronometer.start() or Chronometer.stop().
+   - 
+    return-value: void
+    name: setChronometerCountDown(int viewId, boolean isCountDown)
+    description: Equivalent to calling Chronometer.setCountDown on the chronometer with the given viewId.
+   - 
+    return-value: void
+    name: setContentDescription(int viewId, CharSequence contentDescription)
+    description: Equivalent to calling View.setContentDescription(CharSequence).
+   - 
+    return-value: void
+    name: setDisplayedChild(int viewId, int childIndex)
+    description: Equivalent to calling AdapterViewAnimator.setDisplayedChild(int)
+   - 
+    return-value: void
+    name: setDouble(int viewId, String methodName, double value)
+    description: Call a method taking one double on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setEmptyView(int viewId, int emptyViewId)
+    description: Equivalent to calling AdapterView.setEmptyView(View)
+   - 
+    return-value: void
+    name: setFloat(int viewId, String methodName, float value)
+    description: Call a method taking one float on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setIcon(int viewId, String methodName, Icon value)
+    description: Call a method taking one Icon on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setImageViewBitmap(int viewId, Bitmap bitmap)
+    description: Equivalent to calling ImageView.setImageBitmap(Bitmap)
+   - 
+    return-value: void
+    name: setImageViewIcon(int viewId, Icon icon)
+    description: Equivalent to calling ImageView.setImageIcon(Icon)
+   - 
+    return-value: void
+    name: setImageViewResource(int viewId, int srcId)
+    description: Equivalent to calling ImageView.setImageResource(int)
+   - 
+    return-value: void
+    name: setImageViewUri(int viewId, Uri uri)
+    description: Equivalent to calling ImageView.setImageURI(Uri)
+   - 
+    return-value: void
+    name: setInt(int viewId, String methodName, int value)
+    description: Call a method taking one int on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setIntent(int viewId, String methodName, Intent value)
+    description: Call a method taking one Intent on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setLabelFor(int viewId, int labeledId)
+    description: Equivalent to calling View.setLabelFor(int).
+   - 
+    return-value: void
+    name: setLong(int viewId, String methodName, long value)
+    description: Call a method taking one long on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setOnClickFillInIntent(int viewId, Intent fillInIntent)
+    description: When using collections (eg.
+   - 
+    return-value: void
+    name: setOnClickPendingIntent(int viewId, PendingIntent pendingIntent)
+    description: Equivalent to calling View.setOnClickListener(android.view.View.OnClickListener) to launch the provided PendingIntent.
+   - 
+    return-value: void
+    name: setPendingIntentTemplate(int viewId, PendingIntent pendingIntentTemplate)
+    description: When using collections (eg.
+   - 
+    return-value: void
+    name: setProgressBar(int viewId, int max, int progress, boolean indeterminate)
+    description: Equivalent to calling ProgressBar.setMax, ProgressBar.setProgress, and ProgressBar.setIndeterminate If indeterminate is true, then the values for max and progress are ignored.
+   - 
+    return-value: void
+    name: setRelativeScrollPosition(int viewId, int offset)
+    description: Equivalent to calling ListView.smoothScrollByOffset(int).
+   - 
+    return-value: void
+    name: setRemoteAdapter(int appWidgetId, int viewId, Intent intent)
+    description: This method was deprecated in API level 14. This method has been deprecated. See setRemoteAdapter(int, Intent)
+   - 
+    return-value: void
+    name: setRemoteAdapter(int viewId, Intent intent)
+    description: Equivalent to calling AbsListView.setRemoteViewsAdapter(Intent).
+   - 
+    return-value: void
+    name: setScrollPosition(int viewId, int position)
+    description: Equivalent to calling ListView.smoothScrollToPosition(int).
+   - 
+    return-value: void
+    name: setShort(int viewId, String methodName, short value)
+    description: Call a method taking one short on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setString(int viewId, String methodName, String value)
+    description: Call a method taking one String on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setTextColor(int viewId, int color)
+    description: Equivalent to calling TextView.setTextColor(int).
+   - 
+    return-value: void
+    name: setTextViewCompoundDrawables(int viewId, int left, int top, int right, int bottom)
+    description: Equivalent to calling TextView.setCompoundDrawablesWithIntrinsicBounds(int, int, int, int).
+   - 
+    return-value: void
+    name: setTextViewCompoundDrawablesRelative(int viewId, int start, int top, int end, int bottom)
+    description: Equivalent to calling TextView.setCompoundDrawablesRelativeWithIntrinsicBounds(int, int, int, int).
+   - 
+    return-value: void
+    name: setTextViewText(int viewId, CharSequence text)
+    description: Equivalent to calling TextView.setText(CharSequence)
+   - 
+    return-value: void
+    name: setTextViewTextSize(int viewId, int units, float size)
+    description: Equivalent to calling TextView.setTextSize(int, float)
+   - 
+    return-value: void
+    name: setUri(int viewId, String methodName, Uri value)
+    description: Call a method taking one Uri on a view in the layout for this RemoteViews.
+   - 
+    return-value: void
+    name: setViewPadding(int viewId, int left, int top, int right, int bottom)
+    description: Equivalent to calling View.setPadding(int, int, int, int).
+   - 
+    return-value: void
+    name: setViewVisibility(int viewId, int visibility)
+    description: Equivalent to calling View.setVisibility(int)
+   - 
+    return-value: void
+    name: showNext(int viewId)
+    description: Equivalent to calling AdapterViewAnimator.showNext()
+   - 
+    return-value: void
+    name: showPrevious(int viewId)
+    description: Equivalent to calling AdapterViewAnimator.showPrevious()
+   - 
+    return-value: void
+    name: writeToParcel(Parcel dest, int flags)
+    description: Flatten this object in to a Parcel.
+ api-section: 
+  api: 
+   - 
+    name: CREATOR
+    api_level: API level 1
+    api_signature: public static final Creator<RemoteViews> CREATOR
+    description: Parcelable.Creator that instantiates RemoteViews objects
+   - 
+    name: RemoteViews
+    api_level: API level 1
+    api_signature: public RemoteViews (String packageName, 
+                int layoutId)
+    description: Create a new RemoteViews object that will display the views contained in the specified layout file.
+     parameters: 
+      parameter: 
+       - 
+        name: packageName
+        description: String: Name of the package that contains the layout resource
+       - 
+        name: layoutId
+        description: int: The id of the layout resource
+   - 
+    name: RemoteViews
+    api_level: API level 16
+    api_signature: public RemoteViews (RemoteViews landscape, 
+                RemoteViews portrait)
+    description: Create a new RemoteViews object that will inflate as the specified landspace or portrait RemoteViews, depending on the current configuration.
+     parameters: 
+      parameter: 
+       - 
+        name: landscape
+        description: RemoteViews: The RemoteViews to inflate in landscape configuration
+       - 
+        name: portrait
+        description: RemoteViews: The RemoteViews to inflate in portrait configuration
+   - 
+    name: RemoteViews
+    api_level: API level 28
+    api_signature: public RemoteViews (RemoteViews src)
+    description: Creates a copy of another RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: src
+        description: RemoteViews
+   - 
+    name: RemoteViews
+    api_level: API level 1
+    api_signature: public RemoteViews (Parcel parcel)
+    description: Reads a RemoteViews object from a parcel.
+   - 
+    name: addView
+    api_level: API level 7
+    api_signature: public void addView (int viewId, 
+                RemoteViews nestedView)
+    description: Equivalent to calling ViewGroup.addView(View) after inflating the given RemoteViews. This allows users to build "nested" RemoteViews. In cases where consumers of RemoteViews may recycle layouts, use removeAllViews(int) to clear any existing children.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the parent ViewGroup to add child into.
+       - 
+        name: nestedView
+        description: RemoteViews: RemoteViews that describes the child.
+   - 
+    name: apply
+    api_level: API level 1
+    api_signature: public View apply (Context context, 
+                ViewGroup parent)
+    description: Inflates the view hierarchy represented by this object and applies all of the actions.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Default context to use
+       - 
+        name: parent
+        description: ViewGroup: Parent that the resulting view hierarchy will be attached to. This method does not attach the hierarchy. The caller should do so when appropriate.
+       - 
+        name: View
+        description: The inflated view hierarchy
+   - 
+    name: clone
+    api_level: API level 1
+    api_signature: public RemoteViews clone ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: RemoteViews
+        description: a clone of this instance.
+       - 
+        name: IllegalStateException
+        description: if this is not the root of a RemoteView hierarchy
+   - 
+    name: describeContents
+    api_level: API level 1
+    api_signature: public int describeContents ()
+    description: Describe the kinds of special objects contained in this Parcelable instance's marshaled representation. For example, if the object will include a file descriptor in the output of writeToParcel(Parcel, int), the return value of this method must include the CONTENTS_FILE_DESCRIPTOR bit.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: a bitmask indicating the set of special object types marshaled by this Parcelable object instance.
+   - 
+    name: getLayoutId
+    api_level: API level 1
+    api_signature: public int getLayoutId ()
+    description: Returns the layout id of the root layout associated with this RemoteViews. In the case that the RemoteViews has both a landscape and portrait root, this will return the layout id associated with the portrait layout.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: the layout id.
+   - 
+    name: getPackage
+    api_level: API level 1
+    api_signature: public String getPackage ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: String
+        description: 
+   - 
+    name: onLoadClass
+    api_level: API level 1
+    api_signature: public boolean onLoadClass (Class clazz)
+    description: Hook to allow clients of the LayoutInflater to restrict the set of Views that are allowed to be inflated.
+     parameters: 
+      parameter: 
+       - 
+        name: clazz
+        description: Class: The class object for the View that is about to be inflated
+       - 
+        name: boolean
+        description: True if this class is allowed to be inflated, or false otherwise
+   - 
+    name: reapply
+    api_level: API level 1
+    api_signature: public void reapply (Context context, 
+                View v)
+    description: Applies all of the actions to the provided view.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context
+       - 
+        name: v
+        description: View: The view to apply the actions to. This should be the result of the apply(Context, ViewGroup) call.
+   - 
+    name: removeAllViews
+    api_level: API level 7
+    api_signature: public void removeAllViews (int viewId)
+    description: Equivalent to calling ViewGroup.removeAllViews().
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the parent ViewGroup to remove all children from.
+   - 
+    name: setAccessibilityTraversalAfter
+    api_level: API level 22
+    api_signature: public void setAccessibilityTraversalAfter (int viewId, 
+                int nextId)
+    description: Equivalent to calling View.setAccessibilityTraversalAfter(int).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose after view in accessibility traversal to set.
+       - 
+        name: nextId
+        description: int: The id of the next in the accessibility traversal.
+   - 
+    name: setAccessibilityTraversalBefore
+    api_level: API level 22
+    api_signature: public void setAccessibilityTraversalBefore (int viewId, 
+                int nextId)
+    description: Equivalent to calling View.setAccessibilityTraversalBefore(int).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose before view in accessibility traversal to set.
+       - 
+        name: nextId
+        description: int: The id of the next in the accessibility traversal.
+   - 
+    name: setBitmap
+    api_level: API level 3
+    api_signature: public void setBitmap (int viewId, 
+                String methodName, 
+                Bitmap value)
+    description: Call a method taking one Bitmap on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: Bitmap: The value to pass to the method.
+   - 
+    name: setBoolean
+    api_level: API level 3
+    api_signature: public void setBoolean (int viewId, 
+                String methodName, 
+                boolean value)
+    description: Call a method taking one boolean on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: boolean: The value to pass to the method.
+   - 
+    name: setBundle
+    api_level: API level 8
+    api_signature: public void setBundle (int viewId, 
+                String methodName, 
+                Bundle value)
+    description: Call a method taking one Bundle on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: Bundle: The value to pass to the method.
+   - 
+    name: setByte
+    api_level: API level 3
+    api_signature: public void setByte (int viewId, 
+                String methodName, 
+                byte value)
+    description: Call a method taking one byte on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: byte: The value to pass to the method.
+   - 
+    name: setChar
+    api_level: API level 3
+    api_signature: public void setChar (int viewId, 
+                String methodName, 
+                char value)
+    description: Call a method taking one char on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: char: The value to pass to the method.
+   - 
+    name: setCharSequence
+    api_level: API level 3
+    api_signature: public void setCharSequence (int viewId, 
+                String methodName, 
+                CharSequence value)
+    description: Call a method taking one CharSequence on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: CharSequence: The value to pass to the method.
+   - 
+    name: setChronometer
+    api_level: API level 1
+    api_signature: public void setChronometer (int viewId, 
+                long base, 
+                String format, 
+                boolean started)
+    description: Equivalent to calling Chronometer.setBase, Chronometer.setFormat, and Chronometer.start() or Chronometer.stop().
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the Chronometer to change
+       - 
+        name: base
+        description: long: The time at which the timer would have read 0:00. This time should be based off of SystemClock.elapsedRealtime().
+       - 
+        name: format
+        description: String: The Chronometer format string, or null to simply display the timer value.
+       - 
+        name: started
+        description: boolean: True if you want the clock to be started, false if not.
+   - 
+    name: setChronometerCountDown
+    api_level: API level 24
+    api_signature: public void setChronometerCountDown (int viewId, 
+                boolean isCountDown)
+    description: Equivalent to calling Chronometer.setCountDown on the chronometer with the given viewId.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the Chronometer to change
+       - 
+        name: isCountDown
+        description: boolean: True if you want the chronometer to count down to base instead of counting up.
+   - 
+    name: setContentDescription
+    api_level: API level 15
+    api_signature: public void setContentDescription (int viewId, 
+                CharSequence contentDescription)
+    description: Equivalent to calling View.setContentDescription(CharSequence).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose content description should change.
+       - 
+        name: contentDescription
+        description: CharSequence: The new content description for the view.
+   - 
+    name: setDisplayedChild
+    api_level: API level 12
+    api_signature: public void setDisplayedChild (int viewId, 
+                int childIndex)
+    description: Equivalent to calling AdapterViewAnimator.setDisplayedChild(int)
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call AdapterViewAnimator.setDisplayedChild(int)
+       - 
+        name: childIndex
+        description: int
+   - 
+    name: setDouble
+    api_level: API level 3
+    api_signature: public void setDouble (int viewId, 
+                String methodName, 
+                double value)
+    description: Call a method taking one double on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: double: The value to pass to the method.
+   - 
+    name: setEmptyView
+    api_level: API level 11
+    api_signature: public void setEmptyView (int viewId, 
+                int emptyViewId)
+    description: Equivalent to calling AdapterView.setEmptyView(View)
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to set the empty view
+       - 
+        name: emptyViewId
+        description: int: The view id of the empty view
+   - 
+    name: setFloat
+    api_level: API level 3
+    api_signature: public void setFloat (int viewId, 
+                String methodName, 
+                float value)
+    description: Call a method taking one float on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: float: The value to pass to the method.
+   - 
+    name: setIcon
+    api_level: API level 23
+    api_signature: public void setIcon (int viewId, 
+                String methodName, 
+                Icon value)
+    description: Call a method taking one Icon on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: Icon: The Icon to pass the method.
+   - 
+    name: setImageViewBitmap
+    api_level: API level 3
+    api_signature: public void setImageViewBitmap (int viewId, 
+                Bitmap bitmap)
+    description: Equivalent to calling ImageView.setImageBitmap(Bitmap)
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose bitmap should change
+       - 
+        name: bitmap
+        description: Bitmap: The new Bitmap for the drawable
+   - 
+    name: setImageViewIcon
+    api_level: API level 23
+    api_signature: public void setImageViewIcon (int viewId, 
+                Icon icon)
+    description: Equivalent to calling ImageView.setImageIcon(Icon)
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose bitmap should change
+       - 
+        name: icon
+        description: Icon: The new Icon for the ImageView
+   - 
+    name: setImageViewResource
+    api_level: API level 1
+    api_signature: public void setImageViewResource (int viewId, 
+                int srcId)
+    description: Equivalent to calling ImageView.setImageResource(int)
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose drawable should change
+       - 
+        name: srcId
+        description: int: The new resource id for the drawable
+   - 
+    name: setImageViewUri
+    api_level: API level 1
+    api_signature: public void setImageViewUri (int viewId, 
+                Uri uri)
+    description: Equivalent to calling ImageView.setImageURI(Uri)
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose drawable should change
+       - 
+        name: uri
+        description: Uri: The Uri for the image
+   - 
+    name: setInt
+    api_level: API level 3
+    api_signature: public void setInt (int viewId, 
+                String methodName, 
+                int value)
+    description: Call a method taking one int on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: int: The value to pass to the method.
+   - 
+    name: setIntent
+    api_level: API level 11
+    api_signature: public void setIntent (int viewId, 
+                String methodName, 
+                Intent value)
+    description: Call a method taking one Intent on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: Intent: The Intent to pass the method.
+   - 
+    name: setLabelFor
+    api_level: API level 17
+    api_signature: public void setLabelFor (int viewId, 
+                int labeledId)
+    description: Equivalent to calling View.setLabelFor(int).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose property to set.
+       - 
+        name: labeledId
+        description: int: The id of a view for which this view serves as a label.
+   - 
+    name: setLong
+    api_level: API level 3
+    api_signature: public void setLong (int viewId, 
+                String methodName, 
+                long value)
+    description: Call a method taking one long on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: long: The value to pass to the method.
+   - 
+    name: setOnClickFillInIntent
+    api_level: API level 11
+    api_signature: public void setOnClickFillInIntent (int viewId, 
+                Intent fillInIntent)
+    description: When using collections (eg. ListView, StackView etc.) in widgets, it is very costly to set PendingIntents on the individual items, and is hence not permitted. Instead a single PendingIntent template can be set on the collection, see setPendingIntentTemplate(int, PendingIntent), and the individual on-click action of a given item can be distinguished by setting a fillInIntent on that item. The fillInIntent is then combined with the PendingIntent template in order to determine the final intent which will be executed when the item is clicked. This works as follows: any fields which are left blank in the PendingIntent template, but are provided by the fillInIntent will be overwritten, and the resulting PendingIntent will be used. The rest of the PendingIntent template will then be filled in with the associated fields that are set in fillInIntent. See Intent.fillIn(Intent, int) for more details.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to set the fillInIntent
+       - 
+        name: fillInIntent
+        description: Intent: The intent which will be combined with the parent's PendingIntent in order to determine the on-click behavior of the view specified by viewId
+   - 
+    name: setOnClickPendingIntent
+    api_level: API level 3
+    api_signature: public void setOnClickPendingIntent (int viewId, 
+                PendingIntent pendingIntent)
+    description: Equivalent to calling View.setOnClickListener(android.view.View.OnClickListener) to launch the provided PendingIntent. The source bounds (Intent.getSourceBounds()) of the intent will be set to the bounds of the clicked view in screen space. Note that any activity options associated with the pendingIntent may get overridden before starting the intent. When setting the on-click action of items within collections (eg. ListView, StackView etc.), this method will not work. Instead, use setPendingIntentTemplate(int, PendingIntent) in conjunction with setOnClickFillInIntent(int, Intent).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view that will trigger the PendingIntent when clicked
+       - 
+        name: pendingIntent
+        description: PendingIntent: The PendingIntent to send when user clicks
+   - 
+    name: setPendingIntentTemplate
+    api_level: API level 11
+    api_signature: public void setPendingIntentTemplate (int viewId, 
+                PendingIntent pendingIntentTemplate)
+    description: When using collections (eg. ListView, StackView etc.) in widgets, it is very costly to set PendingIntents on the individual items, and is hence not permitted. Instead this method should be used to set a single PendingIntent template on the collection, and individual items can differentiate their on-click behavior using setOnClickFillInIntent(int, Intent).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the collection who's children will use this PendingIntent template when clicked
+       - 
+        name: pendingIntentTemplate
+        description: PendingIntent: The PendingIntent to be combined with extras specified by a child of viewId and executed when that child is clicked
+   - 
+    name: setProgressBar
+    api_level: API level 1
+    api_signature: public void setProgressBar (int viewId, 
+                int max, 
+                int progress, 
+                boolean indeterminate)
+    description: Equivalent to calling ProgressBar.setMax, ProgressBar.setProgress, and ProgressBar.setIndeterminate If indeterminate is true, then the values for max and progress are ignored.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the ProgressBar to change
+       - 
+        name: max
+        description: int: The 100% value for the progress bar
+       - 
+        name: progress
+        description: int: The current value of the progress bar.
+       - 
+        name: indeterminate
+        description: boolean: True if the progress bar is indeterminate, false if not.
+   - 
+    name: setRelativeScrollPosition
+    api_level: API level 11
+    api_signature: public void setRelativeScrollPosition (int viewId, 
+                int offset)
+    description: Equivalent to calling ListView.smoothScrollByOffset(int).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view to change
+       - 
+        name: offset
+        description: int: Scroll by this adapter position offset
+   - 
+    name: setRemoteAdapter
+    api_level: API level 11
+    api_signature: public void setRemoteAdapter (int appWidgetId, 
+                int viewId, 
+                Intent intent)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: appWidgetId
+        description: int: The id of the app widget which contains the specified view. (This parameter is ignored in this deprecated method)
+       - 
+        name: viewId
+        description: int: The id of the AdapterView
+       - 
+        name: intent
+        description: Intent: The intent of the service which will be providing data to the RemoteViewsAdapter
+   - 
+    name: setRemoteAdapter
+    api_level: API level 14
+    api_signature: public void setRemoteAdapter (int viewId, 
+                Intent intent)
+    description: Equivalent to calling AbsListView.setRemoteViewsAdapter(Intent). Can only be used for App Widgets.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the AdapterView
+       - 
+        name: intent
+        description: Intent: The intent of the service which will be providing data to the RemoteViewsAdapter
+   - 
+    name: setScrollPosition
+    api_level: API level 11
+    api_signature: public void setScrollPosition (int viewId, 
+                int position)
+    description: Equivalent to calling ListView.smoothScrollToPosition(int).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view to change
+       - 
+        name: position
+        description: int: Scroll to this adapter position
+   - 
+    name: setShort
+    api_level: API level 3
+    api_signature: public void setShort (int viewId, 
+                String methodName, 
+                short value)
+    description: Call a method taking one short on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: short: The value to pass to the method.
+   - 
+    name: setString
+    api_level: API level 3
+    api_signature: public void setString (int viewId, 
+                String methodName, 
+                String value)
+    description: Call a method taking one String on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: String: The value to pass to the method.
+   - 
+    name: setTextColor
+    api_level: API level 3
+    api_signature: public void setTextColor (int viewId, 
+                int color)
+    description: Equivalent to calling TextView.setTextColor(int).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose text color should change
+       - 
+        name: color
+        description: int: Sets the text color for all the states (normal, selected, focused) to be this color.
+   - 
+    name: setTextViewCompoundDrawables
+    api_level: API level 16
+    api_signature: public void setTextViewCompoundDrawables (int viewId, 
+                int left, 
+                int top, 
+                int right, 
+                int bottom)
+    description: Equivalent to calling TextView.setCompoundDrawablesWithIntrinsicBounds(int, int, int, int).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose text should change
+       - 
+        name: left
+        description: int: The id of a drawable to place to the left of the text, or 0
+       - 
+        name: top
+        description: int: The id of a drawable to place above the text, or 0
+       - 
+        name: right
+        description: int: The id of a drawable to place to the right of the text, or 0
+       - 
+        name: bottom
+        description: int: The id of a drawable to place below the text, or 0
+   - 
+    name: setTextViewCompoundDrawablesRelative
+    api_level: API level 16
+    api_signature: public void setTextViewCompoundDrawablesRelative (int viewId, 
+                int start, 
+                int top, 
+                int end, 
+                int bottom)
+    description: Equivalent to calling TextView.setCompoundDrawablesRelativeWithIntrinsicBounds(int, int, int, int).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose text should change
+       - 
+        name: start
+        description: int: The id of a drawable to place before the text (relative to the layout direction), or 0
+       - 
+        name: top
+        description: int: The id of a drawable to place above the text, or 0
+       - 
+        name: end
+        description: int: The id of a drawable to place after the text, or 0
+       - 
+        name: bottom
+        description: int: The id of a drawable to place below the text, or 0
+   - 
+    name: setTextViewText
+    api_level: API level 1
+    api_signature: public void setTextViewText (int viewId, 
+                CharSequence text)
+    description: Equivalent to calling TextView.setText(CharSequence)
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose text should change
+       - 
+        name: text
+        description: CharSequence: The new text for the view
+   - 
+    name: setTextViewTextSize
+    api_level: API level 16
+    api_signature: public void setTextViewTextSize (int viewId, 
+                int units, 
+                float size)
+    description: Equivalent to calling TextView.setTextSize(int, float)
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose text size should change
+       - 
+        name: units
+        description: int: The units of size (e.g. COMPLEX_UNIT_SP)
+       - 
+        name: size
+        description: float: The size of the text
+   - 
+    name: setUri
+    api_level: API level 3
+    api_signature: public void setUri (int viewId, 
+                String methodName, 
+                Uri value)
+    description: Call a method taking one Uri on a view in the layout for this RemoteViews.
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call the method.
+       - 
+        name: methodName
+        description: String: The name of the method to call.
+       - 
+        name: value
+        description: Uri: The value to pass to the method.
+   - 
+    name: setViewPadding
+    api_level: API level 16
+    api_signature: public void setViewPadding (int viewId, 
+                int left, 
+                int top, 
+                int right, 
+                int bottom)
+    description: Equivalent to calling View.setPadding(int, int, int, int).
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view to change
+       - 
+        name: left
+        description: int: the left padding in pixels
+       - 
+        name: top
+        description: int: the top padding in pixels
+       - 
+        name: right
+        description: int: the right padding in pixels
+       - 
+        name: bottom
+        description: int: the bottom padding in pixels
+   - 
+    name: setViewVisibility
+    api_level: API level 1
+    api_signature: public void setViewVisibility (int viewId, 
+                int visibility)
+    description: Equivalent to calling View.setVisibility(int)
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view whose visibility should change
+       - 
+        name: visibility
+        description: int: The new visibility for the view
+   - 
+    name: showNext
+    api_level: API level 11
+    api_signature: public void showNext (int viewId)
+    description: Equivalent to calling AdapterViewAnimator.showNext()
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call AdapterViewAnimator.showNext()
+   - 
+    name: showPrevious
+    api_level: API level 11
+    api_signature: public void showPrevious (int viewId)
+    description: Equivalent to calling AdapterViewAnimator.showPrevious()
+     parameters: 
+      parameter: 
+       - 
+        name: viewId
+        description: int: The id of the view on which to call AdapterViewAnimator.showPrevious()
+   - 
+    name: writeToParcel
+    api_level: API level 1
+    api_signature: public void writeToParcel (Parcel dest, 
+                int flags)
+    description: Flatten this object in to a Parcel.
+     parameters: 
+      parameter: 
+       - 
+        name: dest
+        description: Parcel: The Parcel in which the object should be written.
+       - 
+        name: flags
+        description: int: Additional flags about how the object should be written. May be 0 or Parcelable.PARCELABLE_WRITE_RETURN_VALUE.

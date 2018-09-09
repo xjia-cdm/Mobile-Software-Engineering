@@ -1,0 +1,150 @@
+api:
+ title: Magnifier
+ api-signature: public final class Magnifier extends Object
+ inheritance: java.lang.Object ↳ android.widget.Magnifier
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+ public_constructors: 
+  method: 
+    name: Magnifier(View view)
+    description: Initializes a magnifier.
+ public_methods: 
+  method: 
+   - 
+    return-value: void
+    name: dismiss()
+    description: Dismisses the magnifier from the screen.
+   - 
+    return-value: int
+    name: getHeight()
+   - 
+    return-value: int
+    name: getWidth()
+   - 
+    return-value: float
+    name: getZoom()
+   - 
+    return-value: void
+    name: show(float xPosInView, float yPosInView)
+    description: Shows the magnifier on the screen.
+   - 
+    return-value: void
+    name: update()
+    description: Forces the magnifier to update its content.
+ api-section: 
+  api: 
+   - 
+    name: Magnifier
+    api_level: API level 28
+    api_signature: public Magnifier (View view)
+    description: Initializes a magnifier.
+     parameters: 
+      parameter: 
+       - 
+        name: view
+        description: View: the view for which this magnifier is attached This value must never be null.
+   - 
+    name: dismiss
+    api_level: API level 28
+    api_signature: public void dismiss ()
+    description: Dismisses the magnifier from the screen. Calling this on a dismissed magnifier is a no-op.
+   - 
+    name: getHeight
+    api_level: API level 28
+    api_signature: public int getHeight ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The height of the magnifier window, in pixels.
+   - 
+    name: getWidth
+    api_level: API level 28
+    api_signature: public int getWidth ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The width of the magnifier window, in pixels.
+   - 
+    name: getZoom
+    api_level: API level 28
+    api_signature: public float getZoom ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: float
+        description: The zoom applied to the magnified view region copied to the magnifier window. If the zoom is x and the magnifier window size is (width, height), the original size of the content copied in the magnifier will be (width / x, height / x).
+   - 
+    name: show
+    api_level: API level 28
+    api_signature: public void show (float xPosInView, 
+                float yPosInView)
+    description: Shows the magnifier on the screen.
+     parameters: 
+      parameter: 
+       - 
+        name: xPosInView
+        description: float: horizontal coordinate of the center point of the magnifier source relative to the view. The lower end is clamped to 0 and the higher end is clamped to the view width. Value is 0.0 or greater.
+       - 
+        name: yPosInView
+        description: float: vertical coordinate of the center point of the magnifier source relative to the view. The lower end is clamped to 0 and the higher end is clamped to the view height. Value is 0.0 or greater.
+   - 
+    name: update
+    api_level: API level 28
+    api_signature: public void update ()
+    description: Forces the magnifier to update its content. It uses the previous coordinates passed to show(float, float). This only happens if the magnifier is currently showing.

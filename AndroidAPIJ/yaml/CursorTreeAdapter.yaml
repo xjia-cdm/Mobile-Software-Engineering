@@ -1,0 +1,730 @@
+api:
+ title: CursorTreeAdapter
+ api-signature: public abstract class CursorTreeAdapter extends BaseExpandableListAdapter implements Filterable
+ inheritance: java.lang.Object ↳ android.widget.BaseExpandableListAdapter ↳ android.widget.CursorTreeAdapter
+ subclasses-direct: ResourceCursorTreeAdapter
+ subclasses-direct-summary: 
+  class: 
+    name: ResourceCursorTreeAdapter
+    description: A fairly simple ExpandableListAdapter that creates views defined in an XML file.
+ subclasses-indirect: SimpleCursorTreeAdapter
+ subclasses-indirect-summary: 
+  class: 
+    name: SimpleCursorTreeAdapter
+    description: An easy adapter to map columns from a cursor to TextViews or ImageViews defined in an XML file.
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: android.widget.BaseExpandableListAdapter
+   class: 
+     method: 
+      - 
+       return-value: boolean
+       name: areAllItemsEnabled()
+      - 
+       return-value: int
+       name: getChildType(int groupPosition, int childPosition)
+       description: Get the type of child View that will be created by ExpandableListAdapter.getChildView(int, int, boolean, View, ViewGroup) for the specified child item.
+      - 
+       return-value: int
+       name: getChildTypeCount()
+       description: 
+      - 
+       return-value: long
+       name: getCombinedChildId(long groupId, long childId)
+       description: Override this method if you foresee a clash in IDs based on this scheme:
+      - 
+       return-value: long
+       name: getCombinedGroupId(long groupId)
+       description: Override this method if you foresee a clash in IDs based on this scheme:
+      - 
+       return-value: int
+       name: getGroupType(int groupPosition)
+       description: Get the type of group View that will be created by ExpandableListAdapter.getGroupView(int, boolean, View, ViewGroup) .
+      - 
+       return-value: int
+       name: getGroupTypeCount()
+       description: 
+      - 
+       return-value: boolean
+       name: isEmpty()
+       description: 
+      - 
+       return-value: void
+       name: notifyDataSetChanged()
+      - 
+       return-value: void
+       name: notifyDataSetInvalidated()
+      - 
+       return-value: void
+       name: onGroupCollapsed(int groupPosition)
+       description: Called when a group is collapsed.
+      - 
+       return-value: void
+       name: onGroupExpanded(int groupPosition)
+       description: Called when a group is expanded.
+      - 
+       return-value: void
+       name: registerDataSetObserver(DataSetObserver observer)
+      - 
+       return-value: void
+       name: unregisterDataSetObserver(DataSetObserver observer)
+  name: java.lang.Object
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+  name: android.widget.ExpandableListAdapter
+     method: 
+      - 
+       return-value: abstract boolean
+       name: areAllItemsEnabled()
+      - 
+       return-value: abstract Object
+       name: getChild(int groupPosition, int childPosition)
+       description: Gets the data associated with the given child within the given group.
+      - 
+       return-value: abstract long
+       name: getChildId(int groupPosition, int childPosition)
+       description: Gets the ID for the given child within the given group.
+      - 
+       return-value: abstract View
+       name: getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent)
+       description: Gets a View that displays the data for the given child within the given group.
+      - 
+       return-value: abstract int
+       name: getChildrenCount(int groupPosition)
+       description: Gets the number of children in a specified group.
+      - 
+       return-value: abstract long
+       name: getCombinedChildId(long groupId, long childId)
+       description: Gets an ID for a child that is unique across any item (either group or child) that is in this list.
+      - 
+       return-value: abstract long
+       name: getCombinedGroupId(long groupId)
+       description: Gets an ID for a group that is unique across any item (either group or child) that is in this list.
+      - 
+       return-value: abstract Object
+       name: getGroup(int groupPosition)
+       description: Gets the data associated with the given group.
+      - 
+       return-value: abstract int
+       name: getGroupCount()
+       description: Gets the number of groups.
+      - 
+       return-value: abstract long
+       name: getGroupId(int groupPosition)
+       description: Gets the ID for the group at the given position.
+      - 
+       return-value: abstract View
+       name: getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent)
+       description: Gets a View that displays the given group.
+      - 
+       return-value: abstract boolean
+       name: hasStableIds()
+       description: Indicates whether the child and group IDs are stable across changes to the underlying data.
+      - 
+       return-value: abstract boolean
+       name: isChildSelectable(int groupPosition, int childPosition)
+       description: Whether the child at the specified position is selectable.
+      - 
+       return-value: abstract boolean
+       name: isEmpty()
+      - 
+       return-value: abstract void
+       name: onGroupCollapsed(int groupPosition)
+       description: Called when a group is collapsed.
+      - 
+       return-value: abstract void
+       name: onGroupExpanded(int groupPosition)
+       description: Called when a group is expanded.
+      - 
+       return-value: abstract void
+       name: registerDataSetObserver(DataSetObserver observer)
+      - 
+       return-value: abstract void
+       name: unregisterDataSetObserver(DataSetObserver observer)
+  name: android.widget.HeterogeneousExpandableList
+     method: 
+      - 
+       return-value: abstract int
+       name: getChildType(int groupPosition, int childPosition)
+       description: Get the type of child View that will be created by ExpandableListAdapter.getChildView(int, int, boolean, View, ViewGroup) for the specified child item.
+      - 
+       return-value: abstract int
+       name: getChildTypeCount()
+       description: 
+      - 
+       return-value: abstract int
+       name: getGroupType(int groupPosition)
+       description: Get the type of group View that will be created by ExpandableListAdapter.getGroupView(int, boolean, View, ViewGroup) .
+      - 
+       return-value: abstract int
+       name: getGroupTypeCount()
+       description: 
+  name: android.widget.Filterable
+     method: 
+       return-value: abstract Filter
+       name: getFilter()
+       description: 
+ public_constructors: 
+  method: 
+   - 
+    name: CursorTreeAdapter(Cursor cursor, Context context)
+    description: Constructor.
+   - 
+    name: CursorTreeAdapter(Cursor cursor, Context context, boolean autoRequery)
+    description: Constructor.
+ public_methods: 
+  method: 
+   - 
+    return-value: void
+    name: changeCursor(Cursor cursor)
+   - 
+    return-value: String
+    name: convertToString(Cursor cursor)
+   - 
+    return-value: Cursor
+    name: getChild(int groupPosition, int childPosition)
+   - 
+    return-value: long
+    name: getChildId(int groupPosition, int childPosition)
+   - 
+    return-value: View
+    name: getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent)
+   - 
+    return-value: int
+    name: getChildrenCount(int groupPosition)
+   - 
+    return-value: Cursor
+    name: getCursor()
+   - 
+    return-value: Filter
+    name: getFilter()
+    description: 
+   - 
+    return-value: FilterQueryProvider
+    name: getFilterQueryProvider()
+   - 
+    return-value: Cursor
+    name: getGroup(int groupPosition)
+   - 
+    return-value: int
+    name: getGroupCount()
+   - 
+    return-value: long
+    name: getGroupId(int groupPosition)
+   - 
+    return-value: View
+    name: getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent)
+   - 
+    return-value: boolean
+    name: hasStableIds()
+   - 
+    return-value: boolean
+    name: isChildSelectable(int groupPosition, int childPosition)
+   - 
+    return-value: void
+    name: notifyDataSetChanged()
+   - 
+    return-value: void
+    name: notifyDataSetChanged(boolean releaseCursors)
+    description: Notifies a data set change, but with the option of not releasing any cached cursors.
+   - 
+    return-value: void
+    name: notifyDataSetInvalidated()
+   - 
+    return-value: void
+    name: onGroupCollapsed(int groupPosition)
+    description: Called when a group is collapsed.
+   - 
+    return-value: Cursor
+    name: runQueryOnBackgroundThread(CharSequence constraint)
+   - 
+    return-value: void
+    name: setChildrenCursor(int groupPosition, Cursor childrenCursor)
+    description: Sets the children Cursor for a particular group.
+   - 
+    return-value: void
+    name: setFilterQueryProvider(FilterQueryProvider filterQueryProvider)
+   - 
+    return-value: void
+    name: setGroupCursor(Cursor cursor)
+    description: Sets the group Cursor.
+ api-section: 
+  api: 
+   - 
+    name: CursorTreeAdapter
+    api_level: API level 1
+    api_signature: public CursorTreeAdapter (Cursor cursor, 
+                Context context)
+    description: Constructor. The adapter will call Cursor.requery() on the cursor whenever it changes so that the most recent data is always displayed.
+     parameters: 
+      parameter: 
+       - 
+        name: cursor
+        description: Cursor: The cursor from which to get the data for the groups.
+       - 
+        name: context
+        description: Context
+   - 
+    name: CursorTreeAdapter
+    api_level: API level 1
+    api_signature: public CursorTreeAdapter (Cursor cursor, 
+                Context context, 
+                boolean autoRequery)
+    description: Constructor.
+     parameters: 
+      parameter: 
+       - 
+        name: cursor
+        description: Cursor: The cursor from which to get the data for the groups.
+       - 
+        name: context
+        description: Context: The context
+       - 
+        name: autoRequery
+        description: boolean: If true the adapter will call Cursor.requery() on the cursor whenever it changes so the most recent data is always displayed.
+   - 
+    name: changeCursor
+    api_level: API level 1
+    api_signature: public void changeCursor (Cursor cursor)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: cursor
+        description: Cursor
+   - 
+    name: convertToString
+    api_level: API level 1
+    api_signature: public String convertToString (Cursor cursor)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: cursor
+        description: Cursor
+       - 
+        name: String
+        description: 
+   - 
+    name: getChild
+    api_level: API level 1
+    api_signature: public Cursor getChild (int groupPosition, 
+                int childPosition)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: groupPosition
+        description: int
+       - 
+        name: childPosition
+        description: int
+       - 
+        name: Cursor
+        description: 
+   - 
+    name: getChildId
+    api_level: API level 1
+    api_signature: public long getChildId (int groupPosition, 
+                int childPosition)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: groupPosition
+        description: int
+       - 
+        name: childPosition
+        description: int
+       - 
+        name: long
+        description: 
+   - 
+    name: getChildView
+    api_level: API level 1
+    api_signature: public View getChildView (int groupPosition, 
+                int childPosition, 
+                boolean isLastChild, 
+                View convertView, 
+                ViewGroup parent)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: groupPosition
+        description: int
+       - 
+        name: childPosition
+        description: int
+       - 
+        name: isLastChild
+        description: boolean
+       - 
+        name: convertView
+        description: View
+       - 
+        name: parent
+        description: ViewGroup
+       - 
+        name: View
+        description: 
+   - 
+    name: getChildrenCount
+    api_level: API level 1
+    api_signature: public int getChildrenCount (int groupPosition)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: groupPosition
+        description: int
+       - 
+        name: int
+        description: 
+   - 
+    name: getCursor
+    api_level: API level 1
+    api_signature: public Cursor getCursor ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: Cursor
+        description: 
+   - 
+    name: getFilter
+    api_level: API level 1
+    api_signature: public Filter getFilter ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: Filter
+        description: a filter used to constrain data
+   - 
+    name: getFilterQueryProvider
+    api_level: API level 1
+    api_signature: public FilterQueryProvider getFilterQueryProvider ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: FilterQueryProvider
+        description: 
+   - 
+    name: getGroup
+    api_level: API level 1
+    api_signature: public Cursor getGroup (int groupPosition)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: groupPosition
+        description: int
+       - 
+        name: Cursor
+        description: 
+   - 
+    name: getGroupCount
+    api_level: API level 1
+    api_signature: public int getGroupCount ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: 
+   - 
+    name: getGroupId
+    api_level: API level 1
+    api_signature: public long getGroupId (int groupPosition)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: groupPosition
+        description: int
+       - 
+        name: long
+        description: 
+   - 
+    name: getGroupView
+    api_level: API level 1
+    api_signature: public View getGroupView (int groupPosition, 
+                boolean isExpanded, 
+                View convertView, 
+                ViewGroup parent)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: groupPosition
+        description: int
+       - 
+        name: isExpanded
+        description: boolean
+       - 
+        name: convertView
+        description: View
+       - 
+        name: parent
+        description: ViewGroup
+       - 
+        name: View
+        description: 
+   - 
+    name: hasStableIds
+    api_level: API level 1
+    api_signature: public boolean hasStableIds ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: 
+   - 
+    name: isChildSelectable
+    api_level: API level 1
+    api_signature: public boolean isChildSelectable (int groupPosition, 
+                int childPosition)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: groupPosition
+        description: int
+       - 
+        name: childPosition
+        description: int
+       - 
+        name: boolean
+        description: 
+   - 
+    name: notifyDataSetChanged
+    api_level: API level 1
+    api_signature: public void notifyDataSetChanged ()
+    description: 
+   - 
+    name: notifyDataSetChanged
+    api_level: API level 1
+    api_signature: public void notifyDataSetChanged (boolean releaseCursors)
+    description: Notifies a data set change, but with the option of not releasing any cached cursors.
+     parameters: 
+      parameter: 
+       - 
+        name: releaseCursors
+        description: boolean: Whether to release and deactivate any cached cursors.
+   - 
+    name: notifyDataSetInvalidated
+    api_level: API level 1
+    api_signature: public void notifyDataSetInvalidated ()
+    description: 
+   - 
+    name: onGroupCollapsed
+    api_level: API level 1
+    api_signature: public void onGroupCollapsed (int groupPosition)
+    description: Called when a group is collapsed.
+     parameters: 
+      parameter: 
+       - 
+        name: groupPosition
+        description: int: The group being collapsed.
+   - 
+    name: runQueryOnBackgroundThread
+    api_level: API level 1
+    api_signature: public Cursor runQueryOnBackgroundThread (CharSequence constraint)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: constraint
+        description: CharSequence
+       - 
+        name: Cursor
+        description: 
+   - 
+    name: setChildrenCursor
+    api_level: API level 1
+    api_signature: public void setChildrenCursor (int groupPosition, 
+                Cursor childrenCursor)
+    description: Sets the children Cursor for a particular group. If there is an existing cursor it will be closed.
+     parameters: 
+      parameter: 
+       - 
+        name: groupPosition
+        description: int: The group whose children are being set via this Cursor.
+       - 
+        name: childrenCursor
+        description: Cursor: The Cursor that contains the children of the group.
+   - 
+    name: setFilterQueryProvider
+    api_level: API level 1
+    api_signature: public void setFilterQueryProvider (FilterQueryProvider filterQueryProvider)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: filterQueryProvider
+        description: FilterQueryProvider
+   - 
+    name: setGroupCursor
+    api_level: API level 1
+    api_signature: public void setGroupCursor (Cursor cursor)
+    description: Sets the group Cursor.
+     parameters: 
+      parameter: 
+       - 
+        name: cursor
+        description: Cursor: The Cursor to set for the group. If there is an existing cursor it will be closed.
+   - 
+    name: bindChildView
+    api_level: API level 1
+    api_signature: protected abstract void bindChildView (View view, 
+                Context context, 
+                Cursor cursor, 
+                boolean isLastChild)
+    description: Bind an existing view to the child data pointed to by cursor
+     parameters: 
+      parameter: 
+       - 
+        name: view
+        description: View: Existing view, returned earlier by newChildView
+       - 
+        name: context
+        description: Context: Interface to application's global information
+       - 
+        name: cursor
+        description: Cursor: The cursor from which to get the data. The cursor is already moved to the correct position.
+       - 
+        name: isLastChild
+        description: boolean: Whether the child is the last child within its group.
+   - 
+    name: bindGroupView
+    api_level: API level 1
+    api_signature: protected abstract void bindGroupView (View view, 
+                Context context, 
+                Cursor cursor, 
+                boolean isExpanded)
+    description: Bind an existing view to the group data pointed to by cursor.
+     parameters: 
+      parameter: 
+       - 
+        name: view
+        description: View: Existing view, returned earlier by newGroupView.
+       - 
+        name: context
+        description: Context: Interface to application's global information
+       - 
+        name: cursor
+        description: Cursor: The cursor from which to get the data. The cursor is already moved to the correct position.
+       - 
+        name: isExpanded
+        description: boolean: Whether the group is expanded.
+   - 
+    name: getChildrenCursor
+    api_level: API level 1
+    api_signature: protected abstract Cursor getChildrenCursor (Cursor groupCursor)
+    description: Gets the Cursor for the children at the given group. Subclasses must implement this method to return the children data for a particular group.
+     parameters: 
+      parameter: 
+       - 
+        name: groupCursor
+        description: Cursor: The cursor pointing to the group whose children cursor should be returned
+       - 
+        name: Cursor
+        description: The cursor for the children of a particular group, or null.
+   - 
+    name: newChildView
+    api_level: API level 1
+    api_signature: protected abstract View newChildView (Context context, 
+                Cursor cursor, 
+                boolean isLastChild, 
+                ViewGroup parent)
+    description: Makes a new child view to hold the data pointed to by cursor.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Interface to application's global information
+       - 
+        name: cursor
+        description: Cursor: The cursor from which to get the data. The cursor is already moved to the correct position.
+       - 
+        name: isLastChild
+        description: boolean: Whether the child is the last child within its group.
+       - 
+        name: parent
+        description: ViewGroup: The parent to which the new view is attached to
+       - 
+        name: View
+        description: the newly created view.
+   - 
+    name: newGroupView
+    api_level: API level 1
+    api_signature: protected abstract View newGroupView (Context context, 
+                Cursor cursor, 
+                boolean isExpanded, 
+                ViewGroup parent)
+    description: Makes a new group view to hold the group data pointed to by cursor.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Interface to application's global information
+       - 
+        name: cursor
+        description: Cursor: The group cursor from which to get the data. The cursor is already moved to the correct position.
+       - 
+        name: isExpanded
+        description: boolean: Whether the group is expanded.
+       - 
+        name: parent
+        description: ViewGroup: The parent to which the new view is attached to
+       - 
+        name: View
+        description: The newly created view.

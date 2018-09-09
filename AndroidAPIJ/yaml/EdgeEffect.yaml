@@ -1,0 +1,230 @@
+api:
+ title: EdgeEffect
+ api-signature: public class EdgeEffect extends Object
+ inheritance: java.lang.Object ↳ android.widget.EdgeEffect
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+ public_constructors: 
+  method: 
+    name: EdgeEffect(Context context)
+    description: Construct a new EdgeEffect with a theme appropriate for the provided context.
+ public_methods: 
+  method: 
+   - 
+    return-value: boolean
+    name: draw(Canvas canvas)
+    description: Draw into the provided canvas.
+   - 
+    return-value: void
+    name: finish()
+    description: Immediately finish the current animation.
+   - 
+    return-value: int
+    name: getColor()
+    description: Return the color of this edge effect in argb.
+   - 
+    return-value: int
+    name: getMaxHeight()
+    description: Return the maximum height that the edge effect will be drawn at given the original input size.
+   - 
+    return-value: boolean
+    name: isFinished()
+    description: Reports if this EdgeEffect's animation is finished.
+   - 
+    return-value: void
+    name: onAbsorb(int velocity)
+    description: Call when the effect absorbs an impact at the given velocity.
+   - 
+    return-value: void
+    name: onPull(float deltaDistance)
+    description: A view should call this when content is pulled away from an edge by the user.
+   - 
+    return-value: void
+    name: onPull(float deltaDistance, float displacement)
+    description: A view should call this when content is pulled away from an edge by the user.
+   - 
+    return-value: void
+    name: onRelease()
+    description: Call when the object is released after being pulled.
+   - 
+    return-value: void
+    name: setColor(int color)
+    description: Set the color of this edge effect in argb.
+   - 
+    return-value: void
+    name: setSize(int width, int height)
+    description: Set the size of this edge effect in pixels.
+ api-section: 
+  api: 
+   - 
+    name: EdgeEffect
+    api_level: API level 14
+    api_signature: public EdgeEffect (Context context)
+    description: Construct a new EdgeEffect with a theme appropriate for the provided context.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Context used to provide theming and resource information for the EdgeEffect
+   - 
+    name: draw
+    api_level: API level 14
+    api_signature: public boolean draw (Canvas canvas)
+    description: Draw into the provided canvas. Assumes that the canvas has been rotated accordingly and the size has been set. The effect will be drawn the full width of X=0 to X=width, beginning from Y=0 and extending to some factor < 1.f of height.
+     parameters: 
+      parameter: 
+       - 
+        name: canvas
+        description: Canvas: Canvas to draw into
+       - 
+        name: boolean
+        description: true if drawing should continue beyond this frame to continue the animation
+   - 
+    name: finish
+    api_level: API level 14
+    api_signature: public void finish ()
+    description: Immediately finish the current animation. After this call isFinished() will return true.
+   - 
+    name: getColor
+    api_level: API level 21
+    api_signature: public int getColor ()
+    description: Return the color of this edge effect in argb.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The color of this edge effect in argb
+   - 
+    name: getMaxHeight
+    api_level: API level 21
+    api_signature: public int getMaxHeight ()
+    description: Return the maximum height that the edge effect will be drawn at given the original input size.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The maximum height of the edge effect
+   - 
+    name: isFinished
+    api_level: API level 14
+    api_signature: public boolean isFinished ()
+    description: Reports if this EdgeEffect's animation is finished. If this method returns false after a call to draw(Canvas) the host widget should schedule another drawing pass to continue the animation.
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if animation is finished, false if drawing should continue on the next frame.
+   - 
+    name: onAbsorb
+    api_level: API level 14
+    api_signature: public void onAbsorb (int velocity)
+    description: Call when the effect absorbs an impact at the given velocity. Used when a fling reaches the scroll boundary.
+     parameters: 
+      parameter: 
+       - 
+        name: velocity
+        description: int: Velocity at impact in pixels per second.
+   - 
+    name: onPull
+    api_level: API level 14
+    api_signature: public void onPull (float deltaDistance)
+    description: A view should call this when content is pulled away from an edge by the user. This will update the state of the current visual effect and its associated animation. The host view should always View.invalidate() after this and draw the results accordingly.
+     parameters: 
+      parameter: 
+       - 
+        name: deltaDistance
+        description: float: Change in distance since the last call. Values may be 0 (no change) to 1.f (full length of the view) or negative values to express change back toward the edge reached to initiate the effect.
+   - 
+    name: onPull
+    api_level: API level 21
+    api_signature: public void onPull (float deltaDistance, 
+                float displacement)
+    description: A view should call this when content is pulled away from an edge by the user. This will update the state of the current visual effect and its associated animation. The host view should always View.invalidate() after this and draw the results accordingly.
+     parameters: 
+      parameter: 
+       - 
+        name: deltaDistance
+        description: float: Change in distance since the last call. Values may be 0 (no change) to 1.f (full length of the view) or negative values to express change back toward the edge reached to initiate the effect.
+       - 
+        name: displacement
+        description: float: The displacement from the starting side of the effect of the point initiating the pull. In the case of touch this is the finger position. Values may be from 0-1.
+   - 
+    name: onRelease
+    api_level: API level 14
+    api_signature: public void onRelease ()
+    description: Call when the object is released after being pulled. This will begin the "decay" phase of the effect. After calling this method the host view should View.invalidate() and thereby draw the results accordingly.
+   - 
+    name: setColor
+    api_level: API level 21
+    api_signature: public void setColor (int color)
+    description: Set the color of this edge effect in argb.
+     parameters: 
+      parameter: 
+       - 
+        name: color
+        description: int: Color in argb
+   - 
+    name: setSize
+    api_level: API level 14
+    api_signature: public void setSize (int width, 
+                int height)
+    description: Set the size of this edge effect in pixels.
+     parameters: 
+      parameter: 
+       - 
+        name: width
+        description: int: Effect width in pixels
+       - 
+        name: height
+        description: int: Effect height in pixels

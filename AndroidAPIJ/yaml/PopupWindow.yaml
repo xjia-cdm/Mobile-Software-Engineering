@@ -1,0 +1,1119 @@
+api:
+ title: PopupWindow
+ api-signature: public class PopupWindow extends Object
+ inheritance: java.lang.Object ↳ android.widget.PopupWindow
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+ public_constructors: 
+  method: 
+   - 
+    name: PopupWindow(Context context)
+    description: 
+   - 
+    name: PopupWindow(Context context, AttributeSet attrs)
+    description: 
+   - 
+    name: PopupWindow(Context context, AttributeSet attrs, int defStyleAttr)
+    description: 
+   - 
+    name: PopupWindow(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes)
+    description: 
+   - 
+    name: PopupWindow()
+    description: 
+   - 
+    name: PopupWindow(View contentView)
+    description: 
+   - 
+    name: PopupWindow(int width, int height)
+    description: 
+   - 
+    name: PopupWindow(View contentView, int width, int height)
+    description: 
+   - 
+    name: PopupWindow(View contentView, int width, int height, boolean focusable)
+    description: 
+ public_methods: 
+  method: 
+   - 
+    return-value: void
+    name: dismiss()
+    description: Disposes of the popup window.
+   - 
+    return-value: int
+    name: getAnimationStyle()
+    description: 
+   - 
+    return-value: Drawable
+    name: getBackground()
+    description: Return the drawable used as the popup window's background.
+   - 
+    return-value: View
+    name: getContentView()
+    description: 
+   - 
+    return-value: float
+    name: getElevation()
+   - 
+    return-value: Transition
+    name: getEnterTransition()
+    description: Returns the enter transition to be used when the popup window is shown.
+   - 
+    return-value: Transition
+    name: getExitTransition()
+    description: Returns the exit transition to be used when the popup window is dismissed.
+   - 
+    return-value: int
+    name: getHeight()
+    description: Returns the popup's requested height.
+   - 
+    return-value: int
+    name: getInputMethodMode()
+    description: Return the current value in setInputMethodMode(int).
+   - 
+    return-value: int
+    name: getMaxAvailableHeight(View anchor)
+    description: Returns the maximum height that is available for the popup to be completely shown.
+   - 
+    return-value: int
+    name: getMaxAvailableHeight(View anchor, int yOffset)
+    description: Returns the maximum height that is available for the popup to be completely shown.
+   - 
+    return-value: int
+    name: getMaxAvailableHeight(View anchor, int yOffset, boolean ignoreBottomDecorations)
+    description: Returns the maximum height that is available for the popup to be completely shown, optionally ignoring any bottom decorations such as the input method.
+   - 
+    return-value: boolean
+    name: getOverlapAnchor()
+    description: Returns whether the popup window should overlap its anchor view when displayed as a drop-down.
+   - 
+    return-value: int
+    name: getSoftInputMode()
+    description: Returns the current value in setSoftInputMode(int).
+   - 
+    return-value: int
+    name: getWidth()
+    description: Returns the popup's requested width.
+   - 
+    return-value: int
+    name: getWindowLayoutType()
+    description: Returns the layout type for this window.
+   - 
+    return-value: boolean
+    name: isAboveAnchor()
+    description: Indicates whether the popup is showing above (the y coordinate of the popup's bottom is less than the y coordinate of the anchor) or below the anchor view (the y coordinate of the popup is greater than y coordinate of the anchor's bottom).
+   - 
+    return-value: boolean
+    name: isAttachedInDecor()
+    description: 
+   - 
+    return-value: boolean
+    name: isClippingEnabled()
+    description: 
+   - 
+    return-value: boolean
+    name: isFocusable()
+    description: 
+   - 
+    return-value: boolean
+    name: isOutsideTouchable()
+    description: 
+   - 
+    return-value: boolean
+    name: isShowing()
+    description: 
+   - 
+    return-value: boolean
+    name: isSplitTouchEnabled()
+    description: 
+   - 
+    return-value: boolean
+    name: isTouchable()
+    description: 
+   - 
+    return-value: void
+    name: setAnimationStyle(int animationStyle)
+    description: 
+   - 
+    return-value: void
+    name: setAttachedInDecor(boolean enabled)
+    description: 
+   - 
+    return-value: void
+    name: setBackgroundDrawable(Drawable background)
+    description: Specifies the background drawable for this popup window.
+   - 
+    return-value: void
+    name: setClippingEnabled(boolean enabled)
+    description: 
+   - 
+    return-value: void
+    name: setContentView(View contentView)
+    description: 
+   - 
+    return-value: void
+    name: setElevation(float elevation)
+    description: Specifies the elevation for this popup window.
+   - 
+    return-value: void
+    name: setEnterTransition(Transition enterTransition)
+    description: Sets the enter transition to be used when the popup window is shown.
+   - 
+    return-value: void
+    name: setExitTransition(Transition exitTransition)
+    description: Sets the exit transition to be used when the popup window is dismissed.
+   - 
+    return-value: void
+    name: setFocusable(boolean focusable)
+    description: 
+   - 
+    return-value: void
+    name: setHeight(int height)
+    description: Sets the popup's requested height.
+   - 
+    return-value: void
+    name: setIgnoreCheekPress()
+    description: Set the flag on popup to ignore cheek press events; by default this flag is set to false which means the popup will not ignore cheek press dispatch events.
+   - 
+    return-value: void
+    name: setInputMethodMode(int mode)
+    description: Control how the popup operates with an input method: one of INPUT_METHOD_FROM_FOCUSABLE, INPUT_METHOD_NEEDED, or INPUT_METHOD_NOT_NEEDED.
+   - 
+    return-value: void
+    name: setOnDismissListener(PopupWindow.OnDismissListener onDismissListener)
+    description: Sets the listener to be called when the window is dismissed.
+   - 
+    return-value: void
+    name: setOutsideTouchable(boolean touchable)
+    description: 
+   - 
+    return-value: void
+    name: setOverlapAnchor(boolean overlapAnchor)
+    description: Sets whether the popup window should overlap its anchor view when displayed as a drop-down.
+   - 
+    return-value: void
+    name: setSoftInputMode(int mode)
+    description: Sets the operating mode for the soft input area.
+   - 
+    return-value: void
+    name: setSplitTouchEnabled(boolean enabled)
+    description: 
+   - 
+    return-value: void
+    name: setTouchInterceptor(View.OnTouchListener l)
+    description: Set a callback for all touch events being dispatched to the popup window.
+   - 
+    return-value: void
+    name: setTouchable(boolean touchable)
+    description: 
+   - 
+    return-value: void
+    name: setWidth(int width)
+    description: Sets the popup's requested width.
+   - 
+    return-value: void
+    name: setWindowLayoutMode(int widthSpec, int heightSpec)
+    description: This method was deprecated in API level 23. Use setWidth(int) and setHeight(int).
+   - 
+    return-value: void
+    name: setWindowLayoutType(int layoutType)
+    description: Set the layout type for this window.
+   - 
+    return-value: void
+    name: showAsDropDown(View anchor)
+    description: Display the content view in a popup window anchored to the bottom-left corner of the anchor view.
+   - 
+    return-value: void
+    name: showAsDropDown(View anchor, int xoff, int yoff, int gravity)
+    description: Displays the content view in a popup window anchored to the corner of another view.
+   - 
+    return-value: void
+    name: showAsDropDown(View anchor, int xoff, int yoff)
+    description: Display the content view in a popup window anchored to the bottom-left corner of the anchor view offset by the specified x and y coordinates.
+   - 
+    return-value: void
+    name: showAtLocation(View parent, int gravity, int x, int y)
+    description: 
+   - 
+    return-value: void
+    name: update(View anchor, int width, int height)
+    description: Updates the position and the dimension of the popup window.
+   - 
+    return-value: void
+    name: update(View anchor, int xoff, int yoff, int width, int height)
+    description: Updates the position and the dimension of the popup window.
+   - 
+    return-value: void
+    name: update(int width, int height)
+    description: Updates the dimension of the popup window.
+   - 
+    return-value: void
+    name: update()
+    description: Updates the state of the popup window, if it is currently being displayed, from the currently set state.
+   - 
+    return-value: void
+    name: update(int x, int y, int width, int height, boolean force)
+    description: Updates the position and the dimension of the popup window.
+   - 
+    return-value: void
+    name: update(int x, int y, int width, int height)
+    description: Updates the position and the dimension of the popup window.
+ api-section: 
+  api: 
+   - 
+    name: INPUT_METHOD_FROM_FOCUSABLE
+    api_level: API level 3
+    api_signature: public static final int INPUT_METHOD_FROM_FOCUSABLE
+    description: Mode for setInputMethodMode(int): the requirements for the input method should be based on the focusability of the popup. That is if it is focusable than it needs to work with the input method, else it doesn't.
+   - 
+    name: INPUT_METHOD_NEEDED
+    api_level: API level 3
+    api_signature: public static final int INPUT_METHOD_NEEDED
+    description: Mode for setInputMethodMode(int): this popup always needs to work with an input method, regardless of whether it is focusable. This means that it will always be displayed so that the user can also operate the input method while it is shown.
+   - 
+    name: INPUT_METHOD_NOT_NEEDED
+    api_level: API level 3
+    api_signature: public static final int INPUT_METHOD_NOT_NEEDED
+    description: Mode for setInputMethodMode(int): this popup never needs to work with an input method, regardless of whether it is focusable. This means that it will always be displayed to use as much space on the screen as needed, regardless of whether this covers the input method.
+   - 
+    name: PopupWindow
+    api_level: API level 1
+    api_signature: public PopupWindow (Context context)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context
+   - 
+    name: PopupWindow
+    api_level: API level 1
+    api_signature: public PopupWindow (Context context, 
+                AttributeSet attrs)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context
+       - 
+        name: attrs
+        description: AttributeSet
+   - 
+    name: PopupWindow
+    api_level: API level 1
+    api_signature: public PopupWindow (Context context, 
+                AttributeSet attrs, 
+                int defStyleAttr)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context
+       - 
+        name: attrs
+        description: AttributeSet
+       - 
+        name: defStyleAttr
+        description: int
+   - 
+    name: PopupWindow
+    api_level: API level 11
+    api_signature: public PopupWindow (Context context, 
+                AttributeSet attrs, 
+                int defStyleAttr, 
+                int defStyleRes)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context
+       - 
+        name: attrs
+        description: AttributeSet
+       - 
+        name: defStyleAttr
+        description: int
+       - 
+        name: defStyleRes
+        description: int
+   - 
+    name: PopupWindow
+    api_level: API level 1
+    api_signature: public PopupWindow ()
+    description: 
+   - 
+    name: PopupWindow
+    api_level: API level 1
+    api_signature: public PopupWindow (View contentView)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: contentView
+        description: View: the popup's content
+   - 
+    name: PopupWindow
+    api_level: API level 1
+    api_signature: public PopupWindow (int width, 
+                int height)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: width
+        description: int: the popup's width
+       - 
+        name: height
+        description: int: the popup's height
+   - 
+    name: PopupWindow
+    api_level: API level 1
+    api_signature: public PopupWindow (View contentView, 
+                int width, 
+                int height)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: contentView
+        description: View: the popup's content
+       - 
+        name: width
+        description: int: the popup's width
+       - 
+        name: height
+        description: int: the popup's height
+   - 
+    name: PopupWindow
+    api_level: API level 1
+    api_signature: public PopupWindow (View contentView, 
+                int width, 
+                int height, 
+                boolean focusable)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: contentView
+        description: View: the popup's content
+       - 
+        name: width
+        description: int: the popup's width
+       - 
+        name: height
+        description: int: the popup's height
+       - 
+        name: focusable
+        description: boolean: true if the popup can be focused, false otherwise
+   - 
+    name: dismiss
+    api_level: API level 1
+    api_signature: public void dismiss ()
+    description: Disposes of the popup window. This method can be invoked only after showAsDropDown(android.view.View) has been executed. Failing that, calling this method will have no effect.
+   - 
+    name: getAnimationStyle
+    api_level: API level 1
+    api_signature: public int getAnimationStyle ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: the animation style to use the popup appears and disappears
+   - 
+    name: getBackground
+    api_level: API level 1
+    api_signature: public Drawable getBackground ()
+    description: Return the drawable used as the popup window's background.
+     parameters: 
+      parameter: 
+       - 
+        name: Drawable
+        description: the background drawable or null if not set
+   - 
+    name: getContentView
+    api_level: API level 1
+    api_signature: public View getContentView ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: View
+        description: a View representing the popup's content
+   - 
+    name: getElevation
+    api_level: API level 21
+    api_signature: public float getElevation ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: float
+        description: the elevation for this popup window in pixels
+   - 
+    name: getEnterTransition
+    api_level: API level 24
+    api_signature: public Transition getEnterTransition ()
+    description: Returns the enter transition to be used when the popup window is shown.
+     parameters: 
+      parameter: 
+       - 
+        name: Transition
+        description: the enter transition, or null if not set
+   - 
+    name: getExitTransition
+    api_level: API level 24
+    api_signature: public Transition getExitTransition ()
+    description: Returns the exit transition to be used when the popup window is dismissed.
+     parameters: 
+      parameter: 
+       - 
+        name: Transition
+        description: the exit transition, or null if not set
+   - 
+    name: getHeight
+    api_level: API level 1
+    api_signature: public int getHeight ()
+    description: Returns the popup's requested height. May be a layout constant such as ViewGroup.LayoutParams.WRAP_CONTENT or ViewGroup.LayoutParams.MATCH_PARENT.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: the popup height in pixels or a layout constant
+   - 
+    name: getInputMethodMode
+    api_level: API level 3
+    api_signature: public int getInputMethodMode ()
+    description: Return the current value in setInputMethodMode(int).
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: 
+   - 
+    name: getMaxAvailableHeight
+    api_level: API level 1
+    api_signature: public int getMaxAvailableHeight (View anchor)
+    description: Returns the maximum height that is available for the popup to be completely shown. It is recommended that this height be the maximum for the popup's height, otherwise it is possible that the popup will be clipped.
+     parameters: 
+      parameter: 
+       - 
+        name: anchor
+        description: View: The view on which the popup window must be anchored. This value must never be null.
+       - 
+        name: int
+        description: The maximum available height for the popup to be completely shown.
+   - 
+    name: getMaxAvailableHeight
+    api_level: API level 3
+    api_signature: public int getMaxAvailableHeight (View anchor, 
+                int yOffset)
+    description: Returns the maximum height that is available for the popup to be completely shown. It is recommended that this height be the maximum for the popup's height, otherwise it is possible that the popup will be clipped.
+     parameters: 
+      parameter: 
+       - 
+        name: anchor
+        description: View: The view on which the popup window must be anchored. This value must never be null.
+       - 
+        name: yOffset
+        description: int: y offset from the view's bottom edge
+       - 
+        name: int
+        description: The maximum available height for the popup to be completely shown.
+   - 
+    name: getMaxAvailableHeight
+    api_level: API level 24
+    api_signature: public int getMaxAvailableHeight (View anchor, 
+                int yOffset, 
+                boolean ignoreBottomDecorations)
+    description: Returns the maximum height that is available for the popup to be completely shown, optionally ignoring any bottom decorations such as the input method. It is recommended that this height be the maximum for the popup's height, otherwise it is possible that the popup will be clipped.
+     parameters: 
+      parameter: 
+       - 
+        name: anchor
+        description: View: The view on which the popup window must be anchored. This value must never be null.
+       - 
+        name: yOffset
+        description: int: y offset from the view's bottom edge
+       - 
+        name: ignoreBottomDecorations
+        description: boolean: if true, the height returned will be all the way to the bottom of the display, ignoring any bottom decorations
+       - 
+        name: int
+        description: The maximum available height for the popup to be completely shown.
+   - 
+    name: getOverlapAnchor
+    api_level: API level 23
+    api_signature: public boolean getOverlapAnchor ()
+    description: Returns whether the popup window should overlap its anchor view when displayed as a drop-down.
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: Whether the popup should overlap its anchor.
+   - 
+    name: getSoftInputMode
+    api_level: API level 4
+    api_signature: public int getSoftInputMode ()
+    description: Returns the current value in setSoftInputMode(int).
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: Value is either 0 or combination of SOFT_INPUT_STATE_UNSPECIFIED, SOFT_INPUT_STATE_UNCHANGED, SOFT_INPUT_STATE_HIDDEN, SOFT_INPUT_STATE_ALWAYS_HIDDEN, SOFT_INPUT_STATE_VISIBLE, SOFT_INPUT_STATE_ALWAYS_VISIBLE, SOFT_INPUT_ADJUST_RESIZE, SOFT_INPUT_ADJUST_PAN, SOFT_INPUT_ADJUST_NOTHING or SOFT_INPUT_IS_FORWARD_NAVIGATION.
+   - 
+    name: getWidth
+    api_level: API level 1
+    api_signature: public int getWidth ()
+    description: Returns the popup's requested width. May be a layout constant such as ViewGroup.LayoutParams.WRAP_CONTENT or ViewGroup.LayoutParams.MATCH_PARENT.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: the popup width in pixels or a layout constant
+   - 
+    name: getWindowLayoutType
+    api_level: API level 23
+    api_signature: public int getWindowLayoutType ()
+    description: Returns the layout type for this window.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: 
+   - 
+    name: isAboveAnchor
+    api_level: API level 3
+    api_signature: public boolean isAboveAnchor ()
+    description: Indicates whether the popup is showing above (the y coordinate of the popup's bottom is less than the y coordinate of the anchor) or below the anchor view (the y coordinate of the popup is greater than y coordinate of the anchor's bottom). The value returned by this method is meaningful only after showAsDropDown(android.view.View) or showAsDropDown(android.view.View, int, int) was invoked.
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: True if this popup is showing above the anchor view, false otherwise.
+   - 
+    name: isAttachedInDecor
+    api_level: API level 22
+    api_signature: public boolean isAttachedInDecor ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if the window will be attached to the decor frame of its parent window.
+   - 
+    name: isClippingEnabled
+    api_level: API level 3
+    api_signature: public boolean isClippingEnabled ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if the clipping is enabled, false otherwise
+   - 
+    name: isFocusable
+    api_level: API level 1
+    api_signature: public boolean isFocusable ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if the popup is focusable, false otherwise
+   - 
+    name: isOutsideTouchable
+    api_level: API level 3
+    api_signature: public boolean isOutsideTouchable ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if the popup is outside touchable, false otherwise
+   - 
+    name: isShowing
+    api_level: API level 1
+    api_signature: public boolean isShowing ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if the popup is showing, false otherwise
+   - 
+    name: isSplitTouchEnabled
+    api_level: API level 11
+    api_signature: public boolean isSplitTouchEnabled ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if the touch splitting is enabled, false otherwise
+   - 
+    name: isTouchable
+    api_level: API level 3
+    api_signature: public boolean isTouchable ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if the popup is touchable, false otherwise
+   - 
+    name: setAnimationStyle
+    api_level: API level 1
+    api_signature: public void setAnimationStyle (int animationStyle)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: animationStyle
+        description: int: animation style to use when the popup appears and disappears. Set to -1 for the default animation, 0 for no animation, or a resource identifier for an explicit animation.
+   - 
+    name: setAttachedInDecor
+    api_level: API level 22
+    api_signature: public void setAttachedInDecor (boolean enabled)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: enabled
+        description: boolean: true if the popup should be attached to the decor frame of its parent window.
+   - 
+    name: setBackgroundDrawable
+    api_level: API level 1
+    api_signature: public void setBackgroundDrawable (Drawable background)
+    description: Specifies the background drawable for this popup window. The background can be set to null.
+     parameters: 
+      parameter: 
+       - 
+        name: background
+        description: Drawable: the popup's background
+   - 
+    name: setClippingEnabled
+    api_level: API level 3
+    api_signature: public void setClippingEnabled (boolean enabled)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: enabled
+        description: boolean: false if the window should be allowed to extend outside of the screen
+   - 
+    name: setContentView
+    api_level: API level 1
+    api_signature: public void setContentView (View contentView)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: contentView
+        description: View: the new content for the popup
+   - 
+    name: setElevation
+    api_level: API level 21
+    api_signature: public void setElevation (float elevation)
+    description: Specifies the elevation for this popup window.
+     parameters: 
+      parameter: 
+       - 
+        name: elevation
+        description: float: the popup's elevation in pixels
+   - 
+    name: setEnterTransition
+    api_level: API level 23
+    api_signature: public void setEnterTransition (Transition enterTransition)
+    description: Sets the enter transition to be used when the popup window is shown.
+     parameters: 
+      parameter: 
+       - 
+        name: enterTransition
+        description: Transition: the enter transition, or null to clear
+   - 
+    name: setExitTransition
+    api_level: API level 23
+    api_signature: public void setExitTransition (Transition exitTransition)
+    description: Sets the exit transition to be used when the popup window is dismissed.
+     parameters: 
+      parameter: 
+       - 
+        name: exitTransition
+        description: Transition: the exit transition, or null to clear
+   - 
+    name: setFocusable
+    api_level: API level 1
+    api_signature: public void setFocusable (boolean focusable)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: focusable
+        description: boolean: true if the popup should grab focus, false otherwise.
+   - 
+    name: setHeight
+    api_level: API level 1
+    api_signature: public void setHeight (int height)
+    description: Sets the popup's requested height. May be a layout constant such as ViewGroup.LayoutParams.WRAP_CONTENT or ViewGroup.LayoutParams.MATCH_PARENT.
+     parameters: 
+      parameter: 
+       - 
+        name: height
+        description: int: the popup height in pixels or a layout constant
+   - 
+    name: setIgnoreCheekPress
+    api_level: API level 1
+    api_signature: public void setIgnoreCheekPress ()
+    description: Set the flag on popup to ignore cheek press events; by default this flag is set to false which means the popup will not ignore cheek press dispatch events.
+   - 
+    name: setInputMethodMode
+    api_level: API level 3
+    api_signature: public void setInputMethodMode (int mode)
+    description: Control how the popup operates with an input method: one of INPUT_METHOD_FROM_FOCUSABLE, INPUT_METHOD_NEEDED, or INPUT_METHOD_NOT_NEEDED.
+     parameters: 
+      parameter: 
+       - 
+        name: mode
+        description: int
+   - 
+    name: setOnDismissListener
+    api_level: API level 1
+    api_signature: public void setOnDismissListener (PopupWindow.OnDismissListener onDismissListener)
+    description: Sets the listener to be called when the window is dismissed.
+     parameters: 
+      parameter: 
+       - 
+        name: onDismissListener
+        description: PopupWindow.OnDismissListener: The listener.
+   - 
+    name: setOutsideTouchable
+    api_level: API level 3
+    api_signature: public void setOutsideTouchable (boolean touchable)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: touchable
+        description: boolean: true if the popup should receive outside touch events, false otherwise
+   - 
+    name: setOverlapAnchor
+    api_level: API level 23
+    api_signature: public void setOverlapAnchor (boolean overlapAnchor)
+    description: Sets whether the popup window should overlap its anchor view when displayed as a drop-down.
+     parameters: 
+      parameter: 
+       - 
+        name: overlapAnchor
+        description: boolean: Whether the popup should overlap its anchor.
+   - 
+    name: setSoftInputMode
+    api_level: API level 4
+    api_signature: public void setSoftInputMode (int mode)
+    description: Sets the operating mode for the soft input area.
+     parameters: 
+      parameter: 
+       - 
+        name: mode
+        description: int: The desired mode, see WindowManager.LayoutParams.softInputMode for the full list Value is either 0 or combination of SOFT_INPUT_STATE_UNSPECIFIED, SOFT_INPUT_STATE_UNCHANGED, SOFT_INPUT_STATE_HIDDEN, SOFT_INPUT_STATE_ALWAYS_HIDDEN, SOFT_INPUT_STATE_VISIBLE, SOFT_INPUT_STATE_ALWAYS_VISIBLE, SOFT_INPUT_ADJUST_RESIZE, SOFT_INPUT_ADJUST_PAN, SOFT_INPUT_ADJUST_NOTHING or SOFT_INPUT_IS_FORWARD_NAVIGATION.
+   - 
+    name: setSplitTouchEnabled
+    api_level: API level 11
+    api_signature: public void setSplitTouchEnabled (boolean enabled)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: enabled
+        description: boolean: true if the split touches should be enabled, false otherwise
+   - 
+    name: setTouchInterceptor
+    api_level: API level 3
+    api_signature: public void setTouchInterceptor (View.OnTouchListener l)
+    description: Set a callback for all touch events being dispatched to the popup window.
+     parameters: 
+      parameter: 
+       - 
+        name: l
+        description: View.OnTouchListener
+   - 
+    name: setTouchable
+    api_level: API level 3
+    api_signature: public void setTouchable (boolean touchable)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: touchable
+        description: boolean: true if the popup should receive touch events, false otherwise
+   - 
+    name: setWidth
+    api_level: API level 1
+    api_signature: public void setWidth (int width)
+    description: Sets the popup's requested width. May be a layout constant such as ViewGroup.LayoutParams.WRAP_CONTENT or ViewGroup.LayoutParams.MATCH_PARENT.
+     parameters: 
+      parameter: 
+       - 
+        name: width
+        description: int: the popup width in pixels or a layout constant
+   - 
+    name: setWindowLayoutMode
+    api_level: API level 3
+    api_signature: public void setWindowLayoutMode (int widthSpec, 
+                int heightSpec)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: widthSpec
+        description: int: an explicit width measure spec mode, either ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT, or 0 to use the absolute width.
+       - 
+        name: heightSpec
+        description: int: an explicit height measure spec mode, either ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT, or 0 to use the absolute height.
+   - 
+    name: setWindowLayoutType
+    api_level: API level 23
+    api_signature: public void setWindowLayoutType (int layoutType)
+    description: Set the layout type for this window.
+     parameters: 
+      parameter: 
+       - 
+        name: layoutType
+        description: int: Layout type for this window.
+   - 
+    name: showAsDropDown
+    api_level: API level 1
+    api_signature: public void showAsDropDown (View anchor)
+    description: Display the content view in a popup window anchored to the bottom-left corner of the anchor view. If there is not enough room on screen to show the popup in its entirety, this method tries to find a parent scroll view to scroll. If no parent scroll view can be scrolled, the bottom-left corner of the popup is pinned at the top left corner of the anchor view.
+     parameters: 
+      parameter: 
+       - 
+        name: anchor
+        description: View: the view on which to pin the popup window
+   - 
+    name: showAsDropDown
+    api_level: API level 19
+    api_signature: public void showAsDropDown (View anchor, 
+                int xoff, 
+                int yoff, 
+                int gravity)
+    description: Displays the content view in a popup window anchored to the corner of another view. The window is positioned according to the specified gravity and offset by the specified x and y coordinates.
+     parameters: 
+      parameter: 
+       - 
+        name: anchor
+        description: View: the view on which to pin the popup window
+       - 
+        name: xoff
+        description: int: A horizontal offset from the anchor in pixels
+       - 
+        name: yoff
+        description: int: A vertical offset from the anchor in pixels
+       - 
+        name: gravity
+        description: int: Alignment of the popup relative to the anchor
+   - 
+    name: showAsDropDown
+    api_level: API level 1
+    api_signature: public void showAsDropDown (View anchor, 
+                int xoff, 
+                int yoff)
+    description: Display the content view in a popup window anchored to the bottom-left corner of the anchor view offset by the specified x and y coordinates. If there is not enough room on screen to show the popup in its entirety, this method tries to find a parent scroll view to scroll. If no parent scroll view can be scrolled, the bottom-left corner of the popup is pinned at the top left corner of the anchor view.
+     parameters: 
+      parameter: 
+       - 
+        name: anchor
+        description: View: the view on which to pin the popup window
+       - 
+        name: xoff
+        description: int: A horizontal offset from the anchor in pixels
+       - 
+        name: yoff
+        description: int: A vertical offset from the anchor in pixels
+   - 
+    name: showAtLocation
+    api_level: API level 1
+    api_signature: public void showAtLocation (View parent, 
+                int gravity, 
+                int x, 
+                int y)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: parent
+        description: View: a parent view to get the View.getWindowToken() token from
+       - 
+        name: gravity
+        description: int: the gravity which controls the placement of the popup window
+       - 
+        name: x
+        description: int: the popup's x location offset
+       - 
+        name: y
+        description: int: the popup's y location offset
+   - 
+    name: update
+    api_level: API level 1
+    api_signature: public void update (View anchor, 
+                int width, 
+                int height)
+    description: Updates the position and the dimension of the popup window.
+     parameters: 
+      parameter: 
+       - 
+        name: anchor
+        description: View: the popup's anchor view
+       - 
+        name: width
+        description: int: the new width in pixels, must be >= 0 or -1 to ignore
+       - 
+        name: height
+        description: int: the new height in pixels, must be >= 0 or -1 to ignore
+   - 
+    name: update
+    api_level: API level 1
+    api_signature: public void update (View anchor, 
+                int xoff, 
+                int yoff, 
+                int width, 
+                int height)
+    description: Updates the position and the dimension of the popup window.
+     parameters: 
+      parameter: 
+       - 
+        name: anchor
+        description: View: the popup's anchor view
+       - 
+        name: xoff
+        description: int: x offset from the view's left edge
+       - 
+        name: yoff
+        description: int: y offset from the view's bottom edge
+       - 
+        name: width
+        description: int: the new width in pixels, must be >= 0 or -1 to ignore
+       - 
+        name: height
+        description: int: the new height in pixels, must be >= 0 or -1 to ignore
+   - 
+    name: update
+    api_level: API level 4
+    api_signature: public void update (int width, 
+                int height)
+    description: Updates the dimension of the popup window.
+     parameters: 
+      parameter: 
+       - 
+        name: width
+        description: int: the new width in pixels, must be >= 0 or -1 to ignore
+       - 
+        name: height
+        description: int: the new height in pixels, must be >= 0 or -1 to ignore
+   - 
+    name: update
+    api_level: API level 3
+    api_signature: public void update ()
+    description: Updates the state of the popup window, if it is currently being displayed, from the currently set state.
+   - 
+    name: update
+    api_level: API level 3
+    api_signature: public void update (int x, 
+                int y, 
+                int width, 
+                int height, 
+                boolean force)
+    description: Updates the position and the dimension of the popup window.
+     parameters: 
+      parameter: 
+       - 
+        name: x
+        description: int: the new x location
+       - 
+        name: y
+        description: int: the new y location
+       - 
+        name: width
+        description: int: the new width in pixels, must be >= 0 or -1 to ignore
+       - 
+        name: height
+        description: int: the new height in pixels, must be >= 0 or -1 to ignore
+       - 
+        name: force
+        description: boolean: true to reposition the window even if the specified position already seems to correspond to the LayoutParams, false to only reposition if needed
+   - 
+    name: update
+    api_level: API level 1
+    api_signature: public void update (int x, 
+                int y, 
+                int width, 
+                int height)
+    description: Updates the position and the dimension of the popup window.
+     parameters: 
+      parameter: 
+       - 
+        name: x
+        description: int: the new x location
+       - 
+        name: y
+        description: int: the new y location
+       - 
+        name: width
+        description: int: the new width in pixels, must be >= 0 or -1 to ignore
+       - 
+        name: height
+        description: int: the new height in pixels, must be >= 0 or -1 to ignore

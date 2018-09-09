@@ -1,0 +1,155 @@
+api:
+ title: Gallery.LayoutParams
+ api-signature: public static class Gallery.LayoutParams extends ViewGroup.LayoutParams
+ inheritance: java.lang.Object ↳ android.view.ViewGroup.LayoutParams ↳ android.widget.Gallery.LayoutParams
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+  class: 
+    name: android.view.ViewGroup.LayoutParams
+     class: 
+      - 
+       attirbute: 
+        name: android:layout_height
+      - 
+       attirbute: 
+        name: android:layout_width
+ inherited_constants: 
+  class: 
+    name: android.view.ViewGroup.LayoutParams
+     conctant: 
+      - 
+       type: int
+       name: FILL_PARENT
+       description:Special value for the height or width requested by a View.
+      - 
+       type: int
+       name: MATCH_PARENT
+       description:Special value for the height or width requested by a View.
+      - 
+       type: int
+       name: WRAP_CONTENT
+       description:Special value for the height or width requested by a View.
+ inherited_fields: 
+  class: 
+    name: android.view.ViewGroup.LayoutParams
+     field: 
+      - 
+       type: public int
+       name: height
+       description: Information about how tall the view wants to be.
+      - 
+       type: public LayoutAnimationController.AnimationParameters
+       name: layoutAnimationParameters
+       description: Used to animate layouts.
+      - 
+       type: public int
+       name: width
+       description: Information about how wide the view wants to be.
+ inherited_methods: 
+  name: android.view.ViewGroup.LayoutParams
+   class: 
+     method: 
+      - 
+       return-value: void
+       name: resolveLayoutDirection(int layoutDirection)
+       description: Resolve layout parameters depending on the layout direction.
+      - 
+       return-value: void
+       name: setBaseAttributes(TypedArray a, int widthAttr, int heightAttr)
+       description: Extracts the layout parameters from the supplied attributes.
+  name: java.lang.Object
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+ public_constructors: 
+  method: 
+   - 
+    name: Gallery.LayoutParams(Context c, AttributeSet attrs)
+   - 
+    name: Gallery.LayoutParams(int w, int h)
+   - 
+    name: Gallery.LayoutParams(ViewGroup.LayoutParams source)
+ public_methods: 
+ api-section: 
+  api: 
+   - 
+    name: Gallery.LayoutParams
+    api_level: API level 1
+    api_signature: public Gallery.LayoutParams (Context c, 
+                AttributeSet attrs)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: c
+        description: Context
+       - 
+        name: attrs
+        description: AttributeSet
+   - 
+    name: Gallery.LayoutParams
+    api_level: API level 1
+    api_signature: public Gallery.LayoutParams (int w, 
+                int h)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: w
+        description: int
+       - 
+        name: h
+        description: int
+   - 
+    name: Gallery.LayoutParams
+    api_level: API level 1
+    api_signature: public Gallery.LayoutParams (ViewGroup.LayoutParams source)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: source
+        description: ViewGroup.LayoutParams

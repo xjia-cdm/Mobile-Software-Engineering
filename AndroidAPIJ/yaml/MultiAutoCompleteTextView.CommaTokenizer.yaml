@@ -1,0 +1,142 @@
+api:
+ title: MultiAutoCompleteTextView.CommaTokenizer
+ api-signature: public static class MultiAutoCompleteTextView.CommaTokenizer extends Object implements MultiAutoCompleteTextView.Tokenizer
+ inheritance: java.lang.Object ↳ android.widget.MultiAutoCompleteTextView.CommaTokenizer
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+  name: android.widget.MultiAutoCompleteTextView.Tokenizer
+     method: 
+      - 
+       return-value: abstract int
+       name: findTokenEnd(CharSequence text, int cursor)
+       description: Returns the end of the token (minus trailing punctuation) that begins at offset cursor within text.
+      - 
+       return-value: abstract int
+       name: findTokenStart(CharSequence text, int cursor)
+       description: Returns the start of the token that ends at offset cursor within text.
+      - 
+       return-value: abstract CharSequence
+       name: terminateToken(CharSequence text)
+       description: Returns text, modified, if necessary, to ensure that it ends with a token terminator (for example a space or comma).
+ public_constructors: 
+  method: 
+    name: MultiAutoCompleteTextView.CommaTokenizer()
+ public_methods: 
+  method: 
+   - 
+    return-value: int
+    name: findTokenEnd(CharSequence text, int cursor)
+    description: Returns the end of the token (minus trailing punctuation) that begins at offset cursor within text.
+   - 
+    return-value: int
+    name: findTokenStart(CharSequence text, int cursor)
+    description: Returns the start of the token that ends at offset cursor within text.
+   - 
+    return-value: CharSequence
+    name: terminateToken(CharSequence text)
+    description: Returns text, modified, if necessary, to ensure that it ends with a token terminator (for example a space or comma).
+ api-section: 
+  api: 
+   - 
+    name: MultiAutoCompleteTextView.CommaTokenizer
+    api_level: API level 1
+    api_signature: public MultiAutoCompleteTextView.CommaTokenizer ()
+    description: 
+   - 
+    name: findTokenEnd
+    api_level: API level 1
+    api_signature: public int findTokenEnd (CharSequence text, 
+                int cursor)
+    description: Returns the end of the token (minus trailing punctuation) that begins at offset cursor within text.
+     parameters: 
+      parameter: 
+       - 
+        name: text
+        description: CharSequence
+       - 
+        name: cursor
+        description: int
+       - 
+        name: int
+        description: 
+   - 
+    name: findTokenStart
+    api_level: API level 1
+    api_signature: public int findTokenStart (CharSequence text, 
+                int cursor)
+    description: Returns the start of the token that ends at offset cursor within text.
+     parameters: 
+      parameter: 
+       - 
+        name: text
+        description: CharSequence
+       - 
+        name: cursor
+        description: int
+       - 
+        name: int
+        description: 
+   - 
+    name: terminateToken
+    api_level: API level 1
+    api_signature: public CharSequence terminateToken (CharSequence text)
+    description: Returns text, modified, if necessary, to ensure that it ends with a token terminator (for example a space or comma).
+     parameters: 
+      parameter: 
+       - 
+        name: text
+        description: CharSequence
+       - 
+        name: CharSequence
+        description: 

@@ -1,0 +1,857 @@
+api:
+ title: ListPopupWindow
+ api-signature: public class ListPopupWindow extends Object implements ShowableListMenu
+ inheritance: java.lang.Object ↳ android.widget.ListPopupWindow
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+  name: com.android.internal.view.menu.ShowableListMenu
+     method: 
+      - 
+       return-value: abstract void
+       name: dismiss()
+      - 
+       return-value: abstract ListView
+       name: getListView()
+      - 
+       return-value: abstract boolean
+       name: isShowing()
+      - 
+       return-value: abstract void
+       name: show()
+ public_constructors: 
+  method: 
+   - 
+    name: ListPopupWindow(Context context)
+    description: Create a new, empty popup window capable of displaying items from a ListAdapter.
+   - 
+    name: ListPopupWindow(Context context, AttributeSet attrs)
+    description: Create a new, empty popup window capable of displaying items from a ListAdapter.
+   - 
+    name: ListPopupWindow(Context context, AttributeSet attrs, int defStyleAttr)
+    description: Create a new, empty popup window capable of displaying items from a ListAdapter.
+   - 
+    name: ListPopupWindow(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes)
+    description: Create a new, empty popup window capable of displaying items from a ListAdapter.
+ public_methods: 
+  method: 
+   - 
+    return-value: void
+    name: clearListSelection()
+    description: Clear any current list selection.
+   - 
+    return-value: View.OnTouchListener
+    name: createDragToOpenListener(View src)
+    description: Returns an View.OnTouchListener that can be added to the source view to implement drag-to-open behavior.
+   - 
+    return-value: void
+    name: dismiss()
+    description: Dismiss the popup window.
+   - 
+    return-value: View
+    name: getAnchorView()
+    description: Returns the view that will be used to anchor this popup.
+   - 
+    return-value: int
+    name: getAnimationStyle()
+    description: Returns the animation style that will be used when the popup window is shown or dismissed.
+   - 
+    return-value: Drawable
+    name: getBackground()
+   - 
+    return-value: int
+    name: getHeight()
+   - 
+    return-value: int
+    name: getHorizontalOffset()
+   - 
+    return-value: int
+    name: getInputMethodMode()
+    description: Return the current value in setInputMethodMode(int).
+   - 
+    return-value: ListView
+    name: getListView()
+   - 
+    return-value: int
+    name: getPromptPosition()
+   - 
+    return-value: Object
+    name: getSelectedItem()
+   - 
+    return-value: long
+    name: getSelectedItemId()
+   - 
+    return-value: int
+    name: getSelectedItemPosition()
+   - 
+    return-value: View
+    name: getSelectedView()
+   - 
+    return-value: int
+    name: getSoftInputMode()
+    description: Returns the current value in setSoftInputMode(int).
+   - 
+    return-value: int
+    name: getVerticalOffset()
+   - 
+    return-value: int
+    name: getWidth()
+   - 
+    return-value: boolean
+    name: isInputMethodNotNeeded()
+   - 
+    return-value: boolean
+    name: isModal()
+    description: Returns whether the popup window will be modal when shown.
+   - 
+    return-value: boolean
+    name: isShowing()
+   - 
+    return-value: boolean
+    name: onKeyDown(int keyCode, KeyEvent event)
+    description: Filter key down events.
+   - 
+    return-value: boolean
+    name: onKeyPreIme(int keyCode, KeyEvent event)
+    description: Filter pre-IME key events.
+   - 
+    return-value: boolean
+    name: onKeyUp(int keyCode, KeyEvent event)
+    description: Filter key up events.
+   - 
+    return-value: boolean
+    name: performItemClick(int position)
+    description: Perform an item click operation on the specified list adapter position.
+   - 
+    return-value: void
+    name: postShow()
+    description: Post a show() call to the UI thread.
+   - 
+    return-value: void
+    name: setAdapter(ListAdapter adapter)
+    description: Sets the adapter that provides the data and the views to represent the data in this popup window.
+   - 
+    return-value: void
+    name: setAnchorView(View anchor)
+    description: Sets the popup's anchor view.
+   - 
+    return-value: void
+    name: setAnimationStyle(int animationStyle)
+    description: Set an animation style to use when the popup window is shown or dismissed.
+   - 
+    return-value: void
+    name: setBackgroundDrawable(Drawable d)
+    description: Sets a drawable to be the background for the popup window.
+   - 
+    return-value: void
+    name: setContentWidth(int width)
+    description: Sets the width of the popup window by the size of its content.
+   - 
+    return-value: void
+    name: setDropDownGravity(int gravity)
+    description: Set the gravity of the dropdown list.
+   - 
+    return-value: void
+    name: setHeight(int height)
+    description: Sets the height of the popup window in pixels.
+   - 
+    return-value: void
+    name: setHorizontalOffset(int offset)
+    description: Set the horizontal offset of this popup from its anchor view in pixels.
+   - 
+    return-value: void
+    name: setInputMethodMode(int mode)
+    description: Control how the popup operates with an input method: one of INPUT_METHOD_FROM_FOCUSABLE, INPUT_METHOD_NEEDED, or INPUT_METHOD_NOT_NEEDED.
+   - 
+    return-value: void
+    name: setListSelector(Drawable selector)
+    description: Sets a drawable to use as the list item selector.
+   - 
+    return-value: void
+    name: setModal(boolean modal)
+    description: Set whether this window should be modal when shown.
+   - 
+    return-value: void
+    name: setOnDismissListener(PopupWindow.OnDismissListener listener)
+    description: Set a listener to receive a callback when the popup is dismissed.
+   - 
+    return-value: void
+    name: setOnItemClickListener(AdapterView.OnItemClickListener clickListener)
+    description: Sets a listener to receive events when a list item is clicked.
+   - 
+    return-value: void
+    name: setOnItemSelectedListener(AdapterView.OnItemSelectedListener selectedListener)
+    description: Sets a listener to receive events when a list item is selected.
+   - 
+    return-value: void
+    name: setPromptPosition(int position)
+    description: Set where the optional prompt view should appear.
+   - 
+    return-value: void
+    name: setPromptView(View prompt)
+    description: Set a view to act as a user prompt for this popup window.
+   - 
+    return-value: void
+    name: setSelection(int position)
+    description: Set the selected position of the list.
+   - 
+    return-value: void
+    name: setSoftInputMode(int mode)
+    description: Sets the operating mode for the soft input area.
+   - 
+    return-value: void
+    name: setVerticalOffset(int offset)
+    description: Set the vertical offset of this popup from its anchor view in pixels.
+   - 
+    return-value: void
+    name: setWidth(int width)
+    description: Sets the width of the popup window in pixels.
+   - 
+    return-value: void
+    name: setWindowLayoutType(int layoutType)
+    description: Set the layout type for this popup window.
+   - 
+    return-value: void
+    name: show()
+    description: Show the popup list.
+ api-section: 
+  api: 
+   - 
+    name: INPUT_METHOD_FROM_FOCUSABLE
+    api_level: API level 11
+    api_signature: public static final int INPUT_METHOD_FROM_FOCUSABLE
+    description: Mode for setInputMethodMode(int): the requirements for the input method should be based on the focusability of the popup. That is if it is focusable than it needs to work with the input method, else it doesn't.
+   - 
+    name: INPUT_METHOD_NEEDED
+    api_level: API level 11
+    api_signature: public static final int INPUT_METHOD_NEEDED
+    description: Mode for setInputMethodMode(int): this popup always needs to work with an input method, regardless of whether it is focusable. This means that it will always be displayed so that the user can also operate the input method while it is shown.
+   - 
+    name: INPUT_METHOD_NOT_NEEDED
+    api_level: API level 11
+    api_signature: public static final int INPUT_METHOD_NOT_NEEDED
+    description: Mode for setInputMethodMode(int): this popup never needs to work with an input method, regardless of whether it is focusable. This means that it will always be displayed to use as much space on the screen as needed, regardless of whether this covers the input method.
+   - 
+    name: MATCH_PARENT
+    api_level: API level 11
+    api_signature: public static final int MATCH_PARENT
+    description: Alias for ViewGroup.LayoutParams.MATCH_PARENT. If used to specify a popup width, the popup will match the width of the anchor view. If used to specify a popup height, the popup will fill available space.
+   - 
+    name: POSITION_PROMPT_ABOVE
+    api_level: API level 11
+    api_signature: public static final int POSITION_PROMPT_ABOVE
+    description: The provided prompt view should appear above list content.
+   - 
+    name: POSITION_PROMPT_BELOW
+    api_level: API level 11
+    api_signature: public static final int POSITION_PROMPT_BELOW
+    description: The provided prompt view should appear below list content.
+   - 
+    name: WRAP_CONTENT
+    api_level: API level 11
+    api_signature: public static final int WRAP_CONTENT
+    description: Alias for ViewGroup.LayoutParams.WRAP_CONTENT. If used to specify a popup width, the popup will use the width of its content.
+   - 
+    name: ListPopupWindow
+    api_level: API level 11
+    api_signature: public ListPopupWindow (Context context)
+    description: Create a new, empty popup window capable of displaying items from a ListAdapter. Backgrounds should be set using setBackgroundDrawable(Drawable).
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Context used for contained views. This value must never be null.
+   - 
+    name: ListPopupWindow
+    api_level: API level 11
+    api_signature: public ListPopupWindow (Context context, 
+                AttributeSet attrs)
+    description: Create a new, empty popup window capable of displaying items from a ListAdapter. Backgrounds should be set using setBackgroundDrawable(Drawable).
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Context used for contained views. This value must never be null.
+       - 
+        name: attrs
+        description: AttributeSet: Attributes from inflating parent views used to style the popup. This value may be null.
+   - 
+    name: ListPopupWindow
+    api_level: API level 11
+    api_signature: public ListPopupWindow (Context context, 
+                AttributeSet attrs, 
+                int defStyleAttr)
+    description: Create a new, empty popup window capable of displaying items from a ListAdapter. Backgrounds should be set using setBackgroundDrawable(Drawable).
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Context used for contained views. This value must never be null.
+       - 
+        name: attrs
+        description: AttributeSet: Attributes from inflating parent views used to style the popup. This value may be null.
+       - 
+        name: defStyleAttr
+        description: int: Default style attribute to use for popup content.
+   - 
+    name: ListPopupWindow
+    api_level: API level 11
+    api_signature: public ListPopupWindow (Context context, 
+                AttributeSet attrs, 
+                int defStyleAttr, 
+                int defStyleRes)
+    description: Create a new, empty popup window capable of displaying items from a ListAdapter. Backgrounds should be set using setBackgroundDrawable(Drawable).
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Context used for contained views. This value must never be null.
+       - 
+        name: attrs
+        description: AttributeSet: Attributes from inflating parent views used to style the popup. This value may be null.
+       - 
+        name: defStyleAttr
+        description: int: Style attribute to read for default styling of popup content.
+       - 
+        name: defStyleRes
+        description: int: Style resource ID to use for default styling of popup content.
+   - 
+    name: clearListSelection
+    api_level: API level 11
+    api_signature: public void clearListSelection ()
+    description: Clear any current list selection. Only valid when isShowing() == true.
+   - 
+    name: createDragToOpenListener
+    api_level: API level 19
+    api_signature: public View.OnTouchListener createDragToOpenListener (View src)
+    description: Returns an View.OnTouchListener that can be added to the source view to implement drag-to-open behavior. Generally, the source view should be the same view that was passed to setAnchorView(View).
+     parameters: 
+      parameter: 
+       - 
+        name: src
+        description: View: the view on which the resulting listener will be set
+       - 
+        name: View.OnTouchListener
+        description: a touch listener that controls drag-to-open behavior
+   - 
+    name: dismiss
+    api_level: API level 11
+    api_signature: public void dismiss ()
+    description: Dismiss the popup window.
+   - 
+    name: getAnchorView
+    api_level: API level 11
+    api_signature: public View getAnchorView ()
+    description: Returns the view that will be used to anchor this popup.
+     parameters: 
+      parameter: 
+       - 
+        name: View
+        description: The popup's anchor view This value may be null.
+   - 
+    name: getAnimationStyle
+    api_level: API level 11
+    api_signature: public int getAnimationStyle ()
+    description: Returns the animation style that will be used when the popup window is shown or dismissed.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: Animation style that will be used.
+   - 
+    name: getBackground
+    api_level: API level 11
+    api_signature: public Drawable getBackground ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: Drawable
+        description: The background drawable for the popup window. This value may be null.
+   - 
+    name: getHeight
+    api_level: API level 11
+    api_signature: public int getHeight ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The height of the popup window in pixels.
+   - 
+    name: getHorizontalOffset
+    api_level: API level 11
+    api_signature: public int getHorizontalOffset ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The horizontal offset of the popup from its anchor in pixels.
+   - 
+    name: getInputMethodMode
+    api_level: API level 11
+    api_signature: public int getInputMethodMode ()
+    description: Return the current value in setInputMethodMode(int).
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: 
+   - 
+    name: getListView
+    api_level: API level 11
+    api_signature: public ListView getListView ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: ListView
+        description: The ListView displayed within the popup window. Only valid when isShowing() == true. This value may be null.
+   - 
+    name: getPromptPosition
+    api_level: API level 11
+    api_signature: public int getPromptPosition ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: Where the optional prompt view should appear.
+   - 
+    name: getSelectedItem
+    api_level: API level 11
+    api_signature: public Object getSelectedItem ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: Object
+        description: The currently selected item or null if the popup is not showing.
+   - 
+    name: getSelectedItemId
+    api_level: API level 11
+    api_signature: public long getSelectedItemId ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: long
+        description: The ID of the currently selected item or AdapterView.INVALID_ROW_ID if isShowing() == false.
+   - 
+    name: getSelectedItemPosition
+    api_level: API level 11
+    api_signature: public int getSelectedItemPosition ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The position of the currently selected item or AdapterView.INVALID_POSITION if isShowing() == false.
+   - 
+    name: getSelectedView
+    api_level: API level 11
+    api_signature: public View getSelectedView ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: View
+        description: The View for the currently selected item or null if isShowing() == false.
+   - 
+    name: getSoftInputMode
+    api_level: API level 11
+    api_signature: public int getSoftInputMode ()
+    description: Returns the current value in setSoftInputMode(int).
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: 
+   - 
+    name: getVerticalOffset
+    api_level: API level 11
+    api_signature: public int getVerticalOffset ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The vertical offset of the popup from its anchor in pixels.
+   - 
+    name: getWidth
+    api_level: API level 11
+    api_signature: public int getWidth ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The width of the popup window in pixels.
+   - 
+    name: isInputMethodNotNeeded
+    api_level: API level 11
+    api_signature: public boolean isInputMethodNotNeeded ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if this popup is configured to assume the user does not need to interact with the IME while it is showing, false otherwise.
+   - 
+    name: isModal
+    api_level: API level 11
+    api_signature: public boolean isModal ()
+    description: Returns whether the popup window will be modal when shown.
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if the popup window will be modal, false otherwise.
+   - 
+    name: isShowing
+    api_level: API level 11
+    api_signature: public boolean isShowing ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if the popup is currently showing, false otherwise.
+   - 
+    name: onKeyDown
+    api_level: API level 11
+    api_signature: public boolean onKeyDown (int keyCode, 
+                KeyEvent event)
+    description: Filter key down events. By forwarding key down events to this function, views using non-modal ListPopupWindow can have it handle key selection of items.
+     parameters: 
+      parameter: 
+       - 
+        name: keyCode
+        description: int: keyCode param passed to the host view's onKeyDown
+       - 
+        name: event
+        description: KeyEvent: event param passed to the host view's onKeyDown This value must never be null.
+       - 
+        name: boolean
+        description: true if the event was handled, false if it was ignored.
+   - 
+    name: onKeyPreIme
+    api_level: API level 11
+    api_signature: public boolean onKeyPreIme (int keyCode, 
+                KeyEvent event)
+    description: Filter pre-IME key events. By forwarding View.onKeyPreIme(int, KeyEvent) events to this function, views using ListPopupWindow can have it dismiss the popup when the back key is pressed.
+     parameters: 
+      parameter: 
+       - 
+        name: keyCode
+        description: int: keyCode param passed to the host view's onKeyPreIme
+       - 
+        name: event
+        description: KeyEvent: event param passed to the host view's onKeyPreIme This value must never be null.
+       - 
+        name: boolean
+        description: true if the event was handled, false if it was ignored.
+   - 
+    name: onKeyUp
+    api_level: API level 11
+    api_signature: public boolean onKeyUp (int keyCode, 
+                KeyEvent event)
+    description: Filter key up events. By forwarding key up events to this function, views using non-modal ListPopupWindow can have it handle key selection of items.
+     parameters: 
+      parameter: 
+       - 
+        name: keyCode
+        description: int: keyCode param passed to the host view's onKeyUp
+       - 
+        name: event
+        description: KeyEvent: event param passed to the host view's onKeyUp This value must never be null.
+       - 
+        name: boolean
+        description: true if the event was handled, false if it was ignored.
+   - 
+    name: performItemClick
+    api_level: API level 11
+    api_signature: public boolean performItemClick (int position)
+    description: Perform an item click operation on the specified list adapter position.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: Adapter position for performing the click
+       - 
+        name: boolean
+        description: true if the click action could be performed, false if not. (e.g. if the popup was not showing, this method would return false.)
+   - 
+    name: postShow
+    api_level: API level 11
+    api_signature: public void postShow ()
+    description: Post a show() call to the UI thread.
+   - 
+    name: setAdapter
+    api_level: API level 11
+    api_signature: public void setAdapter (ListAdapter adapter)
+    description: Sets the adapter that provides the data and the views to represent the data in this popup window.
+     parameters: 
+      parameter: 
+       - 
+        name: adapter
+        description: ListAdapter: The adapter to use to create this window's content. This value may be null.
+   - 
+    name: setAnchorView
+    api_level: API level 11
+    api_signature: public void setAnchorView (View anchor)
+    description: Sets the popup's anchor view. This popup will always be positioned relative to the anchor view when shown.
+     parameters: 
+      parameter: 
+       - 
+        name: anchor
+        description: View: The view to use as an anchor. This value may be null.
+   - 
+    name: setAnimationStyle
+    api_level: API level 11
+    api_signature: public void setAnimationStyle (int animationStyle)
+    description: Set an animation style to use when the popup window is shown or dismissed.
+     parameters: 
+      parameter: 
+       - 
+        name: animationStyle
+        description: int: Animation style to use.
+   - 
+    name: setBackgroundDrawable
+    api_level: API level 11
+    api_signature: public void setBackgroundDrawable (Drawable d)
+    description: Sets a drawable to be the background for the popup window.
+     parameters: 
+      parameter: 
+       - 
+        name: d
+        description: Drawable: A drawable to set as the background. This value may be null.
+   - 
+    name: setContentWidth
+    api_level: API level 11
+    api_signature: public void setContentWidth (int width)
+    description: Sets the width of the popup window by the size of its content. The final width may be larger to accommodate styled window dressing.
+     parameters: 
+      parameter: 
+       - 
+        name: width
+        description: int: Desired width of content in pixels.
+   - 
+    name: setDropDownGravity
+    api_level: API level 19
+    api_signature: public void setDropDownGravity (int gravity)
+    description: Set the gravity of the dropdown list. This is commonly used to set gravity to START or END for alignment with the anchor.
+     parameters: 
+      parameter: 
+       - 
+        name: gravity
+        description: int: Gravity value to use
+   - 
+    name: setHeight
+    api_level: API level 11
+    api_signature: public void setHeight (int height)
+    description: Sets the height of the popup window in pixels. Can also be MATCH_PARENT.
+     parameters: 
+      parameter: 
+       - 
+        name: height
+        description: int: Height of the popup window must be a positive value, MATCH_PARENT, or WRAP_CONTENT.
+       - 
+        name: IllegalArgumentException
+        description: if height is set to negative value
+   - 
+    name: setHorizontalOffset
+    api_level: API level 11
+    api_signature: public void setHorizontalOffset (int offset)
+    description: Set the horizontal offset of this popup from its anchor view in pixels.
+     parameters: 
+      parameter: 
+       - 
+        name: offset
+        description: int: The horizontal offset of the popup from its anchor.
+   - 
+    name: setInputMethodMode
+    api_level: API level 11
+    api_signature: public void setInputMethodMode (int mode)
+    description: Control how the popup operates with an input method: one of INPUT_METHOD_FROM_FOCUSABLE, INPUT_METHOD_NEEDED, or INPUT_METHOD_NOT_NEEDED.
+     parameters: 
+      parameter: 
+       - 
+        name: mode
+        description: int
+   - 
+    name: setListSelector
+    api_level: API level 11
+    api_signature: public void setListSelector (Drawable selector)
+    description: Sets a drawable to use as the list item selector.
+     parameters: 
+      parameter: 
+       - 
+        name: selector
+        description: Drawable: List selector drawable to use in the popup.
+   - 
+    name: setModal
+    api_level: API level 11
+    api_signature: public void setModal (boolean modal)
+    description: Set whether this window should be modal when shown.
+     parameters: 
+      parameter: 
+       - 
+        name: modal
+        description: boolean: true if the popup window should be modal, false otherwise.
+   - 
+    name: setOnDismissListener
+    api_level: API level 11
+    api_signature: public void setOnDismissListener (PopupWindow.OnDismissListener listener)
+    description: Set a listener to receive a callback when the popup is dismissed.
+     parameters: 
+      parameter: 
+       - 
+        name: listener
+        description: PopupWindow.OnDismissListener: Listener that will be notified when the popup is dismissed. This value may be null.
+   - 
+    name: setOnItemClickListener
+    api_level: API level 11
+    api_signature: public void setOnItemClickListener (AdapterView.OnItemClickListener clickListener)
+    description: Sets a listener to receive events when a list item is clicked.
+     parameters: 
+      parameter: 
+       - 
+        name: clickListener
+        description: AdapterView.OnItemClickListener: Listener to register This value may be null.
+   - 
+    name: setOnItemSelectedListener
+    api_level: API level 11
+    api_signature: public void setOnItemSelectedListener (AdapterView.OnItemSelectedListener selectedListener)
+    description: Sets a listener to receive events when a list item is selected.
+     parameters: 
+      parameter: 
+       - 
+        name: selectedListener
+        description: AdapterView.OnItemSelectedListener: Listener to register. This value may be null.
+   - 
+    name: setPromptPosition
+    api_level: API level 11
+    api_signature: public void setPromptPosition (int position)
+    description: Set where the optional prompt view should appear. The default is POSITION_PROMPT_ABOVE.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: A position constant declaring where the prompt should be displayed.
+   - 
+    name: setPromptView
+    api_level: API level 11
+    api_signature: public void setPromptView (View prompt)
+    description: Set a view to act as a user prompt for this popup window. Where the prompt view will appear is controlled by setPromptPosition(int).
+     parameters: 
+      parameter: 
+       - 
+        name: prompt
+        description: View: View to use as an informational prompt. This value may be null.
+   - 
+    name: setSelection
+    api_level: API level 11
+    api_signature: public void setSelection (int position)
+    description: Set the selected position of the list. Only valid when isShowing() == true.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: List position to set as selected.
+   - 
+    name: setSoftInputMode
+    api_level: API level 11
+    api_signature: public void setSoftInputMode (int mode)
+    description: Sets the operating mode for the soft input area.
+     parameters: 
+      parameter: 
+       - 
+        name: mode
+        description: int: The desired mode, see WindowManager.LayoutParams.softInputMode for the full list
+   - 
+    name: setVerticalOffset
+    api_level: API level 11
+    api_signature: public void setVerticalOffset (int offset)
+    description: Set the vertical offset of this popup from its anchor view in pixels.
+     parameters: 
+      parameter: 
+       - 
+        name: offset
+        description: int: The vertical offset of the popup from its anchor.
+   - 
+    name: setWidth
+    api_level: API level 11
+    api_signature: public void setWidth (int width)
+    description: Sets the width of the popup window in pixels. Can also be MATCH_PARENT or WRAP_CONTENT.
+     parameters: 
+      parameter: 
+       - 
+        name: width
+        description: int: Width of the popup window.
+   - 
+    name: setWindowLayoutType
+    api_level: API level 23
+    api_signature: public void setWindowLayoutType (int layoutType)
+    description: Set the layout type for this popup window.
+     parameters: 
+      parameter: 
+       - 
+        name: layoutType
+        description: int: Layout type for this window.
+   - 
+    name: show
+    api_level: API level 11
+    api_signature: public void show ()
+    description: Show the popup list. If the list is already showing, this method will recalculate the popup's size and position.

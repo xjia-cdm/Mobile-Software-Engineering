@@ -1,0 +1,202 @@
+api:
+ title: ShareActionProvider
+ api-signature: public class ShareActionProvider extends ActionProvider
+ inheritance: java.lang.Object ↳ android.view.ActionProvider ↳ android.widget.ShareActionProvider
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: android.view.ActionProvider
+   class: 
+     method: 
+      - 
+       return-value: boolean
+       name: hasSubMenu()
+       description: Determines if this ActionProvider has a submenu associated with it.
+      - 
+       return-value: boolean
+       name: isVisible()
+       description: If overridesItemVisibility() returns true, the return value of this method will help determine the visibility of the MenuItem this ActionProvider is bound to.
+      - 
+       return-value: abstract View
+       name: onCreateActionView()
+       description: This method was deprecated in API level 16. use onCreateActionView(MenuItem)
+      - 
+       return-value: View
+       name: onCreateActionView(MenuItem forItem)
+       description: Factory method called by the Android framework to create new action views.
+      - 
+       return-value: boolean
+       name: onPerformDefaultAction()
+       description: Performs an optional default action.
+      - 
+       return-value: void
+       name: onPrepareSubMenu(SubMenu subMenu)
+       description: Called to prepare an associated submenu for the menu item backed by this ActionProvider.
+      - 
+       return-value: boolean
+       name: overridesItemVisibility()
+       description: The result of this method determines whether or not isVisible() will be used by the MenuItem this ActionProvider is bound to help determine its visibility.
+      - 
+       return-value: void
+       name: refreshVisibility()
+       description: If this ActionProvider is associated with an item in a menu, refresh the visibility of the item based on overridesItemVisibility() and isVisible().
+      - 
+       return-value: void
+       name: setVisibilityListener(ActionProvider.VisibilityListener listener)
+       description: Set a listener to be notified when this ActionProvider's overridden visibility changes.
+  name: java.lang.Object
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+ public_constructors: 
+  method: 
+    name: ShareActionProvider(Context context)
+    description: Creates a new instance.
+ public_methods: 
+  method: 
+   - 
+    return-value: boolean
+    name: hasSubMenu()
+    description: Determines if this ActionProvider has a submenu associated with it.
+   - 
+    return-value: View
+    name: onCreateActionView()
+    description: This method is deprecated. use onCreateActionView(MenuItem)
+   - 
+    return-value: void
+    name: onPrepareSubMenu(SubMenu subMenu)
+    description: Called to prepare an associated submenu for the menu item backed by this ActionProvider.
+   - 
+    return-value: void
+    name: setOnShareTargetSelectedListener(ShareActionProvider.OnShareTargetSelectedListener listener)
+    description: Sets a listener to be notified when a share target has been selected.
+   - 
+    return-value: void
+    name: setShareHistoryFileName(String shareHistoryFile)
+    description: Sets the file name of a file for persisting the share history which history will be used for ordering share targets.
+   - 
+    return-value: void
+    name: setShareIntent(Intent shareIntent)
+    description: Sets an intent with information about the share action.
+ api-section: 
+  api: 
+   - 
+    name: DEFAULT_SHARE_HISTORY_FILE_NAME
+    api_level: API level 14
+    api_signature: public static final String DEFAULT_SHARE_HISTORY_FILE_NAME
+    description: The default name for storing share history.
+   - 
+    name: ShareActionProvider
+    api_level: API level 14
+    api_signature: public ShareActionProvider (Context context)
+    description: Creates a new instance.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: Context for accessing resources.
+   - 
+    name: hasSubMenu
+    api_level: API level 14
+    api_signature: public boolean hasSubMenu ()
+    description: Determines if this ActionProvider has a submenu associated with it.
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: true if the item backed by this provider should have an associated submenu
+   - 
+    name: onCreateActionView
+    api_level: API level 14
+    api_signature: public View onCreateActionView ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: View
+        description: A new action view.
+   - 
+    name: onPrepareSubMenu
+    api_level: API level 14
+    api_signature: public void onPrepareSubMenu (SubMenu subMenu)
+    description: Called to prepare an associated submenu for the menu item backed by this ActionProvider.
+     parameters: 
+      parameter: 
+       - 
+        name: subMenu
+        description: SubMenu: Submenu that will be displayed
+   - 
+    name: setOnShareTargetSelectedListener
+    api_level: API level 14
+    api_signature: public void setOnShareTargetSelectedListener (ShareActionProvider.OnShareTargetSelectedListener listener)
+    description: Sets a listener to be notified when a share target has been selected. The listener can optionally decide to handle the selection and not rely on the default behavior which is to launch the activity.
+     parameters: 
+      parameter: 
+       - 
+        name: listener
+        description: ShareActionProvider.OnShareTargetSelectedListener: The listener.
+   - 
+    name: setShareHistoryFileName
+    api_level: API level 14
+    api_signature: public void setShareHistoryFileName (String shareHistoryFile)
+    description: Sets the file name of a file for persisting the share history which history will be used for ordering share targets. This file will be used for all view created by onCreateActionView(). Defaults to DEFAULT_SHARE_HISTORY_FILE_NAME. Set to null if share history should not be persisted between sessions.
+     parameters: 
+      parameter: 
+       - 
+        name: shareHistoryFile
+        description: String: The share history file name.
+   - 
+    name: setShareIntent
+    api_level: API level 14
+    api_signature: public void setShareIntent (Intent shareIntent)
+    description: Sets an intent with information about the share action. Here is a sample for constructing a share intent:
+     parameters: 
+      parameter: 
+       - 
+        name: shareIntent
+        description: Intent: The share intent.

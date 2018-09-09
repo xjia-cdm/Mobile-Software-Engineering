@@ -1,0 +1,705 @@
+api:
+ title: ArrayAdapter
+ api-signature: public class ArrayAdapter extends BaseAdapter implements Filterable, ThemedSpinnerAdapter
+ inheritance: java.lang.Object ↳ android.widget.BaseAdapter ↳ android.widget.ArrayAdapter<T>
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+  class: 
+    name: android.widget.Adapter
+     conctant: 
+      - 
+       type: int
+       name: IGNORE_ITEM_VIEW_TYPE
+       description:An item view type that causes the AdapterView to ignore the item view.
+      - 
+       type: int
+       name: NO_SELECTION
+       description:
+ inherited_fields: 
+ inherited_methods: 
+  name: android.widget.BaseAdapter
+   class: 
+     method: 
+      - 
+       return-value: boolean
+       name: areAllItemsEnabled()
+       description: Indicates whether all the items in this adapter are enabled.
+      - 
+       return-value: CharSequence[]
+       name: getAutofillOptions()
+       description: Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.
+      - 
+       return-value: View
+       name: getDropDownView(int position, View convertView, ViewGroup parent)
+       description: Gets a View that displays in the drop down popup the data at the specified position in the data set.
+      - 
+       return-value: int
+       name: getItemViewType(int position)
+       description: Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
+      - 
+       return-value: int
+       name: getViewTypeCount()
+       description: 
+      - 
+       return-value: boolean
+       name: hasStableIds()
+       description: Indicates whether the item ids are stable across changes to the underlying data.
+      - 
+       return-value: boolean
+       name: isEmpty()
+      - 
+       return-value: boolean
+       name: isEnabled(int position)
+       description: Returns true if the item at the specified position is not a separator.
+      - 
+       return-value: void
+       name: notifyDataSetChanged()
+       description: Notifies the attached observers that the underlying data has been changed and any View reflecting the data set should refresh itself.
+      - 
+       return-value: void
+       name: notifyDataSetInvalidated()
+       description: Notifies the attached observers that the underlying data is no longer valid or available.
+      - 
+       return-value: void
+       name: registerDataSetObserver(DataSetObserver observer)
+       description: Register an observer that is called when changes happen to the data used by this adapter.
+      - 
+       return-value: void
+       name: setAutofillOptions(CharSequence... options)
+       description: Sets the value returned by getAutofillOptions()
+      - 
+       return-value: void
+       name: unregisterDataSetObserver(DataSetObserver observer)
+       description: Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).
+  name: java.lang.Object
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+  name: android.widget.ListAdapter
+     method: 
+      - 
+       return-value: abstract boolean
+       name: areAllItemsEnabled()
+       description: Indicates whether all the items in this adapter are enabled.
+      - 
+       return-value: abstract boolean
+       name: isEnabled(int position)
+       description: Returns true if the item at the specified position is not a separator.
+  name: android.widget.SpinnerAdapter
+     method: 
+       return-value: abstract View
+       name: getDropDownView(int position, View convertView, ViewGroup parent)
+       description: Gets a View that displays in the drop down popup the data at the specified position in the data set.
+  name: android.widget.Filterable
+     method: 
+       return-value: abstract Filter
+       name: getFilter()
+       description: 
+  name: android.widget.ThemedSpinnerAdapter
+     method: 
+      - 
+       return-value: abstract Resources.Theme
+       name: getDropDownViewTheme()
+       description: Returns the value previously set by a call to setDropDownViewTheme(Theme).
+      - 
+       return-value: abstract void
+       name: setDropDownViewTheme(Resources.Theme theme)
+       description: Sets the Resources.Theme against which drop-down views are inflated.
+  name: android.widget.Adapter
+     method: 
+      - 
+       return-value: default CharSequence[]
+       name: getAutofillOptions()
+       description: Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.
+      - 
+       return-value: abstract int
+       name: getCount()
+       description: How many items are in the data set represented by this Adapter.
+      - 
+       return-value: abstract Object
+       name: getItem(int position)
+       description: Get the data item associated with the specified position in the data set.
+      - 
+       return-value: abstract long
+       name: getItemId(int position)
+       description: Get the row id associated with the specified position in the list.
+      - 
+       return-value: abstract int
+       name: getItemViewType(int position)
+       description: Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
+      - 
+       return-value: abstract View
+       name: getView(int position, View convertView, ViewGroup parent)
+       description: Get a View that displays the data at the specified position in the data set.
+      - 
+       return-value: abstract int
+       name: getViewTypeCount()
+       description: 
+      - 
+       return-value: abstract boolean
+       name: hasStableIds()
+       description: Indicates whether the item ids are stable across changes to the underlying data.
+      - 
+       return-value: abstract boolean
+       name: isEmpty()
+      - 
+       return-value: abstract void
+       name: registerDataSetObserver(DataSetObserver observer)
+       description: Register an observer that is called when changes happen to the data used by this adapter.
+      - 
+       return-value: abstract void
+       name: unregisterDataSetObserver(DataSetObserver observer)
+       description: Unregister an observer that has previously been registered with this adapter via registerDataSetObserver(DataSetObserver).
+ public_constructors: 
+  method: 
+   - 
+    name: ArrayAdapter(Context context, int resource)
+    description: Constructor
+   - 
+    name: ArrayAdapter(Context context, int resource, int textViewResourceId)
+    description: Constructor
+   - 
+    name: ArrayAdapter(Context context, int resource, T[] objects)
+    description: Constructor.
+   - 
+    name: ArrayAdapter(Context context, int resource, int textViewResourceId, T[] objects)
+    description: Constructor.
+   - 
+    name: ArrayAdapter(Context context, int resource, List<T> objects)
+    description: Constructor
+   - 
+    name: ArrayAdapter(Context context, int resource, int textViewResourceId, List<T> objects)
+    description: Constructor
+ public_methods: 
+  method: 
+   - 
+    return-value: void
+    name: add(T object)
+    description: Adds the specified object at the end of the array.
+   - 
+    return-value: void
+    name: addAll(T... items)
+    description: Adds the specified items at the end of the array.
+   - 
+    return-value: void
+    name: addAll(Collection<? extends T> collection)
+    description: Adds the specified Collection at the end of the array.
+   - 
+    return-value: void
+    name: clear()
+    description: Remove all elements from the list.
+   - 
+    return-value: static ArrayAdapter<CharSequence>
+    name: createFromResource(Context context, int textArrayResId, int textViewResId)
+    description: Creates a new ArrayAdapter from external resources.
+   - 
+    return-value: CharSequence[]
+    name: getAutofillOptions()
+    description: Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.
+   - 
+    return-value: Context
+    name: getContext()
+    description: Returns the context associated with this array adapter.
+   - 
+    return-value: int
+    name: getCount()
+    description: How many items are in the data set represented by this Adapter.
+   - 
+    return-value: View
+    name: getDropDownView(int position, View convertView, ViewGroup parent)
+    description: Gets a View that displays in the drop down popup the data at the specified position in the data set.
+   - 
+    return-value: Resources.Theme
+    name: getDropDownViewTheme()
+    description: Returns the value previously set by a call to setDropDownViewTheme(Theme).
+   - 
+    return-value: Filter
+    name: getFilter()
+    description: 
+   - 
+    return-value: T
+    name: getItem(int position)
+    description: Get the data item associated with the specified position in the data set.
+   - 
+    return-value: long
+    name: getItemId(int position)
+    description: Get the row id associated with the specified position in the list.
+   - 
+    return-value: int
+    name: getPosition(T item)
+    description: Returns the position of the specified item in the array.
+   - 
+    return-value: View
+    name: getView(int position, View convertView, ViewGroup parent)
+    description: Get a View that displays the data at the specified position in the data set.
+   - 
+    return-value: void
+    name: insert(T object, int index)
+    description: Inserts the specified object at the specified index in the array.
+   - 
+    return-value: void
+    name: notifyDataSetChanged()
+    description: Notifies the attached observers that the underlying data has been changed and any View reflecting the data set should refresh itself.
+   - 
+    return-value: void
+    name: remove(T object)
+    description: Removes the specified object from the array.
+   - 
+    return-value: void
+    name: setDropDownViewResource(int resource)
+    description: 
+   - 
+    return-value: void
+    name: setDropDownViewTheme(Resources.Theme theme)
+    description: Sets the Resources.Theme against which drop-down views are inflated.
+   - 
+    return-value: void
+    name: setNotifyOnChange(boolean notifyOnChange)
+    description: Control whether methods that change the list (add(T), addAll(Collection), addAll(Object[]), insert(T, int), remove(T), clear(), sort(Comparator)) automatically call notifyDataSetChanged().
+   - 
+    return-value: void
+    name: sort(Comparator<? super T> comparator)
+    description: Sorts the content of this adapter using the specified comparator.
+ api-section: 
+  api: 
+   - 
+    name: ArrayAdapter
+    api_level: API level 1
+    api_signature: public ArrayAdapter (Context context, 
+                int resource)
+    description: Constructor
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The current context. This value must never be null.
+       - 
+        name: resource
+        description: int: The resource ID for a layout file containing a TextView to use when instantiating views.
+   - 
+    name: ArrayAdapter
+    api_level: API level 1
+    api_signature: public ArrayAdapter (Context context, 
+                int resource, 
+                int textViewResourceId)
+    description: Constructor
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The current context. This value must never be null.
+       - 
+        name: resource
+        description: int: The resource ID for a layout file containing a layout to use when instantiating views.
+       - 
+        name: textViewResourceId
+        description: int: The id of the TextView within the layout resource to be populated
+   - 
+    name: ArrayAdapter
+    api_level: API level 1
+    api_signature: public ArrayAdapter (Context context, 
+                int resource, 
+                T[] objects)
+    description: Constructor. This constructor will result in the underlying data collection being immutable, so methods such as clear() will throw an exception.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The current context. This value must never be null.
+       - 
+        name: resource
+        description: int: The resource ID for a layout file containing a TextView to use when instantiating views.
+       - 
+        name: objects
+        description: T: The objects to represent in the ListView. This value must never be null.
+   - 
+    name: ArrayAdapter
+    api_level: API level 1
+    api_signature: public ArrayAdapter (Context context, 
+                int resource, 
+                int textViewResourceId, 
+                T[] objects)
+    description: Constructor. This constructor will result in the underlying data collection being immutable, so methods such as clear() will throw an exception.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The current context. This value must never be null.
+       - 
+        name: resource
+        description: int: The resource ID for a layout file containing a layout to use when instantiating views.
+       - 
+        name: textViewResourceId
+        description: int: The id of the TextView within the layout resource to be populated
+       - 
+        name: objects
+        description: T: The objects to represent in the ListView. This value must never be null.
+   - 
+    name: ArrayAdapter
+    api_level: API level 1
+    api_signature: public ArrayAdapter (Context context, 
+                int resource, 
+                List<T> objects)
+    description: Constructor
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The current context. This value must never be null.
+       - 
+        name: resource
+        description: int: The resource ID for a layout file containing a TextView to use when instantiating views.
+       - 
+        name: objects
+        description: List: The objects to represent in the ListView. This value must never be null.
+   - 
+    name: ArrayAdapter
+    api_level: API level 1
+    api_signature: public ArrayAdapter (Context context, 
+                int resource, 
+                int textViewResourceId, 
+                List<T> objects)
+    description: Constructor
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The current context. This value must never be null.
+       - 
+        name: resource
+        description: int: The resource ID for a layout file containing a layout to use when instantiating views.
+       - 
+        name: textViewResourceId
+        description: int: The id of the TextView within the layout resource to be populated
+       - 
+        name: objects
+        description: List: The objects to represent in the ListView. This value must never be null.
+   - 
+    name: add
+    api_level: API level 1
+    api_signature: public void add (T object)
+    description: Adds the specified object at the end of the array.
+     parameters: 
+      parameter: 
+       - 
+        name: object
+        description: T: The object to add at the end of the array. This value may be null.
+       - 
+        name: UnsupportedOperationException
+        description: if the underlying data collection is immutable
+   - 
+    name: addAll
+    api_level: API level 11
+    api_signature: public void addAll (T... items)
+    description: Adds the specified items at the end of the array.
+     parameters: 
+      parameter: 
+       - 
+        name: items
+        description: T: The items to add at the end of the array.
+       - 
+        name: UnsupportedOperationException
+        description: if the underlying data collection is immutable
+   - 
+    name: addAll
+    api_level: API level 11
+    api_signature: public void addAll (Collection<? extends T> collection)
+    description: Adds the specified Collection at the end of the array.
+     parameters: 
+      parameter: 
+       - 
+        name: collection
+        description: Collection: The Collection to add at the end of the array. This value must never be null.
+       - 
+        name: UnsupportedOperationException
+        description: if the addAll operation is not supported by this list
+       - 
+        name: ClassCastException
+        description: if the class of an element of the specified collection prevents it from being added to this list
+       - 
+        name: NullPointerException
+        description: if the specified collection contains one or more null elements and this list does not permit null elements, or if the specified collection is null
+       - 
+        name: IllegalArgumentException
+        description: if some property of an element of the specified collection prevents it from being added to this list
+   - 
+    name: clear
+    api_level: API level 1
+    api_signature: public void clear ()
+    description: Remove all elements from the list.
+     parameters: 
+      parameter: 
+       - 
+        name: UnsupportedOperationException
+        description: if the underlying data collection is immutable
+   - 
+    name: createFromResource
+    api_level: API level 1
+    api_signature: public static ArrayAdapter<CharSequence> createFromResource (Context context, 
+                int textArrayResId, 
+                int textViewResId)
+    description: Creates a new ArrayAdapter from external resources. The content of the array is obtained through Resources.getTextArray(int).
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context: The application's environment. This value must never be null.
+       - 
+        name: textArrayResId
+        description: int: The identifier of the array to use as the data source.
+       - 
+        name: textViewResId
+        description: int: The identifier of the layout used to create views.
+       - 
+        name: ArrayAdapter<CharSequence>
+        description: An ArrayAdapter . This value will never be null.
+   - 
+    name: getAutofillOptions
+    api_level: API level 26
+    api_signature: public CharSequence[] getAutofillOptions ()
+    description: Gets a string representation of the adapter data that can help AutofillService autofill the view backed by the adapter.
+     parameters: 
+      parameter: 
+       - 
+        name: CharSequence[]
+        description: values from the string array used by createFromResource(Context, int, int), or null if object was created otherwsie or if contents were dynamically changed after creation.
+   - 
+    name: getContext
+    api_level: API level 1
+    api_signature: public Context getContext ()
+    description: Returns the context associated with this array adapter. The context is used to create views from the resource passed to the constructor.
+     parameters: 
+      parameter: 
+       - 
+        name: Context
+        description: The Context associated with this adapter. This value will never be null.
+   - 
+    name: getCount
+    api_level: API level 1
+    api_signature: public int getCount ()
+    description: How many items are in the data set represented by this Adapter.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: Count of items.
+   - 
+    name: getDropDownView
+    api_level: API level 1
+    api_signature: public View getDropDownView (int position, 
+                View convertView, 
+                ViewGroup parent)
+    description: Gets a View that displays in the drop down popup the data at the specified position in the data set.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: index of the item whose view we want.
+       - 
+        name: convertView
+        description: View: the old view to reuse, if possible. Note: You should check that this view is non-null and of an appropriate type before using. If it is not possible to convert this view to display the correct data, this method can create a new view.
+       - 
+        name: parent
+        description: ViewGroup: the parent that this view will eventually be attached to This value must never be null.
+       - 
+        name: View
+        description: a View corresponding to the data at the specified position.
+   - 
+    name: getDropDownViewTheme
+    api_level: API level 23
+    api_signature: public Resources.Theme getDropDownViewTheme ()
+    description: Returns the value previously set by a call to setDropDownViewTheme(Theme).
+     parameters: 
+      parameter: 
+       - 
+        name: Resources.Theme
+        description: the Resources.Theme against which drop-down views are inflated, or null if one has not been explicitly set This value may be null.
+   - 
+    name: getFilter
+    api_level: API level 1
+    api_signature: public Filter getFilter ()
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: Filter
+        description: a filter used to constrain data This value will never be null.
+   - 
+    name: getItem
+    api_level: API level 1
+    api_signature: public T getItem (int position)
+    description: Get the data item associated with the specified position in the data set.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: Position of the item whose data we want within the adapter's data set.
+       - 
+        name: T
+        description: The data at the specified position. This value may be null.
+   - 
+    name: getItemId
+    api_level: API level 1
+    api_signature: public long getItemId (int position)
+    description: Get the row id associated with the specified position in the list.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: The position of the item within the adapter's data set whose row id we want.
+       - 
+        name: long
+        description: The id of the item at the specified position.
+   - 
+    name: getPosition
+    api_level: API level 1
+    api_signature: public int getPosition (T item)
+    description: Returns the position of the specified item in the array.
+     parameters: 
+      parameter: 
+       - 
+        name: item
+        description: T: The item to retrieve the position of. This value may be null.
+       - 
+        name: int
+        description: The position of the specified item.
+   - 
+    name: getView
+    api_level: API level 1
+    api_signature: public View getView (int position, 
+                View convertView, 
+                ViewGroup parent)
+    description: Get a View that displays the data at the specified position in the data set. You can either create a View manually or inflate it from an XML layout file. When the View is inflated, the parent View (GridView, ListView...) will apply default layout parameters unless you use LayoutInflater.inflate(int, android.view.ViewGroup, boolean) to specify a root view and to prevent attachment to the root.
+     parameters: 
+      parameter: 
+       - 
+        name: position
+        description: int: The position of the item within the adapter's data set of the item whose view we want.
+       - 
+        name: convertView
+        description: View: The old view to reuse, if possible. Note: You should check that this view is non-null and of an appropriate type before using. If it is not possible to convert this view to display the correct data, this method can create a new view. Heterogeneous lists can specify their number of view types, so that this View is always of the right type (see BaseAdapter.getViewTypeCount() and BaseAdapter.getItemViewType(int)).
+       - 
+        name: parent
+        description: ViewGroup: The parent that this view will eventually be attached to This value must never be null.
+       - 
+        name: View
+        description: A View corresponding to the data at the specified position. This value will never be null.
+   - 
+    name: insert
+    api_level: API level 1
+    api_signature: public void insert (T object, 
+                int index)
+    description: Inserts the specified object at the specified index in the array.
+     parameters: 
+      parameter: 
+       - 
+        name: object
+        description: T: The object to insert into the array. This value may be null.
+       - 
+        name: index
+        description: int: The index at which the object must be inserted.
+       - 
+        name: UnsupportedOperationException
+        description: if the underlying data collection is immutable
+   - 
+    name: notifyDataSetChanged
+    api_level: API level 1
+    api_signature: public void notifyDataSetChanged ()
+    description: Notifies the attached observers that the underlying data has been changed and any View reflecting the data set should refresh itself.
+   - 
+    name: remove
+    api_level: API level 1
+    api_signature: public void remove (T object)
+    description: Removes the specified object from the array.
+     parameters: 
+      parameter: 
+       - 
+        name: object
+        description: T: The object to remove. This value may be null.
+       - 
+        name: UnsupportedOperationException
+        description: if the underlying data collection is immutable
+   - 
+    name: setDropDownViewResource
+    api_level: API level 1
+    api_signature: public void setDropDownViewResource (int resource)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: resource
+        description: int: the layout resource defining the drop down views
+   - 
+    name: setDropDownViewTheme
+    api_level: API level 23
+    api_signature: public void setDropDownViewTheme (Resources.Theme theme)
+    description: Sets the Resources.Theme against which drop-down views are inflated.
+     parameters: 
+      parameter: 
+       - 
+        name: theme
+        description: Resources.Theme: the theme against which to inflate drop-down views or null to use the theme from the adapter's context
+   - 
+    name: setNotifyOnChange
+    api_level: API level 1
+    api_signature: public void setNotifyOnChange (boolean notifyOnChange)
+    description: Control whether methods that change the list (add(T), addAll(Collection), addAll(Object[]), insert(T, int), remove(T), clear(), sort(Comparator)) automatically call notifyDataSetChanged(). If set to false, caller must manually call notifyDataSetChanged() to have the changes reflected in the attached view. The default is true, and calling notifyDataSetChanged() resets the flag to true.
+     parameters: 
+      parameter: 
+       - 
+        name: notifyOnChange
+        description: boolean: if true, modifications to the list will automatically call notifyDataSetChanged()
+   - 
+    name: sort
+    api_level: API level 3
+    api_signature: public void sort (Comparator<? super T> comparator)
+    description: Sorts the content of this adapter using the specified comparator.
+     parameters: 
+      parameter: 
+       - 
+        name: comparator
+        description: Comparator: The comparator used to sort the objects contained in this adapter. This value must never be null.

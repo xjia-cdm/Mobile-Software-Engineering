@@ -1,0 +1,336 @@
+api:
+ title: LinearLayout.LayoutParams
+ api-signature: public static class LinearLayout.LayoutParams extends ViewGroup.MarginLayoutParams
+ inheritance: java.lang.Object ↳ android.view.ViewGroup.LayoutParams ↳ android.view.ViewGroup.MarginLayoutParams ↳ android.widget.LinearLayout.LayoutParams
+ subclasses-direct: ActionMenuView.LayoutParams, RadioGroup.LayoutParams, TableLayout.LayoutParams, TableRow.LayoutParams
+ subclasses-direct-summary: 
+  class: 
+   - 
+    name: ActionMenuView.LayoutParams
+    description: 
+   - 
+    name: RadioGroup.LayoutParams
+    description: This set of layout parameters defaults the width and the height of the children to ViewGroup.LayoutParams.WRAP_CONTENT when they are not specified in the XML file.
+   - 
+    name: TableLayout.LayoutParams
+    description: This set of layout parameters enforces the width of each child to be ViewGroup.LayoutParams.MATCH_PARENT and the height of each child to be ViewGroup.LayoutParams.WRAP_CONTENT, but only if the height is not specified.
+   - 
+    name: TableRow.LayoutParams
+    description: Set of layout parameters used in table rows.
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+  class: 
+   - 
+    name: android.view.ViewGroup.MarginLayoutParams
+     class: 
+      - 
+       attirbute: 
+        name: android:layout_margin
+      - 
+       attirbute: 
+        name: android:layout_marginBottom
+      - 
+       attirbute: 
+        name: android:layout_marginEnd
+      - 
+       attirbute: 
+        name: android:layout_marginHorizontal
+      - 
+       attirbute: 
+        name: android:layout_marginLeft
+      - 
+       attirbute: 
+        name: android:layout_marginRight
+      - 
+       attirbute: 
+        name: android:layout_marginStart
+      - 
+       attirbute: 
+        name: android:layout_marginTop
+      - 
+       attirbute: 
+        name: android:layout_marginVertical
+   - 
+    name: android.view.ViewGroup.LayoutParams
+     class: 
+      - 
+       attirbute: 
+        name: android:layout_height
+      - 
+       attirbute: 
+        name: android:layout_width
+ inherited_constants: 
+  class: 
+    name: android.view.ViewGroup.LayoutParams
+     conctant: 
+      - 
+       type: int
+       name: FILL_PARENT
+       description:Special value for the height or width requested by a View.
+      - 
+       type: int
+       name: MATCH_PARENT
+       description:Special value for the height or width requested by a View.
+      - 
+       type: int
+       name: WRAP_CONTENT
+       description:Special value for the height or width requested by a View.
+ inherited_fields: 
+  class: 
+   - 
+    name: android.view.ViewGroup.MarginLayoutParams
+     field: 
+      - 
+       type: public int
+       name: bottomMargin
+       description: The bottom margin in pixels of the child.
+      - 
+       type: public int
+       name: leftMargin
+       description: The left margin in pixels of the child.
+      - 
+       type: public int
+       name: rightMargin
+       description: The right margin in pixels of the child.
+      - 
+       type: public int
+       name: topMargin
+       description: The top margin in pixels of the child.
+   - 
+    name: android.view.ViewGroup.LayoutParams
+     field: 
+      - 
+       type: public int
+       name: height
+       description: Information about how tall the view wants to be.
+      - 
+       type: public LayoutAnimationController.AnimationParameters
+       name: layoutAnimationParameters
+       description: Used to animate layouts.
+      - 
+       type: public int
+       name: width
+       description: Information about how wide the view wants to be.
+ inherited_methods: 
+  name: android.view.ViewGroup.MarginLayoutParams
+   class: 
+     method: 
+      - 
+       return-value: int
+       name: getLayoutDirection()
+       description: Retuns the layout direction.
+      - 
+       return-value: int
+       name: getMarginEnd()
+       description: Returns the end margin in pixels.
+      - 
+       return-value: int
+       name: getMarginStart()
+       description: Returns the start margin in pixels.
+      - 
+       return-value: boolean
+       name: isMarginRelative()
+       description: Check if margins are relative.
+      - 
+       return-value: void
+       name: resolveLayoutDirection(int layoutDirection)
+       description: This will be called by View.requestLayout().
+      - 
+       return-value: void
+       name: setLayoutDirection(int layoutDirection)
+       description: Set the layout direction
+      - 
+       return-value: void
+       name: setMarginEnd(int end)
+       description: Sets the relative end margin.
+      - 
+       return-value: void
+       name: setMarginStart(int start)
+       description: Sets the relative start margin.
+      - 
+       return-value: void
+       name: setMargins(int left, int top, int right, int bottom)
+       description: Sets the margins, in pixels.
+  name: android.view.ViewGroup.LayoutParams
+     method: 
+      - 
+       return-value: void
+       name: resolveLayoutDirection(int layoutDirection)
+       description: Resolve layout parameters depending on the layout direction.
+      - 
+       return-value: void
+       name: setBaseAttributes(TypedArray a, int widthAttr, int heightAttr)
+       description: Extracts the layout parameters from the supplied attributes.
+  name: java.lang.Object
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+ public_constructors: 
+  method: 
+   - 
+    name: LinearLayout.LayoutParams(Context c, AttributeSet attrs)
+    description: 
+   - 
+    name: LinearLayout.LayoutParams(int width, int height)
+    description: 
+   - 
+    name: LinearLayout.LayoutParams(int width, int height, float weight)
+    description: Creates a new set of layout parameters with the specified width, height and weight.
+   - 
+    name: LinearLayout.LayoutParams(ViewGroup.LayoutParams p)
+    description: 
+   - 
+    name: LinearLayout.LayoutParams(ViewGroup.MarginLayoutParams source)
+    description: 
+   - 
+    name: LinearLayout.LayoutParams(LinearLayout.LayoutParams source)
+    description: Copy constructor.
+ public_methods: 
+  method: 
+   - 
+    return-value: String
+    name: debug(String output)
+    description: Returns a String representation of this set of layout parameters.
+ api-section: 
+  api: 
+   - 
+    name: gravity
+    api_level: API level 1
+    api_signature: public int gravity
+    description: Gravity for the view associated with these LayoutParams.
+   - 
+    name: weight
+    api_level: API level 1
+    api_signature: public float weight
+    description: Indicates how much of the extra space in the LinearLayout will be allocated to the view associated with these LayoutParams. Specify 0 if the view should not be stretched. Otherwise the extra pixels will be pro-rated among all views whose weight is greater than 0.
+   - 
+    name: LinearLayout.LayoutParams
+    api_level: API level 1
+    api_signature: public LinearLayout.LayoutParams (Context c, 
+                AttributeSet attrs)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: c
+        description: Context
+       - 
+        name: attrs
+        description: AttributeSet
+   - 
+    name: LinearLayout.LayoutParams
+    api_level: API level 1
+    api_signature: public LinearLayout.LayoutParams (int width, 
+                int height)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: width
+        description: int
+       - 
+        name: height
+        description: int
+   - 
+    name: LinearLayout.LayoutParams
+    api_level: API level 1
+    api_signature: public LinearLayout.LayoutParams (int width, 
+                int height, 
+                float weight)
+    description: Creates a new set of layout parameters with the specified width, height and weight.
+     parameters: 
+      parameter: 
+       - 
+        name: width
+        description: int: the width, either ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT or a fixed size in pixels
+       - 
+        name: height
+        description: int: the height, either ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT or a fixed size in pixels
+       - 
+        name: weight
+        description: float: the weight
+   - 
+    name: LinearLayout.LayoutParams
+    api_level: API level 1
+    api_signature: public LinearLayout.LayoutParams (ViewGroup.LayoutParams p)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: p
+        description: ViewGroup.LayoutParams
+   - 
+    name: LinearLayout.LayoutParams
+    api_level: API level 1
+    api_signature: public LinearLayout.LayoutParams (ViewGroup.MarginLayoutParams source)
+    description: 
+     parameters: 
+      parameter: 
+       - 
+        name: source
+        description: ViewGroup.MarginLayoutParams
+   - 
+    name: LinearLayout.LayoutParams
+    api_level: API level 19
+    api_signature: public LinearLayout.LayoutParams (LinearLayout.LayoutParams source)
+    description: Copy constructor. Clones the width, height, margin values, weight, and gravity of the source.
+     parameters: 
+      parameter: 
+       - 
+        name: source
+        description: LinearLayout.LayoutParams: The layout params to copy from.
+   - 
+    name: debug
+    api_level: API level 1
+    api_signature: public String debug (String output)
+    description: Returns a String representation of this set of layout parameters.
+     parameters: 
+      parameter: 
+       - 
+        name: output
+        description: String: the String to prepend to the internal representation
+       - 
+        name: String
+        description: a String with the following format: output + "ViewGroup.LayoutParams={ width=WIDTH, height=HEIGHT }"

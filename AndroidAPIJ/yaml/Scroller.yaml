@@ -1,0 +1,445 @@
+api:
+ title: Scroller
+ api-signature: public class Scroller extends Object
+ inheritance: java.lang.Object ↳ android.widget.Scroller
+ subclasses-direct-summary: 
+ subclasses-indirect-summary: 
+ inherited_xml_attributes: 
+ inherited_constants: 
+ inherited_fields: 
+ inherited_methods: 
+  name: java.lang.Object
+   class: 
+     method: 
+      - 
+       return-value: Object
+       name: clone()
+       description: Creates and returns a copy of this object.
+      - 
+       return-value: boolean
+       name: equals(Object obj)
+       description: Indicates whether some other object is "equal to" this one.
+      - 
+       return-value: void
+       name: finalize()
+       description: Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.
+      - 
+       return-value: final Class<?>
+       name: getClass()
+       description: Returns the runtime class of this Object.
+      - 
+       return-value: int
+       name: hashCode()
+       description: Returns a hash code value for the object.
+      - 
+       return-value: final void
+       name: notify()
+       description: Wakes up a single thread that is waiting on this object's monitor.
+      - 
+       return-value: final void
+       name: notifyAll()
+       description: Wakes up all threads that are waiting on this object's monitor.
+      - 
+       return-value: String
+       name: toString()
+       description: Returns a string representation of the object.
+      - 
+       return-value: final void
+       name: wait(long millis, int nanos)
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.
+      - 
+       return-value: final void
+       name: wait(long millis)
+       description: Causes the current thread to wait until either another thread invokes the notify() method or the notifyAll() method for this object, or a specified amount of time has elapsed.
+      - 
+       return-value: final void
+       name: wait()
+       description: Causes the current thread to wait until another thread invokes the notify() method or the notifyAll() method for this object.
+ public_constructors: 
+  method: 
+   - 
+    name: Scroller(Context context)
+    description: Create a Scroller with the default duration and interpolator.
+   - 
+    name: Scroller(Context context, Interpolator interpolator)
+    description: Create a Scroller with the specified interpolator.
+   - 
+    name: Scroller(Context context, Interpolator interpolator, boolean flywheel)
+    description: Create a Scroller with the specified interpolator.
+ public_methods: 
+  method: 
+   - 
+    return-value: void
+    name: abortAnimation()
+    description: Stops the animation.
+   - 
+    return-value: boolean
+    name: computeScrollOffset()
+    description: Call this when you want to know the new location.
+   - 
+    return-value: void
+    name: extendDuration(int extend)
+    description: Extend the scroll animation.
+   - 
+    return-value: void
+    name: fling(int startX, int startY, int velocityX, int velocityY, int minX, int maxX, int minY, int maxY)
+    description: Start scrolling based on a fling gesture.
+   - 
+    return-value: final void
+    name: forceFinished(boolean finished)
+    description: Force the finished field to a particular value.
+   - 
+    return-value: float
+    name: getCurrVelocity()
+    description: Returns the current velocity.
+   - 
+    return-value: final int
+    name: getCurrX()
+    description: Returns the current X offset in the scroll.
+   - 
+    return-value: final int
+    name: getCurrY()
+    description: Returns the current Y offset in the scroll.
+   - 
+    return-value: final int
+    name: getDuration()
+    description: Returns how long the scroll event will take, in milliseconds.
+   - 
+    return-value: final int
+    name: getFinalX()
+    description: Returns where the scroll will end.
+   - 
+    return-value: final int
+    name: getFinalY()
+    description: Returns where the scroll will end.
+   - 
+    return-value: final int
+    name: getStartX()
+    description: Returns the start X offset in the scroll.
+   - 
+    return-value: final int
+    name: getStartY()
+    description: Returns the start Y offset in the scroll.
+   - 
+    return-value: final boolean
+    name: isFinished()
+    description: Returns whether the scroller has finished scrolling.
+   - 
+    return-value: void
+    name: setFinalX(int newX)
+    description: Sets the final position (X) for this scroller.
+   - 
+    return-value: void
+    name: setFinalY(int newY)
+    description: Sets the final position (Y) for this scroller.
+   - 
+    return-value: final void
+    name: setFriction(float friction)
+    description: The amount of friction applied to flings.
+   - 
+    return-value: void
+    name: startScroll(int startX, int startY, int dx, int dy, int duration)
+    description: Start scrolling by providing a starting point, the distance to travel, and the duration of the scroll.
+   - 
+    return-value: void
+    name: startScroll(int startX, int startY, int dx, int dy)
+    description: Start scrolling by providing a starting point and the distance to travel.
+   - 
+    return-value: int
+    name: timePassed()
+    description: Returns the time elapsed since the beginning of the scrolling.
+ api-section: 
+  api: 
+   - 
+    name: Scroller
+    api_level: API level 1
+    api_signature: public Scroller (Context context)
+    description: Create a Scroller with the default duration and interpolator.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context
+   - 
+    name: Scroller
+    api_level: API level 1
+    api_signature: public Scroller (Context context, 
+                Interpolator interpolator)
+    description: Create a Scroller with the specified interpolator. If the interpolator is null, the default (viscous) interpolator will be used. "Flywheel" behavior will be in effect for apps targeting Honeycomb or newer.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context
+       - 
+        name: interpolator
+        description: Interpolator
+   - 
+    name: Scroller
+    api_level: API level 11
+    api_signature: public Scroller (Context context, 
+                Interpolator interpolator, 
+                boolean flywheel)
+    description: Create a Scroller with the specified interpolator. If the interpolator is null, the default (viscous) interpolator will be used. Specify whether or not to support progressive "flywheel" behavior in flinging.
+     parameters: 
+      parameter: 
+       - 
+        name: context
+        description: Context
+       - 
+        name: interpolator
+        description: Interpolator
+       - 
+        name: flywheel
+        description: boolean
+   - 
+    name: abortAnimation
+    api_level: API level 1
+    api_signature: public void abortAnimation ()
+    description: Stops the animation. Contrary to forceFinished(boolean), aborting the animating cause the scroller to move to the final x and y position
+   - 
+    name: computeScrollOffset
+    api_level: API level 1
+    api_signature: public boolean computeScrollOffset ()
+    description: Call this when you want to know the new location. If it returns true, the animation is not yet finished.
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: 
+   - 
+    name: extendDuration
+    api_level: API level 1
+    api_signature: public void extendDuration (int extend)
+    description: Extend the scroll animation. This allows a running animation to scroll further and longer, when used with setFinalX(int) or setFinalY(int).
+     parameters: 
+      parameter: 
+       - 
+        name: extend
+        description: int: Additional time to scroll in milliseconds.
+   - 
+    name: fling
+    api_level: API level 1
+    api_signature: public void fling (int startX, 
+                int startY, 
+                int velocityX, 
+                int velocityY, 
+                int minX, 
+                int maxX, 
+                int minY, 
+                int maxY)
+    description: Start scrolling based on a fling gesture. The distance travelled will depend on the initial velocity of the fling.
+     parameters: 
+      parameter: 
+       - 
+        name: startX
+        description: int: Starting point of the scroll (X)
+       - 
+        name: startY
+        description: int: Starting point of the scroll (Y)
+       - 
+        name: velocityX
+        description: int: Initial velocity of the fling (X) measured in pixels per second.
+       - 
+        name: velocityY
+        description: int: Initial velocity of the fling (Y) measured in pixels per second
+       - 
+        name: minX
+        description: int: Minimum X value. The scroller will not scroll past this point.
+       - 
+        name: maxX
+        description: int: Maximum X value. The scroller will not scroll past this point.
+       - 
+        name: minY
+        description: int: Minimum Y value. The scroller will not scroll past this point.
+       - 
+        name: maxY
+        description: int: Maximum Y value. The scroller will not scroll past this point.
+   - 
+    name: forceFinished
+    api_level: API level 1
+    api_signature: public final void forceFinished (boolean finished)
+    description: Force the finished field to a particular value.
+     parameters: 
+      parameter: 
+       - 
+        name: finished
+        description: boolean: The new finished value.
+   - 
+    name: getCurrVelocity
+    api_level: API level 14
+    api_signature: public float getCurrVelocity ()
+    description: Returns the current velocity.
+     parameters: 
+      parameter: 
+       - 
+        name: float
+        description: The original velocity less the deceleration. Result may be negative.
+   - 
+    name: getCurrX
+    api_level: API level 1
+    api_signature: public final int getCurrX ()
+    description: Returns the current X offset in the scroll.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The new X offset as an absolute distance from the origin.
+   - 
+    name: getCurrY
+    api_level: API level 1
+    api_signature: public final int getCurrY ()
+    description: Returns the current Y offset in the scroll.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The new Y offset as an absolute distance from the origin.
+   - 
+    name: getDuration
+    api_level: API level 1
+    api_signature: public final int getDuration ()
+    description: Returns how long the scroll event will take, in milliseconds.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The duration of the scroll in milliseconds.
+   - 
+    name: getFinalX
+    api_level: API level 1
+    api_signature: public final int getFinalX ()
+    description: Returns where the scroll will end. Valid only for "fling" scrolls.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The final X offset as an absolute distance from the origin.
+   - 
+    name: getFinalY
+    api_level: API level 1
+    api_signature: public final int getFinalY ()
+    description: Returns where the scroll will end. Valid only for "fling" scrolls.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The final Y offset as an absolute distance from the origin.
+   - 
+    name: getStartX
+    api_level: API level 3
+    api_signature: public final int getStartX ()
+    description: Returns the start X offset in the scroll.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The start X offset as an absolute distance from the origin.
+   - 
+    name: getStartY
+    api_level: API level 3
+    api_signature: public final int getStartY ()
+    description: Returns the start Y offset in the scroll.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The start Y offset as an absolute distance from the origin.
+   - 
+    name: isFinished
+    api_level: API level 1
+    api_signature: public final boolean isFinished ()
+    description: Returns whether the scroller has finished scrolling.
+     parameters: 
+      parameter: 
+       - 
+        name: boolean
+        description: True if the scroller has finished scrolling, false otherwise.
+   - 
+    name: setFinalX
+    api_level: API level 1
+    api_signature: public void setFinalX (int newX)
+    description: Sets the final position (X) for this scroller.
+     parameters: 
+      parameter: 
+       - 
+        name: newX
+        description: int: The new X offset as an absolute distance from the origin.
+   - 
+    name: setFinalY
+    api_level: API level 1
+    api_signature: public void setFinalY (int newY)
+    description: Sets the final position (Y) for this scroller.
+     parameters: 
+      parameter: 
+       - 
+        name: newY
+        description: int: The new Y offset as an absolute distance from the origin.
+   - 
+    name: setFriction
+    api_level: API level 11
+    api_signature: public final void setFriction (float friction)
+    description: The amount of friction applied to flings. The default value is ViewConfiguration.getScrollFriction().
+     parameters: 
+      parameter: 
+       - 
+        name: friction
+        description: float: A scalar dimension-less value representing the coefficient of friction.
+   - 
+    name: startScroll
+    api_level: API level 1
+    api_signature: public void startScroll (int startX, 
+                int startY, 
+                int dx, 
+                int dy, 
+                int duration)
+    description: Start scrolling by providing a starting point, the distance to travel, and the duration of the scroll.
+     parameters: 
+      parameter: 
+       - 
+        name: startX
+        description: int: Starting horizontal scroll offset in pixels. Positive numbers will scroll the content to the left.
+       - 
+        name: startY
+        description: int: Starting vertical scroll offset in pixels. Positive numbers will scroll the content up.
+       - 
+        name: dx
+        description: int: Horizontal distance to travel. Positive numbers will scroll the content to the left.
+       - 
+        name: dy
+        description: int: Vertical distance to travel. Positive numbers will scroll the content up.
+       - 
+        name: duration
+        description: int: Duration of the scroll in milliseconds.
+   - 
+    name: startScroll
+    api_level: API level 1
+    api_signature: public void startScroll (int startX, 
+                int startY, 
+                int dx, 
+                int dy)
+    description: Start scrolling by providing a starting point and the distance to travel. The scroll will use the default value of 250 milliseconds for the duration.
+     parameters: 
+      parameter: 
+       - 
+        name: startX
+        description: int: Starting horizontal scroll offset in pixels. Positive numbers will scroll the content to the left.
+       - 
+        name: startY
+        description: int: Starting vertical scroll offset in pixels. Positive numbers will scroll the content up.
+       - 
+        name: dx
+        description: int: Horizontal distance to travel. Positive numbers will scroll the content to the left.
+       - 
+        name: dy
+        description: int: Vertical distance to travel. Positive numbers will scroll the content up.
+   - 
+    name: timePassed
+    api_level: API level 1
+    api_signature: public int timePassed ()
+    description: Returns the time elapsed since the beginning of the scrolling.
+     parameters: 
+      parameter: 
+       - 
+        name: int
+        description: The elapsed time in milliseconds.
